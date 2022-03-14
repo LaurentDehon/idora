@@ -139,10 +139,6 @@ Public Class frmInventory
         End Try
         If dgvInventory.Rows.Count > 0 Then dgvInventory.FirstDisplayedScrollingRowIndex = index
     End Sub
-    Private Sub BtnPicsHigh_Click(sender As Object, e As EventArgs) Handles btnPicsHigh.Click
-        'Open HIGH folder
-        Process.Start(highF)
-    End Sub
     Private Sub BtnPicsLow_Click(sender As Object, e As EventArgs) Handles btnPicsLow.Click
         'Create or open LOW folder
         If Directory.Exists(lowF) Then
@@ -1808,11 +1804,10 @@ Public Class frmInventory
             ToolTip.SetToolTip(cmbSamplesT, "Genomen door")
             ToolTip.SetToolTip(btnInventoryGen, "Inventaris genereren")
             ToolTip.SetToolTip(btnPicturesGen, "Fotodossier genereren")
-            ToolTip.SetToolTip(btnPicsHigh, "HIGH foto's openen")
             If Directory.Exists(lowF) Then
-                ToolTip.SetToolTip(btnPicsLow, "LOW foto's openen")
+                ToolTip.SetToolTip(btnPicsLow, "Foto's openen")
             Else
-                ToolTip.SetToolTip(btnPicsLow, "LOW foto's creëer")
+                ToolTip.SetToolTip(btnPicsLow, "Low foto's creëer")
             End If
             ToolTip.SetToolTip(btnAdd, "Nummer toevoegen (Snelkoppeling: CTRL +)")
             ToolTip.SetToolTip(btnAddRuimte, "Ruimte toevoegen (Snelkoppeling: CTRL *)")
@@ -1846,9 +1841,8 @@ Public Class frmInventory
             ToolTip.SetToolTip(cmbSamplesT, "Prélevés par")
             ToolTip.SetToolTip(btnInventoryGen, "Générer inventaire")
             ToolTip.SetToolTip(btnPicturesGen, "Générer dossier photos")
-            ToolTip.SetToolTip(btnPicsHigh, "Ouvrir photos HIGH")
             If Directory.Exists(lowF) Then
-                ToolTip.SetToolTip(btnPicsLow, "Ouvrir photos LOW")
+                ToolTip.SetToolTip(btnPicsLow, "Ouvrir photos")
             Else
                 ToolTip.SetToolTip(btnPicsLow, "Créer photos LOW")
             End If
@@ -1956,6 +1950,14 @@ Public Class frmInventory
                 AddBorderToPanel(pnlCenter, c, theme("High"))
             End If
         Next
+    End Sub
+
+    Private Sub ShowPicsO(sender As Object, e As EventArgs) Handles btnPicsOPanel.Click
+
+    End Sub
+
+    Private Sub ShowPics(sender As Object, e As EventArgs) Handles btnPicsPanel.Click
+
     End Sub
 #End Region
 

@@ -29,9 +29,9 @@ Partial Class frmCasesInterventions
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCasesInterventions))
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCasesInterventions))
         Me.cmbSearchCases = New System.Windows.Forms.ComboBox()
         Me.txtSearchCases = New System.Windows.Forms.TextBox()
         Me.dgvCases = New System.Windows.Forms.DataGridView()
@@ -42,13 +42,6 @@ Partial Class frmCasesInterventions
         Me.cmbSearchInterventions = New System.Windows.Forms.ComboBox()
         Me.txtSearchInterventions = New System.Windows.Forms.TextBox()
         Me.dgvInterventions = New System.Windows.Forms.DataGridView()
-        Me.DATEINTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CASENAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TYPEOFINTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ADRESSINTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CITYINTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.INTDONE = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Column1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.INTERVENTIONSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CasesTimer = New System.Windows.Forms.Timer(Me.components)
         Me.InterventionsTimer = New System.Windows.Forms.Timer(Me.components)
@@ -76,6 +69,12 @@ Partial Class frmCasesInterventions
         Me.btnAll = New FontAwesome.Sharp.IconButton()
         Me.btnRefresh = New FontAwesome.Sharp.IconButton()
         Me.tbl1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.DATEINTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CASENAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TYPEOFINTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ADRESSINTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CITYINTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.INTDONE = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         CType(Me.dgvCases, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CASESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DORADbDS, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -234,7 +233,7 @@ Partial Class frmCasesInterventions
         Me.dgvInterventions.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgvInterventions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvInterventions.ColumnHeadersVisible = False
-        Me.dgvInterventions.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DATEINTDataGridViewTextBoxColumn, Me.CASENAMEDataGridViewTextBoxColumn, Me.TYPEOFINTDataGridViewTextBoxColumn, Me.ADRESSINTDataGridViewTextBoxColumn, Me.CITYINTDataGridViewTextBoxColumn, Me.INTDONE, Me.Column1})
+        Me.dgvInterventions.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DATEINTDataGridViewTextBoxColumn, Me.CASENAMEDataGridViewTextBoxColumn, Me.TYPEOFINTDataGridViewTextBoxColumn, Me.ADRESSINTDataGridViewTextBoxColumn, Me.CITYINTDataGridViewTextBoxColumn, Me.INTDONE})
         Me.dgvInterventions.DataSource = Me.INTERVENTIONSBindingSource
         DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window
@@ -262,81 +261,6 @@ Partial Class frmCasesInterventions
         Me.dgvInterventions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvInterventions.Size = New System.Drawing.Size(1372, 1027)
         Me.dgvInterventions.TabIndex = 11
-        '
-        'DATEINTDataGridViewTextBoxColumn
-        '
-        Me.DATEINTDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.DATEINTDataGridViewTextBoxColumn.DataPropertyName = "DATE INT"
-        DataGridViewCellStyle5.Format = "dd/MM/yyyy"
-        Me.DATEINTDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle5
-        Me.DATEINTDataGridViewTextBoxColumn.HeaderText = "DATE INT"
-        Me.DATEINTDataGridViewTextBoxColumn.MinimumWidth = 6
-        Me.DATEINTDataGridViewTextBoxColumn.Name = "DATEINTDataGridViewTextBoxColumn"
-        Me.DATEINTDataGridViewTextBoxColumn.ReadOnly = True
-        Me.DATEINTDataGridViewTextBoxColumn.Width = 6
-        '
-        'CASENAMEDataGridViewTextBoxColumn
-        '
-        Me.CASENAMEDataGridViewTextBoxColumn.DataPropertyName = "CASE NAME"
-        Me.CASENAMEDataGridViewTextBoxColumn.HeaderText = "CASE NAME"
-        Me.CASENAMEDataGridViewTextBoxColumn.MinimumWidth = 6
-        Me.CASENAMEDataGridViewTextBoxColumn.Name = "CASENAMEDataGridViewTextBoxColumn"
-        Me.CASENAMEDataGridViewTextBoxColumn.ReadOnly = True
-        Me.CASENAMEDataGridViewTextBoxColumn.Width = 260
-        '
-        'TYPEOFINTDataGridViewTextBoxColumn
-        '
-        Me.TYPEOFINTDataGridViewTextBoxColumn.DataPropertyName = "TYPE OF INT"
-        Me.TYPEOFINTDataGridViewTextBoxColumn.HeaderText = "TYPE OF INT"
-        Me.TYPEOFINTDataGridViewTextBoxColumn.MinimumWidth = 6
-        Me.TYPEOFINTDataGridViewTextBoxColumn.Name = "TYPEOFINTDataGridViewTextBoxColumn"
-        Me.TYPEOFINTDataGridViewTextBoxColumn.ReadOnly = True
-        Me.TYPEOFINTDataGridViewTextBoxColumn.Width = 200
-        '
-        'ADRESSINTDataGridViewTextBoxColumn
-        '
-        Me.ADRESSINTDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        Me.ADRESSINTDataGridViewTextBoxColumn.DataPropertyName = "ADRESS INT"
-        Me.ADRESSINTDataGridViewTextBoxColumn.HeaderText = "ADRESS INT"
-        Me.ADRESSINTDataGridViewTextBoxColumn.MinimumWidth = 6
-        Me.ADRESSINTDataGridViewTextBoxColumn.Name = "ADRESSINTDataGridViewTextBoxColumn"
-        Me.ADRESSINTDataGridViewTextBoxColumn.ReadOnly = True
-        Me.ADRESSINTDataGridViewTextBoxColumn.Width = 6
-        '
-        'CITYINTDataGridViewTextBoxColumn
-        '
-        Me.CITYINTDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.CITYINTDataGridViewTextBoxColumn.DataPropertyName = "CITY INT"
-        Me.CITYINTDataGridViewTextBoxColumn.HeaderText = "CITY INT"
-        Me.CITYINTDataGridViewTextBoxColumn.MinimumWidth = 6
-        Me.CITYINTDataGridViewTextBoxColumn.Name = "CITYINTDataGridViewTextBoxColumn"
-        Me.CITYINTDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'INTDONE
-        '
-        Me.INTDONE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.INTDONE.DataPropertyName = "INTDONE"
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.Red
-        DataGridViewCellStyle6.NullValue = False
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Transparent
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Transparent
-        Me.INTDONE.DefaultCellStyle = DataGridViewCellStyle6
-        Me.INTDONE.HeaderText = "INTDONE"
-        Me.INTDONE.MinimumWidth = 6
-        Me.INTDONE.Name = "INTDONE"
-        Me.INTDONE.ReadOnly = True
-        Me.INTDONE.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.INTDONE.Width = 6
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Column1"
-        Me.Column1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
-        Me.Column1.MinimumWidth = 6
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Width = 50
         '
         'INTERVENTIONSBindingSource
         '
@@ -586,6 +510,72 @@ Partial Class frmCasesInterventions
         Me.tbl1.Size = New System.Drawing.Size(534, 39)
         Me.tbl1.TabIndex = 15
         '
+        'DATEINTDataGridViewTextBoxColumn
+        '
+        Me.DATEINTDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.DATEINTDataGridViewTextBoxColumn.DataPropertyName = "DATE INT"
+        DataGridViewCellStyle5.Format = "dd/MM/yyyy"
+        Me.DATEINTDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle5
+        Me.DATEINTDataGridViewTextBoxColumn.HeaderText = "DATE INT"
+        Me.DATEINTDataGridViewTextBoxColumn.MinimumWidth = 6
+        Me.DATEINTDataGridViewTextBoxColumn.Name = "DATEINTDataGridViewTextBoxColumn"
+        Me.DATEINTDataGridViewTextBoxColumn.ReadOnly = True
+        Me.DATEINTDataGridViewTextBoxColumn.Width = 6
+        '
+        'CASENAMEDataGridViewTextBoxColumn
+        '
+        Me.CASENAMEDataGridViewTextBoxColumn.DataPropertyName = "CASE NAME"
+        Me.CASENAMEDataGridViewTextBoxColumn.HeaderText = "CASE NAME"
+        Me.CASENAMEDataGridViewTextBoxColumn.MinimumWidth = 6
+        Me.CASENAMEDataGridViewTextBoxColumn.Name = "CASENAMEDataGridViewTextBoxColumn"
+        Me.CASENAMEDataGridViewTextBoxColumn.ReadOnly = True
+        Me.CASENAMEDataGridViewTextBoxColumn.Width = 260
+        '
+        'TYPEOFINTDataGridViewTextBoxColumn
+        '
+        Me.TYPEOFINTDataGridViewTextBoxColumn.DataPropertyName = "TYPE OF INT"
+        Me.TYPEOFINTDataGridViewTextBoxColumn.HeaderText = "TYPE OF INT"
+        Me.TYPEOFINTDataGridViewTextBoxColumn.MinimumWidth = 6
+        Me.TYPEOFINTDataGridViewTextBoxColumn.Name = "TYPEOFINTDataGridViewTextBoxColumn"
+        Me.TYPEOFINTDataGridViewTextBoxColumn.ReadOnly = True
+        Me.TYPEOFINTDataGridViewTextBoxColumn.Width = 200
+        '
+        'ADRESSINTDataGridViewTextBoxColumn
+        '
+        Me.ADRESSINTDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.ADRESSINTDataGridViewTextBoxColumn.DataPropertyName = "ADRESS INT"
+        Me.ADRESSINTDataGridViewTextBoxColumn.HeaderText = "ADRESS INT"
+        Me.ADRESSINTDataGridViewTextBoxColumn.MinimumWidth = 6
+        Me.ADRESSINTDataGridViewTextBoxColumn.Name = "ADRESSINTDataGridViewTextBoxColumn"
+        Me.ADRESSINTDataGridViewTextBoxColumn.ReadOnly = True
+        Me.ADRESSINTDataGridViewTextBoxColumn.Width = 6
+        '
+        'CITYINTDataGridViewTextBoxColumn
+        '
+        Me.CITYINTDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.CITYINTDataGridViewTextBoxColumn.DataPropertyName = "CITY INT"
+        Me.CITYINTDataGridViewTextBoxColumn.HeaderText = "CITY INT"
+        Me.CITYINTDataGridViewTextBoxColumn.MinimumWidth = 6
+        Me.CITYINTDataGridViewTextBoxColumn.Name = "CITYINTDataGridViewTextBoxColumn"
+        Me.CITYINTDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'INTDONE
+        '
+        Me.INTDONE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.INTDONE.DataPropertyName = "INTDONE"
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.Red
+        DataGridViewCellStyle6.NullValue = False
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Transparent
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Transparent
+        Me.INTDONE.DefaultCellStyle = DataGridViewCellStyle6
+        Me.INTDONE.HeaderText = "INTDONE"
+        Me.INTDONE.MinimumWidth = 6
+        Me.INTDONE.Name = "INTDONE"
+        Me.INTDONE.ReadOnly = True
+        Me.INTDONE.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.INTDONE.Width = 6
+        '
         'frmCasesInterventions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -656,5 +646,4 @@ Partial Class frmCasesInterventions
     Friend WithEvents ADRESSINTDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents CITYINTDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents INTDONE As DataGridViewCheckBoxColumn
-    Friend WithEvents Column1 As DataGridViewImageColumn
 End Class

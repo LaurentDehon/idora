@@ -47,57 +47,55 @@ Partial Class frmInventory
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.bgw = New System.ComponentModel.BackgroundWorker()
         Me.pnlMenu = New System.Windows.Forms.Panel()
-        Me.btnPicturesGen = New FontAwesome.Sharp.IconButton()
-        Me.btnInventoryGen = New FontAwesome.Sharp.IconButton()
-        Me.btnPicsLow = New FontAwesome.Sharp.IconButton()
-        Me.btnPicsHigh = New FontAwesome.Sharp.IconButton()
-        Me.btnSave = New FontAwesome.Sharp.IconButton()
-        Me.btnExit = New FontAwesome.Sharp.IconButton()
         Me.pnlLogo = New System.Windows.Forms.Panel()
-        Me.imgCRU = New System.Windows.Forms.PictureBox()
         Me.pnlTitle = New System.Windows.Forms.Panel()
         Me.pnlControls = New System.Windows.Forms.Panel()
-        Me.btnClose = New FontAwesome.Sharp.IconButton()
-        Me.btnMin = New FontAwesome.Sharp.IconButton()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.dgvPics = New System.Windows.Forms.DataGridView()
         Me.pnlInput = New System.Windows.Forms.Panel()
-        Me.btnAddRuimte = New FontAwesome.Sharp.IconButton()
         Me.pnlInv = New System.Windows.Forms.Panel()
         Me.dgvInventory = New System.Windows.Forms.DataGridView()
         Me.pnlPics = New System.Windows.Forms.Panel()
         Me.pnlPicsO = New System.Windows.Forms.Panel()
         Me.pnlCenter = New System.Windows.Forms.Panel()
+        Me.pnlButtonsPicO = New System.Windows.Forms.Panel()
+        Me.pnlButtonsPic = New System.Windows.Forms.Panel()
+        Me.pnlButtonsInv = New System.Windows.Forms.Panel()
         Me.btnPicsOPanel = New FontAwesome.Sharp.IconButton()
         Me.btnPicsPanel = New FontAwesome.Sharp.IconButton()
-        Me.pnlButtonsPicO = New System.Windows.Forms.Panel()
         Me.btnPicsO = New FontAwesome.Sharp.IconButton()
         Me.btnUpPicO = New FontAwesome.Sharp.IconButton()
         Me.btnDownPicO = New FontAwesome.Sharp.IconButton()
         Me.btnDeletePicO = New FontAwesome.Sharp.IconButton()
         Me.btnRotateLO = New FontAwesome.Sharp.IconButton()
         Me.btnRotateRO = New FontAwesome.Sharp.IconButton()
-        Me.pnlButtonsPic = New System.Windows.Forms.Panel()
         Me.btnPics = New FontAwesome.Sharp.IconButton()
         Me.btnUpPic = New FontAwesome.Sharp.IconButton()
         Me.btnDownPic = New FontAwesome.Sharp.IconButton()
         Me.btnRotateL = New FontAwesome.Sharp.IconButton()
         Me.btnRotateR = New FontAwesome.Sharp.IconButton()
         Me.btnDeletePic = New FontAwesome.Sharp.IconButton()
-        Me.pnlButtonsInv = New System.Windows.Forms.Panel()
         Me.btnSeizure = New FontAwesome.Sharp.IconButton()
         Me.btnDelete = New FontAwesome.Sharp.IconButton()
         Me.btnRenumber = New FontAwesome.Sharp.IconButton()
+        Me.btnAddRuimte = New FontAwesome.Sharp.IconButton()
         Me.btnUp = New FontAwesome.Sharp.IconButton()
         Me.btnAdd = New FontAwesome.Sharp.IconButton()
         Me.btnImport = New FontAwesome.Sharp.IconButton()
         Me.btnDown = New FontAwesome.Sharp.IconButton()
+        Me.btnClose = New FontAwesome.Sharp.IconButton()
+        Me.btnMin = New FontAwesome.Sharp.IconButton()
+        Me.btnPicturesGen = New FontAwesome.Sharp.IconButton()
+        Me.btnInventoryGen = New FontAwesome.Sharp.IconButton()
+        Me.btnPicsLow = New FontAwesome.Sharp.IconButton()
+        Me.btnSave = New FontAwesome.Sharp.IconButton()
+        Me.btnExit = New FontAwesome.Sharp.IconButton()
+        Me.imgCRU = New System.Windows.Forms.PictureBox()
         CType(Me.dgvPicsO, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DORADbDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SEIZUREBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMenu.SuspendLayout()
         Me.pnlLogo.SuspendLayout()
-        CType(Me.imgCRU, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlTitle.SuspendLayout()
         Me.pnlControls.SuspendLayout()
         CType(Me.dgvPics, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -110,6 +108,7 @@ Partial Class frmInventory
         Me.pnlButtonsPicO.SuspendLayout()
         Me.pnlButtonsPic.SuspendLayout()
         Me.pnlButtonsInv.SuspendLayout()
+        CType(Me.imgCRU, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtNum
@@ -265,7 +264,6 @@ Partial Class frmInventory
         Me.pnlMenu.Controls.Add(Me.btnPicturesGen)
         Me.pnlMenu.Controls.Add(Me.btnInventoryGen)
         Me.pnlMenu.Controls.Add(Me.btnPicsLow)
-        Me.pnlMenu.Controls.Add(Me.btnPicsHigh)
         Me.pnlMenu.Controls.Add(Me.btnSave)
         Me.pnlMenu.Controls.Add(Me.btnExit)
         Me.pnlMenu.Controls.Add(Me.pnlLogo)
@@ -276,127 +274,6 @@ Partial Class frmInventory
         Me.pnlMenu.Size = New System.Drawing.Size(131, 953)
         Me.pnlMenu.TabIndex = 178
         '
-        'btnPicturesGen
-        '
-        Me.btnPicturesGen.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnPicturesGen.FlatAppearance.BorderSize = 0
-        Me.btnPicturesGen.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPicturesGen.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPicturesGen.IconChar = FontAwesome.Sharp.IconChar.FileImage
-        Me.btnPicturesGen.IconColor = System.Drawing.Color.Black
-        Me.btnPicturesGen.IconFont = FontAwesome.Sharp.IconFont.Solid
-        Me.btnPicturesGen.IconSize = 30
-        Me.btnPicturesGen.Location = New System.Drawing.Point(0, 440)
-        Me.btnPicturesGen.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnPicturesGen.Name = "btnPicturesGen"
-        Me.btnPicturesGen.Padding = New System.Windows.Forms.Padding(11, 10, 11, 10)
-        Me.btnPicturesGen.Size = New System.Drawing.Size(131, 60)
-        Me.btnPicturesGen.TabIndex = 18
-        Me.btnPicturesGen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnPicturesGen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnPicturesGen.UseVisualStyleBackColor = False
-        '
-        'btnInventoryGen
-        '
-        Me.btnInventoryGen.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnInventoryGen.FlatAppearance.BorderSize = 0
-        Me.btnInventoryGen.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnInventoryGen.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnInventoryGen.IconChar = FontAwesome.Sharp.IconChar.FileWord
-        Me.btnInventoryGen.IconColor = System.Drawing.Color.Black
-        Me.btnInventoryGen.IconFont = FontAwesome.Sharp.IconFont.Solid
-        Me.btnInventoryGen.IconSize = 30
-        Me.btnInventoryGen.Location = New System.Drawing.Point(0, 376)
-        Me.btnInventoryGen.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnInventoryGen.Name = "btnInventoryGen"
-        Me.btnInventoryGen.Padding = New System.Windows.Forms.Padding(11, 10, 11, 10)
-        Me.btnInventoryGen.Size = New System.Drawing.Size(131, 60)
-        Me.btnInventoryGen.TabIndex = 17
-        Me.btnInventoryGen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnInventoryGen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnInventoryGen.UseVisualStyleBackColor = False
-        '
-        'btnPicsLow
-        '
-        Me.btnPicsLow.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnPicsLow.FlatAppearance.BorderSize = 0
-        Me.btnPicsLow.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPicsLow.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPicsLow.IconChar = FontAwesome.Sharp.IconChar.CropAlt
-        Me.btnPicsLow.IconColor = System.Drawing.Color.Black
-        Me.btnPicsLow.IconFont = FontAwesome.Sharp.IconFont.Solid
-        Me.btnPicsLow.IconSize = 30
-        Me.btnPicsLow.Location = New System.Drawing.Point(0, 312)
-        Me.btnPicsLow.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnPicsLow.Name = "btnPicsLow"
-        Me.btnPicsLow.Padding = New System.Windows.Forms.Padding(11, 10, 11, 10)
-        Me.btnPicsLow.Size = New System.Drawing.Size(131, 60)
-        Me.btnPicsLow.TabIndex = 16
-        Me.btnPicsLow.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnPicsLow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnPicsLow.UseVisualStyleBackColor = False
-        '
-        'btnPicsHigh
-        '
-        Me.btnPicsHigh.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnPicsHigh.FlatAppearance.BorderSize = 0
-        Me.btnPicsHigh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPicsHigh.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPicsHigh.IconChar = FontAwesome.Sharp.IconChar.Image
-        Me.btnPicsHigh.IconColor = System.Drawing.Color.Black
-        Me.btnPicsHigh.IconFont = FontAwesome.Sharp.IconFont.Solid
-        Me.btnPicsHigh.IconSize = 30
-        Me.btnPicsHigh.Location = New System.Drawing.Point(0, 250)
-        Me.btnPicsHigh.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnPicsHigh.Name = "btnPicsHigh"
-        Me.btnPicsHigh.Padding = New System.Windows.Forms.Padding(11, 10, 11, 10)
-        Me.btnPicsHigh.Size = New System.Drawing.Size(131, 60)
-        Me.btnPicsHigh.TabIndex = 15
-        Me.btnPicsHigh.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnPicsHigh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnPicsHigh.UseVisualStyleBackColor = False
-        '
-        'btnSave
-        '
-        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSave.FlatAppearance.BorderSize = 0
-        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.IconChar = FontAwesome.Sharp.IconChar.Save
-        Me.btnSave.IconColor = System.Drawing.Color.Black
-        Me.btnSave.IconFont = FontAwesome.Sharp.IconFont.Solid
-        Me.btnSave.IconSize = 30
-        Me.btnSave.Location = New System.Drawing.Point(0, 190)
-        Me.btnSave.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Padding = New System.Windows.Forms.Padding(11, 10, 11, 10)
-        Me.btnSave.Size = New System.Drawing.Size(131, 60)
-        Me.btnSave.TabIndex = 14
-        Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnSave.UseVisualStyleBackColor = False
-        '
-        'btnExit
-        '
-        Me.btnExit.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnExit.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.btnExit.FlatAppearance.BorderSize = 0
-        Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnExit.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExit.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt
-        Me.btnExit.IconColor = System.Drawing.Color.Black
-        Me.btnExit.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btnExit.IconSize = 30
-        Me.btnExit.Location = New System.Drawing.Point(0, 893)
-        Me.btnExit.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnExit.Name = "btnExit"
-        Me.btnExit.Padding = New System.Windows.Forms.Padding(11, 10, 11, 10)
-        Me.btnExit.Size = New System.Drawing.Size(131, 60)
-        Me.btnExit.TabIndex = 13
-        Me.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnExit.UseVisualStyleBackColor = False
-        '
         'pnlLogo
         '
         Me.pnlLogo.Controls.Add(Me.imgCRU)
@@ -406,19 +283,6 @@ Partial Class frmInventory
         Me.pnlLogo.Name = "pnlLogo"
         Me.pnlLogo.Size = New System.Drawing.Size(131, 130)
         Me.pnlLogo.TabIndex = 1
-        '
-        'imgCRU
-        '
-        Me.imgCRU.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.imgCRU.BackgroundImage = Global.DORA.My.Resources.Resources.CRULogo
-        Me.imgCRU.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.imgCRU.Location = New System.Drawing.Point(11, 10)
-        Me.imgCRU.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.imgCRU.Name = "imgCRU"
-        Me.imgCRU.Padding = New System.Windows.Forms.Padding(5)
-        Me.imgCRU.Size = New System.Drawing.Size(109, 110)
-        Me.imgCRU.TabIndex = 0
-        Me.imgCRU.TabStop = False
         '
         'pnlTitle
         '
@@ -441,47 +305,6 @@ Partial Class frmInventory
         Me.pnlControls.Name = "pnlControls"
         Me.pnlControls.Size = New System.Drawing.Size(69, 39)
         Me.pnlControls.TabIndex = 136
-        '
-        'btnClose
-        '
-        Me.btnClose.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnClose.FlatAppearance.BorderSize = 0
-        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClose.ForeColor = System.Drawing.Color.Gainsboro
-        Me.btnClose.IconChar = FontAwesome.Sharp.IconChar.Times
-        Me.btnClose.IconColor = System.Drawing.Color.Black
-        Me.btnClose.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btnClose.IconSize = 20
-        Me.btnClose.Location = New System.Drawing.Point(40, 10)
-        Me.btnClose.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(25, 25)
-        Me.btnClose.TabIndex = 120
-        Me.btnClose.UseVisualStyleBackColor = True
-        '
-        'btnMin
-        '
-        Me.btnMin.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMin.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnMin.FlatAppearance.BorderSize = 0
-        Me.btnMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMin.ForeColor = System.Drawing.Color.Gainsboro
-        Me.btnMin.IconChar = FontAwesome.Sharp.IconChar.Minus
-        Me.btnMin.IconColor = System.Drawing.Color.Black
-        Me.btnMin.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btnMin.IconSize = 20
-        Me.btnMin.Location = New System.Drawing.Point(8, 10)
-        Me.btnMin.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnMin.Name = "btnMin"
-        Me.btnMin.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
-        Me.btnMin.Size = New System.Drawing.Size(25, 25)
-        Me.btnMin.TabIndex = 12
-        Me.btnMin.UseVisualStyleBackColor = True
         '
         'lblTitle
         '
@@ -562,22 +385,6 @@ Partial Class frmInventory
         Me.pnlInput.Name = "pnlInput"
         Me.pnlInput.Size = New System.Drawing.Size(1136, 74)
         Me.pnlInput.TabIndex = 181
-        '
-        'btnAddRuimte
-        '
-        Me.btnAddRuimte.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnAddRuimte.FlatAppearance.BorderSize = 0
-        Me.btnAddRuimte.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAddRuimte.IconChar = FontAwesome.Sharp.IconChar.PlusSquare
-        Me.btnAddRuimte.IconColor = System.Drawing.Color.Black
-        Me.btnAddRuimte.IconFont = FontAwesome.Sharp.IconFont.Solid
-        Me.btnAddRuimte.IconSize = 30
-        Me.btnAddRuimte.Location = New System.Drawing.Point(10, 10)
-        Me.btnAddRuimte.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnAddRuimte.Name = "btnAddRuimte"
-        Me.btnAddRuimte.Size = New System.Drawing.Size(30, 30)
-        Me.btnAddRuimte.TabIndex = 183
-        Me.btnAddRuimte.UseVisualStyleBackColor = True
         '
         'pnlInv
         '
@@ -675,6 +482,47 @@ Partial Class frmInventory
         Me.pnlCenter.Size = New System.Drawing.Size(1451, 823)
         Me.pnlCenter.TabIndex = 186
         '
+        'pnlButtonsPicO
+        '
+        Me.pnlButtonsPicO.Controls.Add(Me.btnPicsO)
+        Me.pnlButtonsPicO.Controls.Add(Me.btnUpPicO)
+        Me.pnlButtonsPicO.Controls.Add(Me.btnDownPicO)
+        Me.pnlButtonsPicO.Controls.Add(Me.btnDeletePicO)
+        Me.pnlButtonsPicO.Controls.Add(Me.btnRotateLO)
+        Me.pnlButtonsPicO.Controls.Add(Me.btnRotateRO)
+        Me.pnlButtonsPicO.Location = New System.Drawing.Point(1384, 104)
+        Me.pnlButtonsPicO.Name = "pnlButtonsPicO"
+        Me.pnlButtonsPicO.Size = New System.Drawing.Size(50, 220)
+        Me.pnlButtonsPicO.TabIndex = 203
+        '
+        'pnlButtonsPic
+        '
+        Me.pnlButtonsPic.Controls.Add(Me.btnPics)
+        Me.pnlButtonsPic.Controls.Add(Me.btnUpPic)
+        Me.pnlButtonsPic.Controls.Add(Me.btnDownPic)
+        Me.pnlButtonsPic.Controls.Add(Me.btnRotateL)
+        Me.pnlButtonsPic.Controls.Add(Me.btnRotateR)
+        Me.pnlButtonsPic.Controls.Add(Me.btnDeletePic)
+        Me.pnlButtonsPic.Location = New System.Drawing.Point(1384, 104)
+        Me.pnlButtonsPic.Name = "pnlButtonsPic"
+        Me.pnlButtonsPic.Size = New System.Drawing.Size(50, 220)
+        Me.pnlButtonsPic.TabIndex = 202
+        '
+        'pnlButtonsInv
+        '
+        Me.pnlButtonsInv.Controls.Add(Me.btnSeizure)
+        Me.pnlButtonsInv.Controls.Add(Me.btnDelete)
+        Me.pnlButtonsInv.Controls.Add(Me.btnRenumber)
+        Me.pnlButtonsInv.Controls.Add(Me.btnAddRuimte)
+        Me.pnlButtonsInv.Controls.Add(Me.btnUp)
+        Me.pnlButtonsInv.Controls.Add(Me.btnAdd)
+        Me.pnlButtonsInv.Controls.Add(Me.btnImport)
+        Me.pnlButtonsInv.Controls.Add(Me.btnDown)
+        Me.pnlButtonsInv.Location = New System.Drawing.Point(1160, 104)
+        Me.pnlButtonsInv.Name = "pnlButtonsInv"
+        Me.pnlButtonsInv.Size = New System.Drawing.Size(50, 288)
+        Me.pnlButtonsInv.TabIndex = 201
+        '
         'btnPicsOPanel
         '
         Me.btnPicsOPanel.Cursor = System.Windows.Forms.Cursors.Hand
@@ -706,19 +554,6 @@ Partial Class frmInventory
         Me.btnPicsPanel.Size = New System.Drawing.Size(40, 40)
         Me.btnPicsPanel.TabIndex = 192
         Me.btnPicsPanel.UseVisualStyleBackColor = True
-        '
-        'pnlButtonsPicO
-        '
-        Me.pnlButtonsPicO.Controls.Add(Me.btnPicsO)
-        Me.pnlButtonsPicO.Controls.Add(Me.btnUpPicO)
-        Me.pnlButtonsPicO.Controls.Add(Me.btnDownPicO)
-        Me.pnlButtonsPicO.Controls.Add(Me.btnDeletePicO)
-        Me.pnlButtonsPicO.Controls.Add(Me.btnRotateLO)
-        Me.pnlButtonsPicO.Controls.Add(Me.btnRotateRO)
-        Me.pnlButtonsPicO.Location = New System.Drawing.Point(1384, 104)
-        Me.pnlButtonsPicO.Name = "pnlButtonsPicO"
-        Me.pnlButtonsPicO.Size = New System.Drawing.Size(50, 220)
-        Me.pnlButtonsPicO.TabIndex = 203
         '
         'btnPicsO
         '
@@ -816,19 +651,6 @@ Partial Class frmInventory
         Me.btnRotateRO.TabIndex = 199
         Me.btnRotateRO.UseVisualStyleBackColor = True
         '
-        'pnlButtonsPic
-        '
-        Me.pnlButtonsPic.Controls.Add(Me.btnPics)
-        Me.pnlButtonsPic.Controls.Add(Me.btnUpPic)
-        Me.pnlButtonsPic.Controls.Add(Me.btnDownPic)
-        Me.pnlButtonsPic.Controls.Add(Me.btnRotateL)
-        Me.pnlButtonsPic.Controls.Add(Me.btnRotateR)
-        Me.pnlButtonsPic.Controls.Add(Me.btnDeletePic)
-        Me.pnlButtonsPic.Location = New System.Drawing.Point(1384, 104)
-        Me.pnlButtonsPic.Name = "pnlButtonsPic"
-        Me.pnlButtonsPic.Size = New System.Drawing.Size(50, 220)
-        Me.pnlButtonsPic.TabIndex = 202
-        '
         'btnPics
         '
         Me.btnPics.Cursor = System.Windows.Forms.Cursors.Hand
@@ -925,21 +747,6 @@ Partial Class frmInventory
         Me.btnDeletePic.TabIndex = 194
         Me.btnDeletePic.UseVisualStyleBackColor = True
         '
-        'pnlButtonsInv
-        '
-        Me.pnlButtonsInv.Controls.Add(Me.btnSeizure)
-        Me.pnlButtonsInv.Controls.Add(Me.btnDelete)
-        Me.pnlButtonsInv.Controls.Add(Me.btnRenumber)
-        Me.pnlButtonsInv.Controls.Add(Me.btnAddRuimte)
-        Me.pnlButtonsInv.Controls.Add(Me.btnUp)
-        Me.pnlButtonsInv.Controls.Add(Me.btnAdd)
-        Me.pnlButtonsInv.Controls.Add(Me.btnImport)
-        Me.pnlButtonsInv.Controls.Add(Me.btnDown)
-        Me.pnlButtonsInv.Location = New System.Drawing.Point(1160, 104)
-        Me.pnlButtonsInv.Name = "pnlButtonsInv"
-        Me.pnlButtonsInv.Size = New System.Drawing.Size(50, 288)
-        Me.pnlButtonsInv.TabIndex = 201
-        '
         'btnSeizure
         '
         Me.btnSeizure.Cursor = System.Windows.Forms.Cursors.Hand
@@ -987,6 +794,22 @@ Partial Class frmInventory
         Me.btnRenumber.Size = New System.Drawing.Size(30, 30)
         Me.btnRenumber.TabIndex = 189
         Me.btnRenumber.UseVisualStyleBackColor = True
+        '
+        'btnAddRuimte
+        '
+        Me.btnAddRuimte.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnAddRuimte.FlatAppearance.BorderSize = 0
+        Me.btnAddRuimte.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAddRuimte.IconChar = FontAwesome.Sharp.IconChar.PlusSquare
+        Me.btnAddRuimte.IconColor = System.Drawing.Color.Black
+        Me.btnAddRuimte.IconFont = FontAwesome.Sharp.IconFont.Solid
+        Me.btnAddRuimte.IconSize = 30
+        Me.btnAddRuimte.Location = New System.Drawing.Point(10, 10)
+        Me.btnAddRuimte.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnAddRuimte.Name = "btnAddRuimte"
+        Me.btnAddRuimte.Size = New System.Drawing.Size(30, 30)
+        Me.btnAddRuimte.TabIndex = 183
+        Me.btnAddRuimte.UseVisualStyleBackColor = True
         '
         'btnUp
         '
@@ -1052,6 +875,161 @@ Partial Class frmInventory
         Me.btnDown.TabIndex = 186
         Me.btnDown.UseVisualStyleBackColor = True
         '
+        'btnClose
+        '
+        Me.btnClose.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnClose.FlatAppearance.BorderSize = 0
+        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClose.ForeColor = System.Drawing.Color.Gainsboro
+        Me.btnClose.IconChar = FontAwesome.Sharp.IconChar.Times
+        Me.btnClose.IconColor = System.Drawing.Color.Black
+        Me.btnClose.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnClose.IconSize = 20
+        Me.btnClose.Location = New System.Drawing.Point(40, 10)
+        Me.btnClose.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(25, 25)
+        Me.btnClose.TabIndex = 120
+        Me.btnClose.UseVisualStyleBackColor = True
+        '
+        'btnMin
+        '
+        Me.btnMin.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMin.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnMin.FlatAppearance.BorderSize = 0
+        Me.btnMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMin.ForeColor = System.Drawing.Color.Gainsboro
+        Me.btnMin.IconChar = FontAwesome.Sharp.IconChar.Minus
+        Me.btnMin.IconColor = System.Drawing.Color.Black
+        Me.btnMin.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnMin.IconSize = 20
+        Me.btnMin.Location = New System.Drawing.Point(8, 10)
+        Me.btnMin.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnMin.Name = "btnMin"
+        Me.btnMin.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
+        Me.btnMin.Size = New System.Drawing.Size(25, 25)
+        Me.btnMin.TabIndex = 12
+        Me.btnMin.UseVisualStyleBackColor = True
+        '
+        'btnPicturesGen
+        '
+        Me.btnPicturesGen.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnPicturesGen.FlatAppearance.BorderSize = 0
+        Me.btnPicturesGen.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPicturesGen.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPicturesGen.IconChar = FontAwesome.Sharp.IconChar.FileImage
+        Me.btnPicturesGen.IconColor = System.Drawing.Color.Black
+        Me.btnPicturesGen.IconFont = FontAwesome.Sharp.IconFont.Solid
+        Me.btnPicturesGen.IconSize = 30
+        Me.btnPicturesGen.Location = New System.Drawing.Point(0, 376)
+        Me.btnPicturesGen.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnPicturesGen.Name = "btnPicturesGen"
+        Me.btnPicturesGen.Padding = New System.Windows.Forms.Padding(11, 10, 11, 10)
+        Me.btnPicturesGen.Size = New System.Drawing.Size(131, 60)
+        Me.btnPicturesGen.TabIndex = 18
+        Me.btnPicturesGen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnPicturesGen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnPicturesGen.UseVisualStyleBackColor = False
+        '
+        'btnInventoryGen
+        '
+        Me.btnInventoryGen.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnInventoryGen.FlatAppearance.BorderSize = 0
+        Me.btnInventoryGen.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnInventoryGen.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnInventoryGen.IconChar = FontAwesome.Sharp.IconChar.FileWord
+        Me.btnInventoryGen.IconColor = System.Drawing.Color.Black
+        Me.btnInventoryGen.IconFont = FontAwesome.Sharp.IconFont.Solid
+        Me.btnInventoryGen.IconSize = 30
+        Me.btnInventoryGen.Location = New System.Drawing.Point(0, 312)
+        Me.btnInventoryGen.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnInventoryGen.Name = "btnInventoryGen"
+        Me.btnInventoryGen.Padding = New System.Windows.Forms.Padding(11, 10, 11, 10)
+        Me.btnInventoryGen.Size = New System.Drawing.Size(131, 60)
+        Me.btnInventoryGen.TabIndex = 17
+        Me.btnInventoryGen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnInventoryGen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnInventoryGen.UseVisualStyleBackColor = False
+        '
+        'btnPicsLow
+        '
+        Me.btnPicsLow.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnPicsLow.FlatAppearance.BorderSize = 0
+        Me.btnPicsLow.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPicsLow.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPicsLow.IconChar = FontAwesome.Sharp.IconChar.Image
+        Me.btnPicsLow.IconColor = System.Drawing.Color.Black
+        Me.btnPicsLow.IconFont = FontAwesome.Sharp.IconFont.Solid
+        Me.btnPicsLow.IconSize = 30
+        Me.btnPicsLow.Location = New System.Drawing.Point(0, 250)
+        Me.btnPicsLow.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnPicsLow.Name = "btnPicsLow"
+        Me.btnPicsLow.Padding = New System.Windows.Forms.Padding(11, 10, 11, 10)
+        Me.btnPicsLow.Size = New System.Drawing.Size(131, 60)
+        Me.btnPicsLow.TabIndex = 15
+        Me.btnPicsLow.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnPicsLow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnPicsLow.UseVisualStyleBackColor = False
+        '
+        'btnSave
+        '
+        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSave.FlatAppearance.BorderSize = 0
+        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSave.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSave.IconChar = FontAwesome.Sharp.IconChar.Save
+        Me.btnSave.IconColor = System.Drawing.Color.Black
+        Me.btnSave.IconFont = FontAwesome.Sharp.IconFont.Solid
+        Me.btnSave.IconSize = 30
+        Me.btnSave.Location = New System.Drawing.Point(0, 190)
+        Me.btnSave.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Padding = New System.Windows.Forms.Padding(11, 10, 11, 10)
+        Me.btnSave.Size = New System.Drawing.Size(131, 60)
+        Me.btnSave.TabIndex = 14
+        Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnSave.UseVisualStyleBackColor = False
+        '
+        'btnExit
+        '
+        Me.btnExit.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnExit.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.btnExit.FlatAppearance.BorderSize = 0
+        Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExit.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExit.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt
+        Me.btnExit.IconColor = System.Drawing.Color.Black
+        Me.btnExit.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnExit.IconSize = 30
+        Me.btnExit.Location = New System.Drawing.Point(0, 893)
+        Me.btnExit.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Padding = New System.Windows.Forms.Padding(11, 10, 11, 10)
+        Me.btnExit.Size = New System.Drawing.Size(131, 60)
+        Me.btnExit.TabIndex = 13
+        Me.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnExit.UseVisualStyleBackColor = False
+        '
+        'imgCRU
+        '
+        Me.imgCRU.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.imgCRU.BackgroundImage = Global.DORA.My.Resources.Resources.CRULogo
+        Me.imgCRU.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.imgCRU.Location = New System.Drawing.Point(11, 10)
+        Me.imgCRU.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.imgCRU.Name = "imgCRU"
+        Me.imgCRU.Padding = New System.Windows.Forms.Padding(5)
+        Me.imgCRU.Size = New System.Drawing.Size(109, 110)
+        Me.imgCRU.TabIndex = 0
+        Me.imgCRU.TabStop = False
+        '
         'frmInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -1071,7 +1049,6 @@ Partial Class frmInventory
         CType(Me.SEIZUREBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlMenu.ResumeLayout(False)
         Me.pnlLogo.ResumeLayout(False)
-        CType(Me.imgCRU, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlTitle.ResumeLayout(False)
         Me.pnlTitle.PerformLayout()
         Me.pnlControls.ResumeLayout(False)
@@ -1086,6 +1063,7 @@ Partial Class frmInventory
         Me.pnlButtonsPicO.ResumeLayout(False)
         Me.pnlButtonsPic.ResumeLayout(False)
         Me.pnlButtonsInv.ResumeLayout(False)
+        CType(Me.imgCRU, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1104,7 +1082,6 @@ Partial Class frmInventory
     Friend WithEvents Timer1 As Timer
     Friend WithEvents bgw As System.ComponentModel.BackgroundWorker
     Friend WithEvents pnlMenu As Panel
-    Friend WithEvents btnPicsHigh As FontAwesome.Sharp.IconButton
     Friend WithEvents btnSave As FontAwesome.Sharp.IconButton
     Friend WithEvents btnExit As FontAwesome.Sharp.IconButton
     Friend WithEvents pnlLogo As Panel

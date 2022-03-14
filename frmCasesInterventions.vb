@@ -192,8 +192,6 @@ Public Class frmCasesInterventions
         dgvInterventions.Columns(3).Width = CInt((dgvInterventions.Width / 100) * 25)
         dgvInterventions.Columns(4).Width = CInt((dgvInterventions.Width / 100) * 20)
         dgvInterventions.Columns(5).Width = 6
-        dgvInterventions.Columns(6).Width = 30
-        dgvInterventions.Columns(6).DefaultCellStyle.NullValue = Nothing
     End Sub
     Private Sub dgvInterventions_SelectionChanged(sender As Object, e As EventArgs) Handles dgvInterventions.SelectionChanged
         Try
@@ -205,13 +203,9 @@ Public Class frmCasesInterventions
     Private Sub dgvInterventions_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles dgvInterventions.RowPrePaint
         'Color 5th column
         If CBool(dgvInterventions.Item(5, e.RowIndex).Value) = True Then
-            dgvInterventions.Item(6, e.RowIndex).Value = My.Resources.check
-            dgvInterventions.Item(6, e.RowIndex).Style.BackColor = Color.DarkGreen
             dgvInterventions.Item(5, e.RowIndex).Style.BackColor = Color.DarkGreen
             dgvInterventions.Item(5, e.RowIndex).Style.SelectionBackColor = Color.DarkGreen
         Else
-
-            'dgvInterventions.Item(6, e.RowIndex).Style.BackColor = Color.Red
             dgvInterventions.Item(5, e.RowIndex).Style.BackColor = Color.DarkRed
             dgvInterventions.Item(5, e.RowIndex).Style.SelectionBackColor = Color.DarkRed
         End If

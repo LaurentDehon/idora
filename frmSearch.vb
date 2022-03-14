@@ -55,13 +55,14 @@ Public Class frmSearch
         'Watch for created files in DORA folder
         Dim parts As String() = Split(Path.GetFileNameWithoutExtension(e.Name), ",,")
         If parts(0) = "INT" Then
-            If Created = True AndAlso INTERVENTIONSBindingSource.Count > 0 Then
+            If Created = True AndAlso StatsDV.Count > 0 Then
                 If dgvStats.DataSource IsNot Nothing Then
                     For Each row As DataGridViewRow In dgvStats.Rows
-                        If row.Cells(0).Value Is parts(1) Then
+                        If row.Cells(0).Value.ToString = parts(1) Then
                             Dim i As Integer = row.Index
                             user_list = UserToList($"{dora_path}cru.txt", parts(2))
-                            dgvStats.Rows(i).DefaultCellStyle.BackColor = Color.FromName(user_list(3))
+                            dgvStats.Rows(i).DefaultCellStyle.ForeColor = Color.FromName(user_list(3))
+                            Exit Sub
                         End If
                     Next
                 End If
@@ -72,17 +73,13 @@ Public Class frmSearch
         'Watch for deleted files in DORA folder
         Dim parts As String() = Split(Path.GetFileNameWithoutExtension(e.Name), ",,")
         If parts(0) = "INT" Then
-            If Created = True AndAlso INTERVENTIONSBindingSource.Count > 0 Then
+            If Created = True AndAlso StatsDV.Count > 0 Then
                 Try
                     If dgvStats.DataSource IsNot Nothing Then
                         For Each row As DataGridViewRow In dgvStats.Rows
-                            If row.Cells(0).Value Is parts(1) Then
+                            If row.Cells(0).Value.ToString = parts(1) Then
                                 Dim i As Integer = row.Index
-                                If row.Index Mod 2 = 0 Then
-                                    dgvStats.Rows(i).DefaultCellStyle.BackColor = Color.White
-                                Else
-                                    dgvStats.Rows(i).DefaultCellStyle.BackColor = Color.FromArgb(224, 224, 224)
-                                End If
+                                dgvStats.Rows(i).DefaultCellStyle.ForeColor = theme("Font")
                             End If
                         Next
                     End If
@@ -394,6 +391,7 @@ Public Class frmSearch
             'Draw datagridview columns
             dgvStats.DataSource = StatsDV
             StatsDV.RowFilter = strFilterDate + strFilterCase + strFilterInt + strFilterPlace + strFilterArro + strFilterDrug + strFilterCity + strFilterManager
+            StatsDV.Sort = "[DATEINT] DESC, [IDINT] DESC"
             dgvStats.DataSource = StatsDV.ToTable(True, "IDINT", "CASENAME", "TYPEOFINT", "DATEINT", "ADRESSINT", "ZIPINT", "CITYINT", "DATEFACTS", "ADRESSFACTS", "ZIPFACTS", "CITYFACTS", "SAMPLEST", "SAMPLESN", "SAMPLESD", "SAMPLESC", "CRUREPORTN", "CRUREPORTD", "NICCREPORTN", "NICCREPORTD", "NICCREPORTC", "UNIT", "FILENUM", "REPORTNUM", "RIONUM", "ONNUM", "SIENANUM", "NSP", "LANG", "CMEXT") ', "TYPEOFPLACE", "ARRO", "DRUG", "MANAGER")
             dgvStats.Sort(dgvStats.Columns(3), ComponentModel.ListSortDirection.Descending)
             dgvStats.Columns(0).Visible = False

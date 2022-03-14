@@ -145,12 +145,6 @@
   <data name="CRULogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CRULogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="check" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>C:\Users\Laurent\Downloads\check.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="check_double" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>C:\Users\Laurent\Downloads\check-double.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="e" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>C:\Users\Laurent\Downloads\e.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
