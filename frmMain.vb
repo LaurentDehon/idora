@@ -17,7 +17,7 @@ Public Class frmMain
         End Get
     End Property
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MaximumSize = Screen.FromControl(Me).WorkingArea.Size
+        MaximizedBounds = Screen.PrimaryScreen.WorkingArea
         If My.Settings.frmMain_max = True Then
             WindowState = FormWindowState.Maximized
         Else
@@ -37,7 +37,6 @@ Public Class frmMain
         DisplayDate()
         ClockTimer.Start()
         ControlBox = False
-        MaximizedBounds = Screen.PrimaryScreen.WorkingArea
         MinimumSize = New Size(1300, 700)
         leftBorderBtn = New Panel()
         leftBorderBtn.Size = New Size(7, 60)
