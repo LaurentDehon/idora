@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <configSections>
+        <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" >
+            <section name="DORA.My.MySettings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+        </sectionGroup>
+    </configSections>
+    <connectionStrings>
+        <add name="DORA.My.MySettings.DORADbConn" connectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=G:\DJSOC\DRUGS\CRU\DORA\DORADb.accdb"
+            providerName="System.Data.OleDb" />
+        <add name="DORA.My.MySettings.DORAInvDS" connectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=G:\DJSOC\DRUGS\CRU\DORA\DORAInv.accdb"
+            providerName="System.Data.OleDb" />
+    </connectionStrings>
+    <startup>
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.7.2" />
+    </startup>
+    <userSettings>
+        <DORA.My.MySettings>
+            <setting name="frmMain_loc" serializeAs="String">
+                <value>0, 0</value>
+            </setting>
+            <setting name="frmAdministration_loc" serializeAs="String">
+                <value>0, 0</value>
+            </setting>
+            <setting name="frmCases_loc" serializeAs="String">
+                <value>0, 0</value>
+            </setting>
+            <setting name="frmIntervention_loc" serializeAs="String">
+                <value>0, 0</value>
+            </setting>
+            <setting name="frmInventory_loc" serializeAs="String">
+                <value>0, 0</value>
+            </setting>
+            <setting name="frmMembers_loc" serializeAs="String">
+                <value>0, 0</value>
+            </setting>
+            <setting name="frmNewCase_loc" serializeAs="String">
+                <value>0, 0</value>
+            </setting>
+            <setting name="frmNewInt_loc" serializeAs="String">
+                <value>0, 0</value>
+            </setting>
+            <setting name="frmProducts_loc" serializeAs="String">
+                <value>0, 0</value>
+            </setting>
+            <setting name="frmReInt_loc" serializeAs="String">
+                <value>0, 0</value>
+            </setting>
+            <setting name="frmSearch_loc" serializeAs="String">
+                <value>0, 0</value>
+            </setting>
+            <setting name="frmStats_loc" serializeAs="String">
+                <value>0, 0</value>
+            </setting>
+            <setting name="frmSearch_size" serializeAs="String">
+                <value>1800, 1000</value>
+            </setting>
+            <setting name="dora_path" serializeAs="String">
+                <value>G:\DJSOC\DRUGS2\CRU\DORA\</value>
+            </setting>
+            <setting name="files_path" serializeAs="String">
+                <value>G:\DJSOC\DRUGS2\CRU\DOSSIERS\</value>
+            </setting>
+        </DORA.My.MySettings>
+    </userSettings>
+</configuration>
