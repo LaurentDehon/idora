@@ -38,8 +38,9 @@ Public Class frmMain
         ClockTimer.Start()
         ControlBox = False
         MinimumSize = New Size(1300, 700)
-        leftBorderBtn = New Panel()
-        leftBorderBtn.Size = New Size(7, 60)
+        leftBorderBtn = New Panel With {
+            .Size = New Size(7, 60)
+        }
         pnlMenu.Controls.Add(leftBorderBtn)
         'picDora.Image = My.Resources.DORABackground
         'Fill and sort datatable
@@ -86,6 +87,24 @@ Public Class frmMain
     End Sub
 #End Region
 #Region "Buttons"
+    Private Sub btnMin_Click(sender As Object, e As EventArgs) Handles btnMin.Click
+        'Minimize window
+        WindowState = FormWindowState.Minimized
+    End Sub
+    Private Sub btnMax_Click(sender As Object, e As EventArgs) Handles btnMax.Click
+        'Minimize window
+        If WindowState = FormWindowState.Maximized Then
+            WindowState = FormWindowState.Normal
+            If Size.Width < 1920 AndAlso Size.Height < 1080 Then
+                Size = My.Settings.frmMain_size
+            Else
+                Size = New Size(Size.Width - 100, Size.Height - 100)
+            End If
+        Else
+            My.Settings.frmMain_size = Size
+            WindowState = FormWindowState.Maximized
+        End If
+    End Sub
     Private Sub ActivateButton(senderBtn As Object, customColor As Color)
         If senderBtn IsNot Nothing Then
             DisableButton()
@@ -499,19 +518,6 @@ Public Class frmMain
             c.IconColor = theme("Font")
         Next
         'AddBorderToPanel(pnlCenter, picDora, theme("High"))
-    End Sub
-    Private Sub btnMin_Click(sender As Object, e As EventArgs) Handles btnMin.Click
-        'Minimize window
-        WindowState = FormWindowState.Minimized
-    End Sub
-    Private Sub btnMax_Click(sender As Object, e As EventArgs) Handles btnMax.Click
-        'Minimize window
-        If WindowState = FormWindowState.Maximized Then
-            WindowState = FormWindowState.Normal
-            Size = New Size(Size.Width - 100, Size.Height - 100)
-        Else
-            WindowState = FormWindowState.Maximized
-        End If
     End Sub
     Private Sub SaveWindow()
         If WindowState = FormWindowState.Maximized Then

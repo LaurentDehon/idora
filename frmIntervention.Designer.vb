@@ -116,7 +116,6 @@ Partial Class frmIntervention
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CASESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CASESTableAdapter = New DORA.DORADbDSTableAdapters.CASESTableAdapter()
-        Me.lblDev = New System.Windows.Forms.Label()
         Me.pnlTitle = New System.Windows.Forms.Panel()
         Me.btnNextCase = New FontAwesome.Sharp.IconButton()
         Me.btnPrevCase = New FontAwesome.Sharp.IconButton()
@@ -1175,24 +1174,12 @@ Partial Class frmIntervention
         '
         Me.CASESTableAdapter.ClearBeforeFill = True
         '
-        'lblDev
-        '
-        Me.lblDev.AutoSize = True
-        Me.lblDev.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDev.Location = New System.Drawing.Point(8, 7)
-        Me.lblDev.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblDev.Name = "lblDev"
-        Me.lblDev.Size = New System.Drawing.Size(44, 24)
-        Me.lblDev.TabIndex = 138
-        Me.lblDev.Text = "Text"
-        '
         'pnlTitle
         '
         Me.pnlTitle.Controls.Add(Me.btnNextCase)
         Me.pnlTitle.Controls.Add(Me.btnPrevCase)
         Me.pnlTitle.Controls.Add(Me.pnlControls)
         Me.pnlTitle.Controls.Add(Me.lblTitle)
-        Me.pnlTitle.Controls.Add(Me.lblDev)
         Me.pnlTitle.Controls.Add(Me.chkCRUReport)
         Me.pnlTitle.Controls.Add(Me.chkInventory)
         Me.pnlTitle.Controls.Add(Me.chkPicturesReport)
@@ -1218,7 +1205,7 @@ Partial Class frmIntervention
         Me.btnNextCase.Location = New System.Drawing.Point(208, 57)
         Me.btnNextCase.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnNextCase.Name = "btnNextCase"
-        Me.btnNextCase.Padding = New System.Windows.Forms.Padding(11, 14, 11, 10)
+        Me.btnNextCase.Padding = New System.Windows.Forms.Padding(11, 20, 11, 10)
         Me.btnNextCase.Size = New System.Drawing.Size(40, 39)
         Me.btnNextCase.TabIndex = 139
         Me.btnNextCase.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -1237,7 +1224,7 @@ Partial Class frmIntervention
         Me.btnPrevCase.Location = New System.Drawing.Point(56, 57)
         Me.btnPrevCase.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnPrevCase.Name = "btnPrevCase"
-        Me.btnPrevCase.Padding = New System.Windows.Forms.Padding(11, 14, 11, 10)
+        Me.btnPrevCase.Padding = New System.Windows.Forms.Padding(11, 20, 11, 10)
         Me.btnPrevCase.Size = New System.Drawing.Size(40, 39)
         Me.btnPrevCase.TabIndex = 103
         Me.btnPrevCase.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -2365,7 +2352,6 @@ Partial Class frmIntervention
     Friend WithEvents CASESBindingSource As BindingSource
     Friend WithEvents CASESTableAdapter As DORADbDSTableAdapters.CASESTableAdapter
     Friend WithEvents txtNICCReportNum As MaskedTextBox
-    Friend WithEvents lblDev As Label
     Friend WithEvents pnlTitle As Panel
     Friend WithEvents pnlControls As Panel
     Friend WithEvents btnClose As FontAwesome.Sharp.IconButton

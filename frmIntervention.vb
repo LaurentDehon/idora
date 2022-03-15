@@ -47,6 +47,14 @@ Public Class frmIntervention
         PRODUCTS_INTBindingSource.Filter = $"[ID INT] = {IntNum}"
         PRODUCTS_INTBindingSource.Sort = "[PRODUCT NAME] ASC"
         ControlBox = False
+        Dim files As String() = Directory.GetFiles($"{dora_path}SYSTEM", "*.dat")
+        For Each f In files
+            Dim parts As String() = Split(Path.GetFileNameWithoutExtension(f), ",,")
+            If parts(0) = "INV" AndAlso CInt(parts(1)) = IntNum Then
+                user_list = UserToList($"{dora_path}cru.txt", parts(2))
+                btnInv.IconColor = Color.FromName(user_list(3))
+            End If
+        Next
         Trad()
         FillCombo()
         'Move bindingsource position on the right record
@@ -1401,14 +1409,14 @@ Public Class frmIntervention
     Private Sub SetPrevNextIcons()
         If INTERVENTIONSBindingSource.Position = 0 Then
             btnNextCase.Enabled = False
-            btnNextCase.IconColor = Color.DimGray
+            btnNextCase.IconColor = Color.FromArgb(35, 35, 35)
         Else
             btnNextCase.Enabled = True
             btnNextCase.IconColor = theme("Font")
         End If
         If INTERVENTIONSBindingSource.Position = INTERVENTIONSBindingSource.Count - 1 Then
             btnPrevCase.Enabled = False
-            btnPrevCase.IconColor = Color.DimGray
+            btnPrevCase.IconColor = Color.FromArgb(35, 35, 35)
         Else
             btnPrevCase.Enabled = True
             btnPrevCase.IconColor = theme("Font")
@@ -1872,24 +1880,18 @@ Public Class frmIntervention
         Next
     End Sub
     Private Sub DisplayTitle()
-        btnPrevCase.Location = New Point(50, 70)
-        lblTitle.Location = New Point(btnPrevCase.Location.X + 60, 70)
-        btnNextCase.Location = New Point(lblTitle.Location.X + lblTitle.Width + 20, 70)
+        btnPrevCase.Location = New Point(50, 60)
+        lblTitle.Location = New Point(btnPrevCase.Location.X + 60, 60)
+        btnNextCase.Location = New Point(lblTitle.Location.X + lblTitle.Width + 25, 60)
     End Sub
     Private Sub DisplayFolder()
-        If user = "446066523" OrElse user = "Laurent" OrElse user = "Dzib" Then
-            lblDev.Visible = True
-            Dim dt As Date = Convert.ToDateTime(txtDateInt.Text)
-            Dim format As String = "dd-MM-yy"
-            Dim dir As String = $"{files_path}20{CRUFile.Substring(3, 2)}\{TypeOfCase}\{CRUFile} - {CaseName}\C.R.U\INT {IntNum} {dt.ToString(format)} - {cmbCityInt.Text} - {txtAdressInt.Text} ({cmbTypeOfInt.Text})"
-            lblDev.Text = dir
-            If Directory.Exists(dir) Then
-                lblDev.ForeColor = theme("Font")
-            Else
-                lblDev.ForeColor = Color.OrangeRed
-            End If
+        Dim dt As Date = Convert.ToDateTime(txtDateInt.Text)
+        Dim format As String = "dd-MM-yy"
+        Dim dir As String = $"{files_path}20{CRUFile.Substring(3, 2)}\{TypeOfCase}\{CRUFile} - {CaseName}\C.R.U\INT {IntNum} {dt.ToString(format)} - {cmbCityInt.Text} - {txtAdressInt.Text} ({cmbTypeOfInt.Text})"
+        If Directory.Exists(dir) Then
+            btnFolder.IconColor = theme("Font")
         Else
-            lblDev.Visible = False
+            btnFolder.IconColor = Color.DarkRed
         End If
     End Sub
     Private Sub Trad()

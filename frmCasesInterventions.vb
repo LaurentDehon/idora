@@ -33,8 +33,8 @@ Public Class frmCasesInterventions
         cmbSearchCases.SelectedIndex = 0
         cmbSearchInterventions.SelectedIndex = 0
         'Set format of dates in datagridviews
-        dgvCases.Columns(0).DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("en-001")
-        dgvInterventions.Columns(0).DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("en-001")
+        dgvCases.Columns(1).DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("en-001")
+        dgvInterventions.Columns(1).DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("en-001")
         'Enable double buffer for datagridviews
         EnableDoubleBuffered(dgvCases, True)
         EnableDoubleBuffered(dgvInterventions, True)
@@ -187,42 +187,33 @@ Public Class frmCasesInterventions
 #End Region
 #Region "Interventions Datagridview"
     Private Sub dgvInterventions_Resize(sender As Object, e As EventArgs) Handles dgvInterventions.Resize
-        dgvInterventions.Columns(1).Width = CInt((dgvInterventions.Width / 100) * 25)
-        dgvInterventions.Columns(2).Width = CInt((dgvInterventions.Width / 100) * 20)
-        dgvInterventions.Columns(3).Width = CInt((dgvInterventions.Width / 100) * 25)
-        dgvInterventions.Columns(4).Width = CInt((dgvInterventions.Width / 100) * 20)
-        dgvInterventions.Columns(5).Width = 6
+        dgvInterventions.Columns(1).Width = 120
+        dgvInterventions.Columns(2).Width = CInt(((dgvInterventions.Width - 150) / 100) * 30)
+        dgvInterventions.Columns(3).Width = CInt(((dgvInterventions.Width - 150) / 100) * 20)
+        dgvInterventions.Columns(4).Width = CInt(((dgvInterventions.Width - 150) / 100) * 25)
+        dgvInterventions.Columns(5).Width = CInt(((dgvInterventions.Width - 150) / 100) * 23)
+        dgvInterventions.Columns(11).Width = 30
+        dgvInterventions.Columns(11).DefaultCellStyle.NullValue = Nothing
     End Sub
     Private Sub dgvInterventions_SelectionChanged(sender As Object, e As EventArgs) Handles dgvInterventions.SelectionChanged
-        Try
-            IntNum = CInt(DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("ID CRU"))
-        Catch ex As Exception
-
-        End Try
-    End Sub
-    Private Sub dgvInterventions_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles dgvInterventions.RowPrePaint
-        'Color 5th column
-        If CBool(dgvInterventions.Item(5, e.RowIndex).Value) = True Then
-            dgvInterventions.Item(5, e.RowIndex).Style.BackColor = Color.DarkGreen
-            dgvInterventions.Item(5, e.RowIndex).Style.SelectionBackColor = Color.DarkGreen
-        Else
-            dgvInterventions.Item(5, e.RowIndex).Style.BackColor = Color.DarkRed
-            dgvInterventions.Item(5, e.RowIndex).Style.SelectionBackColor = Color.DarkRed
+        Dim index As Integer
+        Dim col As Color
+        IntNum = CInt(dgvInterventions.CurrentRow.Cells(0).Value)
+        If dgvInterventions.SelectedRows.Count > 0 Then
+            index = dgvInterventions.SelectedRows(0).Index
+            col = dgvInterventions.Item(11, index).Style.BackColor
+            dgvInterventions.Item(11, index).Style.SelectionBackColor = col
         End If
     End Sub
-    Private Sub dgvInterventions_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvInterventions.CellClick
-        'Handle 5th column click
-        If e.ColumnIndex = 5 Then
-            If CBool(dgvInterventions.Item(5, e.RowIndex).Value) = True Then
-                dgvInterventions.Item(5, e.RowIndex).Style.SelectionBackColor = Color.DarkRed
-                dgvInterventions.Item(5, e.RowIndex).Value = False
+    Private Sub dgvInterventions_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles dgvInterventions.RowPrePaint
+        If CBool(dgvInterventions.Item(10, e.RowIndex).Value) = True Then
+            dgvInterventions.Item(11, e.RowIndex).Style.BackColor = Color.DarkGreen
+        Else
+            If CBool(dgvInterventions.Item(6, e.RowIndex).Value) = True AndAlso CBool(dgvInterventions.Item(7, e.RowIndex).Value) = True AndAlso CBool(dgvInterventions.Item(8, e.RowIndex).Value) = True Then
+                dgvInterventions.Item(11, e.RowIndex).Style.BackColor = Color.DarkOrange
             Else
-                dgvInterventions.Item(5, e.RowIndex).Style.SelectionBackColor = Color.DarkGreen
-                dgvInterventions.Item(5, e.RowIndex).Value = True
+                dgvInterventions.Item(11, e.RowIndex).Style.BackColor = Color.DarkRed
             End If
-            INTERVENTIONSBindingSource.EndEdit()
-            INTERVENTIONSTableAdapter.Update(DORADbDS.INTERVENTIONS)
-            log("CASE", $"close intervention {DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("ID CRU")}")
         End If
     End Sub
     Private Sub dgvInterventions_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvInterventions.CellMouseDoubleClick
@@ -242,7 +233,7 @@ Public Class frmCasesInterventions
             DateInt = CDate(DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("DATE INT"))
             AdressInt = CStr(DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("ADRESS INT"))
             CityInt = CStr(DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("CITY INT"))
-            Dim CaseRow() As DataRow = DORADbDS.Tables("CASES").Select($"[CASE NAME] = '{dgvInterventions.Item(1, dgvInterventions.CurrentRow.Index).Value}'")
+            Dim CaseRow() As DataRow = DORADbDS.Tables("CASES").Select($"[CASE NAME] = '{dgvInterventions.Item(2, dgvInterventions.CurrentRow.Index).Value}'")
             If CaseRow.Length > 0 Then
                 IntLang = CStr(CaseRow(0)("LANG"))
                 If Not IsDBNull(CaseRow(0)("FILE NUM")) Then CRUFile = CStr(CaseRow(0)("FILE NUM"))

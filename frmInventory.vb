@@ -685,7 +685,7 @@ Public Class frmInventory
         dgvInventory.Columns(1).Visible = False
         dgvInventory.Columns(2).Visible = False
         dgvInventory.Columns(3).Width = 120
-        dgvInventory.Columns(4).Width = 895
+        dgvInventory.Columns(4).Width = 880
         dgvInventory.Columns(5).Width = 40
         dgvInventory.Columns(6).Width = 60
     End Sub
@@ -767,7 +767,7 @@ Public Class frmInventory
     Private Sub dgvInventory_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles dgvInventory.RowPrePaint
         'Draw room
         If dgvInventory.Rows(e.RowIndex).Cells(3).Value.ToString.ToUpper.Contains("RUIMTE") OrElse dgvInventory.Rows(e.RowIndex).Cells(3).Value.ToString.ToUpper.Contains("ZONE") Then
-            dgvInventory.Rows(e.RowIndex).DefaultCellStyle.Font = New Font("Calibri", 14, FontStyle.Bold)
+            dgvInventory.Rows(e.RowIndex).DefaultCellStyle.Font = New Font("Calibri", 12, FontStyle.Bold)
         End If
     End Sub
     Private Sub dgvInventory_Click(sender As Object, e As EventArgs) Handles dgvInventory.Click
