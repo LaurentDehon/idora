@@ -59,6 +59,7 @@ Partial Class frmMain
         Me.btnMin = New FontAwesome.Sharp.IconButton()
         Me.btnMax = New FontAwesome.Sharp.IconButton()
         Me.pnlCenter = New System.Windows.Forms.Panel()
+        Me.picDORA = New System.Windows.Forms.PictureBox()
         Me.CITIESBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.CITIESTableAdapter1 = New DORA.DORADbDSTableAdapters.CITIESTableAdapter()
         Me.CITIESBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
@@ -71,6 +72,8 @@ Partial Class frmMain
         CType(Me.imgCRU, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlTitle.SuspendLayout()
         Me.pnlControls.SuspendLayout()
+        Me.pnlCenter.SuspendLayout()
+        CType(Me.picDORA, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CITIESBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CITIESBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -86,7 +89,7 @@ Partial Class frmMain
         Me.RCMenu.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.RCMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnLanguage, Me.mnTheme})
         Me.RCMenu.Name = "RCMenu"
-        Me.RCMenu.Size = New System.Drawing.Size(215, 88)
+        Me.RCMenu.Size = New System.Drawing.Size(163, 60)
         '
         'mnLanguage
         '
@@ -95,7 +98,7 @@ Partial Class frmMain
         Me.mnLanguage.ForeColor = System.Drawing.SystemColors.ControlText
         Me.mnLanguage.Image = Global.DORA.My.Resources.Resources.globe
         Me.mnLanguage.Name = "mnLanguage"
-        Me.mnLanguage.Size = New System.Drawing.Size(214, 28)
+        Me.mnLanguage.Size = New System.Drawing.Size(162, 28)
         Me.mnLanguage.Text = "Language"
         '
         'mnLanguageN
@@ -104,7 +107,7 @@ Partial Class frmMain
         Me.mnLanguageN.ForeColor = System.Drawing.SystemColors.ControlText
         Me.mnLanguageN.Image = Global.DORA.My.Resources.Resources.n
         Me.mnLanguageN.Name = "mnLanguageN"
-        Me.mnLanguageN.Size = New System.Drawing.Size(224, 28)
+        Me.mnLanguageN.Size = New System.Drawing.Size(190, 28)
         Me.mnLanguageN.Text = "Nederlands"
         '
         'mnLanguageF
@@ -113,7 +116,7 @@ Partial Class frmMain
         Me.mnLanguageF.ForeColor = System.Drawing.SystemColors.ControlText
         Me.mnLanguageF.Image = Global.DORA.My.Resources.Resources.f
         Me.mnLanguageF.Name = "mnLanguageF"
-        Me.mnLanguageF.Size = New System.Drawing.Size(224, 28)
+        Me.mnLanguageF.Size = New System.Drawing.Size(190, 28)
         Me.mnLanguageF.Text = "Français"
         '
         'mnTheme
@@ -122,7 +125,7 @@ Partial Class frmMain
         Me.mnTheme.ForeColor = System.Drawing.SystemColors.ControlText
         Me.mnTheme.Image = Global.DORA.My.Resources.Resources.palette
         Me.mnTheme.Name = "mnTheme"
-        Me.mnTheme.Size = New System.Drawing.Size(214, 28)
+        Me.mnTheme.Size = New System.Drawing.Size(162, 28)
         Me.mnTheme.Text = "Theme"
         '
         'mnThemeDark
@@ -471,6 +474,7 @@ Partial Class frmMain
         '
         'pnlCenter
         '
+        Me.pnlCenter.Controls.Add(Me.picDORA)
         Me.pnlCenter.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlCenter.Location = New System.Drawing.Point(240, 110)
         Me.pnlCenter.Margin = New System.Windows.Forms.Padding(0)
@@ -478,6 +482,18 @@ Partial Class frmMain
         Me.pnlCenter.Name = "pnlCenter"
         Me.pnlCenter.Size = New System.Drawing.Size(1042, 543)
         Me.pnlCenter.TabIndex = 135
+        '
+        'picDORA
+        '
+        Me.picDORA.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.picDORA.Image = Global.DORA.My.Resources.Resources.idora
+        Me.picDORA.Location = New System.Drawing.Point(24, 24)
+        Me.picDORA.Name = "picDORA"
+        Me.picDORA.Padding = New System.Windows.Forms.Padding(100)
+        Me.picDORA.Size = New System.Drawing.Size(1000, 500)
+        Me.picDORA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picDORA.TabIndex = 0
+        Me.picDORA.TabStop = False
         '
         'CITIESBindingSource1
         '
@@ -522,6 +538,8 @@ Partial Class frmMain
         CType(Me.imgCRU, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlTitle.ResumeLayout(False)
         Me.pnlControls.ResumeLayout(False)
+        Me.pnlCenter.ResumeLayout(False)
+        CType(Me.picDORA, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CITIESBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CITIESBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -567,4 +585,5 @@ Partial Class frmMain
     Friend WithEvents mnThemeKimbie As ToolStripMenuItem
     Friend WithEvents mnThemeNoctis As ToolStripMenuItem
     Friend WithEvents mnThemeDracula As ToolStripMenuItem
+    Friend WithEvents picDORA As PictureBox
 End Class

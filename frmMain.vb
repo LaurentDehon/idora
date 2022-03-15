@@ -42,7 +42,7 @@ Public Class frmMain
             .Size = New Size(7, 60)
         }
         pnlMenu.Controls.Add(leftBorderBtn)
-        'picDora.Image = My.Resources.DORABackground
+        AddBorderToPanel(pnlCenter, picDORA, theme("High"))
         'Fill and sort datatable
         BACKUPTableAdapter.Fill(DORADbDS.BACKUP)
         BACKUPBindingSource.Sort = "[ID] ASC"
@@ -211,13 +211,19 @@ Public Class frmMain
     Private Shared Sub SendMessage(hWnd As IntPtr, wMsg As Integer, wParam As Integer, lParam As Integer)
     End Sub
     Private Sub frmMain_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
+        picDORA.Left = CInt((pnlCenter.Width - picDORA.Width) / 2)
+        picDORA.Top = CInt((pnlCenter.Height - picDORA.Height) / 2)
         If WindowState = FormWindowState.Maximized Then
             FormBorderStyle = FormBorderStyle.None
         Else
             FormBorderStyle = FormBorderStyle.Sizable
         End If
-        'picDora.Size = New Size(pnlCenter.Width - 570, pnlCenter.Height - 200)
-        'picDora.Location = New Point(CInt((pnlCenter.Width - picDora.Width) / 2), CInt((pnlCenter.Height - picDora.Height) / 2))
+        For Each c As Control In pnlCenter.Controls
+            If c.Name = "picDORA_border" Then
+                c.Size = New Size(picDORA.Width + 2, picDORA.Height + 2)
+                c.Location = New Point(picDORA.Location.X - 1, picDORA.Location.Y - 1)
+            End If
+        Next
     End Sub
 #End Region
 #Region "Miscellaneous"
