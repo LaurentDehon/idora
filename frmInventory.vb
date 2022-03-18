@@ -1920,7 +1920,7 @@ Public Class frmInventory
         pnlTitle.BackColor = theme("Dark")
         pnlControls.BackColor = theme("Dark")
         pnlMenu.BackColor = theme("Medium")
-        pnlLogo.BackColor = theme("Medium")
+        'pnlLogo.BackColor = theme("Medium")
         dgvInventory.BackgroundColor = theme("Medium")
         dgvInventory.RowsDefaultCellStyle.BackColor = theme("Medium")
         dgvInventory.RowsDefaultCellStyle.ForeColor = theme("Font")

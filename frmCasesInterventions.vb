@@ -515,8 +515,8 @@ Public Class frmCasesInterventions
         CasesTimer.Start()
     End Sub
     Private Sub cmbSearchCases_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSearchCases.SelectedIndexChanged
-        'Reset search field
-        txtSearchCases.Text = String.Empty
+        CasesTimer.Stop()
+        CasesTimer.Start()
     End Sub
     Private Sub InterventionsTimer_Tick(sender As Object, e As EventArgs) Handles InterventionsTimer.Tick
         'Search interventions
@@ -574,8 +574,8 @@ Public Class frmCasesInterventions
         InterventionsTimer.Start()
     End Sub
     Private Sub cmbSearchInterventions_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSearchInterventions.SelectedIndexChanged
-        'Reset search field
-        txtSearchInterventions.Text = String.Empty
+        InterventionsTimer.Stop()
+        InterventionsTimer.Start()
     End Sub
 #End Region
 #Region "File System Watcher"

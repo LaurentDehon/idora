@@ -17,7 +17,6 @@ Public Class frmMain
         End Get
     End Property
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MaximizedBounds = Screen.PrimaryScreen.WorkingArea
         If My.Settings.frmMain_max = True Then
             WindowState = FormWindowState.Maximized
         Else
@@ -37,12 +36,12 @@ Public Class frmMain
         DisplayDate()
         ClockTimer.Start()
         ControlBox = False
-        MinimumSize = New Size(1300, 700)
         leftBorderBtn = New Panel With {
             .Size = New Size(7, 60)
         }
         pnlMenu.Controls.Add(leftBorderBtn)
         AddBorderToPanel(pnlCenter, picDORA, theme("High"))
+        MsgBox(CheckHolidays)
         'Fill and sort datatable
         BACKUPTableAdapter.Fill(DORADbDS.BACKUP)
         BACKUPBindingSource.Sort = "[ID] ASC"
@@ -93,15 +92,14 @@ Public Class frmMain
     End Sub
     Private Sub btnMax_Click(sender As Object, e As EventArgs) Handles btnMax.Click
         'Minimize window
+        Dim s As Screen = Screen.FromControl(Me)
         If WindowState = FormWindowState.Maximized Then
             WindowState = FormWindowState.Normal
-            If Size.Width < 1920 AndAlso Size.Height < 1080 Then
-                Size = My.Settings.frmMain_size
-            Else
-                Size = New Size(Size.Width - 100, Size.Height - 100)
-            End If
-        Else
+            Size = New Size(Size.Width - 200, Size.Height - 200)
             My.Settings.frmMain_size = Size
+            CenterToScreen()
+        Else
+            My.Settings.frmMain_max = True
             WindowState = FormWindowState.Maximized
         End If
     End Sub
@@ -211,6 +209,8 @@ Public Class frmMain
     Private Shared Sub SendMessage(hWnd As IntPtr, wMsg As Integer, wParam As Integer, lParam As Integer)
     End Sub
     Private Sub frmMain_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
+        picDORA.Width = CInt((pnlCenter.Width / 4) * 3)
+        picDORA.Height = CInt(picDORA.Width / 2)
         picDORA.Left = CInt((pnlCenter.Width - picDORA.Width) / 2)
         picDORA.Top = CInt((pnlCenter.Height - picDORA.Height) / 2)
         If WindowState = FormWindowState.Maximized Then
@@ -364,9 +364,7 @@ Public Class frmMain
                 Lang = 2
             End If
             'Check if it's user's birthday
-            Dim dt As Date = Convert.ToDateTime(user_list(1))
-            Dim format As String = "dd/MM"
-            If Date.Now.Month = dt.Month AndAlso Date.Now.Day = dt.Day Then
+            If CheckBirthday() Then
                 'picDora.Image = My.Resources.Dora_Birthday
                 'picDora.Width = 380
             Else

@@ -112,6 +112,79 @@
         p.Controls.Add(bp)
         c.BringToFront()
     End Sub
+    Public Function CheckBirthday() As Boolean
+        user = Environment.UserName
+        Dim user_list() As String = SearchFile($"{dora_path}cru.txt", user)
+        Dim dt As Date = Convert.ToDateTime(user_list(1))
+        If Date.Now.Month = dt.Month AndAlso Date.Now.Day = dt.Day Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+    Function GetEasterDate(year As Integer)
+        Dim y As Integer = year
+        Dim d As Integer = (((255 - 11 * (y Mod 19)) - 21) Mod 30) + 21
+        Dim easter_date = New DateTime(y, 3, 1)
+        easter_date = easter_date.AddDays(+d + (d > 48) + 6 - ((y + y \ 4 + d + (d > 48) + 1) Mod 7))
+        Return (easter_date)
+    End Function
+    Public Function CheckHolidays() As String
+        If Now.Month = 1 AndAlso (Now.Day >= 1 AndAlso Now.Day <= 3) Then
+            Return "nouvel an"
+            Exit Function
+        End If
+        If Now.Month = 2 AndAlso Now.Day = 14 Then
+            Return "saint valentin"
+            Exit Function
+        End If
+        If Now.Month = 3 AndAlso Now.Day = 17 Then
+            Return "saint patrick"
+            Exit Function
+        End If
+        If Now.Month = 3 AndAlso Now.Day = 21 Then
+            Return "printemps"
+            Exit Function
+        End If
+        If Now.Month = 4 AndAlso Now.Day = 1 Then
+            Return "1er avril"
+            Exit Function
+        End If
+        Dim easter As Date = GetEasterDate(Now.Year)
+        If Now.Date >= easter.AddDays(-5) AndAlso Now.Date <= easter.AddDays(5) Then
+            Return "pâques"
+            Exit Function
+        End If
+        If Now.Month = 6 AndAlso Now.Day = 21 Then
+            Return "été"
+            Exit Function
+        End If
+        If Now.Month = 9 AndAlso Now.Day = 21 Then
+            Return "automne"
+            Exit Function
+        End If
+        If (Now.Month = 10 AndAlso Now.Day = 31) OrElse (Now.Month = 11 AndAlso Now.Day = 1) Then
+            Return "halloween"
+            Exit Function
+        End If
+        If Now.Month = 12 AndAlso Now.Day = 6 Then
+            Return "saint nicolas"
+            Exit Function
+        End If
+        If Now.Month = 12 AndAlso Now.Day = 21 Then
+            Return "hiver"
+            Exit Function
+        End If
+        If Now.Month = 12 AndAlso (Now.Day >= 23 AndAlso Now.Day <= 27) Then
+            Return "noël"
+            Exit Function
+        End If
+        If Now.Month = 12 AndAlso (Now.Day >= 29 AndAlso Now.Day <= 31) Then
+            Return "nouvel an"
+            Exit Function
+        End If
+        Return "no holiday"
+    End Function
 End Module
 Public Structure RGBColors
     Public Shared btn_color1 As Color = Color.CornflowerBlue

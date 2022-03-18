@@ -202,7 +202,7 @@ Partial Class frmMain
         Me.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left
         Me.pnlMenu.Location = New System.Drawing.Point(0, 0)
         Me.pnlMenu.Name = "pnlMenu"
-        Me.pnlMenu.Size = New System.Drawing.Size(240, 653)
+        Me.pnlMenu.Size = New System.Drawing.Size(240, 853)
         Me.pnlMenu.TabIndex = 133
         '
         'btnExit
@@ -217,7 +217,7 @@ Partial Class frmMain
         Me.btnExit.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnExit.IconSize = 30
         Me.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnExit.Location = New System.Drawing.Point(0, 593)
+        Me.btnExit.Location = New System.Drawing.Point(0, 793)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Padding = New System.Windows.Forms.Padding(10, 0, 10, 0)
         Me.btnExit.Size = New System.Drawing.Size(240, 60)
@@ -478,19 +478,18 @@ Partial Class frmMain
         Me.pnlCenter.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlCenter.Location = New System.Drawing.Point(240, 110)
         Me.pnlCenter.Margin = New System.Windows.Forms.Padding(0)
-        Me.pnlCenter.MinimumSize = New System.Drawing.Size(700, 540)
         Me.pnlCenter.Name = "pnlCenter"
-        Me.pnlCenter.Size = New System.Drawing.Size(1042, 543)
+        Me.pnlCenter.Size = New System.Drawing.Size(1042, 743)
         Me.pnlCenter.TabIndex = 135
         '
         'picDORA
         '
         Me.picDORA.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.picDORA.Image = Global.DORA.My.Resources.Resources.idora
-        Me.picDORA.Location = New System.Drawing.Point(24, 24)
+        Me.picDORA.Image = CType(resources.GetObject("picDORA.Image"), System.Drawing.Image)
+        Me.picDORA.Location = New System.Drawing.Point(128, 164)
         Me.picDORA.Name = "picDORA"
         Me.picDORA.Padding = New System.Windows.Forms.Padding(100)
-        Me.picDORA.Size = New System.Drawing.Size(1000, 500)
+        Me.picDORA.Size = New System.Drawing.Size(850, 425)
         Me.picDORA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.picDORA.TabIndex = 0
         Me.picDORA.TabStop = False
@@ -517,7 +516,7 @@ Partial Class frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1282, 653)
+        Me.ClientSize = New System.Drawing.Size(1282, 853)
         Me.Controls.Add(Me.pnlCenter)
         Me.Controls.Add(Me.pnlTitle)
         Me.Controls.Add(Me.pnlMenu)
@@ -528,6 +527,7 @@ Partial Class frmMain
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(1100, 800)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.RCMenu.ResumeLayout(False)
