@@ -57,7 +57,7 @@ Partial Class frmProgBar
         Me.lblPercent.Location = New System.Drawing.Point(133, 56)
         Me.lblPercent.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblPercent.Name = "lblPercent"
-        Me.lblPercent.Size = New System.Drawing.Size(30, 20)
+        Me.lblPercent.Size = New System.Drawing.Size(59, 20)
         Me.lblPercent.TabIndex = 143
         Me.lblPercent.Text = "0%"
         '

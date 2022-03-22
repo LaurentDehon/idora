@@ -84,7 +84,7 @@ Partial Class frmStats
         Me.cmbDrug.FormattingEnabled = True
         Me.cmbDrug.Location = New System.Drawing.Point(192, 16)
         Me.cmbDrug.Name = "cmbDrug"
-        Me.cmbDrug.Size = New System.Drawing.Size(248, 32)
+        Me.cmbDrug.Size = New System.Drawing.Size(192, 32)
         Me.cmbDrug.TabIndex = 0
         '
         'dgvFake
@@ -261,9 +261,9 @@ Partial Class frmStats
         Me.cmbArro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbArro.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbArro.FormattingEnabled = True
-        Me.cmbArro.Location = New System.Drawing.Point(448, 16)
+        Me.cmbArro.Location = New System.Drawing.Point(392, 16)
         Me.cmbArro.Name = "cmbArro"
-        Me.cmbArro.Size = New System.Drawing.Size(224, 32)
+        Me.cmbArro.Size = New System.Drawing.Size(192, 32)
         Me.cmbArro.TabIndex = 0
         '
         'cmbChart
@@ -274,7 +274,7 @@ Partial Class frmStats
         Me.cmbChart.FormattingEnabled = True
         Me.cmbChart.Location = New System.Drawing.Point(16, 56)
         Me.cmbChart.Name = "cmbChart"
-        Me.cmbChart.Size = New System.Drawing.Size(656, 32)
+        Me.cmbChart.Size = New System.Drawing.Size(568, 32)
         Me.cmbChart.TabIndex = 0
         '
         'btnChart
@@ -285,9 +285,9 @@ Partial Class frmStats
         Me.btnChart.IconChar = FontAwesome.Sharp.IconChar.ChartBar
         Me.btnChart.IconColor = System.Drawing.Color.Black
         Me.btnChart.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btnChart.Location = New System.Drawing.Point(688, 16)
+        Me.btnChart.Location = New System.Drawing.Point(592, 16)
         Me.btnChart.Name = "btnChart"
-        Me.btnChart.Size = New System.Drawing.Size(216, 72)
+        Me.btnChart.Size = New System.Drawing.Size(312, 72)
         Me.btnChart.TabIndex = 198
         Me.btnChart.Text = "Chart"
         Me.btnChart.TextAlign = System.Drawing.ContentAlignment.MiddleRight

@@ -198,7 +198,6 @@ Public Class frmCasesInterventions
     Private Sub dgvInterventions_SelectionChanged(sender As Object, e As EventArgs) Handles dgvInterventions.SelectionChanged
         Dim index As Integer
         Dim col As Color
-        IntNum = CInt(dgvInterventions.CurrentRow.Cells(0).Value)
         If dgvInterventions.SelectedRows.Count > 0 Then
             index = dgvInterventions.SelectedRows(0).Index
             col = dgvInterventions.Item(11, index).Style.BackColor

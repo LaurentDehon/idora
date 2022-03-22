@@ -41,7 +41,8 @@ Public Class frmMain
         }
         pnlMenu.Controls.Add(leftBorderBtn)
         AddBorderToPanel(pnlCenter, picDORA, theme("High"))
-        MsgBox(CheckHolidays)
+        CheckBirthday()
+        CheckHolidays()
         'Fill and sort datatable
         BACKUPTableAdapter.Fill(DORADbDS.BACKUP)
         BACKUPBindingSource.Sort = "[ID] ASC"
@@ -209,10 +210,14 @@ Public Class frmMain
     Private Shared Sub SendMessage(hWnd As IntPtr, wMsg As Integer, wParam As Integer, lParam As Integer)
     End Sub
     Private Sub frmMain_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
+        picDORA.SendToBack()
         picDORA.Width = CInt((pnlCenter.Width / 4) * 3)
         picDORA.Height = CInt(picDORA.Width / 2)
         picDORA.Left = CInt((pnlCenter.Width - picDORA.Width) / 2)
         picDORA.Top = CInt((pnlCenter.Height - picDORA.Height) / 2)
+        picBirthday.Width = CInt((pnlCenter.Width / 5) * 2)
+        picBirthday.Height = CInt((pnlCenter.Height / 5) * 2)
+        picBirthday.Location = New Point(0, 0)
         If WindowState = FormWindowState.Maximized Then
             FormBorderStyle = FormBorderStyle.None
         Else
@@ -222,6 +227,7 @@ Public Class frmMain
             If c.Name = "picDORA_border" Then
                 c.Size = New Size(picDORA.Width + 2, picDORA.Height + 2)
                 c.Location = New Point(picDORA.Location.X - 1, picDORA.Location.Y - 1)
+                c.SendToBack()
             End If
         Next
     End Sub
@@ -363,14 +369,7 @@ Public Class frmMain
                 lblHello.Text = $"Bienvenue {CultureInfo.InvariantCulture.TextInfo.ToTitleCase(user_list(0).ToLower()).Split(CChar(" "))(0)}"
                 Lang = 2
             End If
-            'Check if it's user's birthday
-            If CheckBirthday() Then
-                'picDora.Image = My.Resources.Dora_Birthday
-                'picDora.Width = 380
-            Else
-                'picDora.Image = My.Resources.DORABackground
-                'picDora.Width = 264
-            End If
+            CheckBirthday()
         Catch IOORE As IndexOutOfRangeException
             If Lang = 1 Then
                 MessageBox.Show("Ongeïdentificeerde gebruiker, dora zal nu afsluiten", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error)
