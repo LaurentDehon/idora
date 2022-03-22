@@ -25,6 +25,7 @@ Public Class frmSearch
         End Get
     End Property
     Private Sub frmSearch_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Start new thread
         thread = New Thread(AddressOf LoadData)
         thread.Start()
         SetColors()
