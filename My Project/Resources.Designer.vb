@@ -75,7 +75,7 @@ Namespace My.Resources
         '''</summary>
         Friend ReadOnly Property circle_minus() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("circle-minus", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("circle_minus", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -85,7 +85,7 @@ Namespace My.Resources
         '''</summary>
         Friend ReadOnly Property circle_plus() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("circle-plus", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("circle_plus", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -95,7 +95,7 @@ Namespace My.Resources
         '''</summary>
         Friend ReadOnly Property circle_right() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("circle-right", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("circle_right", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -145,7 +145,7 @@ Namespace My.Resources
         '''</summary>
         Friend ReadOnly Property folder_open() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("folder-open", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("folder_open", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

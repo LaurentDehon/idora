@@ -285,9 +285,9 @@ Partial Class frmStats
         Me.btnChart.IconChar = FontAwesome.Sharp.IconChar.ChartBar
         Me.btnChart.IconColor = System.Drawing.Color.Black
         Me.btnChart.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btnChart.Location = New System.Drawing.Point(592, 16)
+        Me.btnChart.Location = New System.Drawing.Point(600, 16)
         Me.btnChart.Name = "btnChart"
-        Me.btnChart.Size = New System.Drawing.Size(312, 72)
+        Me.btnChart.Size = New System.Drawing.Size(304, 72)
         Me.btnChart.TabIndex = 198
         Me.btnChart.Text = "Chart"
         Me.btnChart.TextAlign = System.Drawing.ContentAlignment.MiddleRight

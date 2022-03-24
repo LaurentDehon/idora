@@ -646,10 +646,12 @@ Public Class frmCasesInterventions
         'Clear selection of case
         dgvCases.ClearSelection()
         ResetInterventionsFilter()
+        CheckDatFiles()
     End Sub
     Private Sub dgvInterventions_DataBindingComplete(sender As Object, e As DataGridViewBindingCompleteEventArgs) Handles dgvInterventions.DataBindingComplete
         'Clear selection of intervention
         dgvInterventions.ClearSelection()
+        CheckDatFiles()
     End Sub
     Private Sub EnableDoubleBuffered(dgv As DataGridView, setting As Boolean)
         'Speed up scrolling of datagridviews

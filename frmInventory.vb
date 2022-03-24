@@ -555,10 +555,16 @@ Public Class frmInventory
     End Sub
 #End Region
 #Region "Input"
-    Private Sub GetNum(sender As Object, e As EventArgs) Handles txtNum.Enter, txtNumR.Enter
+    Private Sub GetNum(sender As Object, e As EventArgs) Handles txtNum.Enter
         'Get original number, before possible modification
-        If Not IsDBNull(DirectCast(INVENTORYBindingSource.Current, DataRowView).Item(3)) Then
-            Num = CStr(DirectCast(INVENTORYBindingSource.Current, DataRowView).Item(3))
+        If txtNum.Text <> String.Empty Then
+            Num = txtNum.Text
+        End If
+    End Sub
+    Private Sub GetNumR(sender As Object, e As EventArgs) Handles txtNumR.Enter
+        'Get original number, before possible modification
+        If txtNumR.Text <> String.Empty Then
+            Num = txtNumR.Text
         End If
     End Sub
     Private Sub txtNum_Leave(sender As Object, e As EventArgs) Handles txtNum.Validating

@@ -126,7 +126,7 @@ Partial Class frmInventory
         Me.txtSamples.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtSamples.Name = "txtSamples"
         Me.txtSamples.Size = New System.Drawing.Size(48, 32)
-        Me.txtSamples.TabIndex = 0
+        Me.txtSamples.TabIndex = 2
         Me.txtSamples.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'cmbSamplesT
@@ -137,7 +137,7 @@ Partial Class frmInventory
         Me.cmbSamplesT.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cmbSamplesT.Name = "cmbSamplesT"
         Me.cmbSamplesT.Size = New System.Drawing.Size(80, 32)
-        Me.cmbSamplesT.TabIndex = 1
+        Me.cmbSamplesT.TabIndex = 3
         '
         'txtDesc
         '
@@ -191,6 +191,7 @@ Partial Class frmInventory
         Me.dgvPicsO.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvPicsO.Size = New System.Drawing.Size(150, 704)
         Me.dgvPicsO.TabIndex = 0
+        Me.dgvPicsO.TabStop = False
         '
         'txtNumR
         '
@@ -213,7 +214,7 @@ Partial Class frmInventory
         Me.txtDescR.Multiline = True
         Me.txtDescR.Name = "txtDescR"
         Me.txtDescR.Size = New System.Drawing.Size(968, 112)
-        Me.txtDescR.TabIndex = 0
+        Me.txtDescR.TabIndex = 1
         '
         'DORADbDS
         '
@@ -285,6 +286,7 @@ Partial Class frmInventory
         Me.btnPicturesGen.Padding = New System.Windows.Forms.Padding(11, 10, 11, 10)
         Me.btnPicturesGen.Size = New System.Drawing.Size(120, 60)
         Me.btnPicturesGen.TabIndex = 18
+        Me.btnPicturesGen.TabStop = False
         Me.btnPicturesGen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnPicturesGen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnPicturesGen.UseVisualStyleBackColor = False
@@ -305,6 +307,7 @@ Partial Class frmInventory
         Me.btnInventoryGen.Padding = New System.Windows.Forms.Padding(11, 10, 11, 10)
         Me.btnInventoryGen.Size = New System.Drawing.Size(120, 60)
         Me.btnInventoryGen.TabIndex = 17
+        Me.btnInventoryGen.TabStop = False
         Me.btnInventoryGen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnInventoryGen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnInventoryGen.UseVisualStyleBackColor = False
@@ -325,6 +328,7 @@ Partial Class frmInventory
         Me.btnPicsLow.Padding = New System.Windows.Forms.Padding(11, 10, 11, 10)
         Me.btnPicsLow.Size = New System.Drawing.Size(120, 60)
         Me.btnPicsLow.TabIndex = 15
+        Me.btnPicsLow.TabStop = False
         Me.btnPicsLow.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnPicsLow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnPicsLow.UseVisualStyleBackColor = False
@@ -345,6 +349,7 @@ Partial Class frmInventory
         Me.btnSave.Padding = New System.Windows.Forms.Padding(11, 10, 11, 10)
         Me.btnSave.Size = New System.Drawing.Size(120, 60)
         Me.btnSave.TabIndex = 14
+        Me.btnSave.TabStop = False
         Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnSave.UseVisualStyleBackColor = False
@@ -366,6 +371,7 @@ Partial Class frmInventory
         Me.btnExit.Padding = New System.Windows.Forms.Padding(11, 10, 11, 10)
         Me.btnExit.Size = New System.Drawing.Size(120, 60)
         Me.btnExit.TabIndex = 13
+        Me.btnExit.TabStop = False
         Me.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnExit.UseVisualStyleBackColor = False
@@ -410,6 +416,7 @@ Partial Class frmInventory
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(25, 25)
         Me.btnClose.TabIndex = 120
+        Me.btnClose.TabStop = False
         Me.btnClose.UseVisualStyleBackColor = True
         '
         'btnMin
@@ -431,6 +438,7 @@ Partial Class frmInventory
         Me.btnMin.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         Me.btnMin.Size = New System.Drawing.Size(25, 25)
         Me.btnMin.TabIndex = 12
+        Me.btnMin.TabStop = False
         Me.btnMin.UseVisualStyleBackColor = True
         '
         'lblTitle
@@ -499,6 +507,7 @@ Partial Class frmInventory
         Me.dgvPics.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvPics.Size = New System.Drawing.Size(150, 704)
         Me.dgvPics.TabIndex = 0
+        Me.dgvPics.TabStop = False
         '
         'pnlInput
         '
@@ -575,6 +584,7 @@ Partial Class frmInventory
         Me.dgvInventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvInventory.Size = New System.Drawing.Size(1115, 680)
         Me.dgvInventory.TabIndex = 184
+        Me.dgvInventory.TabStop = False
         '
         'pnlPics
         '
@@ -623,6 +633,7 @@ Partial Class frmInventory
         Me.btnPicsOPanel.Name = "btnPicsOPanel"
         Me.btnPicsOPanel.Size = New System.Drawing.Size(40, 40)
         Me.btnPicsOPanel.TabIndex = 204
+        Me.btnPicsOPanel.TabStop = False
         Me.btnPicsOPanel.UseVisualStyleBackColor = True
         '
         'btnPicsPanel
@@ -639,6 +650,7 @@ Partial Class frmInventory
         Me.btnPicsPanel.Name = "btnPicsPanel"
         Me.btnPicsPanel.Size = New System.Drawing.Size(40, 40)
         Me.btnPicsPanel.TabIndex = 192
+        Me.btnPicsPanel.TabStop = False
         Me.btnPicsPanel.UseVisualStyleBackColor = True
         '
         'pnlButtonsPicO
@@ -668,6 +680,7 @@ Partial Class frmInventory
         Me.btnPicsO.Name = "btnPicsO"
         Me.btnPicsO.Size = New System.Drawing.Size(30, 30)
         Me.btnPicsO.TabIndex = 195
+        Me.btnPicsO.TabStop = False
         Me.btnPicsO.UseVisualStyleBackColor = True
         '
         'btnUpPicO
@@ -684,6 +697,7 @@ Partial Class frmInventory
         Me.btnUpPicO.Name = "btnUpPicO"
         Me.btnUpPicO.Size = New System.Drawing.Size(30, 30)
         Me.btnUpPicO.TabIndex = 197
+        Me.btnUpPicO.TabStop = False
         Me.btnUpPicO.UseVisualStyleBackColor = True
         '
         'btnDownPicO
@@ -700,6 +714,7 @@ Partial Class frmInventory
         Me.btnDownPicO.Name = "btnDownPicO"
         Me.btnDownPicO.Size = New System.Drawing.Size(30, 30)
         Me.btnDownPicO.TabIndex = 196
+        Me.btnDownPicO.TabStop = False
         Me.btnDownPicO.UseVisualStyleBackColor = True
         '
         'btnDeletePicO
@@ -716,6 +731,7 @@ Partial Class frmInventory
         Me.btnDeletePicO.Name = "btnDeletePicO"
         Me.btnDeletePicO.Size = New System.Drawing.Size(30, 30)
         Me.btnDeletePicO.TabIndex = 200
+        Me.btnDeletePicO.TabStop = False
         Me.btnDeletePicO.UseVisualStyleBackColor = True
         '
         'btnRotateLO
@@ -732,6 +748,7 @@ Partial Class frmInventory
         Me.btnRotateLO.Name = "btnRotateLO"
         Me.btnRotateLO.Size = New System.Drawing.Size(30, 30)
         Me.btnRotateLO.TabIndex = 198
+        Me.btnRotateLO.TabStop = False
         Me.btnRotateLO.UseVisualStyleBackColor = True
         '
         'btnRotateRO
@@ -748,6 +765,7 @@ Partial Class frmInventory
         Me.btnRotateRO.Name = "btnRotateRO"
         Me.btnRotateRO.Size = New System.Drawing.Size(30, 30)
         Me.btnRotateRO.TabIndex = 199
+        Me.btnRotateRO.TabStop = False
         Me.btnRotateRO.UseVisualStyleBackColor = True
         '
         'pnlButtonsPic
@@ -777,6 +795,7 @@ Partial Class frmInventory
         Me.btnPics.Name = "btnPics"
         Me.btnPics.Size = New System.Drawing.Size(30, 30)
         Me.btnPics.TabIndex = 189
+        Me.btnPics.TabStop = False
         Me.btnPics.UseVisualStyleBackColor = True
         '
         'btnUpPic
@@ -793,6 +812,7 @@ Partial Class frmInventory
         Me.btnUpPic.Name = "btnUpPic"
         Me.btnUpPic.Size = New System.Drawing.Size(30, 30)
         Me.btnUpPic.TabIndex = 191
+        Me.btnUpPic.TabStop = False
         Me.btnUpPic.UseVisualStyleBackColor = True
         '
         'btnDownPic
@@ -809,6 +829,7 @@ Partial Class frmInventory
         Me.btnDownPic.Name = "btnDownPic"
         Me.btnDownPic.Size = New System.Drawing.Size(30, 30)
         Me.btnDownPic.TabIndex = 190
+        Me.btnDownPic.TabStop = False
         Me.btnDownPic.UseVisualStyleBackColor = True
         '
         'btnRotateL
@@ -825,6 +846,7 @@ Partial Class frmInventory
         Me.btnRotateL.Name = "btnRotateL"
         Me.btnRotateL.Size = New System.Drawing.Size(30, 30)
         Me.btnRotateL.TabIndex = 192
+        Me.btnRotateL.TabStop = False
         Me.btnRotateL.UseVisualStyleBackColor = True
         '
         'btnRotateR
@@ -841,6 +863,7 @@ Partial Class frmInventory
         Me.btnRotateR.Name = "btnRotateR"
         Me.btnRotateR.Size = New System.Drawing.Size(30, 30)
         Me.btnRotateR.TabIndex = 193
+        Me.btnRotateR.TabStop = False
         Me.btnRotateR.UseVisualStyleBackColor = True
         '
         'btnDeletePic
@@ -857,6 +880,7 @@ Partial Class frmInventory
         Me.btnDeletePic.Name = "btnDeletePic"
         Me.btnDeletePic.Size = New System.Drawing.Size(30, 30)
         Me.btnDeletePic.TabIndex = 194
+        Me.btnDeletePic.TabStop = False
         Me.btnDeletePic.UseVisualStyleBackColor = True
         '
         'pnlButtonsInv
@@ -888,6 +912,7 @@ Partial Class frmInventory
         Me.btnSeizure.Name = "btnSeizure"
         Me.btnSeizure.Size = New System.Drawing.Size(30, 30)
         Me.btnSeizure.TabIndex = 191
+        Me.btnSeizure.TabStop = False
         Me.btnSeizure.UseVisualStyleBackColor = True
         '
         'btnDelete
@@ -904,6 +929,7 @@ Partial Class frmInventory
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(30, 30)
         Me.btnDelete.TabIndex = 190
+        Me.btnDelete.TabStop = False
         Me.btnDelete.UseVisualStyleBackColor = True
         '
         'btnRenumber
@@ -920,6 +946,7 @@ Partial Class frmInventory
         Me.btnRenumber.Name = "btnRenumber"
         Me.btnRenumber.Size = New System.Drawing.Size(30, 30)
         Me.btnRenumber.TabIndex = 189
+        Me.btnRenumber.TabStop = False
         Me.btnRenumber.UseVisualStyleBackColor = True
         '
         'btnAddRuimte
@@ -936,6 +963,7 @@ Partial Class frmInventory
         Me.btnAddRuimte.Name = "btnAddRuimte"
         Me.btnAddRuimte.Size = New System.Drawing.Size(30, 30)
         Me.btnAddRuimte.TabIndex = 183
+        Me.btnAddRuimte.TabStop = False
         Me.btnAddRuimte.UseVisualStyleBackColor = True
         '
         'btnUp
@@ -952,6 +980,7 @@ Partial Class frmInventory
         Me.btnUp.Name = "btnUp"
         Me.btnUp.Size = New System.Drawing.Size(30, 30)
         Me.btnUp.TabIndex = 187
+        Me.btnUp.TabStop = False
         Me.btnUp.UseVisualStyleBackColor = True
         '
         'btnAdd
@@ -968,6 +997,7 @@ Partial Class frmInventory
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(30, 30)
         Me.btnAdd.TabIndex = 185
+        Me.btnAdd.TabStop = False
         Me.btnAdd.UseVisualStyleBackColor = True
         '
         'btnImport
@@ -984,6 +1014,7 @@ Partial Class frmInventory
         Me.btnImport.Name = "btnImport"
         Me.btnImport.Size = New System.Drawing.Size(30, 30)
         Me.btnImport.TabIndex = 188
+        Me.btnImport.TabStop = False
         Me.btnImport.UseVisualStyleBackColor = True
         '
         'btnDown
@@ -1000,6 +1031,7 @@ Partial Class frmInventory
         Me.btnDown.Name = "btnDown"
         Me.btnDown.Size = New System.Drawing.Size(30, 30)
         Me.btnDown.TabIndex = 186
+        Me.btnDown.TabStop = False
         Me.btnDown.UseVisualStyleBackColor = True
         '
         'frmInventory
