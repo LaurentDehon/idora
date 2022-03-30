@@ -134,46 +134,66 @@
         Return (easter_date)
     End Function
     Public Sub CheckHolidays()
+        'New Year
         If Now.Month = 1 AndAlso (Now.Day >= 1 AndAlso Now.Day <= 3) Then
-            frmMain.picTopRight.Image = My.Resources.new_year
+            frmMain.picHoliday.Size = New Size(500, 301)
+            frmMain.picHoliday.Image = My.Resources.new_year
+            frmMain.picHoliday.BringToFront()
             Exit Sub
         End If
+        'Valentine's Day
         If Now.Month = 2 AndAlso Now.Day = 14 Then
             Exit Sub
         End If
+        'St Patrick
         If Now.Month = 3 AndAlso Now.Day = 17 Then
             Exit Sub
         End If
-        If Now.Month = 3 AndAlso Now.Day = 18 Then
-            frmMain.picBottomLeft.Image = My.Resources.spring
+        'Spring
+        If Now.Month = 3 AndAlso Now.Day = 30 Then
+            frmMain.picHoliday.Size = New Size(400, 285)
+            frmMain.picHoliday.Image = My.Resources.spring
+            frmMain.picHoliday.BringToFront()
             Exit Sub
         End If
+        '1st April
         If Now.Month = 4 AndAlso Now.Day = 1 Then
             Exit Sub
         End If
+        'Easter
         Dim easter As Date = GetEasterDate(Now.Year)
         If Now.Date >= easter.AddDays(-5) AndAlso Now.Date <= easter.AddDays(5) Then
             Exit Sub
         End If
+        'Summer
         If Now.Month = 6 AndAlso Now.Day = 21 Then
             Exit Sub
         End If
+        'Autumn
         If Now.Month = 9 AndAlso Now.Day = 21 Then
             Exit Sub
         End If
+        'Halloween
         If (Now.Month = 10 AndAlso Now.Day = 31) OrElse (Now.Month = 11 AndAlso Now.Day = 1) Then
             Exit Sub
         End If
+        'St Nicolas
         If Now.Month = 12 AndAlso Now.Day = 6 Then
             Exit Sub
         End If
+        'Winter
         If Now.Month = 12 AndAlso Now.Day = 21 Then
             Exit Sub
         End If
+        'Christmas
         If Now.Month = 12 AndAlso (Now.Day >= 23 AndAlso Now.Day <= 27) Then
             Exit Sub
         End If
+        'New Year
         If Now.Month = 12 AndAlso (Now.Day >= 29 AndAlso Now.Day <= 31) Then
+            frmMain.picHoliday.Size = New Size(500, 301)
+            frmMain.picHoliday.Image = My.Resources.new_year
+            frmMain.picHoliday.BringToFront()
             Exit Sub
         End If
     End Sub
