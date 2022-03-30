@@ -20,6 +20,7 @@ Public Class frmInventory
     Dim Prefix As String
     Dim Num As String = String.Empty
     Public Del As Boolean = False
+    Public NewRoom As Boolean = False
     Dim inv_count As Integer = 0
     Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
         Get
@@ -612,15 +613,18 @@ Public Class frmInventory
                 Exit Sub
             End If
             'Rename picture if the area name has been changed
-            If txtNumR.Modified AndAlso Not IsDBNull(Num) AndAlso Num <> String.Empty Then
-                For Each imagefile As String In Directory.GetFiles(picsF)
-                    If imagefile.Contains(Num) Then
-                        Dim NewNum As String = imagefile.Replace(Num, txtNumR.Text)
-                        NewNum = Path.GetFileName(NewNum)
-                        My.Computer.FileSystem.RenameFile(imagefile, NewNum)
-                    End If
-                Next
+            If NewRoom = False Then
+                If txtNumR.Modified AndAlso Not IsDBNull(Num) AndAlso Num <> String.Empty Then
+                    For Each imagefile As String In Directory.GetFiles(picsF)
+                        If imagefile.Contains(Num) Then
+                            Dim NewNum As String = imagefile.Replace(Num, txtNumR.Text)
+                            NewNum = Path.GetFileName(NewNum)
+                            My.Computer.FileSystem.RenameFile(imagefile, NewNum)
+                        End If
+                    Next
+                End If
             End If
+            NewRoom = False
             If dgvInventory.Rows.Count > 0 Then dgvInventory.SelectedRows(0).Cells(3).Value = txtNumR.Text.TrimEnd(CChar(" "))
         Catch exDNF As DirectoryNotFoundException
             Return
@@ -774,6 +778,8 @@ Public Class frmInventory
         'Draw room
         If dgvInventory.Rows(e.RowIndex).Cells(3).Value.ToString.ToUpper.Contains("RUIMTE") OrElse dgvInventory.Rows(e.RowIndex).Cells(3).Value.ToString.ToUpper.Contains("ZONE") Then
             dgvInventory.Rows(e.RowIndex).DefaultCellStyle.Font = New Font("Calibri", 12, FontStyle.Bold)
+        Else
+            dgvInventory.Rows(e.RowIndex).DefaultCellStyle.Font = New Font("Calibri", 12, FontStyle.Regular)
         End If
     End Sub
     Private Sub dgvInventory_Click(sender As Object, e As EventArgs) Handles dgvInventory.Click
@@ -787,6 +793,7 @@ Public Class frmInventory
         End If
     End Sub
     Private Sub btnAddRuimte_Click(sender As Object, e As EventArgs) Handles btnAddRuimte.Click
+        NewRoom = True
         AddRoom()
     End Sub
     Private Sub AddRoom()
@@ -925,29 +932,9 @@ Public Class frmInventory
             End If
             Reorder(0)
             If dgvInventory.Rows.Count > 0 Then
-                dgvInventory.CurrentCell = dgvInventory(3, dgvInventory.Rows.Count - 1)
+                dgvInventory.Rows(i).Selected = True
             Else
-                ShowNoInput()
-            End If
-            If j = 1 Then
-                If dgvInventory.Rows.Count > 0 Then
-                    If i = dgvInventory.Rows.Count Then
-                        dgvInventory.CurrentCell = dgvInventory(3, i - 1)
-                    Else
-                        dgvInventory.CurrentCell = dgvInventory(3, i)
-                    End If
-                ElseIf dgvInventory.Rows.Count = 0 Then
-                    ShowNoInput()
-                End If
-            Else
-                dgvInventory.ClearSelection()
-                If dgvInventory.Rows.Count > 0 Then
-                    If i > 0 Then
-                        dgvInventory.CurrentCell = dgvInventory(3, i - 1)
-                    Else
-                        dgvInventory.CurrentCell = dgvInventory(3, 0)
-                    End If
-                End If
+                ShowRoomInput()
             End If
             Del = False
             LoadPics()
@@ -1025,8 +1012,8 @@ Public Class frmInventory
                                     MsgBox($"{NewNum} -> temp.jpg")
                                     My.Computer.FileSystem.RenameFile(imagefile, Path.GetFileName(NewNum))
                                     MsgBox($"{imagefile} -> {Path.GetFileName(NewNum)}")
-                                    My.Computer.FileSystem.RenameFile($"{picsF}\temp.jpg", Path.GetFileName(imagefile))
-                                    MsgBox($"{picsF}\temp.jpg -> {Path.GetFileName(imagefile)}")
+                                    My.Computer.FileSystem.RenameFile($"{picsF}temp.jpg", Path.GetFileName(imagefile))
+                                    MsgBox($"{picsF}temp.jpg -> {Path.GetFileName(imagefile)}")
                                 End Try
                             End If
                         Next
@@ -1254,45 +1241,57 @@ Public Class frmInventory
         End If
     End Sub
     Private Sub dgvPics_DragDrop(sender As Object, e As DragEventArgs) Handles dgvPics.DragDrop
-        'Drag & drop image
-        Dim DroppedFiles() As String = CType(e.Data.GetData(DataFormats.FileDrop), String())
-        Dim i As Integer = 1
-        Cursor = Cursors.WaitCursor
-        Prefix = InventoryNum3Digits(CStr(DirectCast(INVENTORYBindingSource.Current, DataRowView).Item(3)))
-        For Each path In DroppedFiles
-            Dim pic As Image = Image.FromFile(path)
-            'Check if image already exists
-            While File.Exists($"{picsF}{Prefix}-{i:D2}.jpg")
-                'if yes, increment i
-                i = i + 1
-            End While
-            'Resize & rotate image
-            Dim OriginalImg As Image = pic
-            Dim ResizedImg As Image
-            Select Case CInt(ImageOrientation(OriginalImg))
-                Case 0, 1
-                    If OriginalImg.Width < OriginalImg.Height Then
+        'Check if room has been named
+        If txtNumR.Text.Replace(" ", "") = "RUIMTE" OrElse txtNumR.Text.Replace(" ", "") = "ZONE" Then
+            If Lang = 1 Then
+                MessageBox.Show("Geef de ruimte een naam a.u.b", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                MessageBox.Show("Veuillez nommer la zone s.v.p", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+            txtNumR.Focus()
+            txtNumR.SelectionLength = txtNumR.TextLength
+            Exit Sub
+        Else
+            'Drag & drop image
+            Dim DroppedFiles() As String = CType(e.Data.GetData(DataFormats.FileDrop), String())
+            Dim i As Integer = 1
+            Cursor = Cursors.WaitCursor
+            Prefix = InventoryNum3Digits(CStr(DirectCast(INVENTORYBindingSource.Current, DataRowView).Item(3)))
+            For Each path In DroppedFiles
+                Dim pic As Image = Image.FromFile(path)
+                'Check if image already exists
+                While File.Exists($"{picsF}{Prefix}-{i:D2}.jpg")
+                    'if yes, increment i
+                    i += 1
+                End While
+                'Resize & rotate image
+                Dim OriginalImg As Image = pic
+                Dim ResizedImg As Image
+                Select Case CInt(ImageOrientation(OriginalImg))
+                    Case 0, 1
+                        If OriginalImg.Width < OriginalImg.Height Then
+                            ResizedImg = ScaleImagePortrait(OriginalImg)
+                            ResizedImg.Save($"{picsF}{Prefix}-{i:D2}.jpg", Imaging.ImageFormat.Jpeg)
+                        Else
+                            ResizedImg = ScaleImageLandscape(OriginalImg)
+                            ResizedImg.Save($"{picsF}{Prefix}-{i:D2}.jpg", Imaging.ImageFormat.Jpeg)
+                        End If
+                    Case 6
+                        OriginalImg.RotateFlip(RotateFlipType.Rotate90FlipNone)
                         ResizedImg = ScaleImagePortrait(OriginalImg)
                         ResizedImg.Save($"{picsF}{Prefix}-{i:D2}.jpg", Imaging.ImageFormat.Jpeg)
-                    Else
-                        ResizedImg = ScaleImageLandscape(OriginalImg)
+                    Case 8
+                        OriginalImg.RotateFlip(RotateFlipType.Rotate270FlipNone)
+                        ResizedImg = ScaleImagePortrait(OriginalImg)
                         ResizedImg.Save($"{picsF}{Prefix}-{i:D2}.jpg", Imaging.ImageFormat.Jpeg)
-                    End If
-                Case 6
-                    OriginalImg.RotateFlip(RotateFlipType.Rotate90FlipNone)
-                    ResizedImg = ScaleImagePortrait(OriginalImg)
-                    ResizedImg.Save($"{picsF}{Prefix}-{i:D2}.jpg", Imaging.ImageFormat.Jpeg)
-                Case 8
-                    OriginalImg.RotateFlip(RotateFlipType.Rotate270FlipNone)
-                    ResizedImg = ScaleImagePortrait(OriginalImg)
-                    ResizedImg.Save($"{picsF}{Prefix}-{i:D2}.jpg", Imaging.ImageFormat.Jpeg)
-            End Select
-        Next
-        'Reload images in the datagridview
-        LoadPics()
-        dgvPics.FirstDisplayedScrollingRowIndex = dgvPics.RowCount - 1
-        dgvPics.Rows(dgvPics.RowCount - 1).Selected = True
-        Cursor = Cursors.Default
+                End Select
+            Next
+            'Reload images in the datagridview
+            LoadPics()
+            dgvPics.FirstDisplayedScrollingRowIndex = dgvPics.RowCount - 1
+            dgvPics.Rows(dgvPics.RowCount - 1).Selected = True
+            Cursor = Cursors.Default
+        End If
     End Sub
 
     Private Sub dgvPicsO_DragDrop(sender As Object, e As DragEventArgs) Handles dgvPicsO.DragDrop
@@ -1904,9 +1903,6 @@ Public Class frmInventory
         txtDesc.Show()
         txtSamples.Show()
         cmbSamplesT.Show()
-    End Sub
-    Private Sub ShowNoInput()
-        pnlInput.Hide()
     End Sub
     Public Sub EnableDoubleBuffered(dgv As DataGridView, setting As Boolean)
         'Speed up datagridview scrolling

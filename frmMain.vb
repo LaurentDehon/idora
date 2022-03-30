@@ -42,7 +42,7 @@ Public Class frmMain
         pnlMenu.Controls.Add(leftBorderBtn)
         AddBorderToPanel(pnlCenter, picDORA, theme("High"))
         CheckBirthday()
-        CheckHolidays()
+        'CheckHolidays()
         'Fill and sort datatable
         BACKUPTableAdapter.Fill(DORADbDS.BACKUP)
         BACKUPBindingSource.Sort = "[ID] ASC"

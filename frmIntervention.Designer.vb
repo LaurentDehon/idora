@@ -1259,6 +1259,7 @@ Partial Class frmIntervention
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(25, 25)
         Me.btnClose.TabIndex = 120
+        Me.btnClose.TabStop = False
         Me.btnClose.UseVisualStyleBackColor = True
         '
         'btnMin
@@ -1280,6 +1281,7 @@ Partial Class frmIntervention
         Me.btnMin.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         Me.btnMin.Size = New System.Drawing.Size(25, 25)
         Me.btnMin.TabIndex = 12
+        Me.btnMin.TabStop = False
         Me.btnMin.UseVisualStyleBackColor = True
         '
         'lblTitle
@@ -1326,6 +1328,7 @@ Partial Class frmIntervention
         Me.btnUnlock.Name = "btnUnlock"
         Me.btnUnlock.Size = New System.Drawing.Size(131, 60)
         Me.btnUnlock.TabIndex = 19
+        Me.btnUnlock.TabStop = False
         Me.btnUnlock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnUnlock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnUnlock.UseVisualStyleBackColor = False
@@ -1345,6 +1348,7 @@ Partial Class frmIntervention
         Me.btnInv.Name = "btnInv"
         Me.btnInv.Size = New System.Drawing.Size(131, 60)
         Me.btnInv.TabIndex = 18
+        Me.btnInv.TabStop = False
         Me.btnInv.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnInv.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnInv.UseVisualStyleBackColor = False
@@ -1364,6 +1368,7 @@ Partial Class frmIntervention
         Me.btnNICC.Name = "btnNICC"
         Me.btnNICC.Size = New System.Drawing.Size(131, 60)
         Me.btnNICC.TabIndex = 17
+        Me.btnNICC.TabStop = False
         Me.btnNICC.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnNICC.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnNICC.UseVisualStyleBackColor = False
@@ -1383,6 +1388,7 @@ Partial Class frmIntervention
         Me.btnIntReport.Name = "btnIntReport"
         Me.btnIntReport.Size = New System.Drawing.Size(131, 60)
         Me.btnIntReport.TabIndex = 16
+        Me.btnIntReport.TabStop = False
         Me.btnIntReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnIntReport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnIntReport.UseVisualStyleBackColor = False
@@ -1402,6 +1408,7 @@ Partial Class frmIntervention
         Me.btnFolder.Name = "btnFolder"
         Me.btnFolder.Size = New System.Drawing.Size(131, 60)
         Me.btnFolder.TabIndex = 15
+        Me.btnFolder.TabStop = False
         Me.btnFolder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnFolder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnFolder.UseVisualStyleBackColor = False
@@ -1421,6 +1428,7 @@ Partial Class frmIntervention
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(131, 60)
         Me.btnSave.TabIndex = 14
+        Me.btnSave.TabStop = False
         Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnSave.UseVisualStyleBackColor = False
@@ -1442,6 +1450,7 @@ Partial Class frmIntervention
         Me.btnExit.Padding = New System.Windows.Forms.Padding(11, 10, 11, 10)
         Me.btnExit.Size = New System.Drawing.Size(131, 60)
         Me.btnExit.TabIndex = 13
+        Me.btnExit.TabStop = False
         Me.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnExit.UseVisualStyleBackColor = False

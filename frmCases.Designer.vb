@@ -995,6 +995,7 @@ Partial Class frmCases
         Me.btnFolder.Padding = New System.Windows.Forms.Padding(11, 10, 11, 10)
         Me.btnFolder.Size = New System.Drawing.Size(131, 60)
         Me.btnFolder.TabIndex = 15
+        Me.btnFolder.TabStop = False
         Me.btnFolder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnFolder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnFolder.UseVisualStyleBackColor = False
@@ -1015,6 +1016,7 @@ Partial Class frmCases
         Me.btnSave.Padding = New System.Windows.Forms.Padding(11, 10, 11, 10)
         Me.btnSave.Size = New System.Drawing.Size(131, 60)
         Me.btnSave.TabIndex = 14
+        Me.btnSave.TabStop = False
         Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnSave.UseVisualStyleBackColor = False
@@ -1036,6 +1038,7 @@ Partial Class frmCases
         Me.btnExit.Padding = New System.Windows.Forms.Padding(11, 10, 11, 10)
         Me.btnExit.Size = New System.Drawing.Size(131, 60)
         Me.btnExit.TabIndex = 13
+        Me.btnExit.TabStop = False
         Me.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnExit.UseVisualStyleBackColor = False
@@ -1103,6 +1106,7 @@ Partial Class frmCases
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(25, 25)
         Me.btnClose.TabIndex = 120
+        Me.btnClose.TabStop = False
         Me.btnClose.UseVisualStyleBackColor = True
         '
         'btnMin
@@ -1124,6 +1128,7 @@ Partial Class frmCases
         Me.btnMin.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         Me.btnMin.Size = New System.Drawing.Size(25, 25)
         Me.btnMin.TabIndex = 12
+        Me.btnMin.TabStop = False
         Me.btnMin.UseVisualStyleBackColor = True
         '
         'pnlNSPMain
