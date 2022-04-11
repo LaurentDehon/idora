@@ -300,7 +300,7 @@ Public Class frmCasesInterventions
             DateInt = CDate(DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("DATE INT"))
             AdressInt = CStr(DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("ADRESS INT"))
             CityInt = CStr(DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("CITY INT"))
-            Dim CaseRow() As DataRow = DORADbDS.Tables("CASES").Select($"[CASE NAME] = '{dgvInterventions.Item(1, dgvInterventions.CurrentRow.Index).Value}'")
+            Dim CaseRow() As DataRow = DORADbDS.Tables("CASES").Select($"[CASE NAME] = '{dgvInterventions.Item(2, dgvInterventions.CurrentRow.Index).Value}'")
             If CaseRow.Length > 0 Then
                 IntLang = CStr(CaseRow(0)("LANG"))
                 If Not IsDBNull(CaseRow(0)("FILE NUM")) Then CRUFile = CStr(CaseRow(0)("FILE NUM"))

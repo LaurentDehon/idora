@@ -137,21 +137,32 @@
         'New Year
         If Now.Month = 1 AndAlso (Now.Day >= 1 AndAlso Now.Day <= 3) Then
             frmMain.picHoliday.Size = New Size(500, 301)
+            frmMain.picHoliday.Location = New Point(frmMain.pnlCenter.Width - frmMain.picHoliday.Width - 10, 10)
+            frmMain.picHoliday.Left = frmMain.pnlCenter.Width - 500
             frmMain.picHoliday.Image = My.Resources.new_year
             frmMain.picHoliday.BringToFront()
             Exit Sub
         End If
         'Valentine's Day
         If Now.Month = 2 AndAlso Now.Day = 14 Then
+            frmMain.picHoliday.Size = New Size(400, 340)
+            frmMain.picHoliday.Location = New Point(frmMain.pnlCenter.Width - frmMain.picHoliday.Width - 10, 10)
+            frmMain.picHoliday.Image = My.Resources.valentine
+            frmMain.picHoliday.BringToFront()
             Exit Sub
         End If
         'St Patrick
         If Now.Month = 3 AndAlso Now.Day = 17 Then
+            frmMain.picHoliday.Size = New Size(400, 273)
+            frmMain.picHoliday.Location = New Point(frmMain.pnlCenter.Width - frmMain.picHoliday.Width - 10, 10)
+            frmMain.picHoliday.Image = My.Resources.patrick
+            frmMain.picHoliday.BringToFront()
             Exit Sub
         End If
         'Spring
         If Now.Month = 3 AndAlso Now.Day = 30 Then
-            frmMain.picHoliday.Size = New Size(400, 285)
+            frmMain.picHoliday.Size = New Size(383, 400)
+            frmMain.picHoliday.Location = New Point(frmMain.pnlCenter.Width - frmMain.picHoliday.Width - 10, 10)
             frmMain.picHoliday.Image = My.Resources.spring
             frmMain.picHoliday.BringToFront()
             Exit Sub

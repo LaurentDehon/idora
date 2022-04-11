@@ -17,7 +17,7 @@ Public Class frmMain
         End Get
     End Property
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MaximumSize = Screen.FromRectangle(Bounds).WorkingArea.Size
+        MaximumSize = New Size(Screen.FromControl(Me).WorkingArea.Width * 2, Screen.FromControl(Me).WorkingArea.Height)
         If My.Settings.frmMain_max = True Then
             WindowState = FormWindowState.Maximized
         Else
@@ -43,7 +43,7 @@ Public Class frmMain
         pnlMenu.Controls.Add(leftBorderBtn)
         AddBorderToPanel(pnlCenter, picDORA, theme("High"))
         CheckBirthday()
-        CheckHolidays()
+        'CheckHolidays()
         'Fill and sort datatable
         BACKUPTableAdapter.Fill(DORADbDS.BACKUP)
         BACKUPBindingSource.Sort = "[ID] ASC"

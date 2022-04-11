@@ -65,6 +65,7 @@ Public Class frmInventory
             LoadPics()
             LoadPicsO()
             ShowPics()
+            CheckInventory()
         Catch ex As Exception
             If Lang = 1 Then
                 MessageBox.Show(ex.Message, "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -122,7 +123,7 @@ Public Class frmInventory
     End Sub
 #End Region
 #Region "Buttons"
-    Private Sub btnSave_Click(sender As Object, e As EventArgs)
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         'Save
         Dim index = dgvInventory.FirstDisplayedScrollingRowIndex
         Try
@@ -810,6 +811,7 @@ Public Class frmInventory
             dgvInventory.CurrentCell = dgvInventory(3, index + 1)
             'Show panel
             ShowRoomInput()
+            CheckInventory()
             'Add text to room number
             If IntLang = "Nederlands" Then
                 txtNumR.Text = "RUIMTE "
@@ -847,6 +849,7 @@ Public Class frmInventory
                 Next
                 'Add a new entry, incrementing ID and ORDER (both red from previous entry)
                 INVENTORYBindingSource.AddNew()
+                CheckInventory()
                 DirectCast(INVENTORYBindingSource.Current, DataRowView).Item(1) = IntNum
                 DirectCast(INVENTORYBindingSource.Current, DataRowView).Item(2) = index + 1
                 If index < INVENTORYBindingSource.Count - 2 Then
@@ -860,6 +863,7 @@ Public Class frmInventory
             Else
                 'Add a new entry, incrementing ID (red on form load) and setting ORDER to 0
                 INVENTORYBindingSource.AddNew()
+                CheckInventory()
                 DirectCast(INVENTORYBindingSource.Current, DataRowView).Item(1) = IntNum
                 DirectCast(INVENTORYBindingSource.Current, DataRowView).Item(2) = 0
                 txtNum.Focus()
@@ -938,6 +942,7 @@ Public Class frmInventory
             End If
             Del = False
             LoadPics()
+            CheckInventory()
         Catch ex As Exception
             If Lang = 1 Then
                 MessageBox.Show(ex.Message, "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1888,6 +1893,45 @@ Public Class frmInventory
         'Auto save
         btnSave_Click(sender, e)
     End Sub
+    Private Sub CheckInventory()
+        If dgvInventory.Rows.Count = 0 Then
+            For Each c In pnlInput.Controls
+                c.enabled = False
+            Next
+            btnPicsPanel.Enabled = False
+            For Each c In pnlButtonsInv.Controls
+                c.enabled = False
+            Next
+            For Each c In pnlButtonsPic.Controls
+                c.enabled = False
+            Next
+            For Each c In pnlButtonsPicO.Controls
+                c.enabled = False
+            Next
+            dgvInventory.Enabled = False
+            dgvPics.Enabled = False
+            dgvPicsO.Enabled = False
+            btnAddRuimte.Enabled = True
+            btnAdd.Enabled = True
+        Else
+            For Each c In pnlInput.Controls
+                c.enabled = True
+            Next
+            btnPicsPanel.Enabled = True
+            For Each c In pnlButtonsInv.Controls
+                c.enabled = True
+            Next
+            For Each c In pnlButtonsPic.Controls
+                c.enabled = True
+            Next
+            For Each c In pnlButtonsPicO.Controls
+                c.enabled = True
+            Next
+            dgvInventory.Enabled = True
+            dgvPics.Enabled = True
+            dgvPicsO.Enabled = True
+        End If
+    End Sub
     Private Sub ShowRoomInput()
         txtNum.Hide()
         txtDesc.Hide()
@@ -1952,14 +1996,6 @@ Public Class frmInventory
                 AddBorderToPanel(pnlCenter, c, theme("High"))
             End If
         Next
-    End Sub
-
-    Private Sub ShowPicsO(sender As Object, e As EventArgs) Handles btnPicsOPanel.Click
-
-    End Sub
-
-    Private Sub ShowPics(sender As Object, e As EventArgs) Handles btnPicsPanel.Click
-
     End Sub
 #End Region
 

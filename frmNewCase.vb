@@ -5,6 +5,7 @@ Imports System.Runtime.InteropServices
 Imports System.IO
 Public Class frmNewCase
     Dim User As String
+    Dim datefilled As Boolean = False
     Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
         Get
             Dim cp As CreateParams = MyBase.CreateParams
@@ -49,7 +50,7 @@ Public Class frmNewCase
         'Check if case doesn't exists
         If CASESBindingSource.Find("CASE NAME", txtCaseName.Text) = -1 Then
             'Check if all required fields are filled
-            If txtCaseName.Text <> String.Empty AndAlso cmbUnit.Text <> String.Empty AndAlso cmbTypeOfCase.Text <> String.Empty AndAlso cmbCMInt.Text <> String.Empty AndAlso txtDateFacts.Text <> String.Empty AndAlso cmbLang.Text <> String.Empty Then
+            If txtCaseName.Text <> String.Empty AndAlso cmbUnit.Text <> String.Empty AndAlso cmbTypeOfCase.Text <> String.Empty AndAlso cmbCMInt.Text <> String.Empty AndAlso datefilled = True AndAlso cmbLang.Text <> String.Empty Then
                 'Assign a new file number
                 Dim MaxFileNum As Integer = CInt(DirectCast(CASESBindingSource.Current, DataRowView).Item("FILE NUM").ToString.Substring(6).ToString) + 1
                 Dim NewFileNum As String = MaxFileNum.ToString("0000")
@@ -168,6 +169,7 @@ Public Class frmNewCase
         'If date entered, display it
         txtDateFacts.Format = DateTimePickerFormat.Custom
         txtDateFacts.CustomFormat = "dd/MM/yyyy"
+        datefilled = True
     End Sub
     Private Sub cmbNoInput(sender As Object, e As KeyPressEventArgs) Handles cmbTypeOfCase.KeyPress, cmbLang.KeyPress, cmbCMInt.KeyPress
         'Disable user input
