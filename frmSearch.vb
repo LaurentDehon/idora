@@ -40,6 +40,7 @@ Public Class frmSearch
         user_color = user_list(3)
         lblCount.Visible = False
         frmMain.CITIESBindingSource1.Sort = "[CITY] ASC"
+        frmMain.CITIESBindingSource2.Filter = String.Empty
         cmbCity.DataSource = frmMain.CITIESBindingSource1
         cmbCity.DisplayMember = "CITY"
         cmbCity.SelectedIndex = -1
@@ -220,11 +221,11 @@ Public Class frmSearch
                 NICCREPORTC = ds.Tables("INTERVENTIONS").Rows(i).Item("NICC CONC").ToString
                 TYPEOFINT = ds.Tables("INTERVENTIONS").Rows(i).Item("TYPE OF INT").ToString
                 TYPEOFPLACE = ds.Tables("INTERVENTIONS").Rows(i).Item("TYPE OF PLACE").ToString
-                Dim CityRow = ds.Tables("CITIES").Select("[ZIP CODE] = '" & ZIPFACTS & "' AND [CITY] = '" & CITYFACTS & "'")
-                If CityRow.Length > 0 Then
-                    ARRO = CStr(CityRow(0).Item("ARRO"))
+                frmMain.CITIESBindingSource2.Filter = $"[ZIP CODE] = '{ZIPFACTS}' AND [CITY] = '{CITYFACTS}'"
+                If frmMain.CITIESBindingSource2.Count > 0 Then
+                    ARRO = CStr(CType(frmMain.CITIESBindingSource2.List(0), DataRowView).Item("ARRO"))
                 End If
-                Dim CaseRow = ds.Tables("CASES").Select("[CASE NAME] = '" & CASENAME & "'")
+                Dim CaseRow = ds.Tables("CASES").Select($"[CASE NAME] = '{CASENAME}'")
                 If CaseRow.Length > 0 Then
                     If Not IsDBNull(CaseRow(0).Item("CMINT")) Then MANAGER = CStr(CaseRow(0).Item("CMINT"))
                     If Not IsDBNull(CaseRow(0).Item("UNIT")) Then UNIT = CStr(CaseRow(0).Item("UNIT"))
@@ -264,6 +265,16 @@ Public Class frmSearch
         Cursor = Cursors.WaitCursor
         Try
             StatsDV = New DataView(memberToDs(DORADbDS).Tables("INTS"))
+            Dim s As Integer = 0
+            Dim r As Integer = 0
+            Dim o As Integer = 0
+            If dgvStats.RowCount > 0 Then
+                r = dgvStats.FirstDisplayedScrollingRowIndex
+            End If
+            o = dgvStats.HorizontalScrollingOffset
+            If dgvStats.SelectedRows.Count > 0 Then
+                s = dgvStats.SelectedRows(0).Index
+            End If
             Dim strFilterDate As String
             Dim strFilterCase As String = String.Empty
             Dim strFilterInt As String = String.Empty
@@ -395,6 +406,9 @@ Public Class frmSearch
             StatsDV.Sort = "[DATEINT] DESC, [IDINT] DESC"
             dgvStats.DataSource = StatsDV.ToTable(True, "IDINT", "CASENAME", "TYPEOFINT", "DATEINT", "ADRESSINT", "ZIPINT", "CITYINT", "DATEFACTS", "ADRESSFACTS", "ZIPFACTS", "CITYFACTS", "SAMPLEST", "SAMPLESN", "SAMPLESD", "SAMPLESC", "CRUREPORTN", "CRUREPORTD", "NICCREPORTN", "NICCREPORTD", "NICCREPORTC", "UNIT", "FILENUM", "REPORTNUM", "RIONUM", "ONNUM", "SIENANUM", "NSP", "LANG", "CMEXT") ', "TYPEOFPLACE", "ARRO", "DRUG", "MANAGER")
             dgvStats.Sort(dgvStats.Columns(3), ComponentModel.ListSortDirection.Descending)
+            For i As Integer = 0 To 28
+                dgvStats.Columns(i).SortMode = DataGridViewColumnSortMode.Programmatic
+            Next
             dgvStats.Columns(0).Visible = False
             dgvStats.Columns(3).DefaultCellStyle.FormatProvider = Globalization.CultureInfo.GetCultureInfo("en-001")
             dgvStats.Columns(3).DefaultCellStyle.Format = "dd/MM/yyyy"
@@ -503,6 +517,19 @@ Public Class frmSearch
             Else
                 lblCount.Text = $"{dgvStats.RowCount} intervention(s)"
             End If
+            If txtFind.Text <> String.Empty Then
+                For i As Integer = 0 To dgvStats.RowCount - 1
+                    For j As Integer = 0 To dgvStats.ColumnCount - 1
+                        If dgvStats.Rows(i).Cells(j).Value.ToString.ToLower.Contains(txtFind.Text.ToLower) Then
+                            dgvStats.Rows(i).Cells(j).Style.BackColor = Color.Yellow
+                            dgvStats.Rows(i).Cells(j).Style.ForeColor = Color.Black
+                        End If
+                    Next
+                Next
+            End If
+            dgvStats.FirstDisplayedScrollingRowIndex = r
+            dgvStats.Rows(s).Selected = True
+            dgvStats.HorizontalScrollingOffset = o
             HandleHeaders()
             'Check for dat files
             Dim files As String() = Directory.GetFiles($"{dora_path}SYSTEM", "*.dat")
@@ -547,7 +574,19 @@ Public Class frmSearch
             ElseIf ht.Type = DataGridViewHitTestType.ColumnHeader Then
                 dgvStats.ContextMenuStrip = RCMenuHeader
             End If
-        End If
+        Else
+            Dim off As Integer = dgvStats.HorizontalScrollingOffset
+            Dim ht As DataGridView.HitTestInfo
+            ht = dgvStats.HitTest(e.X, e.Y)
+            If ht.Type = DataGridViewHitTestType.ColumnHeader Then
+                If dgvStats.SortOrder = SortOrder.Ascending Then
+                    dgvStats.Sort(dgvStats.Columns(ht.ColumnIndex), ComponentModel.ListSortDirection.Descending)
+                Else
+                    dgvStats.Sort(dgvStats.Columns(ht.ColumnIndex), ComponentModel.ListSortDirection.Ascending)
+                End If
+                dgvStats.HorizontalScrollingOffset = off
+                End If
+            End If
     End Sub
     Private Sub HandleHeaders()
         'Show or hide intervention related columns
