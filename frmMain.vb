@@ -220,7 +220,6 @@ Public Class frmMain
     End Sub
     Private Sub frmMain_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
         picDORA.SendToBack()
-        Label1.Text = CStr($"{pnlCenter.Width} / {picDORA.Width}*{picDORA.Height}")
         If pnlCenter.Width < 1000 Then
             picDORA.Width = CInt((pnlCenter.Width / 4) * 3)
             picDORA.Height = CInt(picDORA.Width / 2)
