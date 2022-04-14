@@ -168,10 +168,17 @@ Public Class frmMain
         childForm.BackColor = theme("Light")
         childForm.Show()
     End Sub
-    Private Sub btnCases_Click(sender As Object, e As EventArgs) Handles btnCases.Click
-        ActivateButton(sender, RGBColors.btn_color1)
-        OpenChildForm(New frmCasesInterventions)
+    Private Sub btnCases_Click(sender As Object, e As MouseEventArgs) Handles btnCases.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Left Then
+            ActivateButton(sender, RGBColors.btn_color1)
+            OpenChildForm(New frmCasesInterventions)
+        Else
+            btnCases.ContextMenuStrip = RCMenuCases
+        End If
         log("MAIN", "click on CASES")
+    End Sub
+    Private Sub mnOpenOut_Click(sender As Object, e As EventArgs) Handles mnOpenOut.Click
+        frmCasesInterventions.Show()
     End Sub
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         ActivateButton(sender, RGBColors.btn_color2)
@@ -242,6 +249,7 @@ Public Class frmMain
             btnExit.Text = " Verlaten"
             mnLanguage.Text = "Taal"
             mnTheme.Text = "Thema"
+            mnOpenOut.Text = "Openen in een apart venster (Alt-X om te sluiten)"
         Else
             btnCases.Text = " Dossiers"
             btnProducts.Text = " Produits"
@@ -251,6 +259,7 @@ Public Class frmMain
             btnExit.Text = " Quitter"
             mnLanguage.Text = "Langue"
             mnTheme.Text = "Theme"
+            mnOpenOut.Text = "Ouvrir dans une fenêtre séparée (Alt-X pour fermer)"
         End If
     End Sub
     Private Sub CheckPaths()

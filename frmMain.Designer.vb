@@ -26,35 +26,6 @@ Partial Class frmMain
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.ClockTimer = New System.Windows.Forms.Timer(Me.components)
         Me.RCMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.DORADbDS = New DORA.DORADbDS()
-        Me.BACKUPBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BACKUPTableAdapter = New DORA.DORADbDSTableAdapters.BACKUPTableAdapter()
-        Me.TableAdapterManager = New DORA.DORADbDSTableAdapters.TableAdapterManager()
-        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.FolderBrowserDialog = New System.Windows.Forms.FolderBrowserDialog()
-        Me.pnlMenu = New System.Windows.Forms.Panel()
-        Me.pnlLogo = New System.Windows.Forms.Panel()
-        Me.lblDora = New System.Windows.Forms.Label()
-        Me.lblTime = New System.Windows.Forms.Label()
-        Me.lblHello = New System.Windows.Forms.Label()
-        Me.pnlTitle = New System.Windows.Forms.Panel()
-        Me.pnlControls = New System.Windows.Forms.Panel()
-        Me.pnlCenter = New System.Windows.Forms.Panel()
-        Me.CITIESBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CITIESTableAdapter1 = New DORA.DORADbDSTableAdapters.CITIESTableAdapter()
-        Me.CITIESBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CITIESTableAdapter2 = New DORA.DORADbDSTableAdapters.CITIESTableAdapter()
-        Me.picDORA = New System.Windows.Forms.PictureBox()
-        Me.btnClose = New FontAwesome.Sharp.IconButton()
-        Me.btnMin = New FontAwesome.Sharp.IconButton()
-        Me.btnMax = New FontAwesome.Sharp.IconButton()
-        Me.btnExit = New FontAwesome.Sharp.IconButton()
-        Me.btnProducts = New FontAwesome.Sharp.IconButton()
-        Me.btnMembers = New FontAwesome.Sharp.IconButton()
-        Me.btnStats = New FontAwesome.Sharp.IconButton()
-        Me.btnSearch = New FontAwesome.Sharp.IconButton()
-        Me.btnCases = New FontAwesome.Sharp.IconButton()
-        Me.imgCRU = New System.Windows.Forms.PictureBox()
         Me.mnLanguage = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnLanguageN = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnLanguageF = New System.Windows.Forms.ToolStripMenuItem()
@@ -64,22 +35,54 @@ Partial Class frmMain
         Me.mnThemeKimbie = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnThemeNoctis = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnThemeDracula = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DORADbDS = New DORA.DORADbDS()
+        Me.BACKUPBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BACKUPTableAdapter = New DORA.DORADbDSTableAdapters.BACKUPTableAdapter()
+        Me.TableAdapterManager = New DORA.DORADbDSTableAdapters.TableAdapterManager()
+        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.FolderBrowserDialog = New System.Windows.Forms.FolderBrowserDialog()
+        Me.pnlMenu = New System.Windows.Forms.Panel()
+        Me.btnExit = New FontAwesome.Sharp.IconButton()
+        Me.btnProducts = New FontAwesome.Sharp.IconButton()
+        Me.btnMembers = New FontAwesome.Sharp.IconButton()
+        Me.btnStats = New FontAwesome.Sharp.IconButton()
+        Me.btnSearch = New FontAwesome.Sharp.IconButton()
+        Me.btnCases = New FontAwesome.Sharp.IconButton()
+        Me.pnlLogo = New System.Windows.Forms.Panel()
+        Me.imgCRU = New System.Windows.Forms.PictureBox()
+        Me.lblDora = New System.Windows.Forms.Label()
+        Me.lblTime = New System.Windows.Forms.Label()
+        Me.lblHello = New System.Windows.Forms.Label()
+        Me.pnlTitle = New System.Windows.Forms.Panel()
+        Me.pnlControls = New System.Windows.Forms.Panel()
+        Me.btnClose = New FontAwesome.Sharp.IconButton()
+        Me.btnMin = New FontAwesome.Sharp.IconButton()
+        Me.btnMax = New FontAwesome.Sharp.IconButton()
+        Me.pnlCenter = New System.Windows.Forms.Panel()
         Me.picHoliday = New DORA.TransparentPictureBox()
         Me.picBirthday = New DORA.TransparentPictureBox()
+        Me.picDORA = New System.Windows.Forms.PictureBox()
+        Me.CITIESBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CITIESTableAdapter1 = New DORA.DORADbDSTableAdapters.CITIESTableAdapter()
+        Me.CITIESBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CITIESTableAdapter2 = New DORA.DORADbDSTableAdapters.CITIESTableAdapter()
+        Me.RCMenuCases = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.mnOpenOut = New System.Windows.Forms.ToolStripMenuItem()
         Me.RCMenu.SuspendLayout()
         CType(Me.DORADbDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BACKUPBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMenu.SuspendLayout()
         Me.pnlLogo.SuspendLayout()
+        CType(Me.imgCRU, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlTitle.SuspendLayout()
         Me.pnlControls.SuspendLayout()
         Me.pnlCenter.SuspendLayout()
-        CType(Me.CITIESBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CITIESBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picDORA, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.imgCRU, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picHoliday, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picBirthday, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picDORA, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CITIESBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CITIESBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.RCMenuCases.SuspendLayout()
         Me.SuspendLayout()
         '
         'ClockTimer
@@ -94,6 +97,73 @@ Partial Class frmMain
         Me.RCMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnLanguage, Me.mnTheme})
         Me.RCMenu.Name = "RCMenu"
         Me.RCMenu.Size = New System.Drawing.Size(163, 60)
+        '
+        'mnLanguage
+        '
+        Me.mnLanguage.BackgroundImage = Global.DORA.My.Resources.Resources.globe
+        Me.mnLanguage.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnLanguageN, Me.mnLanguageF})
+        Me.mnLanguage.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.mnLanguage.Image = Global.DORA.My.Resources.Resources.globe
+        Me.mnLanguage.Name = "mnLanguage"
+        Me.mnLanguage.Size = New System.Drawing.Size(162, 28)
+        Me.mnLanguage.Text = "Language"
+        '
+        'mnLanguageN
+        '
+        Me.mnLanguageN.BackColor = System.Drawing.SystemColors.Control
+        Me.mnLanguageN.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.mnLanguageN.Image = Global.DORA.My.Resources.Resources.n
+        Me.mnLanguageN.Name = "mnLanguageN"
+        Me.mnLanguageN.Size = New System.Drawing.Size(190, 28)
+        Me.mnLanguageN.Text = "Nederlands"
+        '
+        'mnLanguageF
+        '
+        Me.mnLanguageF.BackColor = System.Drawing.SystemColors.Control
+        Me.mnLanguageF.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.mnLanguageF.Image = Global.DORA.My.Resources.Resources.f
+        Me.mnLanguageF.Name = "mnLanguageF"
+        Me.mnLanguageF.Size = New System.Drawing.Size(190, 28)
+        Me.mnLanguageF.Text = "Français"
+        '
+        'mnTheme
+        '
+        Me.mnTheme.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnThemeDark, Me.mnThemeAbyss, Me.mnThemeKimbie, Me.mnThemeNoctis, Me.mnThemeDracula})
+        Me.mnTheme.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.mnTheme.Image = Global.DORA.My.Resources.Resources.palette
+        Me.mnTheme.Name = "mnTheme"
+        Me.mnTheme.Size = New System.Drawing.Size(162, 28)
+        Me.mnTheme.Text = "Theme"
+        '
+        'mnThemeDark
+        '
+        Me.mnThemeDark.Name = "mnThemeDark"
+        Me.mnThemeDark.Size = New System.Drawing.Size(158, 28)
+        Me.mnThemeDark.Text = "Dark"
+        '
+        'mnThemeAbyss
+        '
+        Me.mnThemeAbyss.Name = "mnThemeAbyss"
+        Me.mnThemeAbyss.Size = New System.Drawing.Size(158, 28)
+        Me.mnThemeAbyss.Text = "Abyss"
+        '
+        'mnThemeKimbie
+        '
+        Me.mnThemeKimbie.Name = "mnThemeKimbie"
+        Me.mnThemeKimbie.Size = New System.Drawing.Size(158, 28)
+        Me.mnThemeKimbie.Text = "Kimbie"
+        '
+        'mnThemeNoctis
+        '
+        Me.mnThemeNoctis.Name = "mnThemeNoctis"
+        Me.mnThemeNoctis.Size = New System.Drawing.Size(158, 28)
+        Me.mnThemeNoctis.Text = "Noctis"
+        '
+        'mnThemeDracula
+        '
+        Me.mnThemeDracula.Name = "mnThemeDracula"
+        Me.mnThemeDracula.Size = New System.Drawing.Size(158, 28)
+        Me.mnThemeDracula.Text = "Dracula"
         '
         'DORADbDS
         '
@@ -141,174 +211,6 @@ Partial Class frmMain
         Me.pnlMenu.Name = "pnlMenu"
         Me.pnlMenu.Size = New System.Drawing.Size(240, 853)
         Me.pnlMenu.TabIndex = 133
-        '
-        'pnlLogo
-        '
-        Me.pnlLogo.Controls.Add(Me.imgCRU)
-        Me.pnlLogo.Controls.Add(Me.lblDora)
-        Me.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlLogo.Location = New System.Drawing.Point(0, 0)
-        Me.pnlLogo.Name = "pnlLogo"
-        Me.pnlLogo.Size = New System.Drawing.Size(240, 220)
-        Me.pnlLogo.TabIndex = 0
-        '
-        'lblDora
-        '
-        Me.lblDora.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblDora.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDora.Location = New System.Drawing.Point(0, 170)
-        Me.lblDora.Name = "lblDora"
-        Me.lblDora.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lblDora.Size = New System.Drawing.Size(240, 21)
-        Me.lblDora.TabIndex = 121
-        Me.lblDora.Text = "iDORA 3.0 © CRU / DJSOC"
-        Me.lblDora.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblTime
-        '
-        Me.lblTime.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblTime.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTime.Location = New System.Drawing.Point(584, 64)
-        Me.lblTime.Name = "lblTime"
-        Me.lblTime.Size = New System.Drawing.Size(455, 40)
-        Me.lblTime.TabIndex = 0
-        Me.lblTime.Text = "Time"
-        Me.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'lblHello
-        '
-        Me.lblHello.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblHello.Location = New System.Drawing.Point(8, 64)
-        Me.lblHello.Name = "lblHello"
-        Me.lblHello.Size = New System.Drawing.Size(294, 40)
-        Me.lblHello.TabIndex = 118
-        Me.lblHello.Text = "Hello"
-        Me.lblHello.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'pnlTitle
-        '
-        Me.pnlTitle.Controls.Add(Me.lblHello)
-        Me.pnlTitle.Controls.Add(Me.pnlControls)
-        Me.pnlTitle.Controls.Add(Me.lblTime)
-        Me.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlTitle.Location = New System.Drawing.Point(240, 0)
-        Me.pnlTitle.Name = "pnlTitle"
-        Me.pnlTitle.Size = New System.Drawing.Size(1042, 110)
-        Me.pnlTitle.TabIndex = 134
-        '
-        'pnlControls
-        '
-        Me.pnlControls.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pnlControls.Controls.Add(Me.btnClose)
-        Me.pnlControls.Controls.Add(Me.btnMin)
-        Me.pnlControls.Controls.Add(Me.btnMax)
-        Me.pnlControls.Location = New System.Drawing.Point(936, 0)
-        Me.pnlControls.Name = "pnlControls"
-        Me.pnlControls.Size = New System.Drawing.Size(104, 40)
-        Me.pnlControls.TabIndex = 119
-        '
-        'pnlCenter
-        '
-        Me.pnlCenter.Controls.Add(Me.picHoliday)
-        Me.pnlCenter.Controls.Add(Me.picBirthday)
-        Me.pnlCenter.Controls.Add(Me.picDORA)
-        Me.pnlCenter.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlCenter.Location = New System.Drawing.Point(240, 110)
-        Me.pnlCenter.Margin = New System.Windows.Forms.Padding(0)
-        Me.pnlCenter.Name = "pnlCenter"
-        Me.pnlCenter.Size = New System.Drawing.Size(1042, 743)
-        Me.pnlCenter.TabIndex = 135
-        '
-        'CITIESBindingSource1
-        '
-        Me.CITIESBindingSource1.DataMember = "CITIES"
-        Me.CITIESBindingSource1.DataSource = Me.DORADbDS
-        '
-        'CITIESTableAdapter1
-        '
-        Me.CITIESTableAdapter1.ClearBeforeFill = True
-        '
-        'CITIESBindingSource2
-        '
-        Me.CITIESBindingSource2.DataMember = "CITIES"
-        Me.CITIESBindingSource2.DataSource = Me.DORADbDS
-        '
-        'CITIESTableAdapter2
-        '
-        Me.CITIESTableAdapter2.ClearBeforeFill = True
-        '
-        'picDORA
-        '
-        Me.picDORA.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.picDORA.Image = CType(resources.GetObject("picDORA.Image"), System.Drawing.Image)
-        Me.picDORA.Location = New System.Drawing.Point(128, 164)
-        Me.picDORA.Name = "picDORA"
-        Me.picDORA.Padding = New System.Windows.Forms.Padding(100)
-        Me.picDORA.Size = New System.Drawing.Size(850, 425)
-        Me.picDORA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.picDORA.TabIndex = 0
-        Me.picDORA.TabStop = False
-        '
-        'btnClose
-        '
-        Me.btnClose.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnClose.FlatAppearance.BorderSize = 0
-        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClose.ForeColor = System.Drawing.Color.Black
-        Me.btnClose.IconChar = FontAwesome.Sharp.IconChar.Times
-        Me.btnClose.IconColor = System.Drawing.Color.Black
-        Me.btnClose.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btnClose.IconSize = 20
-        Me.btnClose.Location = New System.Drawing.Point(72, 8)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(25, 25)
-        Me.btnClose.TabIndex = 120
-        Me.btnClose.TabStop = False
-        Me.btnClose.UseVisualStyleBackColor = True
-        '
-        'btnMin
-        '
-        Me.btnMin.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMin.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnMin.FlatAppearance.BorderSize = 0
-        Me.btnMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMin.ForeColor = System.Drawing.Color.Black
-        Me.btnMin.IconChar = FontAwesome.Sharp.IconChar.Minus
-        Me.btnMin.IconColor = System.Drawing.Color.Black
-        Me.btnMin.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btnMin.IconSize = 20
-        Me.btnMin.Location = New System.Drawing.Point(8, 8)
-        Me.btnMin.Name = "btnMin"
-        Me.btnMin.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
-        Me.btnMin.Size = New System.Drawing.Size(25, 25)
-        Me.btnMin.TabIndex = 12
-        Me.btnMin.TabStop = False
-        Me.btnMin.UseVisualStyleBackColor = True
-        '
-        'btnMax
-        '
-        Me.btnMax.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMax.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnMax.FlatAppearance.BorderSize = 0
-        Me.btnMax.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMax.ForeColor = System.Drawing.Color.Black
-        Me.btnMax.IconChar = FontAwesome.Sharp.IconChar.Square
-        Me.btnMax.IconColor = System.Drawing.Color.Black
-        Me.btnMax.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btnMax.IconSize = 20
-        Me.btnMax.Location = New System.Drawing.Point(40, 8)
-        Me.btnMax.Name = "btnMax"
-        Me.btnMax.Size = New System.Drawing.Size(25, 25)
-        Me.btnMax.TabIndex = 119
-        Me.btnMax.TabStop = False
-        Me.btnMax.UseVisualStyleBackColor = True
         '
         'btnExit
         '
@@ -448,6 +350,16 @@ Partial Class frmMain
         Me.btnCases.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnCases.UseVisualStyleBackColor = False
         '
+        'pnlLogo
+        '
+        Me.pnlLogo.Controls.Add(Me.imgCRU)
+        Me.pnlLogo.Controls.Add(Me.lblDora)
+        Me.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlLogo.Location = New System.Drawing.Point(0, 0)
+        Me.pnlLogo.Name = "pnlLogo"
+        Me.pnlLogo.Size = New System.Drawing.Size(240, 220)
+        Me.pnlLogo.TabIndex = 0
+        '
         'imgCRU
         '
         Me.imgCRU.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -460,72 +372,133 @@ Partial Class frmMain
         Me.imgCRU.TabIndex = 0
         Me.imgCRU.TabStop = False
         '
-        'mnLanguage
+        'lblDora
         '
-        Me.mnLanguage.BackgroundImage = Global.DORA.My.Resources.Resources.globe
-        Me.mnLanguage.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnLanguageN, Me.mnLanguageF})
-        Me.mnLanguage.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.mnLanguage.Image = Global.DORA.My.Resources.Resources.globe
-        Me.mnLanguage.Name = "mnLanguage"
-        Me.mnLanguage.Size = New System.Drawing.Size(162, 28)
-        Me.mnLanguage.Text = "Language"
+        Me.lblDora.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblDora.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDora.Location = New System.Drawing.Point(0, 170)
+        Me.lblDora.Name = "lblDora"
+        Me.lblDora.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.lblDora.Size = New System.Drawing.Size(240, 21)
+        Me.lblDora.TabIndex = 121
+        Me.lblDora.Text = "iDORA 3.0 © CRU / DJSOC"
+        Me.lblDora.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'mnLanguageN
+        'lblTime
         '
-        Me.mnLanguageN.BackColor = System.Drawing.SystemColors.Control
-        Me.mnLanguageN.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.mnLanguageN.Image = Global.DORA.My.Resources.Resources.n
-        Me.mnLanguageN.Name = "mnLanguageN"
-        Me.mnLanguageN.Size = New System.Drawing.Size(190, 28)
-        Me.mnLanguageN.Text = "Nederlands"
+        Me.lblTime.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblTime.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTime.Location = New System.Drawing.Point(584, 64)
+        Me.lblTime.Name = "lblTime"
+        Me.lblTime.Size = New System.Drawing.Size(455, 40)
+        Me.lblTime.TabIndex = 0
+        Me.lblTime.Text = "Time"
+        Me.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'mnLanguageF
+        'lblHello
         '
-        Me.mnLanguageF.BackColor = System.Drawing.SystemColors.Control
-        Me.mnLanguageF.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.mnLanguageF.Image = Global.DORA.My.Resources.Resources.f
-        Me.mnLanguageF.Name = "mnLanguageF"
-        Me.mnLanguageF.Size = New System.Drawing.Size(190, 28)
-        Me.mnLanguageF.Text = "Français"
+        Me.lblHello.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblHello.Location = New System.Drawing.Point(8, 64)
+        Me.lblHello.Name = "lblHello"
+        Me.lblHello.Size = New System.Drawing.Size(294, 40)
+        Me.lblHello.TabIndex = 118
+        Me.lblHello.Text = "Hello"
+        Me.lblHello.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'mnTheme
+        'pnlTitle
         '
-        Me.mnTheme.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnThemeDark, Me.mnThemeAbyss, Me.mnThemeKimbie, Me.mnThemeNoctis, Me.mnThemeDracula})
-        Me.mnTheme.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.mnTheme.Image = Global.DORA.My.Resources.Resources.palette
-        Me.mnTheme.Name = "mnTheme"
-        Me.mnTheme.Size = New System.Drawing.Size(162, 28)
-        Me.mnTheme.Text = "Theme"
+        Me.pnlTitle.Controls.Add(Me.lblHello)
+        Me.pnlTitle.Controls.Add(Me.pnlControls)
+        Me.pnlTitle.Controls.Add(Me.lblTime)
+        Me.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlTitle.Location = New System.Drawing.Point(240, 0)
+        Me.pnlTitle.Name = "pnlTitle"
+        Me.pnlTitle.Size = New System.Drawing.Size(1042, 110)
+        Me.pnlTitle.TabIndex = 134
         '
-        'mnThemeDark
+        'pnlControls
         '
-        Me.mnThemeDark.Name = "mnThemeDark"
-        Me.mnThemeDark.Size = New System.Drawing.Size(158, 28)
-        Me.mnThemeDark.Text = "Dark"
+        Me.pnlControls.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pnlControls.Controls.Add(Me.btnClose)
+        Me.pnlControls.Controls.Add(Me.btnMin)
+        Me.pnlControls.Controls.Add(Me.btnMax)
+        Me.pnlControls.Location = New System.Drawing.Point(936, 0)
+        Me.pnlControls.Name = "pnlControls"
+        Me.pnlControls.Size = New System.Drawing.Size(104, 40)
+        Me.pnlControls.TabIndex = 119
         '
-        'mnThemeAbyss
+        'btnClose
         '
-        Me.mnThemeAbyss.Name = "mnThemeAbyss"
-        Me.mnThemeAbyss.Size = New System.Drawing.Size(158, 28)
-        Me.mnThemeAbyss.Text = "Abyss"
+        Me.btnClose.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnClose.FlatAppearance.BorderSize = 0
+        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClose.ForeColor = System.Drawing.Color.Black
+        Me.btnClose.IconChar = FontAwesome.Sharp.IconChar.Times
+        Me.btnClose.IconColor = System.Drawing.Color.Black
+        Me.btnClose.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnClose.IconSize = 20
+        Me.btnClose.Location = New System.Drawing.Point(72, 8)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(25, 25)
+        Me.btnClose.TabIndex = 120
+        Me.btnClose.TabStop = False
+        Me.btnClose.UseVisualStyleBackColor = True
         '
-        'mnThemeKimbie
+        'btnMin
         '
-        Me.mnThemeKimbie.Name = "mnThemeKimbie"
-        Me.mnThemeKimbie.Size = New System.Drawing.Size(158, 28)
-        Me.mnThemeKimbie.Text = "Kimbie"
+        Me.btnMin.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMin.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnMin.FlatAppearance.BorderSize = 0
+        Me.btnMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMin.ForeColor = System.Drawing.Color.Black
+        Me.btnMin.IconChar = FontAwesome.Sharp.IconChar.Minus
+        Me.btnMin.IconColor = System.Drawing.Color.Black
+        Me.btnMin.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnMin.IconSize = 20
+        Me.btnMin.Location = New System.Drawing.Point(8, 8)
+        Me.btnMin.Name = "btnMin"
+        Me.btnMin.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
+        Me.btnMin.Size = New System.Drawing.Size(25, 25)
+        Me.btnMin.TabIndex = 12
+        Me.btnMin.TabStop = False
+        Me.btnMin.UseVisualStyleBackColor = True
         '
-        'mnThemeNoctis
+        'btnMax
         '
-        Me.mnThemeNoctis.Name = "mnThemeNoctis"
-        Me.mnThemeNoctis.Size = New System.Drawing.Size(158, 28)
-        Me.mnThemeNoctis.Text = "Noctis"
+        Me.btnMax.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMax.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnMax.FlatAppearance.BorderSize = 0
+        Me.btnMax.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMax.ForeColor = System.Drawing.Color.Black
+        Me.btnMax.IconChar = FontAwesome.Sharp.IconChar.Square
+        Me.btnMax.IconColor = System.Drawing.Color.Black
+        Me.btnMax.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnMax.IconSize = 20
+        Me.btnMax.Location = New System.Drawing.Point(40, 8)
+        Me.btnMax.Name = "btnMax"
+        Me.btnMax.Size = New System.Drawing.Size(25, 25)
+        Me.btnMax.TabIndex = 119
+        Me.btnMax.TabStop = False
+        Me.btnMax.UseVisualStyleBackColor = True
         '
-        'mnThemeDracula
+        'pnlCenter
         '
-        Me.mnThemeDracula.Name = "mnThemeDracula"
-        Me.mnThemeDracula.Size = New System.Drawing.Size(158, 28)
-        Me.mnThemeDracula.Text = "Dracula"
+        Me.pnlCenter.Controls.Add(Me.picHoliday)
+        Me.pnlCenter.Controls.Add(Me.picBirthday)
+        Me.pnlCenter.Controls.Add(Me.picDORA)
+        Me.pnlCenter.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlCenter.Location = New System.Drawing.Point(240, 110)
+        Me.pnlCenter.Margin = New System.Windows.Forms.Padding(0)
+        Me.pnlCenter.Name = "pnlCenter"
+        Me.pnlCenter.Size = New System.Drawing.Size(1042, 743)
+        Me.pnlCenter.TabIndex = 135
         '
         'picHoliday
         '
@@ -544,6 +517,54 @@ Partial Class frmMain
         Me.picBirthday.Size = New System.Drawing.Size(426, 310)
         Me.picBirthday.TabIndex = 1
         Me.picBirthday.TabStop = False
+        '
+        'picDORA
+        '
+        Me.picDORA.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.picDORA.Image = CType(resources.GetObject("picDORA.Image"), System.Drawing.Image)
+        Me.picDORA.Location = New System.Drawing.Point(128, 164)
+        Me.picDORA.Name = "picDORA"
+        Me.picDORA.Padding = New System.Windows.Forms.Padding(100)
+        Me.picDORA.Size = New System.Drawing.Size(850, 425)
+        Me.picDORA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picDORA.TabIndex = 0
+        Me.picDORA.TabStop = False
+        '
+        'CITIESBindingSource1
+        '
+        Me.CITIESBindingSource1.DataMember = "CITIES"
+        Me.CITIESBindingSource1.DataSource = Me.DORADbDS
+        '
+        'CITIESTableAdapter1
+        '
+        Me.CITIESTableAdapter1.ClearBeforeFill = True
+        '
+        'CITIESBindingSource2
+        '
+        Me.CITIESBindingSource2.DataMember = "CITIES"
+        Me.CITIESBindingSource2.DataSource = Me.DORADbDS
+        '
+        'CITIESTableAdapter2
+        '
+        Me.CITIESTableAdapter2.ClearBeforeFill = True
+        '
+        'RCMenuCases
+        '
+        Me.RCMenuCases.BackColor = System.Drawing.SystemColors.Control
+        Me.RCMenuCases.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RCMenuCases.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.RCMenuCases.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnOpenOut})
+        Me.RCMenuCases.Name = "RCMenu"
+        Me.RCMenuCases.Size = New System.Drawing.Size(215, 60)
+        '
+        'mnOpenOut
+        '
+        Me.mnOpenOut.BackgroundImage = Global.DORA.My.Resources.Resources.globe
+        Me.mnOpenOut.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.mnOpenOut.Image = Global.DORA.My.Resources.Resources.eye
+        Me.mnOpenOut.Name = "mnOpenOut"
+        Me.mnOpenOut.Size = New System.Drawing.Size(214, 28)
+        Me.mnOpenOut.Text = "Out"
         '
         'frmMain
         '
@@ -568,15 +589,16 @@ Partial Class frmMain
         CType(Me.BACKUPBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlMenu.ResumeLayout(False)
         Me.pnlLogo.ResumeLayout(False)
+        CType(Me.imgCRU, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlTitle.ResumeLayout(False)
         Me.pnlControls.ResumeLayout(False)
         Me.pnlCenter.ResumeLayout(False)
-        CType(Me.CITIESBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CITIESBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picDORA, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.imgCRU, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picHoliday, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picBirthday, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picDORA, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CITIESBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CITIESBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.RCMenuCases.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -623,4 +645,6 @@ Partial Class frmMain
     Friend WithEvents picDORA As PictureBox
     Friend WithEvents picBirthday As TransparentPictureBox
     Friend WithEvents picHoliday As TransparentPictureBox
+    Friend WithEvents RCMenuCases As ContextMenuStrip
+    Friend WithEvents mnOpenOut As ToolStripMenuItem
 End Class

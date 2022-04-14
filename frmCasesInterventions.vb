@@ -827,6 +827,7 @@ Public Class frmCasesInterventions
     End Sub
     Private Sub SetColors()
         'Set colors of controls according to choosen theme
+        tblMain.BackColor = theme("Light")
         dgvCases.BackgroundColor = theme("Light")
         dgvCases.RowsDefaultCellStyle.BackColor = theme("Light")
         dgvCases.RowsDefaultCellStyle.ForeColor = theme("Font")
@@ -849,6 +850,11 @@ Public Class frmCasesInterventions
         For Each c As IconButton In FindControlRecursive(lst_controls, Me, GetType(IconButton))
             c.IconColor = theme("Font")
         Next
+    End Sub
+    Private Sub frmCasesInterventions_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If (e.Alt AndAlso e.KeyCode = Keys.X) Then
+            Close()
+        End If
     End Sub
 #End Region
 

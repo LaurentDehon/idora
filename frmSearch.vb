@@ -261,6 +261,9 @@ Public Class frmSearch
         End Try
     End Function
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        Search()
+    End Sub
+    Private Sub Search()
         'Perform search
         Cursor = Cursors.WaitCursor
         Try
@@ -442,6 +445,8 @@ Public Class frmSearch
             dgvStats.Columns(18).DefaultCellStyle.Format = "dd/MM/yyyy"
             dgvStats.Columns(18).HeaderCell.Style.ForeColor = Color.DarkGreen
             dgvStats.Columns(19).HeaderCell.Style.ForeColor = Color.DarkGreen
+            dgvStats.Columns(19).AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+            dgvStats.Columns(19).Width = 400
             dgvStats.Columns(20).HeaderCell.Style.ForeColor = Color.DarkOrchid
             dgvStats.Columns(21).HeaderCell.Style.ForeColor = Color.DarkOrchid
             dgvStats.Columns(22).HeaderCell.Style.ForeColor = Color.DarkOrchid
@@ -517,19 +522,33 @@ Public Class frmSearch
             Else
                 lblCount.Text = $"{dgvStats.RowCount} intervention(s)"
             End If
+            Dim found As Boolean = False
             If txtFind.Text <> String.Empty Then
                 For i As Integer = 0 To dgvStats.RowCount - 1
                     For j As Integer = 0 To dgvStats.ColumnCount - 1
                         If dgvStats.Rows(i).Cells(j).Value.ToString.ToLower.Contains(txtFind.Text.ToLower) Then
+                            found = True
+                            If i > 5 Then
+                                dgvStats.FirstDisplayedScrollingRowIndex = i - 5
+                            Else
+                                dgvStats.FirstDisplayedScrollingRowIndex = 0
+                            End If
+                            If j > 5 Then
+                                dgvStats.FirstDisplayedScrollingColumnIndex = j - 5
+                            Else
+                                dgvStats.FirstDisplayedScrollingColumnIndex = 1
+                            End If
                             dgvStats.Rows(i).Cells(j).Style.BackColor = Color.Yellow
                             dgvStats.Rows(i).Cells(j).Style.ForeColor = Color.Black
                         End If
                     Next
                 Next
             End If
-            dgvStats.FirstDisplayedScrollingRowIndex = r
-            dgvStats.Rows(s).Selected = True
-            dgvStats.HorizontalScrollingOffset = o
+            If found = False Then
+                dgvStats.FirstDisplayedScrollingRowIndex = r
+                dgvStats.Rows(s).Selected = True
+                dgvStats.HorizontalScrollingOffset = o
+            End If
             HandleHeaders()
             'Check for dat files
             Dim files As String() = Directory.GetFiles($"{dora_path}SYSTEM", "*.dat")
@@ -1391,6 +1410,20 @@ Public Class frmSearch
     Private Sub cmbNoInput(sender As Object, e As KeyPressEventArgs) Handles cmbFrom.KeyPress, cmbTo.KeyPress
         'Make comboboxes read-only
         e.Handled = True
+    End Sub
+    Private Sub txtFind_MouseDoubleClick(sender As Object, e As EventArgs) Handles txtFind.MouseDoubleClick
+        txtFind.Text = String.Empty
+        For i As Integer = 0 To dgvStats.RowCount - 1
+            For j As Integer = 0 To dgvStats.ColumnCount - 1
+                dgvStats.Rows(i).Cells(j).Style.BackColor = theme("Light")
+                dgvStats.Rows(i).Cells(j).Style.ForeColor = theme("Font")
+            Next
+        Next
+    End Sub
+    Private Sub txtFind_KeyDown(sender As Object, e As KeyEventArgs) Handles txtFind.KeyDown
+        If (e.KeyCode = Keys.Enter) Then
+            Search()
+        End If
     End Sub
 #End Region
 
