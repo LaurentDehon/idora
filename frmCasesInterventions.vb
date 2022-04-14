@@ -109,6 +109,12 @@ Public Class frmCasesInterventions
             End If
         End If
     End Sub
+    Private Sub mnViewCase_Click(sender As Object, e As EventArgs) Handles mnViewCase.Click
+        ID = CInt(DirectCast(CASESBindingSource.Current, DataRowView).Item("ID"))
+        Cursor = Cursors.WaitCursor
+        frmCases.Show()
+        Cursor = Cursors.Default
+    End Sub
     Private Sub mnNewCase_Click(sender As Object, e As EventArgs) Handles mnNewCase.Click
         'Go to New Case window
         Cursor = Cursors.WaitCursor
@@ -735,6 +741,7 @@ Public Class frmCasesInterventions
         If Lang = 1 Then
             ToolTip.SetToolTip(btnAll, "Toon alle")
             ToolTip.SetToolTip(btnRefresh, "Vernieuwen")
+            mnViewCase.Text = "Dossier tonen"
             mnNewCase.Text = "Nieuwe dossier"
             mnOpenCaseFolder.Text = "Map openen"
             mnDeleteCase.Text = "Verwijder dossier"
@@ -746,11 +753,12 @@ Public Class frmCasesInterventions
         Else
             ToolTip.SetToolTip(btnAll, "Montrer tout")
             ToolTip.SetToolTip(btnRefresh, "Actualiser")
+            mnViewCase.Text = "Voir le dossier"
             mnNewCase.Text = "Nouveau dossier"
             mnOpenCaseFolder.Text = "Ouvrir le répertoire"
             mnDeleteCase.Text = "Supprimer le dossier"
             mnNewInt.Text = "Nouvelle intervention"
-            mnViewIntervention.Text = "Visualiser l'intervention"
+            mnViewIntervention.Text = "Voir l'intervention"
             mnReassignIntervention.Text = "Réattribuer l'intervention"
             mnOpenIntFolder.Text = "Ouvrir le répertoire"
             mnDeleteInt.Text = "Supprimer l'intervention"
