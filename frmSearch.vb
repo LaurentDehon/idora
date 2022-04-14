@@ -19,7 +19,6 @@ Public Class frmSearch
     Dim thread As Thread
     Dim lst_results As New List(Of List(Of Integer))
     Dim counter_sel As Integer
-    Dim counter As Integer
     Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
         Get
             Dim cp As CreateParams = MyBase.CreateParams
@@ -526,54 +525,53 @@ Public Class frmSearch
                 lblCount.Text = $"{dgvStats.RowCount} intervention(s)"
             End If
             lst_results.Clear()
-            counter = 0
-            counter_sel = 1
             If txtFind.Text <> String.Empty Then
-                For i As Integer = dgvStats.RowCount - 1 To 0 Step -1
-                    For j As Integer = dgvStats.ColumnCount - 1 To 0 Step -1
+                For i As Integer = 0 To dgvStats.RowCount - 1
+                    For j As Integer = 0 To dgvStats.ColumnCount - 1
                         If dgvStats.Rows(i).Cells(j).Value.ToString.ToLower.Contains(txtFind.Text.ToLower) Then
-                            If i > 5 Then
-                                dgvStats.FirstDisplayedScrollingRowIndex = i - 5
-                            Else
-                                dgvStats.FirstDisplayedScrollingRowIndex = 0
-                            End If
-                            If j > 5 Then
-                                dgvStats.FirstDisplayedScrollingColumnIndex = j - 5
-                            Else
-                                dgvStats.FirstDisplayedScrollingColumnIndex = 1
-                            End If
-                            dgvStats.Rows(i).Cells(j).Style.BackColor = Color.Yellow
+                            dgvStats.Rows(i).Cells(j).Style.BackColor = Color.LightGoldenrodYellow
                             dgvStats.Rows(i).Cells(j).Style.ForeColor = Color.Black
-                            Dim temp As New List(Of Integer)({dgvStats.FirstDisplayedScrollingRowIndex, dgvStats.FirstDisplayedScrollingColumnIndex})
+                            Dim temp As New List(Of Integer)({i, j})
                             lst_results.Add(temp)
-                            counter += 1
                         End If
                     Next
                 Next
                 lblCounter.Visible = True
                 If Lang = 1 Then
-                    If counter > 1 Then
+                    If lst_results.Count > 1 Then
                         btnDown.Visible = True
                         btnUp.Visible = True
                         btnUp.Enabled = False
                         btnUp.IconColor = Color.FromArgb(35, 35, 35)
-                        lblCounter.Text = $"{counter_sel} / {counter} resultaten"
+                        lblCounter.Text = $"1 / {lst_results.Count} resultaten"
                     End If
-                    If counter = 1 Then lblCounter.Text = $"1 / 1 resultaat"
-                    If counter = 0 Then lblCounter.Text = $"Geen resultaat"
+                    If lst_results.Count = 1 Then lblCounter.Text = $"1 / 1 resultaat"
+                    If lst_results.Count = 0 Then lblCounter.Text = $"Geen resultaat"
                 Else
-                    If counter > 1 Then
+                    If lst_results.Count > 1 Then
                         btnDown.Visible = True
                         btnUp.Visible = True
                         btnUp.Enabled = False
                         btnUp.IconColor = Color.FromArgb(35, 35, 35)
-                        lblCounter.Text = $"{counter_sel} / {counter} résultats"
+                        lblCounter.Text = $"1 / {lst_results.Count} résultats"
                     End If
-                    If counter = 1 Then lblCounter.Text = $"1 / 1 résultat"
-                    If counter = 0 Then lblCounter.Text = $"Pas de résultat"
+                    If lst_results.Count = 1 Then lblCounter.Text = $"1 / 1 résultat"
+                    If lst_results.Count = 0 Then lblCounter.Text = $"Pas de résultat"
                 End If
+                counter_sel = 1
+                If lst_results(counter_sel - 1)(0) > 5 Then
+                    dgvStats.FirstDisplayedScrollingRowIndex = lst_results(counter_sel - 1)(0) - 5
+                Else
+                    dgvStats.FirstDisplayedScrollingRowIndex = 1
+                End If
+                If lst_results(counter_sel - 1)(1) > 5 Then
+                    dgvStats.FirstDisplayedScrollingColumnIndex = lst_results(counter_sel - 1)(1) - 5
+                Else
+                    dgvStats.FirstDisplayedScrollingColumnIndex = 1
+                End If
+                dgvStats.Rows(lst_results(counter_sel - 1)(0)).Cells(lst_results(counter_sel - 1)(1)).Style.BackColor = Color.Yellow
             End If
-            If counter = 0 Then
+            If lst_results.Count = 0 Then
                 dgvStats.FirstDisplayedScrollingRowIndex = r
                 dgvStats.Rows(s).Selected = True
                 dgvStats.HorizontalScrollingOffset = o
@@ -610,14 +608,24 @@ Public Class frmSearch
         counter_sel += 1
         btnUp.Enabled = True
         btnUp.IconColor = theme("Font")
-        dgvStats.FirstDisplayedScrollingRowIndex = lst_results(lst_results.Count - counter_sel)(0)
-        dgvStats.FirstDisplayedScrollingColumnIndex = lst_results(lst_results.Count - counter_sel)(1)
-        If Lang = 1 Then
-            lblCounter.Text = $"{counter_sel} / {counter} resultaten"
+        If lst_results(counter_sel - 1)(0) > 5 Then
+            dgvStats.FirstDisplayedScrollingRowIndex = lst_results(counter_sel - 1)(0) - 5
         Else
-            lblCounter.Text = $"{counter_sel} / {counter} résultats"
+            dgvStats.FirstDisplayedScrollingRowIndex = 1
         End If
-        If counter_sel = counter Then
+        If lst_results(counter_sel - 1)(1) > 5 Then
+            dgvStats.FirstDisplayedScrollingColumnIndex = lst_results(counter_sel - 1)(1) - 5
+        Else
+            dgvStats.FirstDisplayedScrollingColumnIndex = 1
+        End If
+        dgvStats.Rows(lst_results(counter_sel - 1)(0)).Cells(lst_results(counter_sel - 1)(1)).Style.BackColor = Color.Yellow
+        dgvStats.Rows(lst_results(counter_sel - 2)(0)).Cells(lst_results(counter_sel - 2)(1)).Style.BackColor = Color.LightGoldenrodYellow
+        If Lang = 1 Then
+            lblCounter.Text = $"{counter_sel} / {lst_results.Count} resultaten"
+        Else
+            lblCounter.Text = $"{counter_sel} / {lst_results.Count} résultats"
+        End If
+        If counter_sel = lst_results.Count Then
             btnDown.Enabled = False
             btnDown.IconColor = Color.FromArgb(35, 35, 35)
         Else
@@ -629,12 +637,22 @@ Public Class frmSearch
         counter_sel -= 1
         btnDown.Enabled = True
         btnDown.IconColor = theme("Font")
-        dgvStats.FirstDisplayedScrollingRowIndex = lst_results(lst_results.Count - counter_sel)(0)
-        dgvStats.FirstDisplayedScrollingColumnIndex = lst_results(lst_results.Count - counter_sel)(1)
-        If Lang = 1 Then
-            lblCounter.Text = $"{counter_sel} / {counter} resultaten"
+        If lst_results(counter_sel - 1)(0) > 5 Then
+            dgvStats.FirstDisplayedScrollingRowIndex = lst_results(counter_sel - 1)(0) - 5
         Else
-            lblCounter.Text = $"{counter_sel} / {counter} résultats"
+            dgvStats.FirstDisplayedScrollingRowIndex = 1
+        End If
+        If lst_results(counter_sel - 1)(1) > 5 Then
+            dgvStats.FirstDisplayedScrollingColumnIndex = lst_results(counter_sel - 1)(1) - 5
+        Else
+            dgvStats.FirstDisplayedScrollingColumnIndex = 1
+        End If
+        dgvStats.Rows(lst_results(counter_sel - 1)(0)).Cells(lst_results(counter_sel - 1)(1)).Style.BackColor = Color.Yellow
+        dgvStats.Rows(lst_results(counter_sel)(0)).Cells(lst_results(counter_sel)(1)).Style.BackColor = Color.LightGoldenrodYellow
+        If Lang = 1 Then
+            lblCounter.Text = $"{counter_sel} / {lst_results.Count} resultaten"
+        Else
+            lblCounter.Text = $"{counter_sel} / {lst_results.Count} résultats"
         End If
         If counter_sel = 1 Then
             btnUp.Enabled = False
