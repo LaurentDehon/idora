@@ -64,6 +64,9 @@ Partial Class frmSearch
         Me.lblManager = New System.Windows.Forms.Label()
         Me.btnRefresh = New FontAwesome.Sharp.IconButton()
         Me.btnSearch = New FontAwesome.Sharp.IconButton()
+        Me.lblCounter = New System.Windows.Forms.Label()
+        Me.btnDown = New FontAwesome.Sharp.IconButton()
+        Me.btnUp = New FontAwesome.Sharp.IconButton()
         Me.dgvStats = New System.Windows.Forms.DataGridView()
         Me.RCMenuHeader = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.mnAllInts = New System.Windows.Forms.ToolStripMenuItem()
@@ -343,7 +346,7 @@ Partial Class frmSearch
         '
         'SearchTable
         '
-        Me.SearchTable.ColumnCount = 12
+        Me.SearchTable.ColumnCount = 14
         Me.SearchTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
         Me.SearchTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
         Me.SearchTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200.0!))
@@ -352,7 +355,9 @@ Partial Class frmSearch
         Me.SearchTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 220.0!))
         Me.SearchTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170.0!))
         Me.SearchTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170.0!))
-        Me.SearchTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170.0!))
+        Me.SearchTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130.0!))
+        Me.SearchTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.SearchTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.SearchTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.SearchTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.SearchTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
@@ -374,6 +379,9 @@ Partial Class frmSearch
         Me.SearchTable.Controls.Add(Me.lblManager, 7, 0)
         Me.SearchTable.Controls.Add(Me.btnRefresh, 10, 1)
         Me.SearchTable.Controls.Add(Me.btnSearch, 9, 1)
+        Me.SearchTable.Controls.Add(Me.lblCounter, 13, 1)
+        Me.SearchTable.Controls.Add(Me.btnDown, 11, 1)
+        Me.SearchTable.Controls.Add(Me.btnUp, 12, 1)
         Me.SearchTable.Location = New System.Drawing.Point(4, 4)
         Me.SearchTable.Margin = New System.Windows.Forms.Padding(4)
         Me.SearchTable.Name = "SearchTable"
@@ -392,7 +400,7 @@ Partial Class frmSearch
         Me.txtFind.Margin = New System.Windows.Forms.Padding(2, 2, 2, 4)
         Me.txtFind.Name = "txtFind"
         Me.txtFind.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtFind.Size = New System.Drawing.Size(166, 32)
+        Me.txtFind.Size = New System.Drawing.Size(126, 32)
         Me.txtFind.TabIndex = 208
         '
         'lblDates
@@ -489,7 +497,7 @@ Partial Class frmSearch
         Me.btnRefresh.IconColor = System.Drawing.Color.Black
         Me.btnRefresh.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnRefresh.IconSize = 25
-        Me.btnRefresh.Location = New System.Drawing.Point(1424, 30)
+        Me.btnRefresh.Location = New System.Drawing.Point(1384, 30)
         Me.btnRefresh.Margin = New System.Windows.Forms.Padding(4, 0, 4, 18)
         Me.btnRefresh.Name = "btnRefresh"
         Me.btnRefresh.Size = New System.Drawing.Size(32, 32)
@@ -506,12 +514,62 @@ Partial Class frmSearch
         Me.btnSearch.IconColor = System.Drawing.Color.Black
         Me.btnSearch.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnSearch.IconSize = 25
-        Me.btnSearch.Location = New System.Drawing.Point(1384, 30)
+        Me.btnSearch.Location = New System.Drawing.Point(1344, 30)
         Me.btnSearch.Margin = New System.Windows.Forms.Padding(4, 0, 4, 18)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(32, 32)
         Me.btnSearch.TabIndex = 200
         Me.btnSearch.UseVisualStyleBackColor = True
+        '
+        'lblCounter
+        '
+        Me.lblCounter.AutoSize = True
+        Me.lblCounter.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCounter.Location = New System.Drawing.Point(1503, 30)
+        Me.lblCounter.Name = "lblCounter"
+        Me.lblCounter.Padding = New System.Windows.Forms.Padding(5, 3, 0, 0)
+        Me.lblCounter.Size = New System.Drawing.Size(83, 27)
+        Me.lblCounter.TabIndex = 209
+        Me.lblCounter.Text = "Counter"
+        Me.lblCounter.Visible = False
+        '
+        'btnDown
+        '
+        Me.btnDown.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDown.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnDown.FlatAppearance.BorderSize = 0
+        Me.btnDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDown.IconChar = FontAwesome.Sharp.IconChar.ChevronDown
+        Me.btnDown.IconColor = System.Drawing.Color.Black
+        Me.btnDown.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnDown.IconSize = 25
+        Me.btnDown.Location = New System.Drawing.Point(1424, 30)
+        Me.btnDown.Margin = New System.Windows.Forms.Padding(4, 0, 4, 18)
+        Me.btnDown.Name = "btnDown"
+        Me.btnDown.Padding = New System.Windows.Forms.Padding(0, 2, 0, 0)
+        Me.btnDown.Size = New System.Drawing.Size(32, 32)
+        Me.btnDown.TabIndex = 210
+        Me.btnDown.UseVisualStyleBackColor = True
+        Me.btnDown.Visible = False
+        '
+        'btnUp
+        '
+        Me.btnUp.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnUp.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnUp.FlatAppearance.BorderSize = 0
+        Me.btnUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnUp.IconChar = FontAwesome.Sharp.IconChar.ChevronUp
+        Me.btnUp.IconColor = System.Drawing.Color.Black
+        Me.btnUp.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnUp.IconSize = 25
+        Me.btnUp.Location = New System.Drawing.Point(1464, 30)
+        Me.btnUp.Margin = New System.Windows.Forms.Padding(4, 0, 4, 18)
+        Me.btnUp.Name = "btnUp"
+        Me.btnUp.Padding = New System.Windows.Forms.Padding(0, 2, 0, 0)
+        Me.btnUp.Size = New System.Drawing.Size(32, 32)
+        Me.btnUp.TabIndex = 211
+        Me.btnUp.UseVisualStyleBackColor = True
+        Me.btnUp.Visible = False
         '
         'dgvStats
         '
@@ -966,5 +1024,8 @@ Partial Class frmSearch
     Friend WithEvents mnLang As ToolStripMenuItem
     Friend WithEvents mnCMExt As ToolStripMenuItem
     Friend WithEvents txtFind As TextBox
+    Friend WithEvents lblCounter As Label
+    Friend WithEvents btnDown As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnUp As FontAwesome.Sharp.IconButton
 End Class
 

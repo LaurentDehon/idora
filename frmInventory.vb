@@ -211,6 +211,7 @@ Public Class frmInventory
             End If
             oDoc.Tables(2).Cell(3, 3).Range.Text = $"{frmIntervention.txtZipInt.Text} {frmIntervention.cmbCityInt.Text}, {frmIntervention.txtAdressInt.Text}"
             oDoc.Tables(2).Cell(4, 3).Range.Text = $"{frmIntervention.txtZipInt.Text} {frmIntervention.cmbCityInt.Text}, {frmIntervention.txtAdressInt.Text}"
+            oDoc.Tables(3).Cell(1, 2).Range.Text = $"{frmIntervention.txtSamplesNum.Text}"
             'Cycle through the inventory datagridview
             For i As Integer = 0 To dgvInventory.Rows.Count - 1
                 'Add Room title

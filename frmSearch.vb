@@ -17,6 +17,9 @@ Public Class frmSearch
     Dim user_color As String
     Dim user_name As String
     Dim thread As Thread
+    Dim lst_results As New List(Of List(Of Integer))
+    Dim counter_sel As Integer
+    Dim counter As Integer
     Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
         Get
             Dim cp As CreateParams = MyBase.CreateParams
@@ -522,12 +525,13 @@ Public Class frmSearch
             Else
                 lblCount.Text = $"{dgvStats.RowCount} intervention(s)"
             End If
-            Dim found As Boolean = False
+            lst_results.Clear()
+            counter = 0
+            counter_sel = 1
             If txtFind.Text <> String.Empty Then
                 For i As Integer = dgvStats.RowCount - 1 To 0 Step -1
                     For j As Integer = dgvStats.ColumnCount - 1 To 0 Step -1
                         If dgvStats.Rows(i).Cells(j).Value.ToString.ToLower.Contains(txtFind.Text.ToLower) Then
-                            found = True
                             If i > 5 Then
                                 dgvStats.FirstDisplayedScrollingRowIndex = i - 5
                             Else
@@ -540,11 +544,36 @@ Public Class frmSearch
                             End If
                             dgvStats.Rows(i).Cells(j).Style.BackColor = Color.Yellow
                             dgvStats.Rows(i).Cells(j).Style.ForeColor = Color.Black
+                            Dim temp As New List(Of Integer)({dgvStats.FirstDisplayedScrollingRowIndex, dgvStats.FirstDisplayedScrollingColumnIndex})
+                            lst_results.Add(temp)
+                            counter += 1
                         End If
                     Next
                 Next
+                lblCounter.Visible = True
+                If Lang = 1 Then
+                    If counter > 1 Then
+                        btnDown.Visible = True
+                        btnUp.Visible = True
+                        btnUp.Enabled = False
+                        btnUp.IconColor = Color.FromArgb(35, 35, 35)
+                        lblCounter.Text = $"{counter_sel} / {counter} resultaten"
+                    End If
+                    If counter = 1 Then lblCounter.Text = $"1 / 1 resultaat"
+                    If counter = 0 Then lblCounter.Text = $"Geen resultaat"
+                Else
+                    If counter > 1 Then
+                        btnDown.Visible = True
+                        btnUp.Visible = True
+                        btnUp.Enabled = False
+                        btnUp.IconColor = Color.FromArgb(35, 35, 35)
+                        lblCounter.Text = $"{counter_sel} / {counter} résultats"
+                    End If
+                    If counter = 1 Then lblCounter.Text = $"1 / 1 résultat"
+                    If counter = 0 Then lblCounter.Text = $"Pas de résultat"
+                End If
             End If
-            If found = False Then
+            If counter = 0 Then
                 dgvStats.FirstDisplayedScrollingRowIndex = r
                 dgvStats.Rows(s).Selected = True
                 dgvStats.HorizontalScrollingOffset = o
@@ -576,6 +605,44 @@ Public Class frmSearch
                 MessageBox.Show(ex.ToString, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         End Try
+    End Sub
+    Private Sub btnDown_Click(sender As Object, e As EventArgs) Handles btnDown.Click
+        counter_sel += 1
+        btnUp.Enabled = True
+        btnUp.IconColor = theme("Font")
+        dgvStats.FirstDisplayedScrollingRowIndex = lst_results(lst_results.Count - counter_sel)(0)
+        dgvStats.FirstDisplayedScrollingColumnIndex = lst_results(lst_results.Count - counter_sel)(1)
+        If Lang = 1 Then
+            lblCounter.Text = $"{counter_sel} / {counter} resultaten"
+        Else
+            lblCounter.Text = $"{counter_sel} / {counter} résultats"
+        End If
+        If counter_sel = counter Then
+            btnDown.Enabled = False
+            btnDown.IconColor = Color.FromArgb(35, 35, 35)
+        Else
+            btnDown.Enabled = True
+            btnDown.IconColor = theme("Font")
+        End If
+    End Sub
+    Private Sub btnUp_Click(sender As Object, e As EventArgs) Handles btnUp.Click
+        counter_sel -= 1
+        btnDown.Enabled = True
+        btnDown.IconColor = theme("Font")
+        dgvStats.FirstDisplayedScrollingRowIndex = lst_results(lst_results.Count - counter_sel)(0)
+        dgvStats.FirstDisplayedScrollingColumnIndex = lst_results(lst_results.Count - counter_sel)(1)
+        If Lang = 1 Then
+            lblCounter.Text = $"{counter_sel} / {counter} resultaten"
+        Else
+            lblCounter.Text = $"{counter_sel} / {counter} résultats"
+        End If
+        If counter_sel = 1 Then
+            btnUp.Enabled = False
+            btnUp.IconColor = Color.FromArgb(35, 35, 35)
+        Else
+            btnUp.Enabled = True
+            btnUp.IconColor = theme("Font")
+        End If
     End Sub
 #End Region
 #Region "Context Menus"
@@ -1419,6 +1486,9 @@ Public Class frmSearch
                 dgvStats.Rows(i).Cells(j).Style.ForeColor = theme("Font")
             Next
         Next
+        lblCounter.Visible = False
+        btnDown.Visible = False
+        btnUp.Visible = False
     End Sub
     Private Sub txtFind_KeyDown(sender As Object, e As KeyEventArgs) Handles txtFind.KeyDown
         If (e.KeyCode = Keys.Enter) Then
