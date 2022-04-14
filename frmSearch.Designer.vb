@@ -132,7 +132,7 @@ Partial Class frmSearch
         Me.cmbCity.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbCity.FormattingEnabled = True
         Me.cmbCity.IntegralHeight = False
-        Me.cmbCity.Location = New System.Drawing.Point(694, 32)
+        Me.cmbCity.Location = New System.Drawing.Point(654, 32)
         Me.cmbCity.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.cmbCity.Name = "cmbCity"
         Me.cmbCity.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -150,7 +150,7 @@ Partial Class frmSearch
         Me.cmbCMInt.Dock = System.Windows.Forms.DockStyle.Fill
         Me.cmbCMInt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbCMInt.FormattingEnabled = True
-        Me.cmbCMInt.Location = New System.Drawing.Point(1084, 32)
+        Me.cmbCMInt.Location = New System.Drawing.Point(1044, 32)
         Me.cmbCMInt.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.cmbCMInt.Name = "cmbCMInt"
         Me.cmbCMInt.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -162,10 +162,10 @@ Partial Class frmSearch
         Me.cmbDrug.Dock = System.Windows.Forms.DockStyle.Fill
         Me.cmbDrug.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbDrug.FormattingEnabled = True
-        Me.cmbDrug.Location = New System.Drawing.Point(494, 32)
+        Me.cmbDrug.Location = New System.Drawing.Point(484, 32)
         Me.cmbDrug.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.cmbDrug.Name = "cmbDrug"
-        Me.cmbDrug.Size = New System.Drawing.Size(192, 32)
+        Me.cmbDrug.Size = New System.Drawing.Size(162, 32)
         Me.cmbDrug.TabIndex = 0
         '
         'cmbTypeOfPlace
@@ -176,7 +176,7 @@ Partial Class frmSearch
         Me.cmbTypeOfPlace.Location = New System.Drawing.Point(344, 32)
         Me.cmbTypeOfPlace.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.cmbTypeOfPlace.Name = "cmbTypeOfPlace"
-        Me.cmbTypeOfPlace.Size = New System.Drawing.Size(142, 32)
+        Me.cmbTypeOfPlace.Size = New System.Drawing.Size(132, 32)
         Me.cmbTypeOfPlace.TabIndex = 0
         '
         'cmbTypeOfInt
@@ -195,7 +195,7 @@ Partial Class frmSearch
         Me.cmbArro.Dock = System.Windows.Forms.DockStyle.Fill
         Me.cmbArro.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbArro.FormattingEnabled = True
-        Me.cmbArro.Location = New System.Drawing.Point(914, 32)
+        Me.cmbArro.Location = New System.Drawing.Point(874, 32)
         Me.cmbArro.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.cmbArro.Name = "cmbArro"
         Me.cmbArro.Size = New System.Drawing.Size(162, 32)
@@ -347,8 +347,8 @@ Partial Class frmSearch
         Me.SearchTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
         Me.SearchTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
         Me.SearchTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200.0!))
-        Me.SearchTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150.0!))
-        Me.SearchTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200.0!))
+        Me.SearchTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140.0!))
+        Me.SearchTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170.0!))
         Me.SearchTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 220.0!))
         Me.SearchTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170.0!))
         Me.SearchTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170.0!))
@@ -388,7 +388,7 @@ Partial Class frmSearch
         Me.txtFind.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtFind.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtFind.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.txtFind.Location = New System.Drawing.Point(1252, 32)
+        Me.txtFind.Location = New System.Drawing.Point(1212, 32)
         Me.txtFind.Margin = New System.Windows.Forms.Padding(2, 2, 2, 4)
         Me.txtFind.Name = "txtFind"
         Me.txtFind.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -435,7 +435,7 @@ Partial Class frmSearch
         '
         Me.lblDrug.AutoSize = True
         Me.lblDrug.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDrug.Location = New System.Drawing.Point(494, 0)
+        Me.lblDrug.Location = New System.Drawing.Point(484, 0)
         Me.lblDrug.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblDrug.Name = "lblDrug"
         Me.lblDrug.Padding = New System.Windows.Forms.Padding(0, 7, 0, 0)
@@ -447,7 +447,7 @@ Partial Class frmSearch
         '
         Me.lblCity.AutoSize = True
         Me.lblCity.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCity.Location = New System.Drawing.Point(694, 0)
+        Me.lblCity.Location = New System.Drawing.Point(654, 0)
         Me.lblCity.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblCity.Name = "lblCity"
         Me.lblCity.Padding = New System.Windows.Forms.Padding(0, 7, 0, 0)
@@ -459,7 +459,7 @@ Partial Class frmSearch
         '
         Me.lblArro.AutoSize = True
         Me.lblArro.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblArro.Location = New System.Drawing.Point(914, 0)
+        Me.lblArro.Location = New System.Drawing.Point(874, 0)
         Me.lblArro.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblArro.Name = "lblArro"
         Me.lblArro.Padding = New System.Windows.Forms.Padding(0, 7, 0, 0)
@@ -471,7 +471,7 @@ Partial Class frmSearch
         '
         Me.lblManager.AutoSize = True
         Me.lblManager.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblManager.Location = New System.Drawing.Point(1084, 0)
+        Me.lblManager.Location = New System.Drawing.Point(1044, 0)
         Me.lblManager.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblManager.Name = "lblManager"
         Me.lblManager.Padding = New System.Windows.Forms.Padding(0, 7, 0, 0)
@@ -489,7 +489,7 @@ Partial Class frmSearch
         Me.btnRefresh.IconColor = System.Drawing.Color.Black
         Me.btnRefresh.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnRefresh.IconSize = 25
-        Me.btnRefresh.Location = New System.Drawing.Point(1464, 30)
+        Me.btnRefresh.Location = New System.Drawing.Point(1424, 30)
         Me.btnRefresh.Margin = New System.Windows.Forms.Padding(4, 0, 4, 18)
         Me.btnRefresh.Name = "btnRefresh"
         Me.btnRefresh.Size = New System.Drawing.Size(32, 32)
@@ -506,7 +506,7 @@ Partial Class frmSearch
         Me.btnSearch.IconColor = System.Drawing.Color.Black
         Me.btnSearch.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnSearch.IconSize = 25
-        Me.btnSearch.Location = New System.Drawing.Point(1424, 30)
+        Me.btnSearch.Location = New System.Drawing.Point(1384, 30)
         Me.btnSearch.Margin = New System.Windows.Forms.Padding(4, 0, 4, 18)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(32, 32)

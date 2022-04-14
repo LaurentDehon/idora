@@ -22,6 +22,7 @@
     Public dora_path As String
     Public files_path As String
     Public theme As Dictionary(Of String, Color)
+    Public opened_out As Boolean = False
     'Public themes As New List(Of Tuple(Of String, String))({("test", "test")})
     Public Sub log(m As String, s As String)
         If IO.Directory.Exists(dora_path) Then

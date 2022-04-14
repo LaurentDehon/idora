@@ -59,8 +59,6 @@ Partial Class frmMain
         Me.btnMin = New FontAwesome.Sharp.IconButton()
         Me.btnMax = New FontAwesome.Sharp.IconButton()
         Me.pnlCenter = New System.Windows.Forms.Panel()
-        Me.picHoliday = New DORA.TransparentPictureBox()
-        Me.picBirthday = New DORA.TransparentPictureBox()
         Me.picDORA = New System.Windows.Forms.PictureBox()
         Me.CITIESBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.CITIESTableAdapter1 = New DORA.DORADbDSTableAdapters.CITIESTableAdapter()
@@ -68,6 +66,9 @@ Partial Class frmMain
         Me.CITIESTableAdapter2 = New DORA.DORADbDSTableAdapters.CITIESTableAdapter()
         Me.RCMenuCases = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.mnOpenOut = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.picHoliday = New DORA.TransparentPictureBox()
+        Me.picBirthday = New DORA.TransparentPictureBox()
         Me.RCMenu.SuspendLayout()
         CType(Me.DORADbDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BACKUPBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -77,12 +78,12 @@ Partial Class frmMain
         Me.pnlTitle.SuspendLayout()
         Me.pnlControls.SuspendLayout()
         Me.pnlCenter.SuspendLayout()
-        CType(Me.picHoliday, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picBirthday, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picDORA, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CITIESBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CITIESBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.RCMenuCases.SuspendLayout()
+        CType(Me.picHoliday, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picBirthday, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ClockTimer
@@ -407,6 +408,7 @@ Partial Class frmMain
         '
         'pnlTitle
         '
+        Me.pnlTitle.Controls.Add(Me.Label1)
         Me.pnlTitle.Controls.Add(Me.lblHello)
         Me.pnlTitle.Controls.Add(Me.pnlControls)
         Me.pnlTitle.Controls.Add(Me.lblTime)
@@ -500,24 +502,6 @@ Partial Class frmMain
         Me.pnlCenter.Size = New System.Drawing.Size(1042, 743)
         Me.pnlCenter.TabIndex = 135
         '
-        'picHoliday
-        '
-        Me.picHoliday.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.picHoliday.Location = New System.Drawing.Point(544, 0)
-        Me.picHoliday.Name = "picHoliday"
-        Me.picHoliday.Size = New System.Drawing.Size(500, 150)
-        Me.picHoliday.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.picHoliday.TabIndex = 3
-        Me.picHoliday.TabStop = False
-        '
-        'picBirthday
-        '
-        Me.picBirthday.Location = New System.Drawing.Point(0, 0)
-        Me.picBirthday.Name = "picBirthday"
-        Me.picBirthday.Size = New System.Drawing.Size(426, 310)
-        Me.picBirthday.TabIndex = 1
-        Me.picBirthday.TabStop = False
-        '
         'picDORA
         '
         Me.picDORA.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -525,7 +509,7 @@ Partial Class frmMain
         Me.picDORA.Location = New System.Drawing.Point(128, 164)
         Me.picDORA.Name = "picDORA"
         Me.picDORA.Padding = New System.Windows.Forms.Padding(100)
-        Me.picDORA.Size = New System.Drawing.Size(850, 425)
+        Me.picDORA.Size = New System.Drawing.Size(736, 368)
         Me.picDORA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.picDORA.TabIndex = 0
         Me.picDORA.TabStop = False
@@ -555,7 +539,7 @@ Partial Class frmMain
         Me.RCMenuCases.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.RCMenuCases.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnOpenOut})
         Me.RCMenuCases.Name = "RCMenu"
-        Me.RCMenuCases.Size = New System.Drawing.Size(215, 60)
+        Me.RCMenuCases.Size = New System.Drawing.Size(117, 32)
         '
         'mnOpenOut
         '
@@ -563,8 +547,36 @@ Partial Class frmMain
         Me.mnOpenOut.ForeColor = System.Drawing.SystemColors.ControlText
         Me.mnOpenOut.Image = Global.DORA.My.Resources.Resources.eye
         Me.mnOpenOut.Name = "mnOpenOut"
-        Me.mnOpenOut.Size = New System.Drawing.Size(214, 28)
+        Me.mnOpenOut.Size = New System.Drawing.Size(116, 28)
         Me.mnOpenOut.Text = "Out"
+        '
+        'Label1
+        '
+        Me.Label1.Font = New System.Drawing.Font("Calibri", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(352, 8)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(294, 40)
+        Me.Label1.TabIndex = 120
+        Me.Label1.Text = "Hello"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'picHoliday
+        '
+        Me.picHoliday.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.picHoliday.Location = New System.Drawing.Point(544, 0)
+        Me.picHoliday.Name = "picHoliday"
+        Me.picHoliday.Size = New System.Drawing.Size(500, 150)
+        Me.picHoliday.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picHoliday.TabIndex = 3
+        Me.picHoliday.TabStop = False
+        '
+        'picBirthday
+        '
+        Me.picBirthday.Location = New System.Drawing.Point(0, 0)
+        Me.picBirthday.Name = "picBirthday"
+        Me.picBirthday.Size = New System.Drawing.Size(426, 310)
+        Me.picBirthday.TabIndex = 1
+        Me.picBirthday.TabStop = False
         '
         'frmMain
         '
@@ -593,12 +605,12 @@ Partial Class frmMain
         Me.pnlTitle.ResumeLayout(False)
         Me.pnlControls.ResumeLayout(False)
         Me.pnlCenter.ResumeLayout(False)
-        CType(Me.picHoliday, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picBirthday, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picDORA, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CITIESBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CITIESBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.RCMenuCases.ResumeLayout(False)
+        CType(Me.picHoliday, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picBirthday, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -647,4 +659,5 @@ Partial Class frmMain
     Friend WithEvents picHoliday As TransparentPictureBox
     Friend WithEvents RCMenuCases As ContextMenuStrip
     Friend WithEvents mnOpenOut As ToolStripMenuItem
+    Friend WithEvents Label1 As Label
 End Class

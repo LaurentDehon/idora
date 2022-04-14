@@ -524,8 +524,8 @@ Public Class frmSearch
             End If
             Dim found As Boolean = False
             If txtFind.Text <> String.Empty Then
-                For i As Integer = 0 To dgvStats.RowCount - 1
-                    For j As Integer = 0 To dgvStats.ColumnCount - 1
+                For i As Integer = dgvStats.RowCount - 1 To 0 Step -1
+                    For j As Integer = dgvStats.ColumnCount - 1 To 0 Step -1
                         If dgvStats.Rows(i).Cells(j).Value.ToString.ToLower.Contains(txtFind.Text.ToLower) Then
                             found = True
                             If i > 5 Then

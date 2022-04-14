@@ -4,6 +4,7 @@ Imports System.Reflection
 Imports System.Globalization
 Imports System.IO
 Imports FontAwesome.Sharp
+Imports System.Runtime.InteropServices
 Public Class frmCasesInterventions
     Dim DateInt As Date
     Dim TypeOfInt As String
@@ -43,6 +44,22 @@ Public Class frmCasesInterventions
         CreateUsersBoxes()
         CheckDatFiles()
     End Sub
+#Region "Drag & move"
+    Private Sub pnlTitle_MouseDown(sender As Object, e As MouseEventArgs) Handles dgvCases.MouseDown, dgvInterventions.MouseDown
+        'Handle right click menu and move window
+        If opened_out = True Then
+            ReleaseCapture()
+            SendMessage(Handle, &H112&, &HF012&, 0)
+        End If
+    End Sub
+    'Drag Form'
+    <DllImport("user32.DLL", EntryPoint:="ReleaseCapture")>
+    Private Shared Sub ReleaseCapture()
+    End Sub
+    <DllImport("user32.DLL", EntryPoint:="SendMessage")>
+    Private Shared Sub SendMessage(hWnd As IntPtr, wMsg As Integer, wParam As Integer, lParam As Integer)
+    End Sub
+#End Region
 #Region "Cases Datagridview"
     Private Sub dgvCases_Resize(sender As Object, e As EventArgs) Handles dgvCases.Resize
         dgvCases.Columns(0).Width = CInt((dgvCases.Width / 100) * 35)
@@ -853,6 +870,7 @@ Public Class frmCasesInterventions
     End Sub
     Private Sub frmCasesInterventions_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         If (e.Alt AndAlso e.KeyCode = Keys.X) Then
+            opened_out = False
             Close()
         End If
     End Sub
