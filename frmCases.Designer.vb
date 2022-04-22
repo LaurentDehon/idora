@@ -145,10 +145,12 @@ Partial Class frmCases
         Me.lblTypeOfCase = New System.Windows.Forms.Label()
         Me.pnlTab = New System.Windows.Forms.Panel()
         Me.pnlSummary = New System.Windows.Forms.Panel()
+        Me.lblSummary = New System.Windows.Forms.Label()
         Me.pnlSiena = New System.Windows.Forms.Panel()
         Me.txtSienaPicturesDate = New System.Windows.Forms.DateTimePicker()
         Me.txtSienaDate = New System.Windows.Forms.DateTimePicker()
         Me.fsw = New System.IO.FileSystemWatcher()
+        Me.lblCreated = New System.Windows.Forms.Label()
         CType(Me.DORADbDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CASESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.INTERVENTIONSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -687,15 +689,14 @@ Partial Class frmCases
         '
         Me.txtSummary.BackColor = System.Drawing.SystemColors.Window
         Me.txtSummary.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CASESBindingSource, "SUMMARY", True))
-        Me.txtSummary.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtSummary.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSummary.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.txtSummary.Location = New System.Drawing.Point(16, 16)
+        Me.txtSummary.Location = New System.Drawing.Point(21, 39)
         Me.txtSummary.Margin = New System.Windows.Forms.Padding(4)
         Me.txtSummary.Multiline = True
         Me.txtSummary.Name = "txtSummary"
         Me.txtSummary.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtSummary.Size = New System.Drawing.Size(280, 295)
+        Me.txtSummary.Size = New System.Drawing.Size(275, 272)
         Me.txtSummary.TabIndex = 0
         '
         'chkInvestigation
@@ -958,7 +959,7 @@ Partial Class frmCases
         '
         Me.lblTitle.AutoSize = True
         Me.lblTitle.Font = New System.Drawing.Font("Calibri", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitle.Location = New System.Drawing.Point(72, 64)
+        Me.lblTitle.Location = New System.Drawing.Point(48, 40)
         Me.lblTitle.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(109, 37)
@@ -1068,6 +1069,7 @@ Partial Class frmCases
         '
         'pnlTitle
         '
+        Me.pnlTitle.Controls.Add(Me.lblCreated)
         Me.pnlTitle.Controls.Add(Me.pnlControls)
         Me.pnlTitle.Controls.Add(Me.lblTitle)
         Me.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top
@@ -1720,6 +1722,7 @@ Partial Class frmCases
         '
         'pnlSummary
         '
+        Me.pnlSummary.Controls.Add(Me.lblSummary)
         Me.pnlSummary.Controls.Add(Me.txtSummary)
         Me.pnlSummary.Location = New System.Drawing.Point(736, 391)
         Me.pnlSummary.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -1727,6 +1730,17 @@ Partial Class frmCases
         Me.pnlSummary.Padding = New System.Windows.Forms.Padding(16)
         Me.pnlSummary.Size = New System.Drawing.Size(312, 327)
         Me.pnlSummary.TabIndex = 155
+        '
+        'lblSummary
+        '
+        Me.lblSummary.AutoSize = True
+        Me.lblSummary.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSummary.Location = New System.Drawing.Point(21, 10)
+        Me.lblSummary.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblSummary.Name = "lblSummary"
+        Me.lblSummary.Size = New System.Drawing.Size(88, 24)
+        Me.lblSummary.TabIndex = 153
+        Me.lblSummary.Text = "Summary"
         '
         'pnlSiena
         '
@@ -1777,6 +1791,19 @@ Partial Class frmCases
         Me.fsw.Filter = "*.dat"
         Me.fsw.Path = "G:\DJSOC\DRUGS\CRU\DORA\SYSTEM"
         Me.fsw.SynchronizingObject = Me
+        '
+        'lblCreated
+        '
+        Me.lblCreated.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblCreated.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCreated.Location = New System.Drawing.Point(408, 88)
+        Me.lblCreated.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblCreated.Name = "lblCreated"
+        Me.lblCreated.Size = New System.Drawing.Size(661, 37)
+        Me.lblCreated.TabIndex = 142
+        Me.lblCreated.Tag = ""
+        Me.lblCreated.Text = "Created"
+        Me.lblCreated.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'frmCases
         '
@@ -1961,4 +1988,6 @@ Partial Class frmCases
     Friend WithEvents txtInvestigationDate As DateTimePicker
     Friend WithEvents txtSienaPicturesDate As DateTimePicker
     Friend WithEvents txtSienaDate As DateTimePicker
+    Friend WithEvents lblSummary As Label
+    Friend WithEvents lblCreated As Label
 End Class

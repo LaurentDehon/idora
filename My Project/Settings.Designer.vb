@@ -243,6 +243,30 @@ Namespace My
                 Me("frmFind_loc") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0, 0")>  _
+        Public Property frmSearch_size() As Global.System.Drawing.Size
+            Get
+                Return CType(Me("frmSearch_size"),Global.System.Drawing.Size)
+            End Get
+            Set
+                Me("frmSearch_size") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0, 0")>  _
+        Public Property frmSearch_loc() As Global.System.Drawing.Point
+            Get
+                Return CType(Me("frmSearch_loc"),Global.System.Drawing.Point)
+            End Get
+            Set
+                Me("frmSearch_loc") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

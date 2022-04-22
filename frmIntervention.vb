@@ -22,6 +22,8 @@ Public Class frmIntervention
     Private Sub frmIntervention_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Location = My.Settings.frmIntervention_loc
         Size = New Size(2053, 1033)
+        'MaximumSize = New Size(2053, 1033)
+        'MinimumSize = New Size(2053, 1033)
         SetColors()
         'Fill, filter and sort datatables
         frmMain.CITIESBindingSource1.Sort = "[CITY] ASC"
@@ -69,6 +71,7 @@ Public Class frmIntervention
         HandleEmptyZip()
         DisplayFolder()
         DisplayTitle()
+        UpdateCreation()
     End Sub
 #Region "Drag & move"
     Private Sub pnlTitle_MouseDown(sender As Object, e As MouseEventArgs) Handles pnlTitle.MouseDown
@@ -118,7 +121,36 @@ Public Class frmIntervention
         Else
             btnIntervention.IconChar = IconChar.Times
         End If
-
+        If chkCRUOnSite.Checked = True Then
+            btnCRUOnSite.IconChar = IconChar.Check
+        Else
+            btnCRUOnSite.IconChar = IconChar.Times
+        End If
+        If chkSuspect.Checked = True Then
+            btnSuspect.IconChar = IconChar.Check
+        Else
+            btnSuspect.IconChar = IconChar.Times
+        End If
+        If chkDischarge.Checked = True Then
+            btnDischarge.IconChar = IconChar.Check
+        Else
+            btnDischarge.IconChar = IconChar.Times
+        End If
+        If chkRecipe.Checked = True Then
+            btnRecipe.IconChar = IconChar.Check
+        Else
+            btnRecipe.IconChar = IconChar.Times
+        End If
+        If chkBill.Checked = True Then
+            btnBill.IconChar = IconChar.Check
+        Else
+            btnBill.IconChar = IconChar.Times
+        End If
+        If chkNote.Checked = True Then
+            btnNote.IconChar = IconChar.Check
+        Else
+            btnNote.IconChar = IconChar.Times
+        End If
     End Sub
     Private Sub btnCRUReport_Click(sender As Object, e As EventArgs) Handles btnCRUReport.Click
         If chkCRUReport.Checked = True Then
@@ -157,6 +189,54 @@ Public Class frmIntervention
             chkIntervention.Checked = False
         Else
             chkIntervention.Checked = True
+        End If
+        handleCheckboxes()
+    End Sub
+    Private Sub btnCRUOnSite_Click(sender As Object, e As EventArgs) Handles btnCRUOnSite.Click
+        If chkCRUOnSite.Checked = True Then
+            chkCRUOnSite.Checked = False
+        Else
+            chkCRUOnSite.Checked = True
+        End If
+        handleCheckboxes()
+    End Sub
+    Private Sub btnSuspect_Click(sender As Object, e As EventArgs) Handles btnSuspect.Click
+        If chkSuspect.Checked = True Then
+            chkSuspect.Checked = False
+        Else
+            chkSuspect.Checked = True
+        End If
+        handleCheckboxes()
+    End Sub
+    Private Sub btnDischarge_Click(sender As Object, e As EventArgs) Handles btnDischarge.Click
+        If chkDischarge.Checked = True Then
+            chkDischarge.Checked = False
+        Else
+            chkDischarge.Checked = True
+        End If
+        handleCheckboxes()
+    End Sub
+    Private Sub btnRecipe_Click(sender As Object, e As EventArgs) Handles btnRecipe.Click
+        If chkRecipe.Checked = True Then
+            chkRecipe.Checked = False
+        Else
+            chkRecipe.Checked = True
+        End If
+        handleCheckboxes()
+    End Sub
+    Private Sub btnBill_Click(sender As Object, e As EventArgs) Handles btnBill.Click
+        If chkBill.Checked = True Then
+            chkBill.Checked = False
+        Else
+            chkBill.Checked = True
+        End If
+        handleCheckboxes()
+    End Sub
+    Private Sub btnNote_Click(sender As Object, e As EventArgs) Handles btnNote.Click
+        If chkNote.Checked = True Then
+            chkNote.Checked = False
+        Else
+            chkNote.Checked = True
         End If
         handleCheckboxes()
     End Sub
@@ -1459,6 +1539,7 @@ Public Class frmIntervention
         'Hide default date
         HideDefaultDates()
         DisplayTitle()
+        UpdateCreation()
         DisplayFolder()
         InitializeDataGridViews()
     End Sub
@@ -1499,6 +1580,7 @@ Public Class frmIntervention
         'Hide default date
         HideDefaultDates()
         DisplayTitle()
+        UpdateCreation()
         DisplayFolder()
         InitializeDataGridViews()
     End Sub
@@ -1906,7 +1988,7 @@ Public Class frmIntervention
             lblCRUReport.Text = "CRU PV"
             lblPicturesReport.Text = "Fotodossier"
             lblNICCReport.Text = "NICC verslag"
-            lblIntervention.Text = "Voltooid interventie"
+            lblIntervention.Text = "Interventie gesloten"
             lblSamplesTaken.Text = "Genomen door"
             lblSamplesNum.Text = "SIN Nummer"
             lblSamplesDelivery.Text = "Staalnames gedeponeerd op"
@@ -1915,6 +1997,13 @@ Public Class frmIntervention
             lblSummary.Text = "Samenvatting van de feiten"
             lbltotal.Text = "Totaal"
             lblProdCap.Text = "Capaciteit"
+            lblCRUOnSite.Text = "CRU ter plaatse"
+            lblOnSite.Text = "Ter plaatse"
+            lblSuspect.Text = "Verdacht(en)"
+            lblDischarge.Text = "Lozing(en)"
+            lblRecipe.Text = "Recept(en)"
+            lblBill.Text = "Factuur(en)"
+            lblNote.Text = "Opmerking(en)"
             ToolTip.SetToolTip(btnPrevCase, "Vorige interventie")
             ToolTip.SetToolTip(btnNextCase, "Volgende interventie")
             ToolTip.SetToolTip(btnSave, "Opslaan")
@@ -1929,11 +2018,10 @@ De lijst wordt gefilterd op basis van uw zoekcriteria en op de namen van de prod
 Om het filter te resetten, plaatst u de cursor in het lege tekstveld en drukt u op backspace.")
             ToolTip.SetToolTip(btnSGS, "SGS adres")
             ToolTip.SetToolTip(btnRemondis, "Remondis adres")
-            ToolTip.SetToolTip(btnFactsToInt, "Data kopieren")
-            ToolTip.SetToolTip(btnIntToFacts, "Data kopieren")
-            HelpToolStripMenuItem.Text = "Hulp"
+            ToolTip.SetToolTip(btnIntToFacts, "Kopieer de gegevens van de interventie naar de feiten")
+            ToolTip.SetToolTip(btnFactsToInt, "Kopieer de gegevens van de feiten naar de interventie")
         Else
-            lblTypeOfInt.Text = "Type d'intervention"
+                lblTypeOfInt.Text = "Type d'intervention"
             lblTypeOfPlace.Text = "Lieu"
             lblInt.Text = "Intervention"
             lblDateInt.Text = "Intervention"
@@ -1951,6 +2039,13 @@ Om het filter te resetten, plaatst u de cursor in het lege tekstveld en drukt u 
             lblSummary.Text = "Résumé des faits"
             lbltotal.Text = "Total"
             lblProdCap.Text = "Capacité"
+            lblCRUOnSite.Text = "CRU sur place"
+            lblOnSite.Text = "Sur place"
+            lblSuspect.Text = "Suspect(s)"
+            lblDischarge.Text = "Déversement(s)"
+            lblRecipe.Text = "Recette(s)"
+            lblBill.Text = "Facture(s)"
+            lblNote.Text = "Note(s)"
             ToolTip.SetToolTip(btnPrevCase, "Intervention précédente")
             ToolTip.SetToolTip(btnNextCase, "Intervention suivante")
             ToolTip.SetToolTip(btnSave, "Enregistrer")
@@ -1965,9 +2060,8 @@ La liste sera filtrée sur base de votre critère de recherche et sur les noms d
 Pour réinitialiser le filtre, placez le curseur dans le champ de texte vide et appuyez sur backspace.")
             ToolTip.SetToolTip(btnSGS, "Adresse de SGS")
             ToolTip.SetToolTip(btnRemondis, "Adresse de Remondis")
-            ToolTip.SetToolTip(btnFactsToInt, "Copier les données")
-            ToolTip.SetToolTip(btnIntToFacts, "Copier les données")
-            HelpToolStripMenuItem.Text = "Aide"
+            ToolTip.SetToolTip(btnFactsToInt, "Copier les données des faits vers l'intervention")
+            ToolTip.SetToolTip(btnIntToFacts, "Copier les données de l'intervention vers les faits")
         End If
     End Sub
     Private Sub FillCombo()
@@ -2060,6 +2154,21 @@ Pour réinitialiser le filtre, placez le curseur dans le champ de texte vide et 
             cmbDrug.Items.Add("Kétamine")
             cmbDrug.Items.Add("GHB")
             cmbDrug.Items.Add("Autre")
+        End If
+    End Sub
+    Private Sub UpdateCreation()
+        If Lang = 1 Then
+            If DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("CREATED ON") IsNot DBNull.Value AndAlso CStr(DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("CREATED BY")) <> String.Empty Then
+                lblCreated.Text = $"Angemaakt door {CStr(DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("CREATED BY"))} op {Format(DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("CREATED ON"), "dd/MM/yyyy")}"
+            Else
+                lblCreated.Visible = False
+            End If
+        Else
+            If DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("CREATED ON") IsNot DBNull.Value AndAlso CStr(DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("CREATED BY")) <> String.Empty Then
+                lblCreated.Text = $"Créé par {CStr(DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("CREATED BY"))} le {Format(DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("CREATED ON"), "dd/MM/yyyy")}"
+            Else
+                lblCreated.Visible = False
+            End If
         End If
     End Sub
     Private Sub frmIntervention_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown

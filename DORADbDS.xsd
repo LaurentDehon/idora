@@ -494,7 +494,7 @@ FROM     CASES</CommandText>
               <DbSource ConnectionRef="DORADbConn (MySettings)" DbObjectName="INTERVENTIONS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM `INTERVENTIONS` WHERE ((`ID CRU` = ?) AND ((? = 1 AND `CASE NAME` IS NULL) OR (`CASE NAME` = ?)) AND ((? = 1 AND `DATE INT` IS NULL) OR (`DATE INT` = ?)) AND ((? = 1 AND `DATE FACTS` IS NULL) OR (`DATE FACTS` = ?)) AND ((? = 1 AND `TYPE OF INT` IS NULL) OR (`TYPE OF INT` = ?)) AND ((? = 1 AND `TYPE OF PLACE` IS NULL) OR (`TYPE OF PLACE` = ?)) AND ((? = 1 AND `ADRESS INT` IS NULL) OR (`ADRESS INT` = ?)) AND ((? = 1 AND `ZIP INT` IS NULL) OR (`ZIP INT` = ?)) AND ((? = 1 AND `CITY INT` IS NULL) OR (`CITY INT` = ?)) AND ((? = 1 AND `ADRESS FACTS` IS NULL) OR (`ADRESS FACTS` = ?)) AND ((? = 1 AND `ZIP FACTS` IS NULL) OR (`ZIP FACTS` = ?)) AND ((? = 1 AND `CITY FACTS` IS NULL) OR (`CITY FACTS` = ?)) AND ((? = 1 AND `SAMPLES` IS NULL) OR (`SAMPLES` = ?)) AND ((? = 1 AND `SAMPLES TAKEN BY` IS NULL) OR (`SAMPLES TAKEN BY` = ?)) AND ((? = 1 AND `SAMPLES DELIVERY DATE` IS NULL) OR (`SAMPLES DELIVERY DATE` = ?)) AND ((? = 1 AND `SAMPLES NUM` IS NULL) OR (`SAMPLES NUM` = ?)) AND ((? = 1 AND `INVENTORY` IS NULL) OR (`INVENTORY` = ?)) AND ((? = 1 AND `SAMPLES CODE` IS NULL) OR (`SAMPLES CODE` = ?)) AND ((? = 1 AND `PICTURES REPORT` IS NULL) OR (`PICTURES REPORT` = ?)) AND ((? = 1 AND `NICC REPORT` IS NULL) OR (`NICC REPORT` = ?)) AND ((? = 1 AND `NICC REPORT NUM` IS NULL) OR (`NICC REPORT NUM` = ?)) AND ((? = 1 AND `NICC REPORT DATE` IS NULL) OR (`NICC REPORT DATE` = ?)) AND ((? = 1 AND `CRU REPORT` IS NULL) OR (`CRU REPORT` = ?)) AND ((? = 1 AND `CRU REPORT NUM` IS NULL) OR (`CRU REPORT NUM` = ?)) AND ((? = 1 AND `CRU REPORT DATE` IS NULL) OR (`CRU REPORT DATE` = ?)) AND ((? = 1 AND `PRODCAP` IS NULL) OR (`PRODCAP` = ?)) AND ((? = 1 AND `INTDONE` IS NULL) OR (`INTDONE` = ?)) AND ((? = 1 AND `DATE 1` IS NULL) OR (`DATE 1` = ?)) AND ((? = 1 AND `TIME 1` IS NULL) OR (`TIME 1` = ?)) AND ((? = 1 AND `TIME 2` IS NULL) OR (`TIME 2` = ?)) AND ((? = 1 AND `DATE 2` IS NULL) OR (`DATE 2` = ?)) AND ((? = 1 AND `TIME 3` IS NULL) OR (`TIME 3` = ?)) AND ((? = 1 AND `TIME 4` IS NULL) OR (`TIME 4` = ?)) AND ((? = 1 AND `DATE 3` IS NULL) OR (`DATE 3` = ?)) AND ((? = 1 AND `TIME 5` IS NULL) OR (`TIME 5` = ?)) AND ((? = 1 AND `TIME 6` IS NULL) OR (`TIME 6` = ?)) AND ((? = 1 AND `TIME` IS NULL) OR (`TIME` = ?)) AND ((? = 1 AND `PROD` IS NULL) OR (`PROD` = ?)) AND ((? = 1 AND `INTPL` IS NULL) OR (`INTPL` = ?)) AND ((? = 1 AND `INT OS` IS NULL) OR (`INT OS` = ?)) AND ((? = 1 AND `CREATED BY` IS NULL) OR (`CREATED BY` = ?)) AND ((? = 1 AND `CREATED ON` IS NULL) OR (`CREATED ON` = ?)))</CommandText>
+                    <CommandText>DELETE FROM `INTERVENTIONS` WHERE ((`ID CRU` = ?) AND ((? = 1 AND `CASE NAME` IS NULL) OR (`CASE NAME` = ?)) AND ((? = 1 AND `DATE INT` IS NULL) OR (`DATE INT` = ?)) AND ((? = 1 AND `DATE FACTS` IS NULL) OR (`DATE FACTS` = ?)) AND ((? = 1 AND `TYPE OF INT` IS NULL) OR (`TYPE OF INT` = ?)) AND ((? = 1 AND `TYPE OF PLACE` IS NULL) OR (`TYPE OF PLACE` = ?)) AND ((? = 1 AND `ADRESS INT` IS NULL) OR (`ADRESS INT` = ?)) AND ((? = 1 AND `ZIP INT` IS NULL) OR (`ZIP INT` = ?)) AND ((? = 1 AND `CITY INT` IS NULL) OR (`CITY INT` = ?)) AND ((? = 1 AND `ADRESS FACTS` IS NULL) OR (`ADRESS FACTS` = ?)) AND ((? = 1 AND `ZIP FACTS` IS NULL) OR (`ZIP FACTS` = ?)) AND ((? = 1 AND `CITY FACTS` IS NULL) OR (`CITY FACTS` = ?)) AND ((? = 1 AND `SAMPLES` IS NULL) OR (`SAMPLES` = ?)) AND ((? = 1 AND `SAMPLES TAKEN BY` IS NULL) OR (`SAMPLES TAKEN BY` = ?)) AND ((? = 1 AND `SAMPLES DELIVERY DATE` IS NULL) OR (`SAMPLES DELIVERY DATE` = ?)) AND ((? = 1 AND `SAMPLES NUM` IS NULL) OR (`SAMPLES NUM` = ?)) AND ((? = 1 AND `INVENTORY` IS NULL) OR (`INVENTORY` = ?)) AND ((? = 1 AND `SAMPLES CODE` IS NULL) OR (`SAMPLES CODE` = ?)) AND ((? = 1 AND `PICTURES REPORT` IS NULL) OR (`PICTURES REPORT` = ?)) AND ((? = 1 AND `NICC REPORT` IS NULL) OR (`NICC REPORT` = ?)) AND ((? = 1 AND `NICC REPORT NUM` IS NULL) OR (`NICC REPORT NUM` = ?)) AND ((? = 1 AND `NICC REPORT DATE` IS NULL) OR (`NICC REPORT DATE` = ?)) AND ((? = 1 AND `CRU REPORT` IS NULL) OR (`CRU REPORT` = ?)) AND ((? = 1 AND `CRU REPORT NUM` IS NULL) OR (`CRU REPORT NUM` = ?)) AND ((? = 1 AND `CRU REPORT DATE` IS NULL) OR (`CRU REPORT DATE` = ?)) AND ((? = 1 AND `PRODCAP` IS NULL) OR (`PRODCAP` = ?)) AND ((? = 1 AND `INTDONE` IS NULL) OR (`INTDONE` = ?)) AND ((? = 1 AND `DATE 1` IS NULL) OR (`DATE 1` = ?)) AND ((? = 1 AND `TIME 1` IS NULL) OR (`TIME 1` = ?)) AND ((? = 1 AND `TIME 2` IS NULL) OR (`TIME 2` = ?)) AND ((? = 1 AND `DATE 2` IS NULL) OR (`DATE 2` = ?)) AND ((? = 1 AND `TIME 3` IS NULL) OR (`TIME 3` = ?)) AND ((? = 1 AND `TIME 4` IS NULL) OR (`TIME 4` = ?)) AND ((? = 1 AND `DATE 3` IS NULL) OR (`DATE 3` = ?)) AND ((? = 1 AND `TIME 5` IS NULL) OR (`TIME 5` = ?)) AND ((? = 1 AND `TIME 6` IS NULL) OR (`TIME 6` = ?)) AND ((? = 1 AND `TIME` IS NULL) OR (`TIME` = ?)) AND ((? = 1 AND `PROD` IS NULL) OR (`PROD` = ?)) AND ((? = 1 AND `INTPL` IS NULL) OR (`INTPL` = ?)) AND ((? = 1 AND `INT OS` IS NULL) OR (`INT OS` = ?)) AND ((? = 1 AND `CREATED BY` IS NULL) OR (`CREATED BY` = ?)) AND ((? = 1 AND `CREATED ON` IS NULL) OR (`CREATED ON` = ?)) AND ((? = 1 AND `CRU ON SITE` IS NULL) OR (`CRU ON SITE` = ?)) AND ((? = 1 AND `SUSPECT` IS NULL) OR (`SUSPECT` = ?)) AND ((? = 1 AND `DISCHARGE` IS NULL) OR (`DISCHARGE` = ?)) AND ((? = 1 AND `RECIPE` IS NULL) OR (`RECIPE` = ?)) AND ((? = 1 AND `BILL` IS NULL) OR (`BILL` = ?)) AND ((? = 1 AND `NOTE` IS NULL) OR (`NOTE` = ?)))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_ID_CRU" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ID CRU" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_CASE_NAME" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="CASE NAME" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -579,12 +579,24 @@ FROM     CASES</CommandText>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_CREATED_BY" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="CREATED BY" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_CREATED_ON" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="CREATED ON" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="Original_CREATED_ON" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="CREATED ON" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_CRU_ON_SITE" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="CRU ON SITE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_CRU_ON_SITE" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="CRU ON SITE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_SUSPECT" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="SUSPECT" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_SUSPECT" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="SUSPECT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_DISCHARGE" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="DISCHARGE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_DISCHARGE" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="DISCHARGE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_RECIPE" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="RECIPE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_RECIPE" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="RECIPE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_BILL" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="BILL" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_BILL" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="BILL" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_NOTE" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="NOTE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_NOTE" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="NOTE" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO `INTERVENTIONS` (`CASE NAME`, `DATE INT`, `DATE FACTS`, `TYPE OF INT`, `TYPE OF PLACE`, `ADRESS INT`, `ZIP INT`, `CITY INT`, `ADRESS FACTS`, `ZIP FACTS`, `CITY FACTS`, `SUMMARY`, `SAMPLES`, `SAMPLES TAKEN BY`, `SAMPLES DELIVERY DATE`, `SAMPLES NUM`, `INVENTORY`, `SAMPLES CODE`, `PICTURES REPORT`, `NICC REPORT`, `NICC REPORT NUM`, `NICC REPORT DATE`, `NICC CONC`, `CRU REPORT`, `CRU REPORT NUM`, `CRU REPORT DATE`, `PRODCAP`, `INTDONE`, `DATE 1`, `TIME 1`, `TIME 2`, `DATE 2`, `TIME 3`, `TIME 4`, `DATE 3`, `TIME 5`, `TIME 6`, `TIME`, `PROD`, `INTPL`, `INT OS`, `CREATED BY`, `CREATED ON`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)</CommandText>
+                    <CommandText>INSERT INTO `INTERVENTIONS` (`CASE NAME`, `DATE INT`, `DATE FACTS`, `TYPE OF INT`, `TYPE OF PLACE`, `ADRESS INT`, `ZIP INT`, `CITY INT`, `ADRESS FACTS`, `ZIP FACTS`, `CITY FACTS`, `SUMMARY`, `SAMPLES`, `SAMPLES TAKEN BY`, `SAMPLES DELIVERY DATE`, `SAMPLES NUM`, `INVENTORY`, `SAMPLES CODE`, `PICTURES REPORT`, `NICC REPORT`, `NICC REPORT NUM`, `NICC REPORT DATE`, `NICC CONC`, `CRU REPORT`, `CRU REPORT NUM`, `CRU REPORT DATE`, `PRODCAP`, `INTDONE`, `DATE 1`, `TIME 1`, `TIME 2`, `DATE 2`, `TIME 3`, `TIME 4`, `DATE 3`, `TIME 5`, `TIME 6`, `TIME`, `PROD`, `INTPL`, `INT OS`, `CREATED BY`, `CREATED ON`, `CRU ON SITE`, `SUSPECT`, `DISCHARGE`, `RECIPE`, `BILL`, `NOTE`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="CASE_NAME" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="CASE NAME" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="DATE_INT" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="DATE INT" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -629,6 +641,12 @@ FROM     CASES</CommandText>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="INT_OS" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="INT OS" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="CREATED_BY" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="CREATED BY" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="CREATED_ON" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="CREATED ON" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="CRU_ON_SITE" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="CRU ON SITE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="SUSPECT" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="SUSPECT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="DISCHARGE" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="DISCHARGE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="RECIPE" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="RECIPE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="BILL" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="BILL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="NOTE" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="NOTE" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
@@ -636,14 +654,14 @@ FROM     CASES</CommandText>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT [ID CRU], [CASE NAME], [DATE INT], [DATE FACTS], [TYPE OF INT], [TYPE OF PLACE], [ADRESS INT], [ZIP INT], [CITY INT], [ADRESS FACTS], [ZIP FACTS], [CITY FACTS], SUMMARY, SAMPLES, [SAMPLES TAKEN BY], 
                   [SAMPLES DELIVERY DATE], [SAMPLES NUM], INVENTORY, [SAMPLES CODE], [PICTURES REPORT], [NICC REPORT], [NICC REPORT NUM], [NICC REPORT DATE], [NICC CONC], [CRU REPORT], [CRU REPORT NUM], [CRU REPORT DATE], 
-                  PRODCAP, INTDONE, [DATE 1], [TIME 1], [TIME 2], [DATE 2], [TIME 3], [TIME 4], [DATE 3], [TIME 5], [TIME 6], [TIME], PROD, INTPL, [INT OS], [CREATED BY], [CREATED ON]
+                  PRODCAP, INTDONE, [DATE 1], [TIME 1], [TIME 2], [DATE 2], [TIME 3], [TIME 4], [DATE 3], [TIME 5], [TIME 6], [TIME], PROD, INTPL, [INT OS], [CREATED BY], [CREATED ON], [CRU ON SITE], SUSPECT, DISCHARGE, RECIPE, BILL, NOTE
 FROM     INTERVENTIONS</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE `INTERVENTIONS` SET `CASE NAME` = ?, `DATE INT` = ?, `DATE FACTS` = ?, `TYPE OF INT` = ?, `TYPE OF PLACE` = ?, `ADRESS INT` = ?, `ZIP INT` = ?, `CITY INT` = ?, `ADRESS FACTS` = ?, `ZIP FACTS` = ?, `CITY FACTS` = ?, `SUMMARY` = ?, `SAMPLES` = ?, `SAMPLES TAKEN BY` = ?, `SAMPLES DELIVERY DATE` = ?, `SAMPLES NUM` = ?, `INVENTORY` = ?, `SAMPLES CODE` = ?, `PICTURES REPORT` = ?, `NICC REPORT` = ?, `NICC REPORT NUM` = ?, `NICC REPORT DATE` = ?, `NICC CONC` = ?, `CRU REPORT` = ?, `CRU REPORT NUM` = ?, `CRU REPORT DATE` = ?, `PRODCAP` = ?, `INTDONE` = ?, `DATE 1` = ?, `TIME 1` = ?, `TIME 2` = ?, `DATE 2` = ?, `TIME 3` = ?, `TIME 4` = ?, `DATE 3` = ?, `TIME 5` = ?, `TIME 6` = ?, `TIME` = ?, `PROD` = ?, `INTPL` = ?, `INT OS` = ?, `CREATED BY` = ?, `CREATED ON` = ? WHERE ((`ID CRU` = ?) AND ((? = 1 AND `CASE NAME` IS NULL) OR (`CASE NAME` = ?)) AND ((? = 1 AND `DATE INT` IS NULL) OR (`DATE INT` = ?)) AND ((? = 1 AND `DATE FACTS` IS NULL) OR (`DATE FACTS` = ?)) AND ((? = 1 AND `TYPE OF INT` IS NULL) OR (`TYPE OF INT` = ?)) AND ((? = 1 AND `TYPE OF PLACE` IS NULL) OR (`TYPE OF PLACE` = ?)) AND ((? = 1 AND `ADRESS INT` IS NULL) OR (`ADRESS INT` = ?)) AND ((? = 1 AND `ZIP INT` IS NULL) OR (`ZIP INT` = ?)) AND ((? = 1 AND `CITY INT` IS NULL) OR (`CITY INT` = ?)) AND ((? = 1 AND `ADRESS FACTS` IS NULL) OR (`ADRESS FACTS` = ?)) AND ((? = 1 AND `ZIP FACTS` IS NULL) OR (`ZIP FACTS` = ?)) AND ((? = 1 AND `CITY FACTS` IS NULL) OR (`CITY FACTS` = ?)) AND ((? = 1 AND `SAMPLES` IS NULL) OR (`SAMPLES` = ?)) AND ((? = 1 AND `SAMPLES TAKEN BY` IS NULL) OR (`SAMPLES TAKEN BY` = ?)) AND ((? = 1 AND `SAMPLES DELIVERY DATE` IS NULL) OR (`SAMPLES DELIVERY DATE` = ?)) AND ((? = 1 AND `SAMPLES NUM` IS NULL) OR (`SAMPLES NUM` = ?)) AND ((? = 1 AND `INVENTORY` IS NULL) OR (`INVENTORY` = ?)) AND ((? = 1 AND `SAMPLES CODE` IS NULL) OR (`SAMPLES CODE` = ?)) AND ((? = 1 AND `PICTURES REPORT` IS NULL) OR (`PICTURES REPORT` = ?)) AND ((? = 1 AND `NICC REPORT` IS NULL) OR (`NICC REPORT` = ?)) AND ((? = 1 AND `NICC REPORT NUM` IS NULL) OR (`NICC REPORT NUM` = ?)) AND ((? = 1 AND `NICC REPORT DATE` IS NULL) OR (`NICC REPORT DATE` = ?)) AND ((? = 1 AND `CRU REPORT` IS NULL) OR (`CRU REPORT` = ?)) AND ((? = 1 AND `CRU REPORT NUM` IS NULL) OR (`CRU REPORT NUM` = ?)) AND ((? = 1 AND `CRU REPORT DATE` IS NULL) OR (`CRU REPORT DATE` = ?)) AND ((? = 1 AND `PRODCAP` IS NULL) OR (`PRODCAP` = ?)) AND ((? = 1 AND `INTDONE` IS NULL) OR (`INTDONE` = ?)) AND ((? = 1 AND `DATE 1` IS NULL) OR (`DATE 1` = ?)) AND ((? = 1 AND `TIME 1` IS NULL) OR (`TIME 1` = ?)) AND ((? = 1 AND `TIME 2` IS NULL) OR (`TIME 2` = ?)) AND ((? = 1 AND `DATE 2` IS NULL) OR (`DATE 2` = ?)) AND ((? = 1 AND `TIME 3` IS NULL) OR (`TIME 3` = ?)) AND ((? = 1 AND `TIME 4` IS NULL) OR (`TIME 4` = ?)) AND ((? = 1 AND `DATE 3` IS NULL) OR (`DATE 3` = ?)) AND ((? = 1 AND `TIME 5` IS NULL) OR (`TIME 5` = ?)) AND ((? = 1 AND `TIME 6` IS NULL) OR (`TIME 6` = ?)) AND ((? = 1 AND `TIME` IS NULL) OR (`TIME` = ?)) AND ((? = 1 AND `PROD` IS NULL) OR (`PROD` = ?)) AND ((? = 1 AND `INTPL` IS NULL) OR (`INTPL` = ?)) AND ((? = 1 AND `INT OS` IS NULL) OR (`INT OS` = ?)) AND ((? = 1 AND `CREATED BY` IS NULL) OR (`CREATED BY` = ?)) AND ((? = 1 AND `CREATED ON` IS NULL) OR (`CREATED ON` = ?)))</CommandText>
+                    <CommandText>UPDATE `INTERVENTIONS` SET `CASE NAME` = ?, `DATE INT` = ?, `DATE FACTS` = ?, `TYPE OF INT` = ?, `TYPE OF PLACE` = ?, `ADRESS INT` = ?, `ZIP INT` = ?, `CITY INT` = ?, `ADRESS FACTS` = ?, `ZIP FACTS` = ?, `CITY FACTS` = ?, `SUMMARY` = ?, `SAMPLES` = ?, `SAMPLES TAKEN BY` = ?, `SAMPLES DELIVERY DATE` = ?, `SAMPLES NUM` = ?, `INVENTORY` = ?, `SAMPLES CODE` = ?, `PICTURES REPORT` = ?, `NICC REPORT` = ?, `NICC REPORT NUM` = ?, `NICC REPORT DATE` = ?, `NICC CONC` = ?, `CRU REPORT` = ?, `CRU REPORT NUM` = ?, `CRU REPORT DATE` = ?, `PRODCAP` = ?, `INTDONE` = ?, `DATE 1` = ?, `TIME 1` = ?, `TIME 2` = ?, `DATE 2` = ?, `TIME 3` = ?, `TIME 4` = ?, `DATE 3` = ?, `TIME 5` = ?, `TIME 6` = ?, `TIME` = ?, `PROD` = ?, `INTPL` = ?, `INT OS` = ?, `CREATED BY` = ?, `CREATED ON` = ?, `CRU ON SITE` = ?, `SUSPECT` = ?, `DISCHARGE` = ?, `RECIPE` = ?, `BILL` = ?, `NOTE` = ? WHERE ((`ID CRU` = ?) AND ((? = 1 AND `CASE NAME` IS NULL) OR (`CASE NAME` = ?)) AND ((? = 1 AND `DATE INT` IS NULL) OR (`DATE INT` = ?)) AND ((? = 1 AND `DATE FACTS` IS NULL) OR (`DATE FACTS` = ?)) AND ((? = 1 AND `TYPE OF INT` IS NULL) OR (`TYPE OF INT` = ?)) AND ((? = 1 AND `TYPE OF PLACE` IS NULL) OR (`TYPE OF PLACE` = ?)) AND ((? = 1 AND `ADRESS INT` IS NULL) OR (`ADRESS INT` = ?)) AND ((? = 1 AND `ZIP INT` IS NULL) OR (`ZIP INT` = ?)) AND ((? = 1 AND `CITY INT` IS NULL) OR (`CITY INT` = ?)) AND ((? = 1 AND `ADRESS FACTS` IS NULL) OR (`ADRESS FACTS` = ?)) AND ((? = 1 AND `ZIP FACTS` IS NULL) OR (`ZIP FACTS` = ?)) AND ((? = 1 AND `CITY FACTS` IS NULL) OR (`CITY FACTS` = ?)) AND ((? = 1 AND `SAMPLES` IS NULL) OR (`SAMPLES` = ?)) AND ((? = 1 AND `SAMPLES TAKEN BY` IS NULL) OR (`SAMPLES TAKEN BY` = ?)) AND ((? = 1 AND `SAMPLES DELIVERY DATE` IS NULL) OR (`SAMPLES DELIVERY DATE` = ?)) AND ((? = 1 AND `SAMPLES NUM` IS NULL) OR (`SAMPLES NUM` = ?)) AND ((? = 1 AND `INVENTORY` IS NULL) OR (`INVENTORY` = ?)) AND ((? = 1 AND `SAMPLES CODE` IS NULL) OR (`SAMPLES CODE` = ?)) AND ((? = 1 AND `PICTURES REPORT` IS NULL) OR (`PICTURES REPORT` = ?)) AND ((? = 1 AND `NICC REPORT` IS NULL) OR (`NICC REPORT` = ?)) AND ((? = 1 AND `NICC REPORT NUM` IS NULL) OR (`NICC REPORT NUM` = ?)) AND ((? = 1 AND `NICC REPORT DATE` IS NULL) OR (`NICC REPORT DATE` = ?)) AND ((? = 1 AND `CRU REPORT` IS NULL) OR (`CRU REPORT` = ?)) AND ((? = 1 AND `CRU REPORT NUM` IS NULL) OR (`CRU REPORT NUM` = ?)) AND ((? = 1 AND `CRU REPORT DATE` IS NULL) OR (`CRU REPORT DATE` = ?)) AND ((? = 1 AND `PRODCAP` IS NULL) OR (`PRODCAP` = ?)) AND ((? = 1 AND `INTDONE` IS NULL) OR (`INTDONE` = ?)) AND ((? = 1 AND `DATE 1` IS NULL) OR (`DATE 1` = ?)) AND ((? = 1 AND `TIME 1` IS NULL) OR (`TIME 1` = ?)) AND ((? = 1 AND `TIME 2` IS NULL) OR (`TIME 2` = ?)) AND ((? = 1 AND `DATE 2` IS NULL) OR (`DATE 2` = ?)) AND ((? = 1 AND `TIME 3` IS NULL) OR (`TIME 3` = ?)) AND ((? = 1 AND `TIME 4` IS NULL) OR (`TIME 4` = ?)) AND ((? = 1 AND `DATE 3` IS NULL) OR (`DATE 3` = ?)) AND ((? = 1 AND `TIME 5` IS NULL) OR (`TIME 5` = ?)) AND ((? = 1 AND `TIME 6` IS NULL) OR (`TIME 6` = ?)) AND ((? = 1 AND `TIME` IS NULL) OR (`TIME` = ?)) AND ((? = 1 AND `PROD` IS NULL) OR (`PROD` = ?)) AND ((? = 1 AND `INTPL` IS NULL) OR (`INTPL` = ?)) AND ((? = 1 AND `INT OS` IS NULL) OR (`INT OS` = ?)) AND ((? = 1 AND `CREATED BY` IS NULL) OR (`CREATED BY` = ?)) AND ((? = 1 AND `CREATED ON` IS NULL) OR (`CREATED ON` = ?)) AND ((? = 1 AND `CRU ON SITE` IS NULL) OR (`CRU ON SITE` = ?)) AND ((? = 1 AND `SUSPECT` IS NULL) OR (`SUSPECT` = ?)) AND ((? = 1 AND `DISCHARGE` IS NULL) OR (`DISCHARGE` = ?)) AND ((? = 1 AND `RECIPE` IS NULL) OR (`RECIPE` = ?)) AND ((? = 1 AND `BILL` IS NULL) OR (`BILL` = ?)) AND ((? = 1 AND `NOTE` IS NULL) OR (`NOTE` = ?)))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="CASE_NAME" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="CASE NAME" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="DATE_INT" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="DATE INT" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -688,6 +706,12 @@ FROM     INTERVENTIONS</CommandText>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="INT_OS" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="INT OS" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="CREATED_BY" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="CREATED BY" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="CREATED_ON" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="CREATED ON" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="CRU_ON_SITE" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="CRU ON SITE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="SUSPECT" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="SUSPECT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="DISCHARGE" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="DISCHARGE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="RECIPE" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="RECIPE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="BILL" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="BILL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="NOTE" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="NOTE" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_ID_CRU" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ID CRU" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_CASE_NAME" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="CASE NAME" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_CASE_NAME" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="CASE NAME" SourceColumnNullMapping="false" SourceVersion="Original" />
@@ -771,6 +795,18 @@ FROM     INTERVENTIONS</CommandText>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_CREATED_BY" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="CREATED BY" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_CREATED_ON" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="CREATED ON" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="Original_CREATED_ON" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="CREATED ON" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_CRU_ON_SITE" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="CRU ON SITE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_CRU_ON_SITE" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="CRU ON SITE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_SUSPECT" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="SUSPECT" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_SUSPECT" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="SUSPECT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_DISCHARGE" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="DISCHARGE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_DISCHARGE" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="DISCHARGE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_RECIPE" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="RECIPE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_RECIPE" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="RECIPE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_BILL" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="BILL" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_BILL" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="BILL" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_NOTE" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="NOTE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_NOTE" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="NOTE" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
@@ -821,6 +857,12 @@ FROM     INTERVENTIONS</CommandText>
               <Mapping SourceColumn="INT OS" DataSetColumn="INT OS" />
               <Mapping SourceColumn="CREATED BY" DataSetColumn="CREATED BY" />
               <Mapping SourceColumn="CREATED ON" DataSetColumn="CREATED ON" />
+              <Mapping SourceColumn="CRU ON SITE" DataSetColumn="CRU ON SITE" />
+              <Mapping SourceColumn="SUSPECT" DataSetColumn="SUSPECT" />
+              <Mapping SourceColumn="DISCHARGE" DataSetColumn="DISCHARGE" />
+              <Mapping SourceColumn="RECIPE" DataSetColumn="RECIPE" />
+              <Mapping SourceColumn="BILL" DataSetColumn="BILL" />
+              <Mapping SourceColumn="NOTE" DataSetColumn="NOTE" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -1421,113 +1463,113 @@ FROM            PRODUCTS</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="RIO_x0020_NUM" msprop:Generator_ColumnPropNameInRow="RIO_NUM" msprop:Generator_ColumnPropNameInTable="RIO_NUMColumn" msprop:Generator_ColumnVarNameInTable="columnRIO_NUM" msprop:Generator_UserColumnName="RIO NUM" minOccurs="0">
+              <xs:element name="RIO_x0020_NUM" msprop:Generator_ColumnPropNameInTable="RIO_NUMColumn" msprop:Generator_ColumnPropNameInRow="RIO_NUM" msprop:Generator_UserColumnName="RIO NUM" msprop:Generator_ColumnVarNameInTable="columnRIO_NUM" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ON_x0020_NUM" msprop:Generator_ColumnPropNameInRow="ON_NUM" msprop:Generator_ColumnPropNameInTable="ON_NUMColumn" msprop:Generator_ColumnVarNameInTable="columnON_NUM" msprop:Generator_UserColumnName="ON NUM" minOccurs="0">
+              <xs:element name="ON_x0020_NUM" msprop:Generator_ColumnPropNameInTable="ON_NUMColumn" msprop:Generator_ColumnPropNameInRow="ON_NUM" msprop:Generator_UserColumnName="ON NUM" msprop:Generator_ColumnVarNameInTable="columnON_NUM" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SIENA_x0020_REPORT_x0020_DATE" msprop:Generator_ColumnPropNameInRow="SIENA_REPORT_DATE" msprop:Generator_ColumnPropNameInTable="SIENA_REPORT_DATEColumn" msprop:Generator_ColumnVarNameInTable="columnSIENA_REPORT_DATE" msprop:Generator_UserColumnName="SIENA REPORT DATE" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="SIENA_x0020_PICTURES_x0020_SENT" msprop:Generator_ColumnPropNameInRow="SIENA_PICTURES_SENT" msprop:Generator_ColumnPropNameInTable="SIENA_PICTURES_SENTColumn" msprop:Generator_ColumnVarNameInTable="columnSIENA_PICTURES_SENT" msprop:Generator_UserColumnName="SIENA PICTURES SENT" type="xs:boolean" minOccurs="0" />
-              <xs:element name="SIENA_x0020_PICTURES_x0020_DATE" msprop:Generator_ColumnPropNameInRow="SIENA_PICTURES_DATE" msprop:Generator_ColumnPropNameInTable="SIENA_PICTURES_DATEColumn" msprop:Generator_ColumnVarNameInTable="columnSIENA_PICTURES_DATE" msprop:Generator_UserColumnName="SIENA PICTURES DATE" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="SUMMARY" msprop:Generator_ColumnPropNameInRow="SUMMARY" msprop:Generator_ColumnPropNameInTable="SUMMARYColumn" msprop:Generator_ColumnVarNameInTable="columnSUMMARY" msprop:Generator_UserColumnName="SUMMARY" minOccurs="0">
+              <xs:element name="SIENA_x0020_REPORT_x0020_DATE" msprop:Generator_ColumnPropNameInTable="SIENA_REPORT_DATEColumn" msprop:Generator_ColumnPropNameInRow="SIENA_REPORT_DATE" msprop:Generator_UserColumnName="SIENA REPORT DATE" msprop:Generator_ColumnVarNameInTable="columnSIENA_REPORT_DATE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="SIENA_x0020_PICTURES_x0020_SENT" msprop:Generator_ColumnPropNameInTable="SIENA_PICTURES_SENTColumn" msprop:Generator_ColumnPropNameInRow="SIENA_PICTURES_SENT" msprop:Generator_UserColumnName="SIENA PICTURES SENT" msprop:Generator_ColumnVarNameInTable="columnSIENA_PICTURES_SENT" type="xs:boolean" minOccurs="0" />
+              <xs:element name="SIENA_x0020_PICTURES_x0020_DATE" msprop:Generator_ColumnPropNameInTable="SIENA_PICTURES_DATEColumn" msprop:Generator_ColumnPropNameInRow="SIENA_PICTURES_DATE" msprop:Generator_UserColumnName="SIENA PICTURES DATE" msprop:Generator_ColumnVarNameInTable="columnSIENA_PICTURES_DATE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="SUMMARY" msprop:Generator_ColumnPropNameInTable="SUMMARYColumn" msprop:Generator_ColumnPropNameInRow="SUMMARY" msprop:Generator_UserColumnName="SUMMARY" msprop:Generator_ColumnVarNameInTable="columnSUMMARY" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="536870910" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NSP" msprop:Generator_ColumnPropNameInRow="NSP" msprop:Generator_ColumnPropNameInTable="NSPColumn" msprop:Generator_ColumnVarNameInTable="columnNSP" msprop:Generator_UserColumnName="NSP" minOccurs="0">
+              <xs:element name="NSP" msprop:Generator_ColumnPropNameInTable="NSPColumn" msprop:Generator_ColumnPropNameInRow="NSP" msprop:Generator_UserColumnName="NSP" msprop:Generator_ColumnVarNameInTable="columnNSP" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="GALOP" msprop:Generator_ColumnPropNameInRow="GALOP" msprop:Generator_ColumnPropNameInTable="GALOPColumn" msprop:Generator_ColumnVarNameInTable="columnGALOP" msprop:Generator_UserColumnName="GALOP" type="xs:boolean" minOccurs="0" />
-              <xs:element name="BOM" msprop:Generator_ColumnPropNameInRow="BOM" msprop:Generator_ColumnPropNameInTable="BOMColumn" msprop:Generator_ColumnVarNameInTable="columnBOM" msprop:Generator_UserColumnName="BOM" type="xs:boolean" minOccurs="0" />
-              <xs:element name="EMBARGO" msprop:Generator_ColumnPropNameInRow="EMBARGO" msprop:Generator_ColumnPropNameInTable="EMBARGOColumn" msprop:Generator_ColumnVarNameInTable="columnEMBARGO" msprop:Generator_UserColumnName="EMBARGO" type="xs:boolean" minOccurs="0" />
-              <xs:element name="PROACTIVE" msprop:Generator_ColumnPropNameInRow="PROACTIVE" msprop:Generator_ColumnPropNameInTable="PROACTIVEColumn" msprop:Generator_ColumnVarNameInTable="columnPROACTIVE" msprop:Generator_UserColumnName="PROACTIVE" type="xs:boolean" minOccurs="0" />
-              <xs:element name="PROACTIVE_x0020_DATE" msprop:Generator_ColumnPropNameInRow="PROACTIVE_DATE" msprop:Generator_ColumnPropNameInTable="PROACTIVE_DATEColumn" msprop:Generator_ColumnVarNameInTable="columnPROACTIVE_DATE" msprop:Generator_UserColumnName="PROACTIVE DATE" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="INVESTIGATION" msprop:Generator_ColumnPropNameInRow="INVESTIGATION" msprop:Generator_ColumnPropNameInTable="INVESTIGATIONColumn" msprop:Generator_ColumnVarNameInTable="columnINVESTIGATION" msprop:Generator_UserColumnName="INVESTIGATION" type="xs:boolean" minOccurs="0" />
-              <xs:element name="INVESTIGATION_x0020_DATE" msprop:Generator_ColumnPropNameInRow="INVESTIGATION_DATE" msprop:Generator_ColumnPropNameInTable="INVESTIGATION_DATEColumn" msprop:Generator_ColumnVarNameInTable="columnINVESTIGATION_DATE" msprop:Generator_UserColumnName="INVESTIGATION DATE" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="INVESTIGATION_x0020_MAGISTRATE" msprop:Generator_ColumnPropNameInRow="INVESTIGATION_MAGISTRATE" msprop:Generator_ColumnPropNameInTable="INVESTIGATION_MAGISTRATEColumn" msprop:Generator_ColumnVarNameInTable="columnINVESTIGATION_MAGISTRATE" msprop:Generator_UserColumnName="INVESTIGATION MAGISTRATE" minOccurs="0">
+              <xs:element name="GALOP" msprop:Generator_ColumnPropNameInTable="GALOPColumn" msprop:Generator_ColumnPropNameInRow="GALOP" msprop:Generator_UserColumnName="GALOP" msprop:Generator_ColumnVarNameInTable="columnGALOP" type="xs:boolean" minOccurs="0" />
+              <xs:element name="BOM" msprop:Generator_ColumnPropNameInTable="BOMColumn" msprop:Generator_ColumnPropNameInRow="BOM" msprop:Generator_UserColumnName="BOM" msprop:Generator_ColumnVarNameInTable="columnBOM" type="xs:boolean" minOccurs="0" />
+              <xs:element name="EMBARGO" msprop:Generator_ColumnPropNameInTable="EMBARGOColumn" msprop:Generator_ColumnPropNameInRow="EMBARGO" msprop:Generator_UserColumnName="EMBARGO" msprop:Generator_ColumnVarNameInTable="columnEMBARGO" type="xs:boolean" minOccurs="0" />
+              <xs:element name="PROACTIVE" msprop:Generator_ColumnPropNameInTable="PROACTIVEColumn" msprop:Generator_ColumnPropNameInRow="PROACTIVE" msprop:Generator_UserColumnName="PROACTIVE" msprop:Generator_ColumnVarNameInTable="columnPROACTIVE" type="xs:boolean" minOccurs="0" />
+              <xs:element name="PROACTIVE_x0020_DATE" msprop:Generator_ColumnPropNameInTable="PROACTIVE_DATEColumn" msprop:Generator_ColumnPropNameInRow="PROACTIVE_DATE" msprop:Generator_UserColumnName="PROACTIVE DATE" msprop:Generator_ColumnVarNameInTable="columnPROACTIVE_DATE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="INVESTIGATION" msprop:Generator_ColumnPropNameInTable="INVESTIGATIONColumn" msprop:Generator_ColumnPropNameInRow="INVESTIGATION" msprop:Generator_UserColumnName="INVESTIGATION" msprop:Generator_ColumnVarNameInTable="columnINVESTIGATION" type="xs:boolean" minOccurs="0" />
+              <xs:element name="INVESTIGATION_x0020_DATE" msprop:Generator_ColumnPropNameInTable="INVESTIGATION_DATEColumn" msprop:Generator_ColumnPropNameInRow="INVESTIGATION_DATE" msprop:Generator_UserColumnName="INVESTIGATION DATE" msprop:Generator_ColumnVarNameInTable="columnINVESTIGATION_DATE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="INVESTIGATION_x0020_MAGISTRATE" msprop:Generator_ColumnPropNameInTable="INVESTIGATION_MAGISTRATEColumn" msprop:Generator_ColumnPropNameInRow="INVESTIGATION_MAGISTRATE" msprop:Generator_UserColumnName="INVESTIGATION MAGISTRATE" msprop:Generator_ColumnVarNameInTable="columnINVESTIGATION_MAGISTRATE" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="JUD_x0020_INVESTIGATION" msprop:Generator_ColumnPropNameInRow="JUD_INVESTIGATION" msprop:Generator_ColumnPropNameInTable="JUD_INVESTIGATIONColumn" msprop:Generator_ColumnVarNameInTable="columnJUD_INVESTIGATION" msprop:Generator_UserColumnName="JUD INVESTIGATION" type="xs:boolean" minOccurs="0" />
-              <xs:element name="JUD_x0020_INVESTIGATION_x0020_DATE" msprop:Generator_ColumnPropNameInRow="JUD_INVESTIGATION_DATE" msprop:Generator_ColumnPropNameInTable="JUD_INVESTIGATION_DATEColumn" msprop:Generator_ColumnVarNameInTable="columnJUD_INVESTIGATION_DATE" msprop:Generator_UserColumnName="JUD INVESTIGATION DATE" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="JUD_x0020_INVESTIGATION_x0020_MAGISTRATE" msprop:Generator_ColumnPropNameInRow="JUD_INVESTIGATION_MAGISTRATE" msprop:Generator_ColumnPropNameInTable="JUD_INVESTIGATION_MAGISTRATEColumn" msprop:Generator_ColumnVarNameInTable="columnJUD_INVESTIGATION_MAGISTRATE" msprop:Generator_UserColumnName="JUD INVESTIGATION MAGISTRATE" minOccurs="0">
+              <xs:element name="JUD_x0020_INVESTIGATION" msprop:Generator_ColumnPropNameInTable="JUD_INVESTIGATIONColumn" msprop:Generator_ColumnPropNameInRow="JUD_INVESTIGATION" msprop:Generator_UserColumnName="JUD INVESTIGATION" msprop:Generator_ColumnVarNameInTable="columnJUD_INVESTIGATION" type="xs:boolean" minOccurs="0" />
+              <xs:element name="JUD_x0020_INVESTIGATION_x0020_DATE" msprop:Generator_ColumnPropNameInTable="JUD_INVESTIGATION_DATEColumn" msprop:Generator_ColumnPropNameInRow="JUD_INVESTIGATION_DATE" msprop:Generator_UserColumnName="JUD INVESTIGATION DATE" msprop:Generator_ColumnVarNameInTable="columnJUD_INVESTIGATION_DATE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="JUD_x0020_INVESTIGATION_x0020_MAGISTRATE" msprop:Generator_ColumnPropNameInTable="JUD_INVESTIGATION_MAGISTRATEColumn" msprop:Generator_ColumnPropNameInRow="JUD_INVESTIGATION_MAGISTRATE" msprop:Generator_UserColumnName="JUD INVESTIGATION MAGISTRATE" msprop:Generator_ColumnVarNameInTable="columnJUD_INVESTIGATION_MAGISTRATE" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FEDERALIZED" msprop:Generator_ColumnPropNameInRow="FEDERALIZED" msprop:Generator_ColumnPropNameInTable="FEDERALIZEDColumn" msprop:Generator_ColumnVarNameInTable="columnFEDERALIZED" msprop:Generator_UserColumnName="FEDERALIZED" type="xs:boolean" minOccurs="0" />
-              <xs:element name="FEDERALIZED_x0020_DATE" msprop:Generator_ColumnPropNameInRow="FEDERALIZED_DATE" msprop:Generator_ColumnPropNameInTable="FEDERALIZED_DATEColumn" msprop:Generator_ColumnVarNameInTable="columnFEDERALIZED_DATE" msprop:Generator_UserColumnName="FEDERALIZED DATE" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="FEDERALIZED_x0020_MAGISTRATE" msprop:Generator_ColumnPropNameInRow="FEDERALIZED_MAGISTRATE" msprop:Generator_ColumnPropNameInTable="FEDERALIZED_MAGISTRATEColumn" msprop:Generator_ColumnVarNameInTable="columnFEDERALIZED_MAGISTRATE" msprop:Generator_UserColumnName="FEDERALIZED MAGISTRATE" minOccurs="0">
+              <xs:element name="FEDERALIZED" msprop:Generator_ColumnPropNameInTable="FEDERALIZEDColumn" msprop:Generator_ColumnPropNameInRow="FEDERALIZED" msprop:Generator_UserColumnName="FEDERALIZED" msprop:Generator_ColumnVarNameInTable="columnFEDERALIZED" type="xs:boolean" minOccurs="0" />
+              <xs:element name="FEDERALIZED_x0020_DATE" msprop:Generator_ColumnPropNameInTable="FEDERALIZED_DATEColumn" msprop:Generator_ColumnPropNameInRow="FEDERALIZED_DATE" msprop:Generator_UserColumnName="FEDERALIZED DATE" msprop:Generator_ColumnVarNameInTable="columnFEDERALIZED_DATE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FEDERALIZED_x0020_MAGISTRATE" msprop:Generator_ColumnPropNameInTable="FEDERALIZED_MAGISTRATEColumn" msprop:Generator_ColumnPropNameInRow="FEDERALIZED_MAGISTRATE" msprop:Generator_UserColumnName="FEDERALIZED MAGISTRATE" msprop:Generator_ColumnVarNameInTable="columnFEDERALIZED_MAGISTRATE" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DOS_x0020_ORIGIN" msprop:Generator_ColumnPropNameInRow="DOS_ORIGIN" msprop:Generator_ColumnPropNameInTable="DOS_ORIGINColumn" msprop:Generator_ColumnVarNameInTable="columnDOS_ORIGIN" msprop:Generator_UserColumnName="DOS ORIGIN" minOccurs="0">
+              <xs:element name="DOS_x0020_ORIGIN" msprop:Generator_ColumnPropNameInTable="DOS_ORIGINColumn" msprop:Generator_ColumnPropNameInRow="DOS_ORIGIN" msprop:Generator_UserColumnName="DOS ORIGIN" msprop:Generator_ColumnVarNameInTable="columnDOS_ORIGIN" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SUPPORT" msprop:Generator_ColumnPropNameInRow="SUPPORT" msprop:Generator_ColumnPropNameInTable="SUPPORTColumn" msprop:Generator_ColumnVarNameInTable="columnSUPPORT" msprop:Generator_UserColumnName="SUPPORT" minOccurs="0">
+              <xs:element name="SUPPORT" msprop:Generator_ColumnPropNameInTable="SUPPORTColumn" msprop:Generator_ColumnPropNameInRow="SUPPORT" msprop:Generator_UserColumnName="SUPPORT" msprop:Generator_ColumnVarNameInTable="columnSUPPORT" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="LANG" msprop:Generator_ColumnPropNameInRow="LANG" msprop:Generator_ColumnPropNameInTable="LANGColumn" msprop:Generator_ColumnVarNameInTable="columnLANG" msprop:Generator_UserColumnName="LANG" minOccurs="0">
+              <xs:element name="LANG" msprop:Generator_ColumnPropNameInTable="LANGColumn" msprop:Generator_ColumnPropNameInRow="LANG" msprop:Generator_UserColumnName="LANG" msprop:Generator_ColumnVarNameInTable="columnLANG" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CMEXT1" msprop:Generator_ColumnPropNameInRow="CMEXT1" msprop:Generator_ColumnPropNameInTable="CMEXT1Column" msprop:Generator_ColumnVarNameInTable="columnCMEXT1" msprop:Generator_UserColumnName="CMEXT1" minOccurs="0">
+              <xs:element name="CMEXT1" msprop:Generator_ColumnPropNameInTable="CMEXT1Column" msprop:Generator_ColumnPropNameInRow="CMEXT1" msprop:Generator_UserColumnName="CMEXT1" msprop:Generator_ColumnVarNameInTable="columnCMEXT1" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CMEXT2" msprop:Generator_ColumnPropNameInRow="CMEXT2" msprop:Generator_ColumnPropNameInTable="CMEXT2Column" msprop:Generator_ColumnVarNameInTable="columnCMEXT2" msprop:Generator_UserColumnName="CMEXT2" minOccurs="0">
+              <xs:element name="CMEXT2" msprop:Generator_ColumnPropNameInTable="CMEXT2Column" msprop:Generator_ColumnPropNameInRow="CMEXT2" msprop:Generator_UserColumnName="CMEXT2" msprop:Generator_ColumnVarNameInTable="columnCMEXT2" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CREATED_x0020_BY" msprop:Generator_ColumnPropNameInRow="CREATED_BY" msprop:Generator_ColumnPropNameInTable="CREATED_BYColumn" msprop:Generator_ColumnVarNameInTable="columnCREATED_BY" msprop:Generator_UserColumnName="CREATED BY" minOccurs="0">
+              <xs:element name="CREATED_x0020_BY" msprop:Generator_ColumnPropNameInTable="CREATED_BYColumn" msprop:Generator_ColumnPropNameInRow="CREATED_BY" msprop:Generator_UserColumnName="CREATED BY" msprop:Generator_ColumnVarNameInTable="columnCREATED_BY" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CREATED_x0020_ON" msprop:Generator_ColumnPropNameInRow="CREATED_ON" msprop:Generator_ColumnPropNameInTable="CREATED_ONColumn" msprop:Generator_ColumnVarNameInTable="columnCREATED_ON" msprop:Generator_UserColumnName="CREATED ON" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="SR" msprop:Generator_ColumnPropNameInRow="SR" msprop:Generator_ColumnPropNameInTable="SRColumn" msprop:Generator_ColumnVarNameInTable="columnSR" msprop:Generator_UserColumnName="SR" type="xs:boolean" minOccurs="0" />
+              <xs:element name="CREATED_x0020_ON" msprop:Generator_ColumnPropNameInTable="CREATED_ONColumn" msprop:Generator_ColumnPropNameInRow="CREATED_ON" msprop:Generator_UserColumnName="CREATED ON" msprop:Generator_ColumnVarNameInTable="columnCREATED_ON" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="SR" msprop:Generator_ColumnPropNameInTable="SRColumn" msprop:Generator_ColumnPropNameInRow="SR" msprop:Generator_UserColumnName="SR" msprop:Generator_ColumnVarNameInTable="columnSR" type="xs:boolean" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1656,143 +1698,149 @@ FROM            PRODUCTS</CommandText>
               <xs:element name="INTDONE" msprop:Generator_ColumnPropNameInTable="INTDONEColumn" msprop:Generator_ColumnPropNameInRow="INTDONE" msprop:Generator_UserColumnName="INTDONE" msprop:Generator_ColumnVarNameInTable="columnINTDONE" type="xs:boolean" minOccurs="0" />
               <xs:element name="ZIP_x0020_INT" msprop:Generator_ColumnPropNameInTable="ZIP_INTColumn" msprop:Generator_ColumnPropNameInRow="ZIP_INT" msprop:Generator_UserColumnName="ZIP INT" msprop:Generator_ColumnVarNameInTable="columnZIP_INT" type="xs:short" minOccurs="0" />
               <xs:element name="ZIP_x0020_FACTS" msprop:Generator_ColumnPropNameInTable="ZIP_FACTSColumn" msprop:Generator_ColumnPropNameInRow="ZIP_FACTS" msprop:Generator_UserColumnName="ZIP FACTS" msprop:Generator_ColumnVarNameInTable="columnZIP_FACTS" type="xs:short" minOccurs="0" />
-              <xs:element name="SAMPLES" msprop:Generator_ColumnPropNameInRow="SAMPLES" msprop:Generator_ColumnPropNameInTable="SAMPLESColumn" msprop:Generator_ColumnVarNameInTable="columnSAMPLES" msprop:Generator_UserColumnName="SAMPLES" type="xs:boolean" minOccurs="0" />
-              <xs:element name="SAMPLES_x0020_TAKEN_x0020_BY" msprop:Generator_ColumnPropNameInRow="SAMPLES_TAKEN_BY" msprop:Generator_ColumnPropNameInTable="SAMPLES_TAKEN_BYColumn" msprop:Generator_ColumnVarNameInTable="columnSAMPLES_TAKEN_BY" msprop:Generator_UserColumnName="SAMPLES TAKEN BY" minOccurs="0">
+              <xs:element name="SAMPLES" msprop:Generator_ColumnPropNameInTable="SAMPLESColumn" msprop:Generator_ColumnPropNameInRow="SAMPLES" msprop:Generator_UserColumnName="SAMPLES" msprop:Generator_ColumnVarNameInTable="columnSAMPLES" type="xs:boolean" minOccurs="0" />
+              <xs:element name="SAMPLES_x0020_TAKEN_x0020_BY" msprop:Generator_ColumnPropNameInTable="SAMPLES_TAKEN_BYColumn" msprop:Generator_ColumnPropNameInRow="SAMPLES_TAKEN_BY" msprop:Generator_UserColumnName="SAMPLES TAKEN BY" msprop:Generator_ColumnVarNameInTable="columnSAMPLES_TAKEN_BY" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SAMPLES_x0020_DELIVERY_x0020_DATE" msprop:Generator_ColumnPropNameInRow="SAMPLES_DELIVERY_DATE" msprop:Generator_ColumnPropNameInTable="SAMPLES_DELIVERY_DATEColumn" msprop:Generator_ColumnVarNameInTable="columnSAMPLES_DELIVERY_DATE" msprop:Generator_UserColumnName="SAMPLES DELIVERY DATE" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="SAMPLES_x0020_NUM" msprop:Generator_ColumnPropNameInRow="SAMPLES_NUM" msprop:Generator_ColumnPropNameInTable="SAMPLES_NUMColumn" msprop:Generator_ColumnVarNameInTable="columnSAMPLES_NUM" msprop:Generator_UserColumnName="SAMPLES NUM" minOccurs="0">
+              <xs:element name="SAMPLES_x0020_DELIVERY_x0020_DATE" msprop:Generator_ColumnPropNameInTable="SAMPLES_DELIVERY_DATEColumn" msprop:Generator_ColumnPropNameInRow="SAMPLES_DELIVERY_DATE" msprop:Generator_UserColumnName="SAMPLES DELIVERY DATE" msprop:Generator_ColumnVarNameInTable="columnSAMPLES_DELIVERY_DATE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="SAMPLES_x0020_NUM" msprop:Generator_ColumnPropNameInTable="SAMPLES_NUMColumn" msprop:Generator_ColumnPropNameInRow="SAMPLES_NUM" msprop:Generator_UserColumnName="SAMPLES NUM" msprop:Generator_ColumnVarNameInTable="columnSAMPLES_NUM" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="INVENTORY" msprop:Generator_ColumnPropNameInRow="INVENTORY" msprop:Generator_ColumnPropNameInTable="INVENTORYColumn" msprop:Generator_ColumnVarNameInTable="columnINVENTORY" msprop:Generator_UserColumnName="INVENTORY" type="xs:boolean" minOccurs="0" />
-              <xs:element name="SAMPLES_x0020_CODE" msprop:Generator_ColumnPropNameInRow="SAMPLES_CODE" msprop:Generator_ColumnPropNameInTable="SAMPLES_CODEColumn" msprop:Generator_ColumnVarNameInTable="columnSAMPLES_CODE" msprop:Generator_UserColumnName="SAMPLES CODE" minOccurs="0">
+              <xs:element name="INVENTORY" msprop:Generator_ColumnPropNameInTable="INVENTORYColumn" msprop:Generator_ColumnPropNameInRow="INVENTORY" msprop:Generator_UserColumnName="INVENTORY" msprop:Generator_ColumnVarNameInTable="columnINVENTORY" type="xs:boolean" minOccurs="0" />
+              <xs:element name="SAMPLES_x0020_CODE" msprop:Generator_ColumnPropNameInTable="SAMPLES_CODEColumn" msprop:Generator_ColumnPropNameInRow="SAMPLES_CODE" msprop:Generator_UserColumnName="SAMPLES CODE" msprop:Generator_ColumnVarNameInTable="columnSAMPLES_CODE" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PICTURES_x0020_REPORT" msprop:Generator_ColumnPropNameInRow="PICTURES_REPORT" msprop:Generator_ColumnPropNameInTable="PICTURES_REPORTColumn" msprop:Generator_ColumnVarNameInTable="columnPICTURES_REPORT" msprop:Generator_UserColumnName="PICTURES REPORT" type="xs:boolean" minOccurs="0" />
-              <xs:element name="NICC_x0020_REPORT" msprop:Generator_ColumnPropNameInRow="NICC_REPORT" msprop:Generator_ColumnPropNameInTable="NICC_REPORTColumn" msprop:Generator_ColumnVarNameInTable="columnNICC_REPORT" msprop:Generator_UserColumnName="NICC REPORT" type="xs:boolean" minOccurs="0" />
-              <xs:element name="NICC_x0020_REPORT_x0020_NUM" msprop:Generator_ColumnPropNameInRow="NICC_REPORT_NUM" msprop:Generator_ColumnPropNameInTable="NICC_REPORT_NUMColumn" msprop:Generator_ColumnVarNameInTable="columnNICC_REPORT_NUM" msprop:Generator_UserColumnName="NICC REPORT NUM" minOccurs="0">
+              <xs:element name="PICTURES_x0020_REPORT" msprop:Generator_ColumnPropNameInTable="PICTURES_REPORTColumn" msprop:Generator_ColumnPropNameInRow="PICTURES_REPORT" msprop:Generator_UserColumnName="PICTURES REPORT" msprop:Generator_ColumnVarNameInTable="columnPICTURES_REPORT" type="xs:boolean" minOccurs="0" />
+              <xs:element name="NICC_x0020_REPORT" msprop:Generator_ColumnPropNameInTable="NICC_REPORTColumn" msprop:Generator_ColumnPropNameInRow="NICC_REPORT" msprop:Generator_UserColumnName="NICC REPORT" msprop:Generator_ColumnVarNameInTable="columnNICC_REPORT" type="xs:boolean" minOccurs="0" />
+              <xs:element name="NICC_x0020_REPORT_x0020_NUM" msprop:Generator_ColumnPropNameInTable="NICC_REPORT_NUMColumn" msprop:Generator_ColumnPropNameInRow="NICC_REPORT_NUM" msprop:Generator_UserColumnName="NICC REPORT NUM" msprop:Generator_ColumnVarNameInTable="columnNICC_REPORT_NUM" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NICC_x0020_REPORT_x0020_DATE" msprop:Generator_ColumnPropNameInRow="NICC_REPORT_DATE" msprop:Generator_ColumnPropNameInTable="NICC_REPORT_DATEColumn" msprop:Generator_ColumnVarNameInTable="columnNICC_REPORT_DATE" msprop:Generator_UserColumnName="NICC REPORT DATE" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="NICC_x0020_CONC" msprop:Generator_ColumnPropNameInRow="NICC_CONC" msprop:Generator_ColumnPropNameInTable="NICC_CONCColumn" msprop:Generator_ColumnVarNameInTable="columnNICC_CONC" msprop:Generator_UserColumnName="NICC CONC" minOccurs="0">
+              <xs:element name="NICC_x0020_REPORT_x0020_DATE" msprop:Generator_ColumnPropNameInTable="NICC_REPORT_DATEColumn" msprop:Generator_ColumnPropNameInRow="NICC_REPORT_DATE" msprop:Generator_UserColumnName="NICC REPORT DATE" msprop:Generator_ColumnVarNameInTable="columnNICC_REPORT_DATE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="NICC_x0020_CONC" msprop:Generator_ColumnPropNameInTable="NICC_CONCColumn" msprop:Generator_ColumnPropNameInRow="NICC_CONC" msprop:Generator_UserColumnName="NICC CONC" msprop:Generator_ColumnVarNameInTable="columnNICC_CONC" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="536870910" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CRU_x0020_REPORT_x0020_NUM" msprop:Generator_ColumnPropNameInRow="CRU_REPORT_NUM" msprop:Generator_ColumnPropNameInTable="CRU_REPORT_NUMColumn" msprop:Generator_ColumnVarNameInTable="columnCRU_REPORT_NUM" msprop:Generator_UserColumnName="CRU REPORT NUM" minOccurs="0">
+              <xs:element name="CRU_x0020_REPORT_x0020_NUM" msprop:Generator_ColumnPropNameInTable="CRU_REPORT_NUMColumn" msprop:Generator_ColumnPropNameInRow="CRU_REPORT_NUM" msprop:Generator_UserColumnName="CRU REPORT NUM" msprop:Generator_ColumnVarNameInTable="columnCRU_REPORT_NUM" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CRU_x0020_REPORT_x0020_DATE" msprop:Generator_ColumnPropNameInRow="CRU_REPORT_DATE" msprop:Generator_ColumnPropNameInTable="CRU_REPORT_DATEColumn" msprop:Generator_ColumnVarNameInTable="columnCRU_REPORT_DATE" msprop:Generator_UserColumnName="CRU REPORT DATE" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="PRODCAP" msprop:Generator_ColumnPropNameInRow="PRODCAP" msprop:Generator_ColumnPropNameInTable="PRODCAPColumn" msprop:Generator_ColumnVarNameInTable="columnPRODCAP" msprop:Generator_UserColumnName="PRODCAP" minOccurs="0">
+              <xs:element name="CRU_x0020_REPORT_x0020_DATE" msprop:Generator_ColumnPropNameInTable="CRU_REPORT_DATEColumn" msprop:Generator_ColumnPropNameInRow="CRU_REPORT_DATE" msprop:Generator_UserColumnName="CRU REPORT DATE" msprop:Generator_ColumnVarNameInTable="columnCRU_REPORT_DATE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="PRODCAP" msprop:Generator_ColumnPropNameInTable="PRODCAPColumn" msprop:Generator_ColumnPropNameInRow="PRODCAP" msprop:Generator_UserColumnName="PRODCAP" msprop:Generator_ColumnVarNameInTable="columnPRODCAP" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DATE_x0020_1" msprop:Generator_ColumnPropNameInRow="DATE_1" msprop:Generator_ColumnPropNameInTable="DATE_1Column" msprop:Generator_ColumnVarNameInTable="columnDATE_1" msprop:Generator_UserColumnName="DATE 1" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="TIME_x0020_1" msprop:Generator_ColumnPropNameInRow="TIME_1" msprop:Generator_ColumnPropNameInTable="TIME_1Column" msprop:Generator_ColumnVarNameInTable="columnTIME_1" msprop:Generator_UserColumnName="TIME 1" minOccurs="0">
+              <xs:element name="DATE_x0020_1" msprop:Generator_ColumnPropNameInTable="DATE_1Column" msprop:Generator_ColumnPropNameInRow="DATE_1" msprop:Generator_UserColumnName="DATE 1" msprop:Generator_ColumnVarNameInTable="columnDATE_1" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TIME_x0020_1" msprop:Generator_ColumnPropNameInTable="TIME_1Column" msprop:Generator_ColumnPropNameInRow="TIME_1" msprop:Generator_UserColumnName="TIME 1" msprop:Generator_ColumnVarNameInTable="columnTIME_1" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TIME_x0020_2" msprop:Generator_ColumnPropNameInRow="TIME_2" msprop:Generator_ColumnPropNameInTable="TIME_2Column" msprop:Generator_ColumnVarNameInTable="columnTIME_2" msprop:Generator_UserColumnName="TIME 2" minOccurs="0">
+              <xs:element name="TIME_x0020_2" msprop:Generator_ColumnPropNameInTable="TIME_2Column" msprop:Generator_ColumnPropNameInRow="TIME_2" msprop:Generator_UserColumnName="TIME 2" msprop:Generator_ColumnVarNameInTable="columnTIME_2" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DATE_x0020_2" msprop:Generator_ColumnPropNameInRow="DATE_2" msprop:Generator_ColumnPropNameInTable="DATE_2Column" msprop:Generator_ColumnVarNameInTable="columnDATE_2" msprop:Generator_UserColumnName="DATE 2" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="TIME_x0020_3" msprop:Generator_ColumnPropNameInRow="TIME_3" msprop:Generator_ColumnPropNameInTable="TIME_3Column" msprop:Generator_ColumnVarNameInTable="columnTIME_3" msprop:Generator_UserColumnName="TIME 3" minOccurs="0">
+              <xs:element name="DATE_x0020_2" msprop:Generator_ColumnPropNameInTable="DATE_2Column" msprop:Generator_ColumnPropNameInRow="DATE_2" msprop:Generator_UserColumnName="DATE 2" msprop:Generator_ColumnVarNameInTable="columnDATE_2" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TIME_x0020_3" msprop:Generator_ColumnPropNameInTable="TIME_3Column" msprop:Generator_ColumnPropNameInRow="TIME_3" msprop:Generator_UserColumnName="TIME 3" msprop:Generator_ColumnVarNameInTable="columnTIME_3" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TIME_x0020_4" msprop:Generator_ColumnPropNameInRow="TIME_4" msprop:Generator_ColumnPropNameInTable="TIME_4Column" msprop:Generator_ColumnVarNameInTable="columnTIME_4" msprop:Generator_UserColumnName="TIME 4" minOccurs="0">
+              <xs:element name="TIME_x0020_4" msprop:Generator_ColumnPropNameInTable="TIME_4Column" msprop:Generator_ColumnPropNameInRow="TIME_4" msprop:Generator_UserColumnName="TIME 4" msprop:Generator_ColumnVarNameInTable="columnTIME_4" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DATE_x0020_3" msprop:Generator_ColumnPropNameInRow="DATE_3" msprop:Generator_ColumnPropNameInTable="DATE_3Column" msprop:Generator_ColumnVarNameInTable="columnDATE_3" msprop:Generator_UserColumnName="DATE 3" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="TIME_x0020_5" msprop:Generator_ColumnPropNameInRow="TIME_5" msprop:Generator_ColumnPropNameInTable="TIME_5Column" msprop:Generator_ColumnVarNameInTable="columnTIME_5" msprop:Generator_UserColumnName="TIME 5" minOccurs="0">
+              <xs:element name="DATE_x0020_3" msprop:Generator_ColumnPropNameInTable="DATE_3Column" msprop:Generator_ColumnPropNameInRow="DATE_3" msprop:Generator_UserColumnName="DATE 3" msprop:Generator_ColumnVarNameInTable="columnDATE_3" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TIME_x0020_5" msprop:Generator_ColumnPropNameInTable="TIME_5Column" msprop:Generator_ColumnPropNameInRow="TIME_5" msprop:Generator_UserColumnName="TIME 5" msprop:Generator_ColumnVarNameInTable="columnTIME_5" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TIME_x0020_6" msprop:Generator_ColumnPropNameInRow="TIME_6" msprop:Generator_ColumnPropNameInTable="TIME_6Column" msprop:Generator_ColumnVarNameInTable="columnTIME_6" msprop:Generator_UserColumnName="TIME 6" minOccurs="0">
+              <xs:element name="TIME_x0020_6" msprop:Generator_ColumnPropNameInTable="TIME_6Column" msprop:Generator_ColumnPropNameInRow="TIME_6" msprop:Generator_UserColumnName="TIME 6" msprop:Generator_ColumnVarNameInTable="columnTIME_6" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TIME" msprop:Generator_ColumnPropNameInRow="TIME" msprop:Generator_ColumnPropNameInTable="TIMEColumn" msprop:Generator_ColumnVarNameInTable="columnTIME" msprop:Generator_UserColumnName="TIME" minOccurs="0">
+              <xs:element name="TIME" msprop:Generator_ColumnPropNameInTable="TIMEColumn" msprop:Generator_ColumnPropNameInRow="TIME" msprop:Generator_UserColumnName="TIME" msprop:Generator_ColumnVarNameInTable="columnTIME" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PROD" msprop:Generator_ColumnPropNameInRow="PROD" msprop:Generator_ColumnPropNameInTable="PRODColumn" msprop:Generator_ColumnVarNameInTable="columnPROD" msprop:Generator_UserColumnName="PROD" minOccurs="0">
+              <xs:element name="PROD" msprop:Generator_ColumnPropNameInTable="PRODColumn" msprop:Generator_ColumnPropNameInRow="PROD" msprop:Generator_UserColumnName="PROD" msprop:Generator_ColumnVarNameInTable="columnPROD" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="INTPL" msprop:Generator_ColumnPropNameInRow="INTPL" msprop:Generator_ColumnPropNameInTable="INTPLColumn" msprop:Generator_ColumnVarNameInTable="columnINTPL" msprop:Generator_UserColumnName="INTPL" minOccurs="0">
+              <xs:element name="INTPL" msprop:Generator_ColumnPropNameInTable="INTPLColumn" msprop:Generator_ColumnPropNameInRow="INTPL" msprop:Generator_UserColumnName="INTPL" msprop:Generator_ColumnVarNameInTable="columnINTPL" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="INT_x0020_OS" msprop:Generator_ColumnPropNameInRow="INT_OS" msprop:Generator_ColumnPropNameInTable="INT_OSColumn" msprop:Generator_ColumnVarNameInTable="columnINT_OS" msprop:Generator_UserColumnName="INT OS" minOccurs="0">
+              <xs:element name="INT_x0020_OS" msprop:Generator_ColumnPropNameInTable="INT_OSColumn" msprop:Generator_ColumnPropNameInRow="INT_OS" msprop:Generator_UserColumnName="INT OS" msprop:Generator_ColumnVarNameInTable="columnINT_OS" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CREATED_x0020_BY" msprop:Generator_ColumnPropNameInRow="CREATED_BY" msprop:Generator_ColumnPropNameInTable="CREATED_BYColumn" msprop:Generator_ColumnVarNameInTable="columnCREATED_BY" msprop:Generator_UserColumnName="CREATED BY" minOccurs="0">
+              <xs:element name="CREATED_x0020_BY" msprop:Generator_ColumnPropNameInTable="CREATED_BYColumn" msprop:Generator_ColumnPropNameInRow="CREATED_BY" msprop:Generator_UserColumnName="CREATED BY" msprop:Generator_ColumnVarNameInTable="columnCREATED_BY" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CREATED_x0020_ON" msprop:Generator_ColumnPropNameInRow="CREATED_ON" msprop:Generator_ColumnPropNameInTable="CREATED_ONColumn" msprop:Generator_ColumnVarNameInTable="columnCREATED_ON" msprop:Generator_UserColumnName="CREATED ON" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CREATED_x0020_ON" msprop:Generator_ColumnPropNameInTable="CREATED_ONColumn" msprop:Generator_ColumnPropNameInRow="CREATED_ON" msprop:Generator_UserColumnName="CREATED ON" msprop:Generator_ColumnVarNameInTable="columnCREATED_ON" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CRU_x0020_ON_x0020_SITE" msprop:Generator_UserColumnName="CRU ON SITE" msprop:Generator_ColumnPropNameInTable="CRU_ON_SITEColumn" msprop:Generator_ColumnPropNameInRow="CRU_ON_SITE" msprop:Generator_ColumnVarNameInTable="columnCRU_ON_SITE" type="xs:boolean" minOccurs="0" />
+              <xs:element name="SUSPECT" msprop:Generator_ColumnPropNameInRow="SUSPECT" msprop:Generator_ColumnPropNameInTable="SUSPECTColumn" msprop:Generator_ColumnVarNameInTable="columnSUSPECT" msprop:Generator_UserColumnName="SUSPECT" type="xs:boolean" minOccurs="0" />
+              <xs:element name="DISCHARGE" msprop:Generator_ColumnPropNameInRow="DISCHARGE" msprop:Generator_ColumnPropNameInTable="DISCHARGEColumn" msprop:Generator_ColumnVarNameInTable="columnDISCHARGE" msprop:Generator_UserColumnName="DISCHARGE" type="xs:boolean" minOccurs="0" />
+              <xs:element name="RECIPE" msprop:Generator_ColumnPropNameInRow="RECIPE" msprop:Generator_ColumnPropNameInTable="RECIPEColumn" msprop:Generator_ColumnVarNameInTable="columnRECIPE" msprop:Generator_UserColumnName="RECIPE" type="xs:boolean" minOccurs="0" />
+              <xs:element name="BILL" msprop:Generator_ColumnPropNameInRow="BILL" msprop:Generator_ColumnPropNameInTable="BILLColumn" msprop:Generator_ColumnVarNameInTable="columnBILL" msprop:Generator_UserColumnName="BILL" type="xs:boolean" minOccurs="0" />
+              <xs:element name="NOTE" msprop:Generator_ColumnPropNameInRow="NOTE" msprop:Generator_ColumnPropNameInTable="NOTEColumn" msprop:Generator_ColumnVarNameInTable="columnNOTE" msprop:Generator_UserColumnName="NOTE" type="xs:boolean" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

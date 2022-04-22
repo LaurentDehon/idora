@@ -54,8 +54,12 @@ Partial Class frmNewInt
         Me.RCMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pnlMain = New System.Windows.Forms.Panel()
+        Me.btnIntToFacts = New FontAwesome.Sharp.IconButton()
+        Me.btnFactsToInt = New FontAwesome.Sharp.IconButton()
         Me.btnCancel = New FontAwesome.Sharp.IconButton()
         Me.btnOk = New FontAwesome.Sharp.IconButton()
+        Me.btnRemondis = New FontAwesome.Sharp.IconButton()
+        Me.btnSGS = New FontAwesome.Sharp.IconButton()
         CType(Me.CASESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DORADbDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.INTERVENTIONSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -87,7 +91,7 @@ Partial Class frmNewInt
         '
         Me.lblAdressFacts.AutoSize = True
         Me.lblAdressFacts.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAdressFacts.Location = New System.Drawing.Point(16, 340)
+        Me.lblAdressFacts.Location = New System.Drawing.Point(16, 380)
         Me.lblAdressFacts.Name = "lblAdressFacts"
         Me.lblAdressFacts.Size = New System.Drawing.Size(112, 24)
         Me.lblAdressFacts.TabIndex = 51
@@ -97,7 +101,7 @@ Partial Class frmNewInt
         '
         Me.lblDateFacts.AutoSize = True
         Me.lblDateFacts.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDateFacts.Location = New System.Drawing.Point(16, 300)
+        Me.lblDateFacts.Location = New System.Drawing.Point(16, 340)
         Me.lblDateFacts.Name = "lblDateFacts"
         Me.lblDateFacts.Size = New System.Drawing.Size(96, 24)
         Me.lblDateFacts.TabIndex = 50
@@ -263,7 +267,7 @@ Partial Class frmNewInt
         '
         Me.cmbCityFacts.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbCityFacts.FormattingEnabled = True
-        Me.cmbCityFacts.Location = New System.Drawing.Point(240, 336)
+        Me.cmbCityFacts.Location = New System.Drawing.Point(240, 376)
         Me.cmbCityFacts.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cmbCityFacts.Name = "cmbCityFacts"
         Me.cmbCityFacts.Size = New System.Drawing.Size(232, 32)
@@ -272,7 +276,7 @@ Partial Class frmNewInt
         'txtAdressFacts
         '
         Me.txtAdressFacts.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAdressFacts.Location = New System.Drawing.Point(240, 376)
+        Me.txtAdressFacts.Location = New System.Drawing.Point(240, 416)
         Me.txtAdressFacts.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtAdressFacts.Name = "txtAdressFacts"
         Me.txtAdressFacts.Size = New System.Drawing.Size(296, 32)
@@ -282,7 +286,7 @@ Partial Class frmNewInt
         '
         Me.txtDateFacts.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDateFacts.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.txtDateFacts.Location = New System.Drawing.Point(240, 296)
+        Me.txtDateFacts.Location = New System.Drawing.Point(240, 336)
         Me.txtDateFacts.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtDateFacts.Name = "txtDateFacts"
         Me.txtDateFacts.Size = New System.Drawing.Size(296, 32)
@@ -308,7 +312,7 @@ Partial Class frmNewInt
         '
         Me.txtZipFacts.CausesValidation = False
         Me.txtZipFacts.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtZipFacts.Location = New System.Drawing.Point(480, 336)
+        Me.txtZipFacts.Location = New System.Drawing.Point(480, 376)
         Me.txtZipFacts.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtZipFacts.Mask = "0000"
         Me.txtZipFacts.Name = "txtZipFacts"
@@ -332,6 +336,10 @@ Partial Class frmNewInt
         '
         'pnlMain
         '
+        Me.pnlMain.Controls.Add(Me.btnSGS)
+        Me.pnlMain.Controls.Add(Me.btnRemondis)
+        Me.pnlMain.Controls.Add(Me.btnIntToFacts)
+        Me.pnlMain.Controls.Add(Me.btnFactsToInt)
         Me.pnlMain.Controls.Add(Me.btnCancel)
         Me.pnlMain.Controls.Add(Me.btnOk)
         Me.pnlMain.Controls.Add(Me.lblCaseName)
@@ -356,8 +364,46 @@ Partial Class frmNewInt
         Me.pnlMain.Controls.Add(Me.txtAdressInt)
         Me.pnlMain.Location = New System.Drawing.Point(16, 16)
         Me.pnlMain.Name = "pnlMain"
-        Me.pnlMain.Size = New System.Drawing.Size(552, 472)
+        Me.pnlMain.Size = New System.Drawing.Size(552, 512)
         Me.pnlMain.TabIndex = 52
+        '
+        'btnIntToFacts
+        '
+        Me.btnIntToFacts.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnIntToFacts.FlatAppearance.BorderSize = 0
+        Me.btnIntToFacts.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnIntToFacts.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnIntToFacts.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleDown
+        Me.btnIntToFacts.IconColor = System.Drawing.Color.Black
+        Me.btnIntToFacts.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnIntToFacts.IconSize = 30
+        Me.btnIntToFacts.Location = New System.Drawing.Point(336, 296)
+        Me.btnIntToFacts.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnIntToFacts.Name = "btnIntToFacts"
+        Me.btnIntToFacts.Padding = New System.Windows.Forms.Padding(11, 14, 11, 10)
+        Me.btnIntToFacts.Size = New System.Drawing.Size(32, 32)
+        Me.btnIntToFacts.TabIndex = 149
+        Me.btnIntToFacts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnIntToFacts.UseVisualStyleBackColor = False
+        '
+        'btnFactsToInt
+        '
+        Me.btnFactsToInt.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnFactsToInt.FlatAppearance.BorderSize = 0
+        Me.btnFactsToInt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnFactsToInt.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnFactsToInt.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleUp
+        Me.btnFactsToInt.IconColor = System.Drawing.Color.Black
+        Me.btnFactsToInt.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnFactsToInt.IconSize = 30
+        Me.btnFactsToInt.Location = New System.Drawing.Point(304, 296)
+        Me.btnFactsToInt.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnFactsToInt.Name = "btnFactsToInt"
+        Me.btnFactsToInt.Padding = New System.Windows.Forms.Padding(11, 14, 11, 10)
+        Me.btnFactsToInt.Size = New System.Drawing.Size(32, 32)
+        Me.btnFactsToInt.TabIndex = 102
+        Me.btnFactsToInt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnFactsToInt.UseVisualStyleBackColor = False
         '
         'btnCancel
         '
@@ -368,7 +414,7 @@ Partial Class frmNewInt
         Me.btnCancel.IconColor = System.Drawing.Color.Black
         Me.btnCancel.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnCancel.IconSize = 30
-        Me.btnCancel.Location = New System.Drawing.Point(282, 432)
+        Me.btnCancel.Location = New System.Drawing.Point(282, 472)
         Me.btnCancel.Margin = New System.Windows.Forms.Padding(0)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(27, 20)
@@ -384,18 +430,56 @@ Partial Class frmNewInt
         Me.btnOk.IconColor = System.Drawing.Color.Black
         Me.btnOk.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnOk.IconSize = 30
-        Me.btnOk.Location = New System.Drawing.Point(240, 432)
+        Me.btnOk.Location = New System.Drawing.Point(240, 472)
         Me.btnOk.Margin = New System.Windows.Forms.Padding(0)
         Me.btnOk.Name = "btnOk"
         Me.btnOk.Size = New System.Drawing.Size(27, 20)
         Me.btnOk.TabIndex = 147
         Me.btnOk.UseVisualStyleBackColor = True
         '
+        'btnRemondis
+        '
+        Me.btnRemondis.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnRemondis.FlatAppearance.BorderSize = 0
+        Me.btnRemondis.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRemondis.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRemondis.IconChar = FontAwesome.Sharp.IconChar.Registered
+        Me.btnRemondis.IconColor = System.Drawing.Color.Black
+        Me.btnRemondis.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnRemondis.IconSize = 30
+        Me.btnRemondis.Location = New System.Drawing.Point(240, 296)
+        Me.btnRemondis.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnRemondis.Name = "btnRemondis"
+        Me.btnRemondis.Padding = New System.Windows.Forms.Padding(11, 14, 11, 10)
+        Me.btnRemondis.Size = New System.Drawing.Size(32, 32)
+        Me.btnRemondis.TabIndex = 150
+        Me.btnRemondis.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnRemondis.UseVisualStyleBackColor = False
+        '
+        'btnSGS
+        '
+        Me.btnSGS.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSGS.FlatAppearance.BorderSize = 0
+        Me.btnSGS.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSGS.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSGS.IconChar = FontAwesome.Sharp.IconChar.Speakap
+        Me.btnSGS.IconColor = System.Drawing.Color.Black
+        Me.btnSGS.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnSGS.IconSize = 30
+        Me.btnSGS.Location = New System.Drawing.Point(272, 296)
+        Me.btnSGS.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnSGS.Name = "btnSGS"
+        Me.btnSGS.Padding = New System.Windows.Forms.Padding(11, 14, 11, 10)
+        Me.btnSGS.Size = New System.Drawing.Size(32, 32)
+        Me.btnSGS.TabIndex = 151
+        Me.btnSGS.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnSGS.UseVisualStyleBackColor = False
+        '
         'frmNewInt
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(587, 509)
+        Me.ClientSize = New System.Drawing.Size(587, 553)
         Me.Controls.Add(Me.pnlMain)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -447,4 +531,8 @@ Partial Class frmNewInt
     Friend WithEvents pnlMain As Panel
     Friend WithEvents btnCancel As FontAwesome.Sharp.IconButton
     Friend WithEvents btnOk As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnFactsToInt As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnIntToFacts As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnRemondis As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnSGS As FontAwesome.Sharp.IconButton
 End Class

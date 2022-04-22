@@ -42,9 +42,9 @@ Partial Class frmProducts
         Me.TableAdapterManager = New DORA.DORADbDSTableAdapters.TableAdapterManager()
         Me.SHORTNAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnlTop = New System.Windows.Forms.Panel()
+        Me.txtSearchProducts = New System.Windows.Forms.TextBox()
         Me.btnUndo = New FontAwesome.Sharp.IconButton()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.txtSearchProducts = New System.Windows.Forms.TextBox()
         CType(Me.dgvProducts, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PRODUCTSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DORADbDS, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -90,7 +90,7 @@ Partial Class frmProducts
         Me.dgvProducts.RowTemplate.DividerHeight = 1
         Me.dgvProducts.RowTemplate.Height = 30
         Me.dgvProducts.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
         Me.dgvProducts.Size = New System.Drawing.Size(964, 440)
         Me.dgvProducts.TabIndex = 1
         '
@@ -209,6 +209,15 @@ Partial Class frmProducts
         Me.pnlTop.Size = New System.Drawing.Size(966, 49)
         Me.pnlTop.TabIndex = 136
         '
+        'txtSearchProducts
+        '
+        Me.txtSearchProducts.BackColor = System.Drawing.SystemColors.Window
+        Me.txtSearchProducts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtSearchProducts.Location = New System.Drawing.Point(0, 8)
+        Me.txtSearchProducts.Name = "txtSearchProducts"
+        Me.txtSearchProducts.Size = New System.Drawing.Size(272, 32)
+        Me.txtSearchProducts.TabIndex = 140
+        '
         'btnUndo
         '
         Me.btnUndo.Cursor = System.Windows.Forms.Cursors.Hand
@@ -239,15 +248,6 @@ Partial Class frmProducts
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(972, 503)
         Me.TableLayoutPanel1.TabIndex = 137
-        '
-        'txtSearchProducts
-        '
-        Me.txtSearchProducts.BackColor = System.Drawing.SystemColors.Window
-        Me.txtSearchProducts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtSearchProducts.Location = New System.Drawing.Point(0, 8)
-        Me.txtSearchProducts.Name = "txtSearchProducts"
-        Me.txtSearchProducts.Size = New System.Drawing.Size(272, 32)
-        Me.txtSearchProducts.TabIndex = 140
         '
         'frmProducts
         '

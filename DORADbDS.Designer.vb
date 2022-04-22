@@ -2573,6 +2573,18 @@ Partial Public Class DORADbDS
         
         Private columnCREATED_ON As Global.System.Data.DataColumn
         
+        Private columnCRU_ON_SITE As Global.System.Data.DataColumn
+        
+        Private columnSUSPECT As Global.System.Data.DataColumn
+        
+        Private columnDISCHARGE As Global.System.Data.DataColumn
+        
+        Private columnRECIPE As Global.System.Data.DataColumn
+        
+        Private columnBILL As Global.System.Data.DataColumn
+        
+        Private columnNOTE As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -2961,6 +2973,54 @@ Partial Public Class DORADbDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property CRU_ON_SITEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCRU_ON_SITE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property SUSPECTColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSUSPECT
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property DISCHARGEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDISCHARGE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property RECIPEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRECIPE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property BILLColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBILL
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property NOTEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNOTE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3040,9 +3100,15 @@ Partial Public Class DORADbDS
                     ByVal INTPL As String,  _
                     ByVal INT_OS As String,  _
                     ByVal CREATED_BY As String,  _
-                    ByVal CREATED_ON As Date) As INTERVENTIONSRow
+                    ByVal CREATED_ON As Date,  _
+                    ByVal CRU_ON_SITE As Boolean,  _
+                    ByVal SUSPECT As Boolean,  _
+                    ByVal DISCHARGE As Boolean,  _
+                    ByVal RECIPE As Boolean,  _
+                    ByVal BILL As Boolean,  _
+                    ByVal NOTE As Boolean) As INTERVENTIONSRow
             Dim rowINTERVENTIONSRow As INTERVENTIONSRow = CType(Me.NewRow,INTERVENTIONSRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, CASE_NAME, DATE_INT, TYPE_OF_INT, TYPE_OF_PLACE, ADRESS_INT, CITY_INT, SUMMARY, CRU_REPORT, DATE_FACTS, ADRESS_FACTS, CITY_FACTS, INTDONE, ZIP_INT, ZIP_FACTS, SAMPLES, SAMPLES_TAKEN_BY, SAMPLES_DELIVERY_DATE, SAMPLES_NUM, INVENTORY, SAMPLES_CODE, PICTURES_REPORT, NICC_REPORT, NICC_REPORT_NUM, NICC_REPORT_DATE, NICC_CONC, CRU_REPORT_NUM, CRU_REPORT_DATE, PRODCAP, DATE_1, TIME_1, TIME_2, DATE_2, TIME_3, TIME_4, DATE_3, TIME_5, TIME_6, TIME, PROD, INTPL, INT_OS, CREATED_BY, CREATED_ON}
+            Dim columnValuesArray() As Object = New Object() {Nothing, CASE_NAME, DATE_INT, TYPE_OF_INT, TYPE_OF_PLACE, ADRESS_INT, CITY_INT, SUMMARY, CRU_REPORT, DATE_FACTS, ADRESS_FACTS, CITY_FACTS, INTDONE, ZIP_INT, ZIP_FACTS, SAMPLES, SAMPLES_TAKEN_BY, SAMPLES_DELIVERY_DATE, SAMPLES_NUM, INVENTORY, SAMPLES_CODE, PICTURES_REPORT, NICC_REPORT, NICC_REPORT_NUM, NICC_REPORT_DATE, NICC_CONC, CRU_REPORT_NUM, CRU_REPORT_DATE, PRODCAP, DATE_1, TIME_1, TIME_2, DATE_2, TIME_3, TIME_4, DATE_3, TIME_5, TIME_6, TIME, PROD, INTPL, INT_OS, CREATED_BY, CREATED_ON, CRU_ON_SITE, SUSPECT, DISCHARGE, RECIPE, BILL, NOTE}
             rowINTERVENTIONSRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowINTERVENTIONSRow)
             Return rowINTERVENTIONSRow
@@ -3115,6 +3181,12 @@ Partial Public Class DORADbDS
             Me.columnINT_OS = MyBase.Columns("INT OS")
             Me.columnCREATED_BY = MyBase.Columns("CREATED BY")
             Me.columnCREATED_ON = MyBase.Columns("CREATED ON")
+            Me.columnCRU_ON_SITE = MyBase.Columns("CRU ON SITE")
+            Me.columnSUSPECT = MyBase.Columns("SUSPECT")
+            Me.columnDISCHARGE = MyBase.Columns("DISCHARGE")
+            Me.columnRECIPE = MyBase.Columns("RECIPE")
+            Me.columnBILL = MyBase.Columns("BILL")
+            Me.columnNOTE = MyBase.Columns("NOTE")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3208,6 +3280,18 @@ Partial Public Class DORADbDS
             MyBase.Columns.Add(Me.columnCREATED_BY)
             Me.columnCREATED_ON = New Global.System.Data.DataColumn("CREATED ON", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCREATED_ON)
+            Me.columnCRU_ON_SITE = New Global.System.Data.DataColumn("CRU ON SITE", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCRU_ON_SITE)
+            Me.columnSUSPECT = New Global.System.Data.DataColumn("SUSPECT", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSUSPECT)
+            Me.columnDISCHARGE = New Global.System.Data.DataColumn("DISCHARGE", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDISCHARGE)
+            Me.columnRECIPE = New Global.System.Data.DataColumn("RECIPE", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRECIPE)
+            Me.columnBILL = New Global.System.Data.DataColumn("BILL", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBILL)
+            Me.columnNOTE = New Global.System.Data.DataColumn("NOTE", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNOTE)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID_CRU}, true))
             Me.columnID_CRU.AutoIncrement = true
             Me.columnID_CRU.AutoIncrementSeed = -1
@@ -7975,6 +8059,96 @@ Partial Public Class DORADbDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property CRU_ON_SITE() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableINTERVENTIONS.CRU_ON_SITEColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CRU ON SITE' in table 'INTERVENTIONS' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableINTERVENTIONS.CRU_ON_SITEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property SUSPECT() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableINTERVENTIONS.SUSPECTColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SUSPECT' in table 'INTERVENTIONS' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableINTERVENTIONS.SUSPECTColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property DISCHARGE() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableINTERVENTIONS.DISCHARGEColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DISCHARGE' in table 'INTERVENTIONS' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableINTERVENTIONS.DISCHARGEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property RECIPE() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableINTERVENTIONS.RECIPEColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'RECIPE' in table 'INTERVENTIONS' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableINTERVENTIONS.RECIPEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property BILL() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableINTERVENTIONS.BILLColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'BILL' in table 'INTERVENTIONS' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableINTERVENTIONS.BILLColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property NOTE() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableINTERVENTIONS.NOTEColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'NOTE' in table 'INTERVENTIONS' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableINTERVENTIONS.NOTEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsCASE_NAMENull() As Boolean
             Return Me.IsNull(Me.tableINTERVENTIONS.CASE_NAMEColumn)
         End Function
@@ -8487,6 +8661,78 @@ Partial Public Class DORADbDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetCREATED_ONNull()
             Me(Me.tableINTERVENTIONS.CREATED_ONColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsCRU_ON_SITENull() As Boolean
+            Return Me.IsNull(Me.tableINTERVENTIONS.CRU_ON_SITEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetCRU_ON_SITENull()
+            Me(Me.tableINTERVENTIONS.CRU_ON_SITEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsSUSPECTNull() As Boolean
+            Return Me.IsNull(Me.tableINTERVENTIONS.SUSPECTColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetSUSPECTNull()
+            Me(Me.tableINTERVENTIONS.SUSPECTColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsDISCHARGENull() As Boolean
+            Return Me.IsNull(Me.tableINTERVENTIONS.DISCHARGEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetDISCHARGENull()
+            Me(Me.tableINTERVENTIONS.DISCHARGEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsRECIPENull() As Boolean
+            Return Me.IsNull(Me.tableINTERVENTIONS.RECIPEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetRECIPENull()
+            Me(Me.tableINTERVENTIONS.RECIPEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsBILLNull() As Boolean
+            Return Me.IsNull(Me.tableINTERVENTIONS.BILLColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetBILLNull()
+            Me(Me.tableINTERVENTIONS.BILLColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsNOTENull() As Boolean
+            Return Me.IsNull(Me.tableINTERVENTIONS.NOTEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetNOTENull()
+            Me(Me.tableINTERVENTIONS.NOTEColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12784,6 +13030,12 @@ Namespace DORADbDSTableAdapters
             tableMapping.ColumnMappings.Add("INT OS", "INT OS")
             tableMapping.ColumnMappings.Add("CREATED BY", "CREATED BY")
             tableMapping.ColumnMappings.Add("CREATED ON", "CREATED ON")
+            tableMapping.ColumnMappings.Add("CRU ON SITE", "CRU ON SITE")
+            tableMapping.ColumnMappings.Add("SUSPECT", "SUSPECT")
+            tableMapping.ColumnMappings.Add("DISCHARGE", "DISCHARGE")
+            tableMapping.ColumnMappings.Add("RECIPE", "RECIPE")
+            tableMapping.ColumnMappings.Add("BILL", "BILL")
+            tableMapping.ColumnMappings.Add("NOTE", "NOTE")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -12818,7 +13070,11 @@ Namespace DORADbDSTableAdapters
                 "ND `PROD` IS NULL) OR (`PROD` = ?)) AND ((? = 1 AND `INTPL` IS NULL) OR (`INTPL`"& _ 
                 " = ?)) AND ((? = 1 AND `INT OS` IS NULL) OR (`INT OS` = ?)) AND ((? = 1 AND `CRE"& _ 
                 "ATED BY` IS NULL) OR (`CREATED BY` = ?)) AND ((? = 1 AND `CREATED ON` IS NULL) O"& _ 
-                "R (`CREATED ON` = ?)))"
+                "R (`CREATED ON` = ?)) AND ((? = 1 AND `CRU ON SITE` IS NULL) OR (`CRU ON SITE` ="& _ 
+                " ?)) AND ((? = 1 AND `SUSPECT` IS NULL) OR (`SUSPECT` = ?)) AND ((? = 1 AND `DIS"& _ 
+                "CHARGE` IS NULL) OR (`DISCHARGE` = ?)) AND ((? = 1 AND `RECIPE` IS NULL) OR (`RE"& _ 
+                "CIPE` = ?)) AND ((? = 1 AND `BILL` IS NULL) OR (`BILL` = ?)) AND ((? = 1 AND `NO"& _ 
+                "TE` IS NULL) OR (`NOTE` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_CRU", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID CRU", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CASE_NAME", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CASE NAME", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -12903,6 +13159,18 @@ Namespace DORADbDSTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CREATED_BY", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CREATED BY", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CREATED_ON", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CREATED ON", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CREATED_ON", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CREATED ON", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CRU_ON_SITE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CRU ON SITE", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CRU_ON_SITE", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CRU ON SITE", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_SUSPECT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SUSPECT", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_SUSPECT", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SUSPECT", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_DISCHARGE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DISCHARGE", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_DISCHARGE", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DISCHARGE", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_RECIPE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "RECIPE", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_RECIPE", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "RECIPE", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_BILL", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "BILL", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_BILL", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "BILL", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_NOTE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NOTE", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_NOTE", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NOTE", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO `INTERVENTIONS` (`CASE NAME`, `DATE INT`, `DATE FACTS`, `TYPE OF INT`"& _ 
@@ -12912,9 +13180,10 @@ Namespace DORADbDSTableAdapters
                 "T`, `NICC REPORT NUM`, `NICC REPORT DATE`, `NICC CONC`, `CRU REPORT`, `CRU REPOR"& _ 
                 "T NUM`, `CRU REPORT DATE`, `PRODCAP`, `INTDONE`, `DATE 1`, `TIME 1`, `TIME 2`, `"& _ 
                 "DATE 2`, `TIME 3`, `TIME 4`, `DATE 3`, `TIME 5`, `TIME 6`, `TIME`, `PROD`, `INTP"& _ 
-                "L`, `INT OS`, `CREATED BY`, `CREATED ON`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "& _ 
+                "L`, `INT OS`, `CREATED BY`, `CREATED ON`, `CRU ON SITE`, `SUSPECT`, `DISCHARGE`,"& _ 
+                " `RECIPE`, `BILL`, `NOTE`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "& _ 
                 "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"& _ 
-                " ?, ?, ?, ?, ?, ?)"
+                " ?, ?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CASE_NAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CASE NAME", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("DATE_INT", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DATE INT", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -12959,6 +13228,12 @@ Namespace DORADbDSTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("INT_OS", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "INT OS", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CREATED_BY", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CREATED BY", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CREATED_ON", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CREATED ON", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CRU_ON_SITE", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CRU ON SITE", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("SUSPECT", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SUSPECT", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("DISCHARGE", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DISCHARGE", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("RECIPE", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "RECIPE", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("BILL", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "BILL", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("NOTE", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NOTE", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `INTERVENTIONS` SET `CASE NAME` = ?, `DATE INT` = ?, `DATE FACTS` = ?, `TY"& _ 
@@ -12970,38 +13245,43 @@ Namespace DORADbDSTableAdapters
                 " ?, `CRU REPORT NUM` = ?, `CRU REPORT DATE` = ?, `PRODCAP` = ?, `INTDONE` = ?, `"& _ 
                 "DATE 1` = ?, `TIME 1` = ?, `TIME 2` = ?, `DATE 2` = ?, `TIME 3` = ?, `TIME 4` = "& _ 
                 "?, `DATE 3` = ?, `TIME 5` = ?, `TIME 6` = ?, `TIME` = ?, `PROD` = ?, `INTPL` = ?"& _ 
-                ", `INT OS` = ?, `CREATED BY` = ?, `CREATED ON` = ? WHERE ((`ID CRU` = ?) AND ((?"& _ 
-                " = 1 AND `CASE NAME` IS NULL) OR (`CASE NAME` = ?)) AND ((? = 1 AND `DATE INT` I"& _ 
-                "S NULL) OR (`DATE INT` = ?)) AND ((? = 1 AND `DATE FACTS` IS NULL) OR (`DATE FAC"& _ 
-                "TS` = ?)) AND ((? = 1 AND `TYPE OF INT` IS NULL) OR (`TYPE OF INT` = ?)) AND ((?"& _ 
-                " = 1 AND `TYPE OF PLACE` IS NULL) OR (`TYPE OF PLACE` = ?)) AND ((? = 1 AND `ADR"& _ 
-                "ESS INT` IS NULL) OR (`ADRESS INT` = ?)) AND ((? = 1 AND `ZIP INT` IS NULL) OR ("& _ 
-                "`ZIP INT` = ?)) AND ((? = 1 AND `CITY INT` IS NULL) OR (`CITY INT` = ?)) AND ((?"& _ 
-                " = 1 AND `ADRESS FACTS` IS NULL) OR (`ADRESS FACTS` = ?)) AND ((? = 1 AND `ZIP F"& _ 
-                "ACTS` IS NULL) OR (`ZIP FACTS` = ?)) AND ((? = 1 AND `CITY FACTS` IS NULL) OR (`"& _ 
-                "CITY FACTS` = ?)) AND ((? = 1 AND `SAMPLES` IS NULL) OR (`SAMPLES` = ?)) AND ((?"& _ 
-                " = 1 AND `SAMPLES TAKEN BY` IS NULL) OR (`SAMPLES TAKEN BY` = ?)) AND ((? = 1 AN"& _ 
-                "D `SAMPLES DELIVERY DATE` IS NULL) OR (`SAMPLES DELIVERY DATE` = ?)) AND ((? = 1"& _ 
-                " AND `SAMPLES NUM` IS NULL) OR (`SAMPLES NUM` = ?)) AND ((? = 1 AND `INVENTORY` "& _ 
-                "IS NULL) OR (`INVENTORY` = ?)) AND ((? = 1 AND `SAMPLES CODE` IS NULL) OR (`SAMP"& _ 
-                "LES CODE` = ?)) AND ((? = 1 AND `PICTURES REPORT` IS NULL) OR (`PICTURES REPORT`"& _ 
-                " = ?)) AND ((? = 1 AND `NICC REPORT` IS NULL) OR (`NICC REPORT` = ?)) AND ((? = "& _ 
-                "1 AND `NICC REPORT NUM` IS NULL) OR (`NICC REPORT NUM` = ?)) AND ((? = 1 AND `NI"& _ 
-                "CC REPORT DATE` IS NULL) OR (`NICC REPORT DATE` = ?)) AND ((? = 1 AND `CRU REPOR"& _ 
-                "T` IS NULL) OR (`CRU REPORT` = ?)) AND ((? = 1 AND `CRU REPORT NUM` IS NULL) OR "& _ 
-                "(`CRU REPORT NUM` = ?)) AND ((? = 1 AND `CRU REPORT DATE` IS NULL) OR (`CRU REPO"& _ 
-                "RT DATE` = ?)) AND ((? = 1 AND `PRODCAP` IS NULL) OR (`PRODCAP` = ?)) AND ((? = "& _ 
-                "1 AND `INTDONE` IS NULL) OR (`INTDONE` = ?)) AND ((? = 1 AND `DATE 1` IS NULL) O"& _ 
-                "R (`DATE 1` = ?)) AND ((? = 1 AND `TIME 1` IS NULL) OR (`TIME 1` = ?)) AND ((? ="& _ 
-                " 1 AND `TIME 2` IS NULL) OR (`TIME 2` = ?)) AND ((? = 1 AND `DATE 2` IS NULL) OR"& _ 
-                " (`DATE 2` = ?)) AND ((? = 1 AND `TIME 3` IS NULL) OR (`TIME 3` = ?)) AND ((? = "& _ 
-                "1 AND `TIME 4` IS NULL) OR (`TIME 4` = ?)) AND ((? = 1 AND `DATE 3` IS NULL) OR "& _ 
-                "(`DATE 3` = ?)) AND ((? = 1 AND `TIME 5` IS NULL) OR (`TIME 5` = ?)) AND ((? = 1"& _ 
-                " AND `TIME 6` IS NULL) OR (`TIME 6` = ?)) AND ((? = 1 AND `TIME` IS NULL) OR (`T"& _ 
-                "IME` = ?)) AND ((? = 1 AND `PROD` IS NULL) OR (`PROD` = ?)) AND ((? = 1 AND `INT"& _ 
-                "PL` IS NULL) OR (`INTPL` = ?)) AND ((? = 1 AND `INT OS` IS NULL) OR (`INT OS` = "& _ 
-                "?)) AND ((? = 1 AND `CREATED BY` IS NULL) OR (`CREATED BY` = ?)) AND ((? = 1 AND"& _ 
-                " `CREATED ON` IS NULL) OR (`CREATED ON` = ?)))"
+                ", `INT OS` = ?, `CREATED BY` = ?, `CREATED ON` = ?, `CRU ON SITE` = ?, `SUSPECT`"& _ 
+                " = ?, `DISCHARGE` = ?, `RECIPE` = ?, `BILL` = ?, `NOTE` = ? WHERE ((`ID CRU` = ?"& _ 
+                ") AND ((? = 1 AND `CASE NAME` IS NULL) OR (`CASE NAME` = ?)) AND ((? = 1 AND `DA"& _ 
+                "TE INT` IS NULL) OR (`DATE INT` = ?)) AND ((? = 1 AND `DATE FACTS` IS NULL) OR ("& _ 
+                "`DATE FACTS` = ?)) AND ((? = 1 AND `TYPE OF INT` IS NULL) OR (`TYPE OF INT` = ?)"& _ 
+                ") AND ((? = 1 AND `TYPE OF PLACE` IS NULL) OR (`TYPE OF PLACE` = ?)) AND ((? = 1"& _ 
+                " AND `ADRESS INT` IS NULL) OR (`ADRESS INT` = ?)) AND ((? = 1 AND `ZIP INT` IS N"& _ 
+                "ULL) OR (`ZIP INT` = ?)) AND ((? = 1 AND `CITY INT` IS NULL) OR (`CITY INT` = ?)"& _ 
+                ") AND ((? = 1 AND `ADRESS FACTS` IS NULL) OR (`ADRESS FACTS` = ?)) AND ((? = 1 A"& _ 
+                "ND `ZIP FACTS` IS NULL) OR (`ZIP FACTS` = ?)) AND ((? = 1 AND `CITY FACTS` IS NU"& _ 
+                "LL) OR (`CITY FACTS` = ?)) AND ((? = 1 AND `SAMPLES` IS NULL) OR (`SAMPLES` = ?)"& _ 
+                ") AND ((? = 1 AND `SAMPLES TAKEN BY` IS NULL) OR (`SAMPLES TAKEN BY` = ?)) AND ("& _ 
+                "(? = 1 AND `SAMPLES DELIVERY DATE` IS NULL) OR (`SAMPLES DELIVERY DATE` = ?)) AN"& _ 
+                "D ((? = 1 AND `SAMPLES NUM` IS NULL) OR (`SAMPLES NUM` = ?)) AND ((? = 1 AND `IN"& _ 
+                "VENTORY` IS NULL) OR (`INVENTORY` = ?)) AND ((? = 1 AND `SAMPLES CODE` IS NULL) "& _ 
+                "OR (`SAMPLES CODE` = ?)) AND ((? = 1 AND `PICTURES REPORT` IS NULL) OR (`PICTURE"& _ 
+                "S REPORT` = ?)) AND ((? = 1 AND `NICC REPORT` IS NULL) OR (`NICC REPORT` = ?)) A"& _ 
+                "ND ((? = 1 AND `NICC REPORT NUM` IS NULL) OR (`NICC REPORT NUM` = ?)) AND ((? = "& _ 
+                "1 AND `NICC REPORT DATE` IS NULL) OR (`NICC REPORT DATE` = ?)) AND ((? = 1 AND `"& _ 
+                "CRU REPORT` IS NULL) OR (`CRU REPORT` = ?)) AND ((? = 1 AND `CRU REPORT NUM` IS "& _ 
+                "NULL) OR (`CRU REPORT NUM` = ?)) AND ((? = 1 AND `CRU REPORT DATE` IS NULL) OR ("& _ 
+                "`CRU REPORT DATE` = ?)) AND ((? = 1 AND `PRODCAP` IS NULL) OR (`PRODCAP` = ?)) A"& _ 
+                "ND ((? = 1 AND `INTDONE` IS NULL) OR (`INTDONE` = ?)) AND ((? = 1 AND `DATE 1` I"& _ 
+                "S NULL) OR (`DATE 1` = ?)) AND ((? = 1 AND `TIME 1` IS NULL) OR (`TIME 1` = ?)) "& _ 
+                "AND ((? = 1 AND `TIME 2` IS NULL) OR (`TIME 2` = ?)) AND ((? = 1 AND `DATE 2` IS"& _ 
+                " NULL) OR (`DATE 2` = ?)) AND ((? = 1 AND `TIME 3` IS NULL) OR (`TIME 3` = ?)) A"& _ 
+                "ND ((? = 1 AND `TIME 4` IS NULL) OR (`TIME 4` = ?)) AND ((? = 1 AND `DATE 3` IS "& _ 
+                "NULL) OR (`DATE 3` = ?)) AND ((? = 1 AND `TIME 5` IS NULL) OR (`TIME 5` = ?)) AN"& _ 
+                "D ((? = 1 AND `TIME 6` IS NULL) OR (`TIME 6` = ?)) AND ((? = 1 AND `TIME` IS NUL"& _ 
+                "L) OR (`TIME` = ?)) AND ((? = 1 AND `PROD` IS NULL) OR (`PROD` = ?)) AND ((? = 1"& _ 
+                " AND `INTPL` IS NULL) OR (`INTPL` = ?)) AND ((? = 1 AND `INT OS` IS NULL) OR (`I"& _ 
+                "NT OS` = ?)) AND ((? = 1 AND `CREATED BY` IS NULL) OR (`CREATED BY` = ?)) AND (("& _ 
+                "? = 1 AND `CREATED ON` IS NULL) OR (`CREATED ON` = ?)) AND ((? = 1 AND `CRU ON S"& _ 
+                "ITE` IS NULL) OR (`CRU ON SITE` = ?)) AND ((? = 1 AND `SUSPECT` IS NULL) OR (`SU"& _ 
+                "SPECT` = ?)) AND ((? = 1 AND `DISCHARGE` IS NULL) OR (`DISCHARGE` = ?)) AND ((? "& _ 
+                "= 1 AND `RECIPE` IS NULL) OR (`RECIPE` = ?)) AND ((? = 1 AND `BILL` IS NULL) OR "& _ 
+                "(`BILL` = ?)) AND ((? = 1 AND `NOTE` IS NULL) OR (`NOTE` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CASE_NAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CASE NAME", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("DATE_INT", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DATE INT", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -13046,6 +13326,12 @@ Namespace DORADbDSTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("INT_OS", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "INT OS", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CREATED_BY", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CREATED BY", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CREATED_ON", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CREATED ON", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CRU_ON_SITE", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CRU ON SITE", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("SUSPECT", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SUSPECT", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("DISCHARGE", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DISCHARGE", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("RECIPE", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "RECIPE", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("BILL", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "BILL", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("NOTE", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NOTE", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_CRU", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID CRU", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CASE_NAME", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CASE NAME", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CASE_NAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CASE NAME", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -13129,6 +13415,18 @@ Namespace DORADbDSTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CREATED_BY", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CREATED BY", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CREATED_ON", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CREATED ON", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CREATED_ON", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CREATED ON", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CRU_ON_SITE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CRU ON SITE", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CRU_ON_SITE", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CRU ON SITE", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_SUSPECT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SUSPECT", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_SUSPECT", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SUSPECT", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_DISCHARGE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DISCHARGE", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_DISCHARGE", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DISCHARGE", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_RECIPE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "RECIPE", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_RECIPE", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "RECIPE", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_BILL", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "BILL", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_BILL", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "BILL", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_NOTE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NOTE", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_NOTE", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NOTE", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13151,7 +13449,8 @@ Namespace DORADbDSTableAdapters
                 "ORT], [NICC REPORT NUM], [NICC REPORT DATE], [NICC CONC], [CRU REPORT], [CRU REP"& _ 
                 "ORT NUM], [CRU REPORT DATE], "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  PRODCAP, INTDONE, [DATE 1], [TI"& _ 
                 "ME 1], [TIME 2], [DATE 2], [TIME 3], [TIME 4], [DATE 3], [TIME 5], [TIME 6], [TI"& _ 
-                "ME], PROD, INTPL, [INT OS], [CREATED BY], [CREATED ON]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM     INTERVENTIONS"
+                "ME], PROD, INTPL, [INT OS], [CREATED BY], [CREATED ON], [CRU ON SITE], SUSPECT, "& _ 
+                "DISCHARGE, RECIPE, BILL, NOTE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM     INTERVENTIONS"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -13253,7 +13552,13 @@ Namespace DORADbDSTableAdapters
                     ByVal Original_INTPL As String,  _
                     ByVal Original_INT_OS As String,  _
                     ByVal Original_CREATED_BY As String,  _
-                    ByVal Original_CREATED_ON As Global.System.Nullable(Of Date)) As Integer
+                    ByVal Original_CREATED_ON As Global.System.Nullable(Of Date),  _
+                    ByVal Original_CRU_ON_SITE As Boolean,  _
+                    ByVal Original_SUSPECT As Boolean,  _
+                    ByVal Original_DISCHARGE As Boolean,  _
+                    ByVal Original_RECIPE As Boolean,  _
+                    ByVal Original_BILL As Boolean,  _
+                    ByVal Original_NOTE As Boolean) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID_CRU,Integer)
             If (Original_CASE_NAME Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
@@ -13512,6 +13817,18 @@ Namespace DORADbDSTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(81).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(82).Value = Global.System.DBNull.Value
             End If
+            Me.Adapter.DeleteCommand.Parameters(83).Value = CType(0,Object)
+            Me.Adapter.DeleteCommand.Parameters(84).Value = CType(Original_CRU_ON_SITE,Boolean)
+            Me.Adapter.DeleteCommand.Parameters(85).Value = CType(0,Object)
+            Me.Adapter.DeleteCommand.Parameters(86).Value = CType(Original_SUSPECT,Boolean)
+            Me.Adapter.DeleteCommand.Parameters(87).Value = CType(0,Object)
+            Me.Adapter.DeleteCommand.Parameters(88).Value = CType(Original_DISCHARGE,Boolean)
+            Me.Adapter.DeleteCommand.Parameters(89).Value = CType(0,Object)
+            Me.Adapter.DeleteCommand.Parameters(90).Value = CType(Original_RECIPE,Boolean)
+            Me.Adapter.DeleteCommand.Parameters(91).Value = CType(0,Object)
+            Me.Adapter.DeleteCommand.Parameters(92).Value = CType(Original_BILL,Boolean)
+            Me.Adapter.DeleteCommand.Parameters(93).Value = CType(0,Object)
+            Me.Adapter.DeleteCommand.Parameters(94).Value = CType(Original_NOTE,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -13574,7 +13891,13 @@ Namespace DORADbDSTableAdapters
                     ByVal INTPL As String,  _
                     ByVal INT_OS As String,  _
                     ByVal CREATED_BY As String,  _
-                    ByVal CREATED_ON As Global.System.Nullable(Of Date)) As Integer
+                    ByVal CREATED_ON As Global.System.Nullable(Of Date),  _
+                    ByVal CRU_ON_SITE As Boolean,  _
+                    ByVal SUSPECT As Boolean,  _
+                    ByVal DISCHARGE As Boolean,  _
+                    ByVal RECIPE As Boolean,  _
+                    ByVal BILL As Boolean,  _
+                    ByVal NOTE As Boolean) As Integer
             If (CASE_NAME Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -13766,6 +14089,12 @@ Namespace DORADbDSTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(42).Value = Global.System.DBNull.Value
             End If
+            Me.Adapter.InsertCommand.Parameters(43).Value = CType(CRU_ON_SITE,Boolean)
+            Me.Adapter.InsertCommand.Parameters(44).Value = CType(SUSPECT,Boolean)
+            Me.Adapter.InsertCommand.Parameters(45).Value = CType(DISCHARGE,Boolean)
+            Me.Adapter.InsertCommand.Parameters(46).Value = CType(RECIPE,Boolean)
+            Me.Adapter.InsertCommand.Parameters(47).Value = CType(BILL,Boolean)
+            Me.Adapter.InsertCommand.Parameters(48).Value = CType(NOTE,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -13829,6 +14158,12 @@ Namespace DORADbDSTableAdapters
                     ByVal INT_OS As String,  _
                     ByVal CREATED_BY As String,  _
                     ByVal CREATED_ON As Global.System.Nullable(Of Date),  _
+                    ByVal CRU_ON_SITE As Boolean,  _
+                    ByVal SUSPECT As Boolean,  _
+                    ByVal DISCHARGE As Boolean,  _
+                    ByVal RECIPE As Boolean,  _
+                    ByVal BILL As Boolean,  _
+                    ByVal NOTE As Boolean,  _
                     ByVal Original_ID_CRU As Integer,  _
                     ByVal Original_CASE_NAME As String,  _
                     ByVal Original_DATE_INT As Global.System.Nullable(Of Date),  _
@@ -13870,7 +14205,13 @@ Namespace DORADbDSTableAdapters
                     ByVal Original_INTPL As String,  _
                     ByVal Original_INT_OS As String,  _
                     ByVal Original_CREATED_BY As String,  _
-                    ByVal Original_CREATED_ON As Global.System.Nullable(Of Date)) As Integer
+                    ByVal Original_CREATED_ON As Global.System.Nullable(Of Date),  _
+                    ByVal Original_CRU_ON_SITE As Boolean,  _
+                    ByVal Original_SUSPECT As Boolean,  _
+                    ByVal Original_DISCHARGE As Boolean,  _
+                    ByVal Original_RECIPE As Boolean,  _
+                    ByVal Original_BILL As Boolean,  _
+                    ByVal Original_NOTE As Boolean) As Integer
             If (CASE_NAME Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -14062,264 +14403,282 @@ Namespace DORADbDSTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_ID_CRU,Integer)
+            Me.Adapter.UpdateCommand.Parameters(43).Value = CType(CRU_ON_SITE,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(44).Value = CType(SUSPECT,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(45).Value = CType(DISCHARGE,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(46).Value = CType(RECIPE,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(47).Value = CType(BILL,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(48).Value = CType(NOTE,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(49).Value = CType(Original_ID_CRU,Integer)
             If (Original_CASE_NAME Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_CASE_NAME,String)
-            End If
-            If (Original_DATE_INT.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(Original_DATE_INT.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
-            End If
-            If (Original_DATE_FACTS.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(Original_DATE_FACTS.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
-            End If
-            If (Original_TYPE_OF_INT Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(50).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(50).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(Original_TYPE_OF_INT,String)
+                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(Original_CASE_NAME,String)
             End If
-            If (Original_TYPE_OF_PLACE Is Nothing) Then
+            If (Original_DATE_INT.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(Original_DATE_INT.Value,Date)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(52).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(Original_TYPE_OF_PLACE,String)
             End If
-            If (Original_ADRESS_INT Is Nothing) Then
+            If (Original_DATE_FACTS.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(Original_DATE_FACTS.Value,Date)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(54).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(55).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(Original_ADRESS_INT,String)
             End If
-            If (Original_ZIP_INT.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(Original_ZIP_INT.Value,Short)
-            Else
+            If (Original_TYPE_OF_INT Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(56).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(57).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(Original_TYPE_OF_INT,String)
             End If
-            If (Original_CITY_INT Is Nothing) Then
+            If (Original_TYPE_OF_PLACE Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(58).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(59).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(58).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(Original_CITY_INT,String)
+                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(Original_TYPE_OF_PLACE,String)
             End If
-            If (Original_ADRESS_FACTS Is Nothing) Then
+            If (Original_ADRESS_INT Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(60).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(61).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(60).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(Original_ADRESS_FACTS,String)
+                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(Original_ADRESS_INT,String)
             End If
-            If (Original_ZIP_FACTS.HasValue = true) Then
+            If (Original_ZIP_INT.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(62).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(Original_ZIP_FACTS.Value,Short)
+                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(Original_ZIP_INT.Value,Short)
             Else
                 Me.Adapter.UpdateCommand.Parameters(62).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(63).Value = Global.System.DBNull.Value
             End If
-            If (Original_CITY_FACTS Is Nothing) Then
+            If (Original_CITY_INT Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(64).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(65).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(64).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(Original_CITY_FACTS,String)
+                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(Original_CITY_INT,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(66).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(67).Value = CType(Original_SAMPLES,Boolean)
-            If (Original_SAMPLES_TAKEN_BY Is Nothing) Then
+            If (Original_ADRESS_FACTS Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(67).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(Original_ADRESS_FACTS,String)
+            End If
+            If (Original_ZIP_FACTS.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(Original_ZIP_FACTS.Value,Short)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(68).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(69).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(Original_SAMPLES_TAKEN_BY,String)
             End If
-            If (Original_SAMPLES_DELIVERY_DATE.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(Original_SAMPLES_DELIVERY_DATE.Value,Date)
-            Else
+            If (Original_CITY_FACTS Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(70).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(71).Value = Global.System.DBNull.Value
-            End If
-            If (Original_SAMPLES_NUM Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(73).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(Original_SAMPLES_NUM,String)
+                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(Original_CITY_FACTS,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(74).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(75).Value = CType(Original_INVENTORY,Boolean)
-            If (Original_SAMPLES_CODE Is Nothing) Then
+            Me.Adapter.UpdateCommand.Parameters(72).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(73).Value = CType(Original_SAMPLES,Boolean)
+            If (Original_SAMPLES_TAKEN_BY Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(75).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(Original_SAMPLES_TAKEN_BY,String)
+            End If
+            If (Original_SAMPLES_DELIVERY_DATE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(Original_SAMPLES_DELIVERY_DATE.Value,Date)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(76).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(77).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(Original_SAMPLES_CODE,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(78).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(79).Value = CType(Original_PICTURES_REPORT,Boolean)
+            If (Original_SAMPLES_NUM Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(79).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(Original_SAMPLES_NUM,String)
+            End If
             Me.Adapter.UpdateCommand.Parameters(80).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(81).Value = CType(Original_NICC_REPORT,Boolean)
-            If (Original_NICC_REPORT_NUM Is Nothing) Then
+            Me.Adapter.UpdateCommand.Parameters(81).Value = CType(Original_INVENTORY,Boolean)
+            If (Original_SAMPLES_CODE Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(82).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(83).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(82).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(Original_NICC_REPORT_NUM,String)
+                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(Original_SAMPLES_CODE,String)
             End If
-            If (Original_NICC_REPORT_DATE.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(Original_NICC_REPORT_DATE.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(85).Value = Global.System.DBNull.Value
-            End If
+            Me.Adapter.UpdateCommand.Parameters(84).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(85).Value = CType(Original_PICTURES_REPORT,Boolean)
             Me.Adapter.UpdateCommand.Parameters(86).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(87).Value = CType(Original_CRU_REPORT,Boolean)
-            If (Original_CRU_REPORT_NUM Is Nothing) Then
+            Me.Adapter.UpdateCommand.Parameters(87).Value = CType(Original_NICC_REPORT,Boolean)
+            If (Original_NICC_REPORT_NUM Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(88).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(89).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(88).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(Original_CRU_REPORT_NUM,String)
+                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(Original_NICC_REPORT_NUM,String)
             End If
-            If (Original_CRU_REPORT_DATE.HasValue = true) Then
+            If (Original_NICC_REPORT_DATE.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(90).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(Original_CRU_REPORT_DATE.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(Original_NICC_REPORT_DATE.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(90).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(91).Value = Global.System.DBNull.Value
             End If
-            If (Original_PRODCAP Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(93).Value = Global.System.DBNull.Value
+            Me.Adapter.UpdateCommand.Parameters(92).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(93).Value = CType(Original_CRU_REPORT,Boolean)
+            If (Original_CRU_REPORT_NUM Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(95).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(Original_PRODCAP,String)
+                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(Original_CRU_REPORT_NUM,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(94).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(95).Value = CType(Original_INTDONE,Boolean)
-            If (Original_DATE_1.HasValue = true) Then
+            If (Original_CRU_REPORT_DATE.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(96).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(Original_DATE_1.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(Original_CRU_REPORT_DATE.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(96).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(97).Value = Global.System.DBNull.Value
             End If
-            If (Original_TIME_1 Is Nothing) Then
+            If (Original_PRODCAP Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(98).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(99).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(98).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(Original_TIME_1,String)
+                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(Original_PRODCAP,String)
             End If
-            If (Original_TIME_2 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(101).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(101).Value = CType(Original_TIME_2,String)
-            End If
-            If (Original_DATE_2.HasValue = true) Then
+            Me.Adapter.UpdateCommand.Parameters(100).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(101).Value = CType(Original_INTDONE,Boolean)
+            If (Original_DATE_1.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(102).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(103).Value = CType(Original_DATE_2.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(103).Value = CType(Original_DATE_1.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(102).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(103).Value = Global.System.DBNull.Value
             End If
-            If (Original_TIME_3 Is Nothing) Then
+            If (Original_TIME_1 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(104).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(105).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(104).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(105).Value = CType(Original_TIME_3,String)
+                Me.Adapter.UpdateCommand.Parameters(105).Value = CType(Original_TIME_1,String)
             End If
-            If (Original_TIME_4 Is Nothing) Then
+            If (Original_TIME_2 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(106).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(107).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(106).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(107).Value = CType(Original_TIME_4,String)
+                Me.Adapter.UpdateCommand.Parameters(107).Value = CType(Original_TIME_2,String)
             End If
-            If (Original_DATE_3.HasValue = true) Then
+            If (Original_DATE_2.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(108).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(Original_DATE_3.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(Original_DATE_2.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(108).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(109).Value = Global.System.DBNull.Value
             End If
-            If (Original_TIME_5 Is Nothing) Then
+            If (Original_TIME_3 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(110).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(111).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(110).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(Original_TIME_5,String)
+                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(Original_TIME_3,String)
             End If
-            If (Original_TIME_6 Is Nothing) Then
+            If (Original_TIME_4 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(112).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(113).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(112).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(113).Value = CType(Original_TIME_6,String)
+                Me.Adapter.UpdateCommand.Parameters(113).Value = CType(Original_TIME_4,String)
             End If
-            If (Original_TIME Is Nothing) Then
+            If (Original_DATE_3.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(114).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(Original_DATE_3.Value,Date)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(114).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(115).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(114).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(Original_TIME,String)
             End If
-            If (Original_PROD Is Nothing) Then
+            If (Original_TIME_5 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(116).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(117).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(116).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(117).Value = CType(Original_PROD,String)
+                Me.Adapter.UpdateCommand.Parameters(117).Value = CType(Original_TIME_5,String)
             End If
-            If (Original_INTPL Is Nothing) Then
+            If (Original_TIME_6 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(118).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(119).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(118).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(119).Value = CType(Original_INTPL,String)
+                Me.Adapter.UpdateCommand.Parameters(119).Value = CType(Original_TIME_6,String)
             End If
-            If (Original_INT_OS Is Nothing) Then
+            If (Original_TIME Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(120).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(121).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(120).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(121).Value = CType(Original_INT_OS,String)
+                Me.Adapter.UpdateCommand.Parameters(121).Value = CType(Original_TIME,String)
             End If
-            If (Original_CREATED_BY Is Nothing) Then
+            If (Original_PROD Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(122).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(123).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(122).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(123).Value = CType(Original_CREATED_BY,String)
+                Me.Adapter.UpdateCommand.Parameters(123).Value = CType(Original_PROD,String)
             End If
-            If (Original_CREATED_ON.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(124).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(125).Value = CType(Original_CREATED_ON.Value,Date)
-            Else
+            If (Original_INTPL Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(124).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(125).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(124).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(125).Value = CType(Original_INTPL,String)
             End If
+            If (Original_INT_OS Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(126).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(127).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(126).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(127).Value = CType(Original_INT_OS,String)
+            End If
+            If (Original_CREATED_BY Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(128).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(129).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(128).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(129).Value = CType(Original_CREATED_BY,String)
+            End If
+            If (Original_CREATED_ON.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(130).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(131).Value = CType(Original_CREATED_ON.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(130).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(131).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(132).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(133).Value = CType(Original_CRU_ON_SITE,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(134).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(135).Value = CType(Original_SUSPECT,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(136).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(137).Value = CType(Original_DISCHARGE,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(138).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(139).Value = CType(Original_RECIPE,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(140).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(141).Value = CType(Original_BILL,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(142).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(143).Value = CType(Original_NOTE,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then

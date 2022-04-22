@@ -119,7 +119,7 @@ Partial Class frmMembers
         Me.dgvMembers.RowTemplate.DividerHeight = 1
         Me.dgvMembers.RowTemplate.Height = 30
         Me.dgvMembers.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvMembers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvMembers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
         Me.dgvMembers.Size = New System.Drawing.Size(964, 445)
         Me.dgvMembers.TabIndex = 0
         '

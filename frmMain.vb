@@ -168,23 +168,29 @@ Public Class frmMain
         childForm.BackColor = theme("Light")
         childForm.Show()
     End Sub
-    Private Sub btnCases_Click(sender As Object, e As MouseEventArgs) Handles btnCases.MouseDown
-        If e.Button = Windows.Forms.MouseButtons.Left Then
-            ActivateButton(sender, RGBColors.btn_color1)
-            OpenChildForm(New frmCasesInterventions)
-        Else
-            btnCases.ContextMenuStrip = RCMenuCases
-        End If
+    Private Sub btnCases_Click(sender As Object, e As EventArgs) Handles btnCases.Click
+        ActivateButton(sender, RGBColors.btn_color1)
+        OpenChildForm(New frmCasesInterventions)
         log("MAIN", "click on CASES")
     End Sub
-    Private Sub mnOpenOut_Click(sender As Object, e As EventArgs) Handles mnOpenOut.Click
-        opened_out = True
-        frmCasesInterventions.Show()
-    End Sub
-    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
-        ActivateButton(sender, RGBColors.btn_color2)
-        OpenChildForm(New frmSearch)
+    Private Sub btnSearch_Click(sender As Object, e As MouseEventArgs) Handles btnSearch.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Left Then
+            ActivateButton(sender, RGBColors.btn_color2)
+            OpenChildForm(New frmSearch)
+        Else
+            btnSearch.ContextMenuStrip = RCMenuCases
+        End If
         log("MAIN", "click on SEARCH")
+    End Sub
+    Private Sub mnOpenOut_Click(sender As Object, e As EventArgs) Handles mnOpenOut.Click
+        If currentChildForm IsNot Nothing AndAlso currentChildForm.Name = "frmSearch" Then
+            currentChildForm.Close()
+        End If
+        opened_out = True
+        frmSearch.Show()
+        frmSearch.FormBorderStyle = FormBorderStyle.Sizable
+        frmSearch.ControlBox = False
+        frmSearch.MinimumSize = New Size(1500, 800)
     End Sub
     Private Sub btnStats_Click(sender As Object, e As EventArgs) Handles btnStats.Click
         ActivateButton(sender, RGBColors.btn_color3)

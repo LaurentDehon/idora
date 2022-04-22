@@ -112,17 +112,24 @@ Partial Class frmIntervention
         Me.DRUGS_INTBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DRUGS_INTTableAdapter = New DORA.DORADbDSTableAdapters.DRUGS_INTTableAdapter()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.RCMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CASESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CASESTableAdapter = New DORA.DORADbDSTableAdapters.CASESTableAdapter()
         Me.pnlTitle = New System.Windows.Forms.Panel()
+        Me.chkSuspect = New System.Windows.Forms.CheckBox()
+        Me.chkDischarge = New System.Windows.Forms.CheckBox()
+        Me.chkRecipe = New System.Windows.Forms.CheckBox()
+        Me.chkBill = New System.Windows.Forms.CheckBox()
+        Me.chkNote = New System.Windows.Forms.CheckBox()
+        Me.lblCreated = New System.Windows.Forms.Label()
+        Me.chkCRUOnSite = New System.Windows.Forms.CheckBox()
         Me.btnNextCase = New FontAwesome.Sharp.IconButton()
         Me.btnPrevCase = New FontAwesome.Sharp.IconButton()
         Me.pnlControls = New System.Windows.Forms.Panel()
         Me.btnClose = New FontAwesome.Sharp.IconButton()
         Me.btnMin = New FontAwesome.Sharp.IconButton()
         Me.lblTitle = New System.Windows.Forms.Label()
+        Me.lblCRUOnSite = New System.Windows.Forms.Label()
+        Me.btnCRUOnSite = New FontAwesome.Sharp.IconButton()
         Me.pnlMenu = New System.Windows.Forms.Panel()
         Me.btnUnlock = New FontAwesome.Sharp.IconButton()
         Me.btnInv = New FontAwesome.Sharp.IconButton()
@@ -138,7 +145,7 @@ Partial Class frmIntervention
         Me.btnDeleteDrug = New FontAwesome.Sharp.IconButton()
         Me.btnSaveDrug = New FontAwesome.Sharp.IconButton()
         Me.btnAddDrug = New FontAwesome.Sharp.IconButton()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.pnlProducts = New System.Windows.Forms.Panel()
         Me.btnSearchProduct = New FontAwesome.Sharp.IconButton()
         Me.btnDeleteProduct = New FontAwesome.Sharp.IconButton()
         Me.btnSaveProduct = New FontAwesome.Sharp.IconButton()
@@ -147,7 +154,7 @@ Partial Class frmIntervention
         Me.btnDeleteMember = New FontAwesome.Sharp.IconButton()
         Me.btnSaveMember = New FontAwesome.Sharp.IconButton()
         Me.btnAddMember = New FontAwesome.Sharp.IconButton()
-        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.pnlNICCConc = New System.Windows.Forms.Panel()
         Me.pnlSummary = New System.Windows.Forms.Panel()
         Me.lblSummary = New System.Windows.Forms.Label()
         Me.pnlSamples = New System.Windows.Forms.Panel()
@@ -173,12 +180,24 @@ Partial Class frmIntervention
         Me.btnClearDate1 = New FontAwesome.Sharp.IconButton()
         Me.IconPictureBox1 = New FontAwesome.Sharp.IconPictureBox()
         Me.pnlIntervention = New System.Windows.Forms.Panel()
-        Me.btnRemondis = New System.Windows.Forms.Button()
-        Me.btnSGS = New System.Windows.Forms.Button()
+        Me.btnRemondis = New FontAwesome.Sharp.IconButton()
+        Me.btnSGS = New FontAwesome.Sharp.IconButton()
         Me.btnIntToFacts = New FontAwesome.Sharp.IconButton()
         Me.pnlFacts = New System.Windows.Forms.Panel()
         Me.btnFactsToInt = New FontAwesome.Sharp.IconButton()
         Me.pnlDetails = New System.Windows.Forms.Panel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lblOnSite = New System.Windows.Forms.Label()
+        Me.lblNote = New System.Windows.Forms.Label()
+        Me.lblRecipe = New System.Windows.Forms.Label()
+        Me.lblDischarge = New System.Windows.Forms.Label()
+        Me.lblBill = New System.Windows.Forms.Label()
+        Me.lblSuspect = New System.Windows.Forms.Label()
+        Me.btnBill = New FontAwesome.Sharp.IconButton()
+        Me.btnNote = New FontAwesome.Sharp.IconButton()
+        Me.btnRecipe = New FontAwesome.Sharp.IconButton()
+        Me.btnDischarge = New FontAwesome.Sharp.IconButton()
+        Me.btnSuspect = New FontAwesome.Sharp.IconButton()
         CType(Me.INTERVENTIONSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DORADbDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MEMBERS_INTBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -189,7 +208,6 @@ Partial Class frmIntervention
         CType(Me.PRODUCTSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvProd, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DRUGS_INTBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.RCMenu.SuspendLayout()
         CType(Me.CASESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlTitle.SuspendLayout()
         Me.pnlControls.SuspendLayout()
@@ -198,9 +216,9 @@ Partial Class frmIntervention
         CType(Me.imgCRU, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlCenter.SuspendLayout()
         Me.pnlDrug.SuspendLayout()
-        Me.Panel1.SuspendLayout()
+        Me.pnlProducts.SuspendLayout()
         Me.pnlMembers.SuspendLayout()
-        Me.Panel2.SuspendLayout()
+        Me.pnlNICCConc.SuspendLayout()
         Me.pnlSummary.SuspendLayout()
         Me.pnlSamples.SuspendLayout()
         Me.pnlReports.SuspendLayout()
@@ -211,6 +229,7 @@ Partial Class frmIntervention
         Me.pnlIntervention.SuspendLayout()
         Me.pnlFacts.SuspendLayout()
         Me.pnlDetails.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblSamplesNum
@@ -383,7 +402,7 @@ Partial Class frmIntervention
         '
         Me.chkInventory.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.INTERVENTIONSBindingSource, "INVENTORY", True))
         Me.chkInventory.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkInventory.Location = New System.Drawing.Point(1195, 42)
+        Me.chkInventory.Location = New System.Drawing.Point(544, 32)
         Me.chkInventory.Margin = New System.Windows.Forms.Padding(4)
         Me.chkInventory.Name = "chkInventory"
         Me.chkInventory.Size = New System.Drawing.Size(136, 22)
@@ -395,7 +414,7 @@ Partial Class frmIntervention
         '
         Me.chkPicturesReport.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.INTERVENTIONSBindingSource, "PICTURES REPORT", True))
         Me.chkPicturesReport.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkPicturesReport.Location = New System.Drawing.Point(1195, 71)
+        Me.chkPicturesReport.Location = New System.Drawing.Point(544, 56)
         Me.chkPicturesReport.Margin = New System.Windows.Forms.Padding(4)
         Me.chkPicturesReport.Name = "chkPicturesReport"
         Me.chkPicturesReport.Size = New System.Drawing.Size(160, 22)
@@ -407,7 +426,7 @@ Partial Class frmIntervention
         '
         Me.chkNICCReport.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.INTERVENTIONSBindingSource, "NICC REPORT", True))
         Me.chkNICCReport.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkNICCReport.Location = New System.Drawing.Point(1387, 12)
+        Me.chkNICCReport.Location = New System.Drawing.Point(544, 80)
         Me.chkNICCReport.Margin = New System.Windows.Forms.Padding(4)
         Me.chkNICCReport.Name = "chkNICCReport"
         Me.chkNICCReport.Size = New System.Drawing.Size(136, 22)
@@ -419,7 +438,7 @@ Partial Class frmIntervention
         '
         Me.chkCRUReport.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.INTERVENTIONSBindingSource, "CRU REPORT", True))
         Me.chkCRUReport.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkCRUReport.Location = New System.Drawing.Point(1195, 12)
+        Me.chkCRUReport.Location = New System.Drawing.Point(544, 8)
         Me.chkCRUReport.Margin = New System.Windows.Forms.Padding(4)
         Me.chkCRUReport.Name = "chkCRUReport"
         Me.chkCRUReport.Size = New System.Drawing.Size(136, 22)
@@ -521,7 +540,7 @@ Partial Class frmIntervention
         Me.dgvMembersInt.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvMembersInt.ScrollBars = System.Windows.Forms.ScrollBars.None
         Me.dgvMembersInt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvMembersInt.Size = New System.Drawing.Size(277, 364)
+        Me.dgvMembersInt.Size = New System.Drawing.Size(277, 327)
         Me.dgvMembersInt.TabIndex = 2
         '
         'MEMBERNAMEDataGridViewTextBoxColumn
@@ -797,7 +816,7 @@ Partial Class frmIntervention
         Me.txtSummary.Multiline = True
         Me.txtSummary.Name = "txtSummary"
         Me.txtSummary.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtSummary.Size = New System.Drawing.Size(383, 265)
+        Me.txtSummary.Size = New System.Drawing.Size(395, 265)
         Me.txtSummary.TabIndex = 0
         '
         'DataGridViewTextBoxColumn1
@@ -917,7 +936,7 @@ Partial Class frmIntervention
         '
         Me.chkIntervention.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.INTERVENTIONSBindingSource, "INTDONE", True))
         Me.chkIntervention.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkIntervention.Location = New System.Drawing.Point(1387, 42)
+        Me.chkIntervention.Location = New System.Drawing.Point(544, 104)
         Me.chkIntervention.Margin = New System.Windows.Forms.Padding(4)
         Me.chkIntervention.Name = "chkIntervention"
         Me.chkIntervention.Size = New System.Drawing.Size(160, 22)
@@ -989,7 +1008,7 @@ Partial Class frmIntervention
         Me.txtNICCConc.Multiline = True
         Me.txtNICCConc.Name = "txtNICCConc"
         Me.txtNICCConc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtNICCConc.Size = New System.Drawing.Size(511, 166)
+        Me.txtNICCConc.Size = New System.Drawing.Size(299, 166)
         Me.txtNICCConc.TabIndex = 1
         '
         'txtTime1
@@ -1017,7 +1036,6 @@ Partial Class frmIntervention
         '
         'lblProdCap
         '
-        Me.lblProdCap.AutoSize = True
         Me.lblProdCap.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblProdCap.Location = New System.Drawing.Point(512, 289)
         Me.lblProdCap.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
@@ -1151,20 +1169,6 @@ Partial Class frmIntervention
         '
         Me.DRUGS_INTTableAdapter.ClearBeforeFill = True
         '
-        'RCMenu
-        '
-        Me.RCMenu.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RCMenu.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.RCMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HelpToolStripMenuItem})
-        Me.RCMenu.Name = "RCMenu"
-        Me.RCMenu.Size = New System.Drawing.Size(120, 32)
-        '
-        'HelpToolStripMenuItem
-        '
-        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(119, 28)
-        Me.HelpToolStripMenuItem.Text = "Help"
-        '
         'CASESBindingSource
         '
         Me.CASESBindingSource.DataMember = "CASES"
@@ -1176,6 +1180,13 @@ Partial Class frmIntervention
         '
         'pnlTitle
         '
+        Me.pnlTitle.Controls.Add(Me.chkSuspect)
+        Me.pnlTitle.Controls.Add(Me.chkDischarge)
+        Me.pnlTitle.Controls.Add(Me.chkRecipe)
+        Me.pnlTitle.Controls.Add(Me.chkBill)
+        Me.pnlTitle.Controls.Add(Me.chkNote)
+        Me.pnlTitle.Controls.Add(Me.lblCreated)
+        Me.pnlTitle.Controls.Add(Me.chkCRUOnSite)
         Me.pnlTitle.Controls.Add(Me.btnNextCase)
         Me.pnlTitle.Controls.Add(Me.btnPrevCase)
         Me.pnlTitle.Controls.Add(Me.pnlControls)
@@ -1191,6 +1202,91 @@ Partial Class frmIntervention
         Me.pnlTitle.Name = "pnlTitle"
         Me.pnlTitle.Size = New System.Drawing.Size(1793, 130)
         Me.pnlTitle.TabIndex = 140
+        '
+        'chkSuspect
+        '
+        Me.chkSuspect.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.INTERVENTIONSBindingSource, "SUSPECT", True))
+        Me.chkSuspect.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkSuspect.Location = New System.Drawing.Point(920, 6)
+        Me.chkSuspect.Margin = New System.Windows.Forms.Padding(4)
+        Me.chkSuspect.Name = "chkSuspect"
+        Me.chkSuspect.Size = New System.Drawing.Size(136, 22)
+        Me.chkSuspect.TabIndex = 142
+        Me.chkSuspect.Text = "Suspect"
+        Me.chkSuspect.UseVisualStyleBackColor = True
+        '
+        'chkDischarge
+        '
+        Me.chkDischarge.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.INTERVENTIONSBindingSource, "DISCHARGE", True))
+        Me.chkDischarge.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkDischarge.Location = New System.Drawing.Point(920, 30)
+        Me.chkDischarge.Margin = New System.Windows.Forms.Padding(4)
+        Me.chkDischarge.Name = "chkDischarge"
+        Me.chkDischarge.Size = New System.Drawing.Size(136, 22)
+        Me.chkDischarge.TabIndex = 144
+        Me.chkDischarge.Text = "Discharge"
+        Me.chkDischarge.UseVisualStyleBackColor = True
+        '
+        'chkRecipe
+        '
+        Me.chkRecipe.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.INTERVENTIONSBindingSource, "RECIPE", True))
+        Me.chkRecipe.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkRecipe.Location = New System.Drawing.Point(920, 54)
+        Me.chkRecipe.Margin = New System.Windows.Forms.Padding(4)
+        Me.chkRecipe.Name = "chkRecipe"
+        Me.chkRecipe.Size = New System.Drawing.Size(160, 22)
+        Me.chkRecipe.TabIndex = 145
+        Me.chkRecipe.Text = "Recipe"
+        Me.chkRecipe.UseVisualStyleBackColor = True
+        '
+        'chkBill
+        '
+        Me.chkBill.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.INTERVENTIONSBindingSource, "BILL", True))
+        Me.chkBill.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkBill.Location = New System.Drawing.Point(920, 78)
+        Me.chkBill.Margin = New System.Windows.Forms.Padding(4)
+        Me.chkBill.Name = "chkBill"
+        Me.chkBill.Size = New System.Drawing.Size(136, 22)
+        Me.chkBill.TabIndex = 143
+        Me.chkBill.Text = "Bill"
+        Me.chkBill.UseVisualStyleBackColor = True
+        '
+        'chkNote
+        '
+        Me.chkNote.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.INTERVENTIONSBindingSource, "NOTE", True))
+        Me.chkNote.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkNote.Location = New System.Drawing.Point(920, 102)
+        Me.chkNote.Margin = New System.Windows.Forms.Padding(4)
+        Me.chkNote.Name = "chkNote"
+        Me.chkNote.Size = New System.Drawing.Size(160, 22)
+        Me.chkNote.TabIndex = 146
+        Me.chkNote.Text = "Note"
+        Me.chkNote.UseVisualStyleBackColor = True
+        '
+        'lblCreated
+        '
+        Me.lblCreated.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblCreated.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCreated.Location = New System.Drawing.Point(1128, 88)
+        Me.lblCreated.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblCreated.Name = "lblCreated"
+        Me.lblCreated.Size = New System.Drawing.Size(661, 37)
+        Me.lblCreated.TabIndex = 141
+        Me.lblCreated.Tag = ""
+        Me.lblCreated.Text = "Created"
+        Me.lblCreated.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'chkCRUOnSite
+        '
+        Me.chkCRUOnSite.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.INTERVENTIONSBindingSource, "CRU ON SITE", True))
+        Me.chkCRUOnSite.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkCRUOnSite.Location = New System.Drawing.Point(744, 8)
+        Me.chkCRUOnSite.Margin = New System.Windows.Forms.Padding(4)
+        Me.chkCRUOnSite.Name = "chkCRUOnSite"
+        Me.chkCRUOnSite.Size = New System.Drawing.Size(160, 22)
+        Me.chkCRUOnSite.TabIndex = 140
+        Me.chkCRUOnSite.Text = "CRUOnSite"
+        Me.chkCRUOnSite.UseVisualStyleBackColor = True
         '
         'btnNextCase
         '
@@ -1295,6 +1391,34 @@ Partial Class frmIntervention
         Me.lblTitle.TabIndex = 34
         Me.lblTitle.Tag = ""
         Me.lblTitle.Text = "Dossier"
+        '
+        'lblCRUOnSite
+        '
+        Me.lblCRUOnSite.AutoSize = True
+        Me.lblCRUOnSite.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCRUOnSite.Location = New System.Drawing.Point(56, 432)
+        Me.lblCRUOnSite.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblCRUOnSite.Name = "lblCRUOnSite"
+        Me.lblCRUOnSite.Size = New System.Drawing.Size(111, 24)
+        Me.lblCRUOnSite.TabIndex = 152
+        Me.lblCRUOnSite.Text = "CRU On Site"
+        '
+        'btnCRUOnSite
+        '
+        Me.btnCRUOnSite.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnCRUOnSite.FlatAppearance.BorderSize = 0
+        Me.btnCRUOnSite.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCRUOnSite.IconChar = FontAwesome.Sharp.IconChar.Check
+        Me.btnCRUOnSite.IconColor = System.Drawing.Color.Black
+        Me.btnCRUOnSite.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnCRUOnSite.IconSize = 25
+        Me.btnCRUOnSite.Location = New System.Drawing.Point(24, 432)
+        Me.btnCRUOnSite.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnCRUOnSite.Name = "btnCRUOnSite"
+        Me.btnCRUOnSite.Padding = New System.Windows.Forms.Padding(0, 4, 0, 0)
+        Me.btnCRUOnSite.Size = New System.Drawing.Size(25, 25)
+        Me.btnCRUOnSite.TabIndex = 151
+        Me.btnCRUOnSite.UseVisualStyleBackColor = True
         '
         'pnlMenu
         '
@@ -1480,10 +1604,11 @@ Partial Class frmIntervention
         '
         'pnlCenter
         '
-        Me.pnlCenter.Controls.Add(Me.pnlDrug)
         Me.pnlCenter.Controls.Add(Me.Panel1)
+        Me.pnlCenter.Controls.Add(Me.pnlDrug)
+        Me.pnlCenter.Controls.Add(Me.pnlProducts)
         Me.pnlCenter.Controls.Add(Me.pnlMembers)
-        Me.pnlCenter.Controls.Add(Me.Panel2)
+        Me.pnlCenter.Controls.Add(Me.pnlNICCConc)
         Me.pnlCenter.Controls.Add(Me.pnlSummary)
         Me.pnlCenter.Controls.Add(Me.pnlSamples)
         Me.pnlCenter.Controls.Add(Me.pnlReports)
@@ -1565,22 +1690,22 @@ Partial Class frmIntervention
         Me.btnAddDrug.TabIndex = 151
         Me.btnAddDrug.UseVisualStyleBackColor = True
         '
-        'Panel1
+        'pnlProducts
         '
-        Me.Panel1.Controls.Add(Me.btnSearchProduct)
-        Me.Panel1.Controls.Add(Me.txtProductQuantity)
-        Me.Panel1.Controls.Add(Me.cmbProductUnit)
-        Me.Panel1.Controls.Add(Me.dgvProductsInt)
-        Me.Panel1.Controls.Add(Me.btnDeleteProduct)
-        Me.Panel1.Controls.Add(Me.cmbProductName)
-        Me.Panel1.Controls.Add(Me.btnSaveProduct)
-        Me.Panel1.Controls.Add(Me.btnAddProduct)
-        Me.Panel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel1.Location = New System.Drawing.Point(1397, 374)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(491, 473)
-        Me.Panel1.TabIndex = 145
+        Me.pnlProducts.Controls.Add(Me.btnSearchProduct)
+        Me.pnlProducts.Controls.Add(Me.txtProductQuantity)
+        Me.pnlProducts.Controls.Add(Me.cmbProductUnit)
+        Me.pnlProducts.Controls.Add(Me.dgvProductsInt)
+        Me.pnlProducts.Controls.Add(Me.btnDeleteProduct)
+        Me.pnlProducts.Controls.Add(Me.cmbProductName)
+        Me.pnlProducts.Controls.Add(Me.btnSaveProduct)
+        Me.pnlProducts.Controls.Add(Me.btnAddProduct)
+        Me.pnlProducts.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.pnlProducts.Location = New System.Drawing.Point(1397, 374)
+        Me.pnlProducts.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.pnlProducts.Name = "pnlProducts"
+        Me.pnlProducts.Size = New System.Drawing.Size(491, 473)
+        Me.pnlProducts.TabIndex = 145
         '
         'btnSearchProduct
         '
@@ -1649,6 +1774,8 @@ Partial Class frmIntervention
         '
         'pnlMembers
         '
+        Me.pnlMembers.Controls.Add(Me.lblCRUOnSite)
+        Me.pnlMembers.Controls.Add(Me.btnCRUOnSite)
         Me.pnlMembers.Controls.Add(Me.btnDeleteMember)
         Me.pnlMembers.Controls.Add(Me.btnSaveMember)
         Me.pnlMembers.Controls.Add(Me.btnAddMember)
@@ -1710,15 +1837,15 @@ Partial Class frmIntervention
         Me.btnAddMember.TabIndex = 154
         Me.btnAddMember.UseVisualStyleBackColor = True
         '
-        'Panel2
+        'pnlNICCConc
         '
-        Me.Panel2.Controls.Add(Me.lblNICCConc)
-        Me.Panel2.Controls.Add(Me.txtNICCConc)
-        Me.Panel2.Location = New System.Drawing.Point(480, 620)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(552, 226)
-        Me.Panel2.TabIndex = 146
+        Me.pnlNICCConc.Controls.Add(Me.lblNICCConc)
+        Me.pnlNICCConc.Controls.Add(Me.txtNICCConc)
+        Me.pnlNICCConc.Location = New System.Drawing.Point(480, 620)
+        Me.pnlNICCConc.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.pnlNICCConc.Name = "pnlNICCConc"
+        Me.pnlNICCConc.Size = New System.Drawing.Size(336, 226)
+        Me.pnlNICCConc.TabIndex = 146
         '
         'pnlSummary
         '
@@ -2123,28 +2250,38 @@ Partial Class frmIntervention
         Me.btnRemondis.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRemondis.FlatAppearance.BorderSize = 0
         Me.btnRemondis.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRemondis.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRemondis.Location = New System.Drawing.Point(144, 16)
+        Me.btnRemondis.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRemondis.IconChar = FontAwesome.Sharp.IconChar.Registered
+        Me.btnRemondis.IconColor = System.Drawing.Color.Black
+        Me.btnRemondis.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnRemondis.IconSize = 30
+        Me.btnRemondis.Location = New System.Drawing.Point(152, 16)
         Me.btnRemondis.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnRemondis.Name = "btnRemondis"
+        Me.btnRemondis.Padding = New System.Windows.Forms.Padding(11, 14, 11, 10)
         Me.btnRemondis.Size = New System.Drawing.Size(32, 32)
-        Me.btnRemondis.TabIndex = 102
-        Me.btnRemondis.Text = "R"
-        Me.btnRemondis.UseVisualStyleBackColor = True
+        Me.btnRemondis.TabIndex = 101
+        Me.btnRemondis.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnRemondis.UseVisualStyleBackColor = False
         '
         'btnSGS
         '
         Me.btnSGS.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnSGS.FlatAppearance.BorderSize = 0
         Me.btnSGS.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSGS.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSGS.Location = New System.Drawing.Point(176, 16)
+        Me.btnSGS.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSGS.IconChar = FontAwesome.Sharp.IconChar.Speakap
+        Me.btnSGS.IconColor = System.Drawing.Color.Black
+        Me.btnSGS.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnSGS.IconSize = 30
+        Me.btnSGS.Location = New System.Drawing.Point(184, 16)
         Me.btnSGS.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnSGS.Name = "btnSGS"
+        Me.btnSGS.Padding = New System.Windows.Forms.Padding(11, 14, 11, 10)
         Me.btnSGS.Size = New System.Drawing.Size(32, 32)
-        Me.btnSGS.TabIndex = 101
-        Me.btnSGS.Text = "S"
-        Me.btnSGS.UseVisualStyleBackColor = True
+        Me.btnSGS.TabIndex = 99
+        Me.btnSGS.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnSGS.UseVisualStyleBackColor = False
         '
         'btnIntToFacts
         '
@@ -2214,6 +2351,176 @@ Partial Class frmIntervention
         Me.pnlDetails.Size = New System.Drawing.Size(437, 148)
         Me.pnlDetails.TabIndex = 97
         '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.lblNote)
+        Me.Panel1.Controls.Add(Me.lblRecipe)
+        Me.Panel1.Controls.Add(Me.lblDischarge)
+        Me.Panel1.Controls.Add(Me.lblBill)
+        Me.Panel1.Controls.Add(Me.lblSuspect)
+        Me.Panel1.Controls.Add(Me.btnBill)
+        Me.Panel1.Controls.Add(Me.btnNote)
+        Me.Panel1.Controls.Add(Me.btnRecipe)
+        Me.Panel1.Controls.Add(Me.btnDischarge)
+        Me.Panel1.Controls.Add(Me.btnSuspect)
+        Me.Panel1.Controls.Add(Me.lblOnSite)
+        Me.Panel1.Location = New System.Drawing.Point(840, 620)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(192, 228)
+        Me.Panel1.TabIndex = 147
+        '
+        'lblOnSite
+        '
+        Me.lblOnSite.AutoSize = True
+        Me.lblOnSite.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOnSite.Location = New System.Drawing.Point(13, 10)
+        Me.lblOnSite.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblOnSite.Name = "lblOnSite"
+        Me.lblOnSite.Size = New System.Drawing.Size(71, 24)
+        Me.lblOnSite.TabIndex = 97
+        Me.lblOnSite.Text = "On Site"
+        '
+        'lblNote
+        '
+        Me.lblNote.AutoSize = True
+        Me.lblNote.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNote.Location = New System.Drawing.Point(48, 181)
+        Me.lblNote.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblNote.Name = "lblNote"
+        Me.lblNote.Size = New System.Drawing.Size(51, 24)
+        Me.lblNote.TabIndex = 158
+        Me.lblNote.Text = "Note"
+        '
+        'lblRecipe
+        '
+        Me.lblRecipe.AutoSize = True
+        Me.lblRecipe.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblRecipe.Location = New System.Drawing.Point(48, 114)
+        Me.lblRecipe.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblRecipe.Name = "lblRecipe"
+        Me.lblRecipe.Size = New System.Drawing.Size(65, 24)
+        Me.lblRecipe.TabIndex = 157
+        Me.lblRecipe.Text = "Recipe"
+        '
+        'lblDischarge
+        '
+        Me.lblDischarge.AutoSize = True
+        Me.lblDischarge.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDischarge.Location = New System.Drawing.Point(48, 81)
+        Me.lblDischarge.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblDischarge.Name = "lblDischarge"
+        Me.lblDischarge.Size = New System.Drawing.Size(91, 24)
+        Me.lblDischarge.TabIndex = 156
+        Me.lblDischarge.Text = "Discharge"
+        '
+        'lblBill
+        '
+        Me.lblBill.AutoSize = True
+        Me.lblBill.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBill.Location = New System.Drawing.Point(48, 147)
+        Me.lblBill.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblBill.Name = "lblBill"
+        Me.lblBill.Size = New System.Drawing.Size(36, 24)
+        Me.lblBill.TabIndex = 155
+        Me.lblBill.Text = "Bill"
+        '
+        'lblSuspect
+        '
+        Me.lblSuspect.AutoSize = True
+        Me.lblSuspect.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSuspect.Location = New System.Drawing.Point(48, 48)
+        Me.lblSuspect.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblSuspect.Name = "lblSuspect"
+        Me.lblSuspect.Size = New System.Drawing.Size(74, 24)
+        Me.lblSuspect.TabIndex = 154
+        Me.lblSuspect.Text = "Suspect"
+        '
+        'btnBill
+        '
+        Me.btnBill.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnBill.FlatAppearance.BorderSize = 0
+        Me.btnBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBill.IconChar = FontAwesome.Sharp.IconChar.Check
+        Me.btnBill.IconColor = System.Drawing.Color.Black
+        Me.btnBill.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnBill.IconSize = 25
+        Me.btnBill.Location = New System.Drawing.Point(16, 147)
+        Me.btnBill.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnBill.Name = "btnBill"
+        Me.btnBill.Padding = New System.Windows.Forms.Padding(0, 4, 0, 0)
+        Me.btnBill.Size = New System.Drawing.Size(25, 25)
+        Me.btnBill.TabIndex = 150
+        Me.btnBill.UseVisualStyleBackColor = True
+        '
+        'btnNote
+        '
+        Me.btnNote.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnNote.FlatAppearance.BorderSize = 0
+        Me.btnNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNote.IconChar = FontAwesome.Sharp.IconChar.Check
+        Me.btnNote.IconColor = System.Drawing.Color.Black
+        Me.btnNote.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnNote.IconSize = 25
+        Me.btnNote.Location = New System.Drawing.Point(16, 181)
+        Me.btnNote.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnNote.Name = "btnNote"
+        Me.btnNote.Padding = New System.Windows.Forms.Padding(0, 4, 0, 0)
+        Me.btnNote.Size = New System.Drawing.Size(25, 25)
+        Me.btnNote.TabIndex = 153
+        Me.btnNote.UseVisualStyleBackColor = True
+        '
+        'btnRecipe
+        '
+        Me.btnRecipe.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnRecipe.FlatAppearance.BorderSize = 0
+        Me.btnRecipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRecipe.IconChar = FontAwesome.Sharp.IconChar.Check
+        Me.btnRecipe.IconColor = System.Drawing.Color.Black
+        Me.btnRecipe.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnRecipe.IconSize = 25
+        Me.btnRecipe.Location = New System.Drawing.Point(16, 114)
+        Me.btnRecipe.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnRecipe.Name = "btnRecipe"
+        Me.btnRecipe.Padding = New System.Windows.Forms.Padding(0, 4, 0, 0)
+        Me.btnRecipe.Size = New System.Drawing.Size(25, 25)
+        Me.btnRecipe.TabIndex = 152
+        Me.btnRecipe.UseVisualStyleBackColor = True
+        '
+        'btnDischarge
+        '
+        Me.btnDischarge.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDischarge.FlatAppearance.BorderSize = 0
+        Me.btnDischarge.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDischarge.IconChar = FontAwesome.Sharp.IconChar.Check
+        Me.btnDischarge.IconColor = System.Drawing.Color.Black
+        Me.btnDischarge.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnDischarge.IconSize = 25
+        Me.btnDischarge.Location = New System.Drawing.Point(16, 81)
+        Me.btnDischarge.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnDischarge.Name = "btnDischarge"
+        Me.btnDischarge.Padding = New System.Windows.Forms.Padding(0, 4, 0, 0)
+        Me.btnDischarge.Size = New System.Drawing.Size(25, 25)
+        Me.btnDischarge.TabIndex = 151
+        Me.btnDischarge.UseVisualStyleBackColor = True
+        '
+        'btnSuspect
+        '
+        Me.btnSuspect.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSuspect.FlatAppearance.BorderSize = 0
+        Me.btnSuspect.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSuspect.IconChar = FontAwesome.Sharp.IconChar.Check
+        Me.btnSuspect.IconColor = System.Drawing.Color.Black
+        Me.btnSuspect.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnSuspect.IconSize = 25
+        Me.btnSuspect.Location = New System.Drawing.Point(16, 48)
+        Me.btnSuspect.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnSuspect.Name = "btnSuspect"
+        Me.btnSuspect.Padding = New System.Windows.Forms.Padding(0, 4, 0, 0)
+        Me.btnSuspect.Size = New System.Drawing.Size(25, 25)
+        Me.btnSuspect.TabIndex = 149
+        Me.btnSuspect.UseVisualStyleBackColor = True
+        '
         'frmIntervention
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -2242,7 +2549,6 @@ Partial Class frmIntervention
         CType(Me.PRODUCTSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvProd, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DRUGS_INTBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.RCMenu.ResumeLayout(False)
         CType(Me.CASESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlTitle.ResumeLayout(False)
         Me.pnlTitle.PerformLayout()
@@ -2253,12 +2559,12 @@ Partial Class frmIntervention
         Me.pnlCenter.ResumeLayout(False)
         Me.pnlDrug.ResumeLayout(False)
         Me.pnlDrug.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
+        Me.pnlProducts.ResumeLayout(False)
+        Me.pnlProducts.PerformLayout()
         Me.pnlMembers.ResumeLayout(False)
         Me.pnlMembers.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
+        Me.pnlNICCConc.ResumeLayout(False)
+        Me.pnlNICCConc.PerformLayout()
         Me.pnlSummary.ResumeLayout(False)
         Me.pnlSummary.PerformLayout()
         Me.pnlSamples.ResumeLayout(False)
@@ -2276,6 +2582,8 @@ Partial Class frmIntervention
         Me.pnlFacts.PerformLayout()
         Me.pnlDetails.ResumeLayout(False)
         Me.pnlDetails.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2347,8 +2655,6 @@ Partial Class frmIntervention
     Friend WithEvents ToolTip As ToolTip
     Friend WithEvents txtZipInt As MaskedTextBox
     Friend WithEvents txtZipFacts As MaskedTextBox
-    Friend WithEvents RCMenu As ContextMenuStrip
-    Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents chkIntervention As CheckBox
     Friend WithEvents txtNICCReportDate As DateTimePicker
     Friend WithEvents txtTime1 As MaskedTextBox
@@ -2376,10 +2682,8 @@ Partial Class frmIntervention
     Friend WithEvents pnlDetails As Panel
     Friend WithEvents pnlIntervention As Panel
     Friend WithEvents pnlFacts As Panel
-    Friend WithEvents btnSGS As Button
     Friend WithEvents btnIntToFacts As FontAwesome.Sharp.IconButton
     Friend WithEvents btnFactsToInt As FontAwesome.Sharp.IconButton
-    Friend WithEvents btnRemondis As Button
     Friend WithEvents pnlTime As Panel
     Friend WithEvents IconPictureBox1 As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents btnClearDate1 As FontAwesome.Sharp.IconButton
@@ -2428,7 +2732,30 @@ Partial Class frmIntervention
     Friend WithEvents ID As DataGridViewTextBoxColumn
     Friend WithEvents IconPictureBox3 As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents IconPictureBox2 As FontAwesome.Sharp.IconPictureBox
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Panel2 As Panel
+    Friend WithEvents pnlProducts As Panel
+    Friend WithEvents pnlNICCConc As Panel
     Friend WithEvents btnPicturesReport As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnRemondis As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnSGS As FontAwesome.Sharp.IconButton
+    Friend WithEvents lblCRUOnSite As Label
+    Friend WithEvents btnCRUOnSite As FontAwesome.Sharp.IconButton
+    Friend WithEvents chkCRUOnSite As CheckBox
+    Friend WithEvents lblCreated As Label
+    Friend WithEvents chkSuspect As CheckBox
+    Friend WithEvents chkDischarge As CheckBox
+    Friend WithEvents chkRecipe As CheckBox
+    Friend WithEvents chkBill As CheckBox
+    Friend WithEvents chkNote As CheckBox
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents lblNote As Label
+    Friend WithEvents lblRecipe As Label
+    Friend WithEvents lblDischarge As Label
+    Friend WithEvents lblBill As Label
+    Friend WithEvents lblSuspect As Label
+    Friend WithEvents btnBill As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnNote As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnRecipe As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnDischarge As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnSuspect As FontAwesome.Sharp.IconButton
+    Friend WithEvents lblOnSite As Label
 End Class

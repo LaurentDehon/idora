@@ -4,7 +4,6 @@ Imports System.Reflection
 Imports System.Globalization
 Imports System.IO
 Imports FontAwesome.Sharp
-Imports System.Runtime.InteropServices
 Public Class frmCasesInterventions
     Dim DateInt As Date
     Dim TypeOfInt As String
@@ -44,22 +43,6 @@ Public Class frmCasesInterventions
         CreateUsersBoxes()
         CheckDatFiles()
     End Sub
-#Region "Drag & move"
-    Private Sub pnlTitle_MouseDown(sender As Object, e As MouseEventArgs) Handles dgvCases.MouseDown, dgvInterventions.MouseDown
-        'Handle right click menu and move window
-        If opened_out = True Then
-            ReleaseCapture()
-            SendMessage(Handle, &H112&, &HF012&, 0)
-        End If
-    End Sub
-    'Drag Form'
-    <DllImport("user32.DLL", EntryPoint:="ReleaseCapture")>
-    Private Shared Sub ReleaseCapture()
-    End Sub
-    <DllImport("user32.DLL", EntryPoint:="SendMessage")>
-    Private Shared Sub SendMessage(hWnd As IntPtr, wMsg As Integer, wParam As Integer, lParam As Integer)
-    End Sub
-#End Region
 #Region "Cases Datagridview"
     Private Sub dgvCases_Resize(sender As Object, e As EventArgs) Handles dgvCases.Resize
         dgvCases.Columns(0).Width = CInt((dgvCases.Width / 100) * 35)
@@ -828,13 +811,15 @@ Public Class frmCasesInterventions
     End Sub
     Public Sub RefreshDGVs()
         'Refresh datagridviews
+        Dim firstcase As Integer = dgvCases.FirstDisplayedScrollingRowIndex
+        Dim firstintervention As Integer = dgvInterventions.FirstDisplayedScrollingRowIndex
         Dim indexcase As Integer = -1
         Dim indexintervention As Integer = -1
         If dgvCases.SelectedRows.Count > 0 Then
-            indexcase = dgvCases.CurrentRow.Index
+            indexcase = dgvCases.SelectedRows(0).Index
         End If
         If dgvInterventions.SelectedRows.Count > 0 Then
-            indexintervention = dgvInterventions.CurrentRow.Index
+            indexintervention = dgvInterventions.SelectedRows(0).Index
         End If
         CASESTableAdapter.Fill(DORADbDS.CASES)
         CASESBindingSource.Sort = "[DATE FACTS] DESC, [ID] DESC"
@@ -849,10 +834,11 @@ Public Class frmCasesInterventions
         If indexintervention > -1 Then
             dgvInterventions.Rows(indexintervention).Selected = True
         End If
+        dgvCases.FirstDisplayedScrollingRowIndex = firstcase
+        dgvInterventions.FirstDisplayedScrollingRowIndex = firstintervention
     End Sub
     Private Sub SetColors()
         'Set colors of controls according to choosen theme
-        tblMain.BackColor = theme("Light")
         dgvCases.BackgroundColor = theme("Light")
         dgvCases.RowsDefaultCellStyle.BackColor = theme("Light")
         dgvCases.RowsDefaultCellStyle.ForeColor = theme("Font")
@@ -875,12 +861,6 @@ Public Class frmCasesInterventions
         For Each c As IconButton In FindControlRecursive(lst_controls, Me, GetType(IconButton))
             c.IconColor = theme("Font")
         Next
-    End Sub
-    Private Sub frmCasesInterventions_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
-        If (e.Alt AndAlso e.KeyCode = Keys.X) Then
-            opened_out = False
-            Close()
-        End If
     End Sub
 #End Region
 

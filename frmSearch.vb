@@ -5,6 +5,7 @@ Imports Excel = Microsoft.Office.Interop.Excel
 Imports System.IO
 Imports System.Reflection
 Imports System.Threading
+Imports System.Runtime.InteropServices
 Public Class frmSearch
     Dim DateFrom As Date
     Dim DateTo As Date
@@ -36,6 +37,10 @@ Public Class frmSearch
         GetUser()
         EnableDoubleBuffered(dgvStats, True)
         fsw.Path = $"{dora_path}SYSTEM"
+        If opened_out = True Then
+            Location = My.Settings.frmSearch_loc
+            Size = My.Settings.frmSearch_size
+        End If
         'Load user data
         user_list = UserToList($"{dora_path}cru.txt", user)
         user_name = user_list(0)
@@ -54,6 +59,22 @@ Public Class frmSearch
         INTERVENTIONSTableAdapter.Fill(DORADbDS.INTERVENTIONS)
         INTERVENTIONSBindingSource.Sort = "[DATE INT] DESC, [ID CRU] DESC"
     End Sub
+#Region "Drag & move"
+    Private Sub pnlTitle_MouseDown(sender As Object, e As MouseEventArgs) Handles dgvStats.MouseDown, SearchTable.MouseDown
+        'Handle right click menu and move window
+        If opened_out = True Then
+            ReleaseCapture()
+            SendMessage(Handle, &H112&, &HF012&, 0)
+        End If
+    End Sub
+    'Drag Form'
+    <DllImport("user32.DLL", EntryPoint:="ReleaseCapture")>
+    Private Shared Sub ReleaseCapture()
+    End Sub
+    <DllImport("user32.DLL", EntryPoint:="SendMessage")>
+    Private Shared Sub SendMessage(hWnd As IntPtr, wMsg As Integer, wParam As Integer, lParam As Integer)
+    End Sub
+#End Region
 #Region "File System Watcher"
     Private Sub fsw_Created(sender As Object, e As FileSystemEventArgs) Handles fsw.Created
         'Watch for created files in DORA folder
@@ -132,6 +153,8 @@ Public Class frmSearch
             Dim NSP As String = Nothing
             Dim LANG As String = Nothing
             Dim CMEXT As String = Nothing
+            Dim INTDONE As Boolean = Nothing
+            Dim CRUONSITE As Boolean = Nothing
             Dim DrugB As Boolean
             newDs.Tables.Add("INTS")
             newDs.Tables("INTS").Columns.Add("IDINT", GetType(Int32))
@@ -167,6 +190,8 @@ Public Class frmSearch
             newDs.Tables("INTS").Columns.Add("ARRO", GetType(String))
             newDs.Tables("INTS").Columns.Add("DRUG", GetType(String))
             newDs.Tables("INTS").Columns.Add("MANAGER", GetType(String))
+            newDs.Tables("INTS").Columns.Add("INTDONE", GetType(Boolean))
+            newDs.Tables("INTS").Columns.Add("CRUONSITE", GetType(Boolean))
             For i As Integer = 0 To ds.Tables("INTERVENTIONS").Rows.Count - 1
                 IDINT = Nothing
                 CASENAME = Nothing
@@ -201,6 +226,8 @@ Public Class frmSearch
                 NSP = Nothing
                 LANG = Nothing
                 CMEXT = Nothing
+                INTDONE = Nothing
+                CRUONSITE = Nothing
                 DrugB = False
                 If Not IsDBNull(ds.Tables("INTERVENTIONS").Rows(i).Item("ID CRU")) Then IDINT = CInt(ds.Tables("INTERVENTIONS").Rows(i).Item("ID CRU"))
                 CASENAME = ds.Tables("INTERVENTIONS").Rows(i).Item("CASE NAME").ToString
@@ -240,15 +267,17 @@ Public Class frmSearch
                     If Not IsDBNull(CaseRow(0).Item("LANG")) Then LANG = CStr(CaseRow(0).Item("LANG"))
                     If Not IsDBNull(CaseRow(0).Item("CMEXT1")) Then CMEXT = CStr(CaseRow(0).Item("CMEXT1"))
                 End If
+                INTDONE = CBool(ds.Tables("INTERVENTIONS").Rows(i).Item("INTDONE"))
+                CRUONSITE = CBool(ds.Tables("INTERVENTIONS").Rows(i).Item("CRU ON SITE"))
                 Dim ProdRow = ds.Tables("DRUGS INT").Select("[ID INT] = '" & IDINT & "'")
                 If ProdRow.Length > 0 Then
                     For j As Integer = 0 To ProdRow.Length - 1
                         DRUG = CStr(ProdRow(j).Item("DRUG"))
-                        newDs.Tables("INTS").Rows.Add(IDINT, CASENAME, TYPEOFINT, DATEINT, ADRESSINT, ZIPINT, CITYINT, DATEFACTS, ADRESSFACTS, ZIPFACTS, CITYFACTS, SAMPLEST, SAMPLESN, SAMPLESD, SAMPLESC, CRUREPORTN, CRUREPORTD, NICCREPORTN, NICCREPORTD, NICCREPORTC, UNIT, FILENUM, REPORTNUM, RIONUM, ONNUM, SIENANUM, NSP, LANG, CMEXT, TYPEOFPLACE, ARRO, DRUG, MANAGER)
+                        newDs.Tables("INTS").Rows.Add(IDINT, CASENAME, TYPEOFINT, DATEINT, ADRESSINT, ZIPINT, CITYINT, DATEFACTS, ADRESSFACTS, ZIPFACTS, CITYFACTS, SAMPLEST, SAMPLESN, SAMPLESD, SAMPLESC, CRUREPORTN, CRUREPORTD, NICCREPORTN, NICCREPORTD, NICCREPORTC, UNIT, FILENUM, REPORTNUM, RIONUM, ONNUM, SIENANUM, NSP, LANG, CMEXT, TYPEOFPLACE, ARRO, DRUG, MANAGER, INTDONE, CRUONSITE)
                         DrugB = True
                     Next
                 End If
-                If DrugB = False Then newDs.Tables("INTS").Rows.Add(IDINT, CASENAME, TYPEOFINT, DATEINT, ADRESSINT, ZIPINT, CITYINT, DATEFACTS, ADRESSFACTS, ZIPFACTS, CITYFACTS, SAMPLEST, SAMPLESN, SAMPLESD, SAMPLESC, CRUREPORTN, CRUREPORTD, NICCREPORTN, NICCREPORTD, NICCREPORTC, UNIT, FILENUM, REPORTNUM, RIONUM, ONNUM, SIENANUM, NSP, LANG, CMEXT, TYPEOFPLACE, ARRO, DRUG, MANAGER)
+                If DrugB = False Then newDs.Tables("INTS").Rows.Add(IDINT, CASENAME, TYPEOFINT, DATEINT, ADRESSINT, ZIPINT, CITYINT, DATEFACTS, ADRESSFACTS, ZIPFACTS, CITYFACTS, SAMPLEST, SAMPLESN, SAMPLESD, SAMPLESC, CRUREPORTN, CRUREPORTD, NICCREPORTN, NICCREPORTD, NICCREPORTC, UNIT, FILENUM, REPORTNUM, RIONUM, ONNUM, SIENANUM, NSP, LANG, CMEXT, TYPEOFPLACE, ARRO, DRUG, MANAGER, INTDONE, CRUONSITE)
             Next
             Return newDs
         Catch ex As Exception
@@ -288,6 +317,7 @@ Public Class frmSearch
             Dim strFilterDrug As String = String.Empty
             Dim strFilterCity As String = String.Empty
             Dim strFilterManager As String = String.Empty
+            Dim strFilterExtra As String = String.Empty
             DateFrom = Convert.ToDateTime("01/01/" & cmbFrom.Text)
             DateTo = Convert.ToDateTime("31/12/" & cmbTo.Text)
             strFilterDate = $"[DATEINT] >= #{DateFrom:MM/dd/yyyy}# AND [DATEINT] <= #{DateTo:MM/dd/yyyy}#"
@@ -328,25 +358,25 @@ Public Class frmSearch
             If cmbTypeOfPlace.Text <> String.Empty Then
                 Select Case cmbTypeOfPlace.Text
                     Case "Woning", "Habitation"
-                        strFilterPlace = " AND ([TYPEOFPLACE] like '*woning*' OR [TYPEOFPLACE] like '*habitation*')"
+                        strFilterPlace = " AND ([TYPEOFPLACE] LIKE '*woning*' OR [TYPEOFPLACE] LIKE '*habitation*')"
                     Case "Hoeve", "Ferme"
-                        strFilterPlace = " AND ([TYPEOFPLACE] like '*hoeve*' OR [TYPEOFPLACE] like '*ferme*')"
+                        strFilterPlace = " AND ([TYPEOFPLACE] LIKE '*hoeve*' OR [TYPEOFPLACE] LIKE '*ferme*')"
                     Case "Openbare weg", "Voie publique"
-                        strFilterPlace = " AND ([TYPEOFPLACE] like '*openbare*' OR [TYPEOFPLACE] like '*publique*')"
+                        strFilterPlace = " AND ([TYPEOFPLACE] LIKE '*openbare*' OR [TYPEOFPLACE] LIKE '*publique*')"
                     Case "Private plaats", "Lieu privé"
-                        strFilterPlace = " AND ([TYPEOFPLACE] like '*private*' OR [TYPEOFPLACE] like '*privé*')"
+                        strFilterPlace = " AND ([TYPEOFPLACE] LIKE '*private*' OR [TYPEOFPLACE] LIKE '*privé*')"
                     Case "Voertuig", "Véhicule"
-                        strFilterPlace = " AND ([TYPEOFPLACE] like '*voertuig*' OR [TYPEOFPLACE] like '*véhicule*')"
+                        strFilterPlace = " AND ([TYPEOFPLACE] LIKE '*voertuig*' OR [TYPEOFPLACE] LIKE '*véhicule*')"
                     Case "Schip", "Navire"
-                        strFilterPlace = " AND ([TYPEOFPLACE] like '*schip*' OR [TYPEOFPLACE] like '*navire*')"
+                        strFilterPlace = " AND ([TYPEOFPLACE] LIKE '*schip*' OR [TYPEOFPLACE] LIKE '*navire*')"
                     Case "Loods", "Entrepôt"
-                        strFilterPlace = " AND ([TYPEOFPLACE] like '*loods*' OR [TYPEOFPLACE] like '*entrepôt*')"
+                        strFilterPlace = " AND ([TYPEOFPLACE] LIKE '*loods*' OR [TYPEOFPLACE] LIKE '*entrepôt*')"
                     Case "Natuur", "Nature"
-                        strFilterPlace = " AND ([TYPEOFPLACE] like '*natuur*' OR [TYPEOFPLACE] like '*nature*')"
+                        strFilterPlace = " AND ([TYPEOFPLACE] LIKE '*natuur*' OR [TYPEOFPLACE] LIKE '*nature*')"
                     Case "SGS"
-                        strFilterPlace = " AND ([TYPEOFPLACE] like 'SGS')"
+                        strFilterPlace = " AND ([TYPEOFPLACE] LIKE 'SGS')"
                     Case "Remondis"
-                        strFilterPlace = " AND ([TYPEOFPLACE] like 'Remondis')"
+                        strFilterPlace = " AND ([TYPEOFPLACE] LIKE 'Remondis')"
                 End Select
             End If
             If cmbArro.Text <> String.Empty Then
@@ -380,23 +410,23 @@ Public Class frmSearch
             If cmbDrug.Text <> String.Empty Then
                 Select Case cmbDrug.Text
                     Case "MDMA"
-                        strFilterDrug = " AND ([DRUG] like 'MDMA')"
+                        strFilterDrug = " AND ([DRUG] LIKE 'MDMA')"
                     Case "Amfetamine", "Amphétamine"
                         strFilterDrug = " AND ([DRUG] = 'Amfetamine' OR [DRUG] = 'Amphétamine')"
                     Case "Metamfetamine", "Methamphétamine"
                         strFilterDrug = " AND ([DRUG] = 'Metamfetamine' OR [DRUG] = 'Methamphétamine')"
                     Case "(Pre)-Precursors", "(Pré)-Précurseurs"
-                        strFilterDrug = " AND ([DRUG] like '(Pre)-Precursors' OR [DRUG] like '(Pré)-Précurseurs')"
+                        strFilterDrug = " AND ([DRUG] LIKE '(Pre)-Precursors' OR [DRUG] LIKE '(Pré)-Précurseurs')"
                     Case "Cannabis"
-                        strFilterDrug = " AND ([DRUG] like 'Cannabis')"
+                        strFilterDrug = " AND ([DRUG] LIKE 'Cannabis')"
                     Case "Cocaïne"
-                        strFilterDrug = " AND ([DRUG] like 'Cocaïne')"
+                        strFilterDrug = " AND ([DRUG] LIKE 'Cocaïne')"
                     Case "Heroïne", "Héroïne"
-                        strFilterDrug = " AND ([DRUG] like 'Heroïne' OR [DRUG] like 'Héroïne')"
+                        strFilterDrug = " AND ([DRUG] LIKE 'Heroïne' OR [DRUG] LIKE 'Héroïne')"
                     Case "NPS"
-                        strFilterDrug = " AND ([DRUG] like 'NPS')"
+                        strFilterDrug = " AND ([DRUG] LIKE 'NPS')"
                     Case "Ketamine", "Kétamine"
-                        strFilterDrug = " AND ([DRUG] like 'Ketamine' OR [DRUG] like 'Kétamine')"
+                        strFilterDrug = " AND ([DRUG] LIKE 'Ketamine' OR [DRUG] LIKE 'Kétamine')"
                 End Select
             End If
             If cmbCity.Text <> String.Empty Then
@@ -405,9 +435,15 @@ Public Class frmSearch
             If cmbCMInt.Text <> String.Empty Then
                 strFilterManager = $" AND ([MANAGER] LIKE '{cmbCMInt.Text}')"
             End If
+            If mnInterventionDone.Checked = True Then
+                strFilterExtra += " AND ([INTDONE] = TRUE)"
+            End If
+            If mnCRUOnSite.Checked = True Then
+                strFilterExtra += " AND ([CRUONSITE] = TRUE)"
+            End If
             'Draw datagridview columns
             dgvStats.DataSource = StatsDV
-            StatsDV.RowFilter = strFilterDate + strFilterCase + strFilterInt + strFilterPlace + strFilterArro + strFilterDrug + strFilterCity + strFilterManager
+            StatsDV.RowFilter = strFilterDate + strFilterCase + strFilterInt + strFilterPlace + strFilterArro + strFilterDrug + strFilterCity + strFilterManager + strFilterExtra
             StatsDV.Sort = "[DATEINT] DESC, [IDINT] DESC"
             dgvStats.DataSource = StatsDV.ToTable(True, "IDINT", "CASENAME", "TYPEOFINT", "DATEINT", "ADRESSINT", "ZIPINT", "CITYINT", "DATEFACTS", "ADRESSFACTS", "ZIPFACTS", "CITYFACTS", "SAMPLEST", "SAMPLESN", "SAMPLESD", "SAMPLESC", "CRUREPORTN", "CRUREPORTD", "NICCREPORTN", "NICCREPORTD", "NICCREPORTC", "UNIT", "FILENUM", "REPORTNUM", "RIONUM", "ONNUM", "SIENANUM", "NSP", "LANG", "CMEXT") ', "TYPEOFPLACE", "ARRO", "DRUG", "MANAGER")
             dgvStats.Sort(dgvStats.Columns(3), ComponentModel.ListSortDirection.Descending)
@@ -529,10 +565,12 @@ Public Class frmSearch
                 For i As Integer = 0 To dgvStats.RowCount - 1
                     For j As Integer = 0 To dgvStats.ColumnCount - 1
                         If dgvStats.Rows(i).Cells(j).Value.ToString.ToLower.Contains(txtFind.Text.ToLower) Then
-                            dgvStats.Rows(i).Cells(j).Style.BackColor = Color.LightGoldenrodYellow
-                            dgvStats.Rows(i).Cells(j).Style.ForeColor = Color.Black
-                            Dim temp As New List(Of Integer)({i, j})
-                            lst_results.Add(temp)
+                            If dgvStats.Columns(j).Visible = True Then
+                                dgvStats.Rows(i).Cells(j).Style.BackColor = Color.LightGoldenrodYellow
+                                dgvStats.Rows(i).Cells(j).Style.ForeColor = Color.Black
+                                Dim temp As New List(Of Integer)({i, j})
+                                lst_results.Add(temp)
+                            End If
                         End If
                     Next
                 Next
@@ -559,19 +597,25 @@ Public Class frmSearch
                     If lst_results.Count = 0 Then lblCounter.Text = $"Pas de résultat"
                 End If
                 counter_sel = 1
-                If lst_results(counter_sel - 1)(0) > 5 Then
-                    dgvStats.FirstDisplayedScrollingRowIndex = lst_results(counter_sel - 1)(0) - 5
-                Else
-                    dgvStats.FirstDisplayedScrollingRowIndex = 1
+                If lst_results.Count > 0 Then
+                    If lst_results(counter_sel - 1)(0) > 5 Then
+                        dgvStats.FirstDisplayedScrollingRowIndex = lst_results(counter_sel - 1)(0) - 5
+                    Else
+                        dgvStats.FirstDisplayedScrollingRowIndex = 1
+                    End If
+                    If lst_results(counter_sel - 1)(1) > 5 Then
+                        Dim x As Integer = 0
+                        While dgvStats.Columns(lst_results(counter_sel - 1)(1) - 5 - x).Visible = False
+                            x += 1
+                        End While
+                        dgvStats.FirstDisplayedScrollingColumnIndex = lst_results(counter_sel - 1)(1) - 5 - x
+                    Else
+                        dgvStats.FirstDisplayedScrollingColumnIndex = 1
+                    End If
+                    dgvStats.Rows(lst_results(counter_sel - 1)(0)).Cells(lst_results(counter_sel - 1)(1)).Style.BackColor = Color.Yellow
                 End If
-                If lst_results(counter_sel - 1)(1) > 5 Then
-                    dgvStats.FirstDisplayedScrollingColumnIndex = lst_results(counter_sel - 1)(1) - 5
-                Else
-                    dgvStats.FirstDisplayedScrollingColumnIndex = 1
-                End If
-                dgvStats.Rows(lst_results(counter_sel - 1)(0)).Cells(lst_results(counter_sel - 1)(1)).Style.BackColor = Color.Yellow
             End If
-            If lst_results.Count = 0 Then
+            If lst_results.Count = 0 AndAlso dgvStats.Rows.Count > 0 Then
                 dgvStats.FirstDisplayedScrollingRowIndex = r
                 dgvStats.Rows(s).Selected = True
                 dgvStats.HorizontalScrollingOffset = o
@@ -664,6 +708,16 @@ Public Class frmSearch
     End Sub
 #End Region
 #Region "Context Menus"
+    Private Sub btnAddFilters_MouseDown(sender As Object, e As MouseEventArgs) Handles btnAddFilters.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Left Then
+            FilterMenu.Show(CType(sender, Control), e.Location)
+        End If
+    End Sub
+    Private Sub FilterMenu_Closing(sender As Object, e As ToolStripDropDownClosingEventArgs) Handles FilterMenu.Closing
+        If e.CloseReason = ToolStripDropDownCloseReason.ItemClicked Then
+            e.Cancel = True
+        End If
+    End Sub
     Private Sub dgvStats_CellMouseDown(sender As Object, e As MouseEventArgs) Handles dgvStats.MouseDown
         'Show right click menu
         If e.Button = Windows.Forms.MouseButtons.Right Then
@@ -1217,6 +1271,7 @@ Public Class frmSearch
             lblCity.Text = "Gemeente"
             lblArro.Text = "Arrondissement"
             lblManager.Text = "Beheerder"
+            lblText.Text = "Vrij tekst"
             mnViewIntervention.Text = "Interventie tonen"
             mnExportList.Text = "Lijst exporteren"
             mnAllInts.Text = "Interventie"
@@ -1251,6 +1306,9 @@ Public Class frmSearch
             mnNSP.Text = "NVP"
             mnLang.Text = "Taal"
             mnCMExt.Text = "Onderzoeker"
+            mnInterventionDone.Text = "Interventies gesloten"
+            mnCRUOnSite.Text = "CRU ter plaatse"
+            ToolTip.SetToolTip(btnAddFilters, "Extra filters")
         Else
             lblDates.Text = "Dates"
             lblIntervention.Text = "Intervention"
@@ -1259,6 +1317,7 @@ Public Class frmSearch
             lblCity.Text = "Commune"
             lblArro.Text = "Arrondissement"
             lblManager.Text = "Gestionnaire"
+            lblText.Text = "Texte libre"
             mnViewIntervention.Text = "Visualiser l'intervention"
             mnExportList.Text = "Exporter liste"
             mnAllInts.Text = "Intervention"
@@ -1293,6 +1352,9 @@ Public Class frmSearch
             mnNSP.Text = "PNS"
             mnLang.Text = "Langue"
             mnCMExt.Text = "Enquêteur"
+            mnInterventionDone.Text = "Interventions clôturées"
+            mnCRUOnSite.Text = "CRU sur place"
+            ToolTip.SetToolTip(btnAddFilters, "Filtres supplémentaires")
         End If
     End Sub
     Private Sub FillCombo()
@@ -1404,6 +1466,7 @@ Public Class frmSearch
     End Sub
     Private Sub SetColors()
         'Set colors of controls according to choosen theme
+        MainTable.BackColor = theme("Light")
         dgvStats.BackgroundColor = theme("Light")
         dgvStats.RowsDefaultCellStyle.BackColor = theme("Light")
         dgvStats.RowsDefaultCellStyle.ForeColor = theme("Font")
@@ -1511,6 +1574,18 @@ Public Class frmSearch
     Private Sub txtFind_KeyDown(sender As Object, e As KeyEventArgs) Handles txtFind.KeyDown
         If (e.KeyCode = Keys.Enter) Then
             Search()
+        End If
+    End Sub
+    Private Sub frmSearch_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If (e.Alt AndAlso e.KeyCode = Keys.X) Then
+            opened_out = False
+            Close()
+        End If
+    End Sub
+    Private Sub frmSearch_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If opened_out = True Then
+            My.Settings.frmSearch_loc = Location
+            My.Settings.frmSearch_size = Size
         End If
     End Sub
 #End Region

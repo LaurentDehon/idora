@@ -160,6 +160,10 @@ Public Class frmNewInt
             lblAdressFacts.Text = "Adres"
             ToolTip.SetToolTip(btnOk, "Creëer de interventie")
             ToolTip.SetToolTip(btnCancel, "Annuleren")
+            ToolTip.SetToolTip(btnSGS, "SGS adres")
+            ToolTip.SetToolTip(btnRemondis, "Remondis adres")
+            ToolTip.SetToolTip(btnIntToFacts, "Kopieer de gegevens van de interventie naar de feiten")
+            ToolTip.SetToolTip(btnFactsToInt, "Kopieer de gegevens van de feiten naar de interventie")
             HelpToolStripMenuItem.Text = "Hulp"
         Else
             Text = "Nouvelle intervention"
@@ -173,6 +177,10 @@ Public Class frmNewInt
             lblAdressFacts.Text = "Adresse"
             ToolTip.SetToolTip(btnOk, "Créer l'intervention")
             ToolTip.SetToolTip(btnCancel, "Annuler")
+            ToolTip.SetToolTip(btnSGS, "Adresse de SGS")
+            ToolTip.SetToolTip(btnRemondis, "Adresse de Remondis")
+            ToolTip.SetToolTip(btnIntToFacts, "Copier les données de l'intervention vers les faits")
+            ToolTip.SetToolTip(btnFactsToInt, "Copier les données des faits vers l'intervention")
             HelpToolStripMenuItem.Text = "Aide"
         End If
     End Sub
@@ -455,6 +463,34 @@ Public Class frmNewInt
         Else
             City = Nothing
         End If
+    End Sub
+    Private Sub btnSGS_Click(sender As Object, e As EventArgs) Handles btnSGS.Click
+        txtZipInt.Text = "9120"
+        cmbCityInt.Text = "MELSELE"
+        txtAdressInt.Text = "Keetberglaan 4"
+    End Sub
+    Private Sub btnRemondis_Click(sender As Object, e As EventArgs) Handles btnRemondis.Click
+        txtZipInt.Text = "4040"
+        cmbCityInt.Text = "HERSTAL"
+        txtAdressInt.Text = "Rue des Alouettes 131"
+    End Sub
+    Private Sub btnIntToFacts_Click(sender As Object, e As EventArgs) Handles btnIntToFacts.Click
+        If txtDateInt.CustomFormat <> " " Then
+            txtDateFacts.CustomFormat = "dd/MM/yyyy"
+            txtDateFacts.Value = txtDateInt.Value
+        End If
+        txtZipFacts.Text = txtZipInt.Text
+        cmbCityFacts.Text = cmbCityInt.Text
+        txtAdressFacts.Text = txtAdressInt.Text
+    End Sub
+    Private Sub btnFactsToInt_Click(sender As Object, e As EventArgs) Handles btnFactsToInt.Click
+        If txtDateFacts.CustomFormat <> " " Then
+            txtDateInt.CustomFormat = "dd/MM/yyyy"
+            txtDateInt.Value = txtDateFacts.Value
+        End If
+        txtZipInt.Text = txtZipFacts.Text
+        cmbCityInt.Text = cmbCityFacts.Text
+        txtAdressInt.Text = txtAdressFacts.Text
     End Sub
     Private Sub cmbNoInput(sender As Object, e As KeyPressEventArgs) Handles cmbTypeOfPlace.KeyPress, cmbTypeOfInt.KeyPress, cmbInt.KeyPress, cmbCaseName.KeyPress
         'Disable user input

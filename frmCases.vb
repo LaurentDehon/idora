@@ -537,6 +537,7 @@ Public Class frmCases
             lblFederalized.Text = "Gefederaliseerd"
             lblFederalizedDate.Text = "op"
             lblFederalizedMagistrate.Text = "Magistraat"
+            lblSummary.Text = "Samenvatting van de feiten"
             ToolTip.SetToolTip(btnSave, "Opslaan")
             ToolTip.SetToolTip(btnFolder, "Map openen")
             ToolTip.SetToolTip(btnExit, "Verlaten")
@@ -550,6 +551,11 @@ Public Class frmCases
             lblSyntheticP.Text = "A.03.03. Syntetische drugs - productie"
             lblSyntheticT.Text = "A.03.04. Syntetische drugs - smokkel"
             lblCocaine.Text = "A.03.05. Cocaïne - invoer en uitvoer"
+            If DirectCast(CASESBindingSource.Current, DataRowView).Item("CREATED ON") IsNot DBNull.Value AndAlso CStr(DirectCast(CASESBindingSource.Current, DataRowView).Item("CREATED BY")) <> String.Empty Then
+                lblCreated.Text = $"Angemaakt door {CStr(DirectCast(CASESBindingSource.Current, DataRowView).Item("CREATED BY"))} op {Format(DirectCast(CASESBindingSource.Current, DataRowView).Item("CREATED ON"), "dd/MM/yyyy")}"
+            Else
+                lblCreated.Visible = False
+            End If
         Else
             lblTitle.Text = $"Dossier {txtCaseName.Text} de la {cmbUnit.Text}"
             lblCaseName.Text = "Nom de dossier"
@@ -585,6 +591,7 @@ Public Class frmCases
             lblFederalized.Text = "Fédéralisé"
             lblFederalizedDate.Text = "le"
             lblFederalizedMagistrate.Text = "Magistrat"
+            lblSummary.Text = "Résumé des faits"
             ToolTip.SetToolTip(btnSave, "Enregistrer")
             ToolTip.SetToolTip(btnFolder, "Ouvrir le répertoire")
             ToolTip.SetToolTip(btnExit, "Quitter")
@@ -598,6 +605,11 @@ Public Class frmCases
             lblSyntheticP.Text = "A.03.03. Drogues synthétiques - production"
             lblSyntheticT.Text = "A.03.04. Drogues synthétiques - trafic"
             lblCocaine.Text = "A.03.05. Cocaïne - importation et exportation"
+            If DirectCast(CASESBindingSource.Current, DataRowView).Item("CREATED ON") IsNot DBNull.Value AndAlso CStr(DirectCast(CASESBindingSource.Current, DataRowView).Item("CREATED BY")) <> String.Empty Then
+                lblCreated.Text = $"Créé par {CStr(DirectCast(CASESBindingSource.Current, DataRowView).Item("CREATED BY"))} le {Format(DirectCast(CASESBindingSource.Current, DataRowView).Item("CREATED ON"), "dd/MM/yyyy")}"
+            Else
+                lblCreated.Visible = False
+            End If
         End If
     End Sub
     Public Sub FillCombo()
