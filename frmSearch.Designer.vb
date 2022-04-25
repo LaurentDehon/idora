@@ -310,21 +310,21 @@ Partial Class frmSearch
         '
         Me.mnNL.Image = Global.DORA.My.Resources.Resources.n
         Me.mnNL.Name = "mnNL"
-        Me.mnNL.Size = New System.Drawing.Size(224, 28)
+        Me.mnNL.Size = New System.Drawing.Size(190, 28)
         Me.mnNL.Text = "Nederlands"
         '
         'mnFR
         '
         Me.mnFR.Image = Global.DORA.My.Resources.Resources.f
         Me.mnFR.Name = "mnFR"
-        Me.mnFR.Size = New System.Drawing.Size(224, 28)
+        Me.mnFR.Size = New System.Drawing.Size(190, 28)
         Me.mnFR.Text = "Français"
         '
         'mnEN
         '
         Me.mnEN.Image = Global.DORA.My.Resources.Resources.e
         Me.mnEN.Name = "mnEN"
-        Me.mnEN.Size = New System.Drawing.Size(224, 28)
+        Me.mnEN.Size = New System.Drawing.Size(190, 28)
         Me.mnEN.Text = "English"
         '
         'fsw
@@ -822,7 +822,7 @@ Partial Class frmSearch
         Me.mnCRUReportN.CheckOnClick = True
         Me.mnCRUReportN.CheckState = System.Windows.Forms.CheckState.Checked
         Me.mnCRUReportN.Name = "mnCRUReportN"
-        Me.mnCRUReportN.Size = New System.Drawing.Size(224, 28)
+        Me.mnCRUReportN.Size = New System.Drawing.Size(199, 28)
         Me.mnCRUReportN.Text = "CRUReportN"
         '
         'mnCRUReportD
@@ -831,7 +831,7 @@ Partial Class frmSearch
         Me.mnCRUReportD.CheckOnClick = True
         Me.mnCRUReportD.CheckState = System.Windows.Forms.CheckState.Checked
         Me.mnCRUReportD.Name = "mnCRUReportD"
-        Me.mnCRUReportD.Size = New System.Drawing.Size(224, 28)
+        Me.mnCRUReportD.Size = New System.Drawing.Size(199, 28)
         Me.mnCRUReportD.Text = "CRUReportD"
         '
         'mnAllNICCReport
@@ -967,7 +967,7 @@ Partial Class frmSearch
         Me.FilterMenu.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.FilterMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnInterventionDone, Me.mnCRUOnSite})
         Me.FilterMenu.Name = "FilterMenu"
-        Me.FilterMenu.Size = New System.Drawing.Size(237, 88)
+        Me.FilterMenu.Size = New System.Drawing.Size(237, 60)
         '
         'mnInterventionDone
         '

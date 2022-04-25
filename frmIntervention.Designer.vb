@@ -141,6 +141,18 @@ Partial Class frmIntervention
         Me.pnlLogo = New System.Windows.Forms.Panel()
         Me.imgCRU = New System.Windows.Forms.PictureBox()
         Me.pnlCenter = New System.Windows.Forms.Panel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lblNote = New System.Windows.Forms.Label()
+        Me.lblRecipe = New System.Windows.Forms.Label()
+        Me.lblDischarge = New System.Windows.Forms.Label()
+        Me.lblBill = New System.Windows.Forms.Label()
+        Me.lblSuspect = New System.Windows.Forms.Label()
+        Me.btnBill = New FontAwesome.Sharp.IconButton()
+        Me.btnNote = New FontAwesome.Sharp.IconButton()
+        Me.btnRecipe = New FontAwesome.Sharp.IconButton()
+        Me.btnDischarge = New FontAwesome.Sharp.IconButton()
+        Me.btnSuspect = New FontAwesome.Sharp.IconButton()
+        Me.lblOnSite = New System.Windows.Forms.Label()
         Me.pnlDrug = New System.Windows.Forms.Panel()
         Me.btnDeleteDrug = New FontAwesome.Sharp.IconButton()
         Me.btnSaveDrug = New FontAwesome.Sharp.IconButton()
@@ -186,18 +198,6 @@ Partial Class frmIntervention
         Me.pnlFacts = New System.Windows.Forms.Panel()
         Me.btnFactsToInt = New FontAwesome.Sharp.IconButton()
         Me.pnlDetails = New System.Windows.Forms.Panel()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.lblOnSite = New System.Windows.Forms.Label()
-        Me.lblNote = New System.Windows.Forms.Label()
-        Me.lblRecipe = New System.Windows.Forms.Label()
-        Me.lblDischarge = New System.Windows.Forms.Label()
-        Me.lblBill = New System.Windows.Forms.Label()
-        Me.lblSuspect = New System.Windows.Forms.Label()
-        Me.btnBill = New FontAwesome.Sharp.IconButton()
-        Me.btnNote = New FontAwesome.Sharp.IconButton()
-        Me.btnRecipe = New FontAwesome.Sharp.IconButton()
-        Me.btnDischarge = New FontAwesome.Sharp.IconButton()
-        Me.btnSuspect = New FontAwesome.Sharp.IconButton()
         CType(Me.INTERVENTIONSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DORADbDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MEMBERS_INTBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -215,6 +215,7 @@ Partial Class frmIntervention
         Me.pnlLogo.SuspendLayout()
         CType(Me.imgCRU, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlCenter.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.pnlDrug.SuspendLayout()
         Me.pnlProducts.SuspendLayout()
         Me.pnlMembers.SuspendLayout()
@@ -229,7 +230,6 @@ Partial Class frmIntervention
         Me.pnlIntervention.SuspendLayout()
         Me.pnlFacts.SuspendLayout()
         Me.pnlDetails.SuspendLayout()
-        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblSamplesNum
@@ -1008,7 +1008,7 @@ Partial Class frmIntervention
         Me.txtNICCConc.Multiline = True
         Me.txtNICCConc.Name = "txtNICCConc"
         Me.txtNICCConc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtNICCConc.Size = New System.Drawing.Size(299, 166)
+        Me.txtNICCConc.Size = New System.Drawing.Size(291, 166)
         Me.txtNICCConc.TabIndex = 1
         '
         'txtTime1
@@ -1624,6 +1624,176 @@ Partial Class frmIntervention
         Me.pnlCenter.Size = New System.Drawing.Size(1793, 856)
         Me.pnlCenter.TabIndex = 141
         '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.lblNote)
+        Me.Panel1.Controls.Add(Me.lblRecipe)
+        Me.Panel1.Controls.Add(Me.lblDischarge)
+        Me.Panel1.Controls.Add(Me.lblBill)
+        Me.Panel1.Controls.Add(Me.lblSuspect)
+        Me.Panel1.Controls.Add(Me.btnBill)
+        Me.Panel1.Controls.Add(Me.btnNote)
+        Me.Panel1.Controls.Add(Me.btnRecipe)
+        Me.Panel1.Controls.Add(Me.btnDischarge)
+        Me.Panel1.Controls.Add(Me.btnSuspect)
+        Me.Panel1.Controls.Add(Me.lblOnSite)
+        Me.Panel1.Location = New System.Drawing.Point(832, 620)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(200, 228)
+        Me.Panel1.TabIndex = 147
+        '
+        'lblNote
+        '
+        Me.lblNote.AutoSize = True
+        Me.lblNote.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNote.Location = New System.Drawing.Point(48, 181)
+        Me.lblNote.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblNote.Name = "lblNote"
+        Me.lblNote.Size = New System.Drawing.Size(51, 24)
+        Me.lblNote.TabIndex = 158
+        Me.lblNote.Text = "Note"
+        '
+        'lblRecipe
+        '
+        Me.lblRecipe.AutoSize = True
+        Me.lblRecipe.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblRecipe.Location = New System.Drawing.Point(48, 114)
+        Me.lblRecipe.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblRecipe.Name = "lblRecipe"
+        Me.lblRecipe.Size = New System.Drawing.Size(65, 24)
+        Me.lblRecipe.TabIndex = 157
+        Me.lblRecipe.Text = "Recipe"
+        '
+        'lblDischarge
+        '
+        Me.lblDischarge.AutoSize = True
+        Me.lblDischarge.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDischarge.Location = New System.Drawing.Point(48, 81)
+        Me.lblDischarge.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblDischarge.Name = "lblDischarge"
+        Me.lblDischarge.Size = New System.Drawing.Size(91, 24)
+        Me.lblDischarge.TabIndex = 156
+        Me.lblDischarge.Text = "Discharge"
+        '
+        'lblBill
+        '
+        Me.lblBill.AutoSize = True
+        Me.lblBill.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBill.Location = New System.Drawing.Point(48, 147)
+        Me.lblBill.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblBill.Name = "lblBill"
+        Me.lblBill.Size = New System.Drawing.Size(36, 24)
+        Me.lblBill.TabIndex = 155
+        Me.lblBill.Text = "Bill"
+        '
+        'lblSuspect
+        '
+        Me.lblSuspect.AutoSize = True
+        Me.lblSuspect.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSuspect.Location = New System.Drawing.Point(48, 48)
+        Me.lblSuspect.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblSuspect.Name = "lblSuspect"
+        Me.lblSuspect.Size = New System.Drawing.Size(74, 24)
+        Me.lblSuspect.TabIndex = 154
+        Me.lblSuspect.Text = "Suspect"
+        '
+        'btnBill
+        '
+        Me.btnBill.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnBill.FlatAppearance.BorderSize = 0
+        Me.btnBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBill.IconChar = FontAwesome.Sharp.IconChar.Check
+        Me.btnBill.IconColor = System.Drawing.Color.Black
+        Me.btnBill.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnBill.IconSize = 25
+        Me.btnBill.Location = New System.Drawing.Point(16, 147)
+        Me.btnBill.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnBill.Name = "btnBill"
+        Me.btnBill.Padding = New System.Windows.Forms.Padding(0, 4, 0, 0)
+        Me.btnBill.Size = New System.Drawing.Size(25, 25)
+        Me.btnBill.TabIndex = 150
+        Me.btnBill.UseVisualStyleBackColor = True
+        '
+        'btnNote
+        '
+        Me.btnNote.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnNote.FlatAppearance.BorderSize = 0
+        Me.btnNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNote.IconChar = FontAwesome.Sharp.IconChar.Check
+        Me.btnNote.IconColor = System.Drawing.Color.Black
+        Me.btnNote.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnNote.IconSize = 25
+        Me.btnNote.Location = New System.Drawing.Point(16, 181)
+        Me.btnNote.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnNote.Name = "btnNote"
+        Me.btnNote.Padding = New System.Windows.Forms.Padding(0, 4, 0, 0)
+        Me.btnNote.Size = New System.Drawing.Size(25, 25)
+        Me.btnNote.TabIndex = 153
+        Me.btnNote.UseVisualStyleBackColor = True
+        '
+        'btnRecipe
+        '
+        Me.btnRecipe.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnRecipe.FlatAppearance.BorderSize = 0
+        Me.btnRecipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRecipe.IconChar = FontAwesome.Sharp.IconChar.Check
+        Me.btnRecipe.IconColor = System.Drawing.Color.Black
+        Me.btnRecipe.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnRecipe.IconSize = 25
+        Me.btnRecipe.Location = New System.Drawing.Point(16, 114)
+        Me.btnRecipe.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnRecipe.Name = "btnRecipe"
+        Me.btnRecipe.Padding = New System.Windows.Forms.Padding(0, 4, 0, 0)
+        Me.btnRecipe.Size = New System.Drawing.Size(25, 25)
+        Me.btnRecipe.TabIndex = 152
+        Me.btnRecipe.UseVisualStyleBackColor = True
+        '
+        'btnDischarge
+        '
+        Me.btnDischarge.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDischarge.FlatAppearance.BorderSize = 0
+        Me.btnDischarge.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDischarge.IconChar = FontAwesome.Sharp.IconChar.Check
+        Me.btnDischarge.IconColor = System.Drawing.Color.Black
+        Me.btnDischarge.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnDischarge.IconSize = 25
+        Me.btnDischarge.Location = New System.Drawing.Point(16, 81)
+        Me.btnDischarge.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnDischarge.Name = "btnDischarge"
+        Me.btnDischarge.Padding = New System.Windows.Forms.Padding(0, 4, 0, 0)
+        Me.btnDischarge.Size = New System.Drawing.Size(25, 25)
+        Me.btnDischarge.TabIndex = 151
+        Me.btnDischarge.UseVisualStyleBackColor = True
+        '
+        'btnSuspect
+        '
+        Me.btnSuspect.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSuspect.FlatAppearance.BorderSize = 0
+        Me.btnSuspect.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSuspect.IconChar = FontAwesome.Sharp.IconChar.Check
+        Me.btnSuspect.IconColor = System.Drawing.Color.Black
+        Me.btnSuspect.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnSuspect.IconSize = 25
+        Me.btnSuspect.Location = New System.Drawing.Point(16, 48)
+        Me.btnSuspect.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnSuspect.Name = "btnSuspect"
+        Me.btnSuspect.Padding = New System.Windows.Forms.Padding(0, 4, 0, 0)
+        Me.btnSuspect.Size = New System.Drawing.Size(25, 25)
+        Me.btnSuspect.TabIndex = 149
+        Me.btnSuspect.UseVisualStyleBackColor = True
+        '
+        'lblOnSite
+        '
+        Me.lblOnSite.AutoSize = True
+        Me.lblOnSite.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOnSite.Location = New System.Drawing.Point(13, 10)
+        Me.lblOnSite.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblOnSite.Name = "lblOnSite"
+        Me.lblOnSite.Size = New System.Drawing.Size(71, 24)
+        Me.lblOnSite.TabIndex = 97
+        Me.lblOnSite.Text = "On Site"
+        '
         'pnlDrug
         '
         Me.pnlDrug.Controls.Add(Me.btnDeleteDrug)
@@ -1844,7 +2014,7 @@ Partial Class frmIntervention
         Me.pnlNICCConc.Location = New System.Drawing.Point(480, 620)
         Me.pnlNICCConc.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.pnlNICCConc.Name = "pnlNICCConc"
-        Me.pnlNICCConc.Size = New System.Drawing.Size(336, 226)
+        Me.pnlNICCConc.Size = New System.Drawing.Size(328, 226)
         Me.pnlNICCConc.TabIndex = 146
         '
         'pnlSummary
@@ -2351,176 +2521,6 @@ Partial Class frmIntervention
         Me.pnlDetails.Size = New System.Drawing.Size(437, 148)
         Me.pnlDetails.TabIndex = 97
         '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.lblNote)
-        Me.Panel1.Controls.Add(Me.lblRecipe)
-        Me.Panel1.Controls.Add(Me.lblDischarge)
-        Me.Panel1.Controls.Add(Me.lblBill)
-        Me.Panel1.Controls.Add(Me.lblSuspect)
-        Me.Panel1.Controls.Add(Me.btnBill)
-        Me.Panel1.Controls.Add(Me.btnNote)
-        Me.Panel1.Controls.Add(Me.btnRecipe)
-        Me.Panel1.Controls.Add(Me.btnDischarge)
-        Me.Panel1.Controls.Add(Me.btnSuspect)
-        Me.Panel1.Controls.Add(Me.lblOnSite)
-        Me.Panel1.Location = New System.Drawing.Point(840, 620)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(192, 228)
-        Me.Panel1.TabIndex = 147
-        '
-        'lblOnSite
-        '
-        Me.lblOnSite.AutoSize = True
-        Me.lblOnSite.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOnSite.Location = New System.Drawing.Point(13, 10)
-        Me.lblOnSite.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblOnSite.Name = "lblOnSite"
-        Me.lblOnSite.Size = New System.Drawing.Size(71, 24)
-        Me.lblOnSite.TabIndex = 97
-        Me.lblOnSite.Text = "On Site"
-        '
-        'lblNote
-        '
-        Me.lblNote.AutoSize = True
-        Me.lblNote.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNote.Location = New System.Drawing.Point(48, 181)
-        Me.lblNote.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblNote.Name = "lblNote"
-        Me.lblNote.Size = New System.Drawing.Size(51, 24)
-        Me.lblNote.TabIndex = 158
-        Me.lblNote.Text = "Note"
-        '
-        'lblRecipe
-        '
-        Me.lblRecipe.AutoSize = True
-        Me.lblRecipe.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRecipe.Location = New System.Drawing.Point(48, 114)
-        Me.lblRecipe.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblRecipe.Name = "lblRecipe"
-        Me.lblRecipe.Size = New System.Drawing.Size(65, 24)
-        Me.lblRecipe.TabIndex = 157
-        Me.lblRecipe.Text = "Recipe"
-        '
-        'lblDischarge
-        '
-        Me.lblDischarge.AutoSize = True
-        Me.lblDischarge.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDischarge.Location = New System.Drawing.Point(48, 81)
-        Me.lblDischarge.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblDischarge.Name = "lblDischarge"
-        Me.lblDischarge.Size = New System.Drawing.Size(91, 24)
-        Me.lblDischarge.TabIndex = 156
-        Me.lblDischarge.Text = "Discharge"
-        '
-        'lblBill
-        '
-        Me.lblBill.AutoSize = True
-        Me.lblBill.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBill.Location = New System.Drawing.Point(48, 147)
-        Me.lblBill.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblBill.Name = "lblBill"
-        Me.lblBill.Size = New System.Drawing.Size(36, 24)
-        Me.lblBill.TabIndex = 155
-        Me.lblBill.Text = "Bill"
-        '
-        'lblSuspect
-        '
-        Me.lblSuspect.AutoSize = True
-        Me.lblSuspect.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSuspect.Location = New System.Drawing.Point(48, 48)
-        Me.lblSuspect.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblSuspect.Name = "lblSuspect"
-        Me.lblSuspect.Size = New System.Drawing.Size(74, 24)
-        Me.lblSuspect.TabIndex = 154
-        Me.lblSuspect.Text = "Suspect"
-        '
-        'btnBill
-        '
-        Me.btnBill.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnBill.FlatAppearance.BorderSize = 0
-        Me.btnBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBill.IconChar = FontAwesome.Sharp.IconChar.Check
-        Me.btnBill.IconColor = System.Drawing.Color.Black
-        Me.btnBill.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btnBill.IconSize = 25
-        Me.btnBill.Location = New System.Drawing.Point(16, 147)
-        Me.btnBill.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnBill.Name = "btnBill"
-        Me.btnBill.Padding = New System.Windows.Forms.Padding(0, 4, 0, 0)
-        Me.btnBill.Size = New System.Drawing.Size(25, 25)
-        Me.btnBill.TabIndex = 150
-        Me.btnBill.UseVisualStyleBackColor = True
-        '
-        'btnNote
-        '
-        Me.btnNote.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnNote.FlatAppearance.BorderSize = 0
-        Me.btnNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNote.IconChar = FontAwesome.Sharp.IconChar.Check
-        Me.btnNote.IconColor = System.Drawing.Color.Black
-        Me.btnNote.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btnNote.IconSize = 25
-        Me.btnNote.Location = New System.Drawing.Point(16, 181)
-        Me.btnNote.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnNote.Name = "btnNote"
-        Me.btnNote.Padding = New System.Windows.Forms.Padding(0, 4, 0, 0)
-        Me.btnNote.Size = New System.Drawing.Size(25, 25)
-        Me.btnNote.TabIndex = 153
-        Me.btnNote.UseVisualStyleBackColor = True
-        '
-        'btnRecipe
-        '
-        Me.btnRecipe.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnRecipe.FlatAppearance.BorderSize = 0
-        Me.btnRecipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRecipe.IconChar = FontAwesome.Sharp.IconChar.Check
-        Me.btnRecipe.IconColor = System.Drawing.Color.Black
-        Me.btnRecipe.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btnRecipe.IconSize = 25
-        Me.btnRecipe.Location = New System.Drawing.Point(16, 114)
-        Me.btnRecipe.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnRecipe.Name = "btnRecipe"
-        Me.btnRecipe.Padding = New System.Windows.Forms.Padding(0, 4, 0, 0)
-        Me.btnRecipe.Size = New System.Drawing.Size(25, 25)
-        Me.btnRecipe.TabIndex = 152
-        Me.btnRecipe.UseVisualStyleBackColor = True
-        '
-        'btnDischarge
-        '
-        Me.btnDischarge.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnDischarge.FlatAppearance.BorderSize = 0
-        Me.btnDischarge.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDischarge.IconChar = FontAwesome.Sharp.IconChar.Check
-        Me.btnDischarge.IconColor = System.Drawing.Color.Black
-        Me.btnDischarge.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btnDischarge.IconSize = 25
-        Me.btnDischarge.Location = New System.Drawing.Point(16, 81)
-        Me.btnDischarge.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnDischarge.Name = "btnDischarge"
-        Me.btnDischarge.Padding = New System.Windows.Forms.Padding(0, 4, 0, 0)
-        Me.btnDischarge.Size = New System.Drawing.Size(25, 25)
-        Me.btnDischarge.TabIndex = 151
-        Me.btnDischarge.UseVisualStyleBackColor = True
-        '
-        'btnSuspect
-        '
-        Me.btnSuspect.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSuspect.FlatAppearance.BorderSize = 0
-        Me.btnSuspect.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSuspect.IconChar = FontAwesome.Sharp.IconChar.Check
-        Me.btnSuspect.IconColor = System.Drawing.Color.Black
-        Me.btnSuspect.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btnSuspect.IconSize = 25
-        Me.btnSuspect.Location = New System.Drawing.Point(16, 48)
-        Me.btnSuspect.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnSuspect.Name = "btnSuspect"
-        Me.btnSuspect.Padding = New System.Windows.Forms.Padding(0, 4, 0, 0)
-        Me.btnSuspect.Size = New System.Drawing.Size(25, 25)
-        Me.btnSuspect.TabIndex = 149
-        Me.btnSuspect.UseVisualStyleBackColor = True
-        '
         'frmIntervention
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -2557,6 +2557,8 @@ Partial Class frmIntervention
         Me.pnlLogo.ResumeLayout(False)
         CType(Me.imgCRU, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlCenter.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.pnlDrug.ResumeLayout(False)
         Me.pnlDrug.PerformLayout()
         Me.pnlProducts.ResumeLayout(False)
@@ -2582,8 +2584,6 @@ Partial Class frmIntervention
         Me.pnlFacts.PerformLayout()
         Me.pnlDetails.ResumeLayout(False)
         Me.pnlDetails.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

@@ -89,6 +89,7 @@ Partial Class frmInventory
         Me.btnAdd = New FontAwesome.Sharp.IconButton()
         Me.btnImport = New FontAwesome.Sharp.IconButton()
         Me.btnDown = New FontAwesome.Sharp.IconButton()
+        Me.lblSaved = New System.Windows.Forms.Label()
         CType(Me.dgvPicsO, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DORADbDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SEIZUREBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -604,6 +605,7 @@ Partial Class frmInventory
         '
         'pnlCenter
         '
+        Me.pnlCenter.Controls.Add(Me.lblSaved)
         Me.pnlCenter.Controls.Add(Me.btnPicsOPanel)
         Me.pnlCenter.Controls.Add(Me.pnlPics)
         Me.pnlCenter.Controls.Add(Me.btnPicsPanel)
@@ -1034,6 +1036,17 @@ Partial Class frmInventory
         Me.btnDown.TabStop = False
         Me.btnDown.UseVisualStyleBackColor = True
         '
+        'lblSaved
+        '
+        Me.lblSaved.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSaved.Location = New System.Drawing.Point(1160, 8)
+        Me.lblSaved.Name = "lblSaved"
+        Me.lblSaved.Size = New System.Drawing.Size(300, 23)
+        Me.lblSaved.TabIndex = 205
+        Me.lblSaved.Text = "Saved"
+        Me.lblSaved.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblSaved.Visible = False
+        '
         'frmInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -1126,4 +1139,5 @@ Partial Class frmInventory
     Friend WithEvents btnRenumber As FontAwesome.Sharp.IconButton
     Friend WithEvents btnPicsOPanel As FontAwesome.Sharp.IconButton
     Friend WithEvents btnPicsPanel As FontAwesome.Sharp.IconButton
+    Friend WithEvents lblSaved As Label
 End Class

@@ -129,6 +129,12 @@ Public Class frmInventory
         Try
             INVENTORYBindingSource.EndEdit()
             INVENTORYTableAdapter.Update(INVENTORYDataTable)
+            lblSaved.Visible = True
+            If Lang = 1 Then
+                lblSaved.Text = $"Laatste opslag: {Date.Now:HH:mm:ss}"
+            Else
+                lblSaved.Text = $"Dernière sauvegarde: {Date.Now:HH:mm:ss}"
+            End If
             log("INV.", "click on SAVE")
         Catch ex As Exception
             If Lang = 1 Then
