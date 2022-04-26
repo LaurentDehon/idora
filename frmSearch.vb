@@ -438,6 +438,9 @@ Public Class frmSearch
             If mnInterventionDone.Checked = True Then
                 strFilterExtra += " AND ([INTDONE] = TRUE)"
             End If
+            If mnInterventionsNotDone.Checked = True Then
+                strFilterExtra += " AND ([INTDONE] = FALSE)"
+            End If
             If mnCRUOnSite.Checked = True Then
                 strFilterExtra += " AND ([CRUONSITE] = TRUE)"
             End If
@@ -1307,6 +1310,7 @@ Public Class frmSearch
             mnLang.Text = "Taal"
             mnCMExt.Text = "Onderzoeker"
             mnInterventionDone.Text = "Interventies gesloten"
+            mnInterventionsNotDone.Text = "Interventies niet gesloten"
             mnCRUOnSite.Text = "CRU ter plaatse"
             ToolTip.SetToolTip(btnAddFilters, "Extra filters")
         Else
@@ -1353,6 +1357,7 @@ Public Class frmSearch
             mnLang.Text = "Langue"
             mnCMExt.Text = "Enquêteur"
             mnInterventionDone.Text = "Interventions clôturées"
+            mnInterventionsNotDone.Text = "Interventions non clôturées"
             mnCRUOnSite.Text = "CRU sur place"
             ToolTip.SetToolTip(btnAddFilters, "Filtres supplémentaires")
         End If

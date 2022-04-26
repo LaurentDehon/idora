@@ -1974,6 +1974,7 @@ Public Class frmIntervention
             btnFolder.IconColor = theme("Font")
         Else
             btnFolder.IconColor = Color.DarkRed
+            ToolTip.SetToolTip(btnFolder, dir)
         End If
     End Sub
     Private Sub Trad()

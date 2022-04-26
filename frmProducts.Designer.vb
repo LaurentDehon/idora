@@ -90,7 +90,7 @@ Partial Class frmProducts
         Me.dgvProducts.RowTemplate.DividerHeight = 1
         Me.dgvProducts.RowTemplate.Height = 30
         Me.dgvProducts.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
+        Me.dgvProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvProducts.Size = New System.Drawing.Size(964, 440)
         Me.dgvProducts.TabIndex = 1
         '
