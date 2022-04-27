@@ -1542,6 +1542,7 @@ Public Class frmIntervention
         UpdateCreation()
         DisplayFolder()
         InitializeDataGridViews()
+        handleCheckboxes()
     End Sub
     Private Sub btnNextCase_Click(sender As Object, e As EventArgs) Handles btnNextCase.Click
         'Go to next intervention from the same case
@@ -1583,6 +1584,7 @@ Public Class frmIntervention
         UpdateCreation()
         DisplayFolder()
         InitializeDataGridViews()
+        handleCheckboxes()
     End Sub
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         'Save changes
@@ -1967,9 +1969,24 @@ Public Class frmIntervention
         btnNextCase.Location = New Point(lblTitle.Location.X + lblTitle.Width + 25, 60)
     End Sub
     Private Sub DisplayFolder()
-        Dim dt As Date = Convert.ToDateTime(txtDateInt.Text)
-        Dim format As String = "dd-MM-yy"
-        Dim dir As String = $"{files_path}20{CRUFile.Substring(3, 2)}\{TypeOfCase}\{CRUFile} - {CaseName}\C.R.U\INT {IntNum} {dt.ToString(format)} - {cmbCityInt.Text} - {txtAdressInt.Text} ({cmbTypeOfInt.Text})"
+        Dim dir As String
+        If CRUFile.Substring(0, 3) Like "CRU" AndAlso CInt(CRUFile.Substring(3, 2)) > CInt("19") Then
+            Dim dt As Date = Convert.ToDateTime(txtDateInt.Text)
+            Dim format As String = "dd-MM-yy"
+            dir = $"{files_path}20{CRUFile.Substring(3, 2)}\{TypeOfCase}\{CRUFile} - {CaseName}\C.R.U\INT {IntNum} {dt.ToString(format)} - {cmbCityInt.Text} - {txtAdressInt.Text} ({cmbTypeOfInt.Text})"
+        ElseIf CRUFile.Substring(1, 2) = "19" Then
+            If Directory.Exists($"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\2019\DISP 2019\{CRUFile}\C.R.U") Then
+                dir = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\2019\DISP 2019\{CRUFile}\C.R.U"
+            Else
+                dir = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\2019\DISP 2019\{CRUFile}"
+            End If
+        Else
+            If Directory.Exists($"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}\C.R.U") Then
+                dir = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}\C.R.U"
+            Else
+                dir = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}"
+            End If
+        End If
         If Directory.Exists(dir) Then
             btnFolder.IconColor = theme("Font")
         Else
@@ -2001,7 +2018,7 @@ Public Class frmIntervention
             lblCRUOnSite.Text = "CRU ter plaatse"
             lblOnSite.Text = "Ter plaatse"
             lblSuspect.Text = "Verdacht(en)"
-            lblDischarge.Text = "Lozing(en)"
+            lblDischarge.Text = "Lozing"
             lblRecipe.Text = "Recept(en)"
             lblBill.Text = "Factuur(en)"
             lblNote.Text = "Opmerking(en)"
@@ -2043,7 +2060,7 @@ Om het filter te resetten, plaatst u de cursor in het lege tekstveld en drukt u 
             lblCRUOnSite.Text = "CRU sur place"
             lblOnSite.Text = "Sur place"
             lblSuspect.Text = "Suspect(s)"
-            lblDischarge.Text = "Déversement(s)"
+            lblDischarge.Text = "Déversement"
             lblRecipe.Text = "Recette(s)"
             lblBill.Text = "Facture(s)"
             lblNote.Text = "Note(s)"
@@ -2201,8 +2218,10 @@ Pour réinitialiser le filtre, placez le curseur dans le champ de texte vide et 
         IconPictureBox2.ForeColor = theme("Font")
         IconPictureBox3.ForeColor = theme("Font")
         pnlCenter.BackColor = theme("Light")
-        For Each p As Panel In pnlCenter.Controls
-            AddBorderToPanel(pnlCenter, p, theme("High"))
+        For Each c As Control In pnlCenter.Controls
+            If TypeOf c Is Panel Then
+                AddBorderToPanel(pnlCenter, c, theme("High"))
+            End If
         Next
         dgvProd.BackgroundColor = theme("Light")
         dgvProd.RowsDefaultCellStyle.BackColor = theme("Light")

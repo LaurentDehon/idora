@@ -815,11 +815,13 @@ Public Class frmCasesInterventions
         Dim firstintervention As Integer = dgvInterventions.FirstDisplayedScrollingRowIndex
         Dim indexcase As Integer = -1
         Dim indexintervention As Integer = -1
+        Dim col As Color
         If dgvCases.SelectedRows.Count > 0 Then
             indexcase = dgvCases.SelectedRows(0).Index
         End If
         If dgvInterventions.SelectedRows.Count > 0 Then
             indexintervention = dgvInterventions.SelectedRows(0).Index
+            col = dgvInterventions.Item(11, indexintervention).Style.BackColor
         End If
         CASESTableAdapter.Fill(DORADbDS.CASES)
         CASESBindingSource.Sort = "[DATE FACTS] DESC, [ID] DESC"
@@ -833,6 +835,7 @@ Public Class frmCasesInterventions
         End If
         If indexintervention > -1 Then
             dgvInterventions.Rows(indexintervention).Selected = True
+            dgvInterventions.Item(11, indexintervention).Style.SelectionBackColor = col
         End If
         dgvCases.FirstDisplayedScrollingRowIndex = firstcase
         dgvInterventions.FirstDisplayedScrollingRowIndex = firstintervention

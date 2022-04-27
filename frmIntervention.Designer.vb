@@ -402,7 +402,7 @@ Partial Class frmIntervention
         '
         Me.chkInventory.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.INTERVENTIONSBindingSource, "INVENTORY", True))
         Me.chkInventory.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkInventory.Location = New System.Drawing.Point(544, 32)
+        Me.chkInventory.Location = New System.Drawing.Point(1072, 56)
         Me.chkInventory.Margin = New System.Windows.Forms.Padding(4)
         Me.chkInventory.Name = "chkInventory"
         Me.chkInventory.Size = New System.Drawing.Size(136, 22)
@@ -414,7 +414,7 @@ Partial Class frmIntervention
         '
         Me.chkPicturesReport.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.INTERVENTIONSBindingSource, "PICTURES REPORT", True))
         Me.chkPicturesReport.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkPicturesReport.Location = New System.Drawing.Point(544, 56)
+        Me.chkPicturesReport.Location = New System.Drawing.Point(1072, 80)
         Me.chkPicturesReport.Margin = New System.Windows.Forms.Padding(4)
         Me.chkPicturesReport.Name = "chkPicturesReport"
         Me.chkPicturesReport.Size = New System.Drawing.Size(160, 22)
@@ -426,7 +426,7 @@ Partial Class frmIntervention
         '
         Me.chkNICCReport.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.INTERVENTIONSBindingSource, "NICC REPORT", True))
         Me.chkNICCReport.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkNICCReport.Location = New System.Drawing.Point(544, 80)
+        Me.chkNICCReport.Location = New System.Drawing.Point(1072, 104)
         Me.chkNICCReport.Margin = New System.Windows.Forms.Padding(4)
         Me.chkNICCReport.Name = "chkNICCReport"
         Me.chkNICCReport.Size = New System.Drawing.Size(136, 22)
@@ -438,7 +438,7 @@ Partial Class frmIntervention
         '
         Me.chkCRUReport.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.INTERVENTIONSBindingSource, "CRU REPORT", True))
         Me.chkCRUReport.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkCRUReport.Location = New System.Drawing.Point(544, 8)
+        Me.chkCRUReport.Location = New System.Drawing.Point(1072, 32)
         Me.chkCRUReport.Margin = New System.Windows.Forms.Padding(4)
         Me.chkCRUReport.Name = "chkCRUReport"
         Me.chkCRUReport.Size = New System.Drawing.Size(136, 22)
@@ -936,7 +936,7 @@ Partial Class frmIntervention
         '
         Me.chkIntervention.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.INTERVENTIONSBindingSource, "INTDONE", True))
         Me.chkIntervention.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkIntervention.Location = New System.Drawing.Point(544, 104)
+        Me.chkIntervention.Location = New System.Drawing.Point(1072, 128)
         Me.chkIntervention.Margin = New System.Windows.Forms.Padding(4)
         Me.chkIntervention.Name = "chkIntervention"
         Me.chkIntervention.Size = New System.Drawing.Size(160, 22)
@@ -1008,7 +1008,7 @@ Partial Class frmIntervention
         Me.txtNICCConc.Multiline = True
         Me.txtNICCConc.Name = "txtNICCConc"
         Me.txtNICCConc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtNICCConc.Size = New System.Drawing.Size(291, 166)
+        Me.txtNICCConc.Size = New System.Drawing.Size(292, 166)
         Me.txtNICCConc.TabIndex = 1
         '
         'txtTime1
@@ -1037,13 +1037,13 @@ Partial Class frmIntervention
         'lblProdCap
         '
         Me.lblProdCap.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblProdCap.Location = New System.Drawing.Point(512, 289)
+        Me.lblProdCap.Location = New System.Drawing.Point(416, 289)
         Me.lblProdCap.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblProdCap.Name = "lblProdCap"
-        Me.lblProdCap.Size = New System.Drawing.Size(81, 24)
+        Me.lblProdCap.Size = New System.Drawing.Size(177, 24)
         Me.lblProdCap.TabIndex = 119
         Me.lblProdCap.Text = "Capacity"
-        Me.lblProdCap.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.lblProdCap.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtProdCap
         '
@@ -1180,22 +1180,11 @@ Partial Class frmIntervention
         '
         'pnlTitle
         '
-        Me.pnlTitle.Controls.Add(Me.chkSuspect)
-        Me.pnlTitle.Controls.Add(Me.chkDischarge)
-        Me.pnlTitle.Controls.Add(Me.chkRecipe)
-        Me.pnlTitle.Controls.Add(Me.chkBill)
-        Me.pnlTitle.Controls.Add(Me.chkNote)
         Me.pnlTitle.Controls.Add(Me.lblCreated)
-        Me.pnlTitle.Controls.Add(Me.chkCRUOnSite)
         Me.pnlTitle.Controls.Add(Me.btnNextCase)
         Me.pnlTitle.Controls.Add(Me.btnPrevCase)
         Me.pnlTitle.Controls.Add(Me.pnlControls)
         Me.pnlTitle.Controls.Add(Me.lblTitle)
-        Me.pnlTitle.Controls.Add(Me.chkCRUReport)
-        Me.pnlTitle.Controls.Add(Me.chkInventory)
-        Me.pnlTitle.Controls.Add(Me.chkPicturesReport)
-        Me.pnlTitle.Controls.Add(Me.chkNICCReport)
-        Me.pnlTitle.Controls.Add(Me.chkIntervention)
         Me.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlTitle.Location = New System.Drawing.Point(131, 0)
         Me.pnlTitle.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -1207,7 +1196,7 @@ Partial Class frmIntervention
         '
         Me.chkSuspect.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.INTERVENTIONSBindingSource, "SUSPECT", True))
         Me.chkSuspect.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkSuspect.Location = New System.Drawing.Point(920, 6)
+        Me.chkSuspect.Location = New System.Drawing.Point(1072, 222)
         Me.chkSuspect.Margin = New System.Windows.Forms.Padding(4)
         Me.chkSuspect.Name = "chkSuspect"
         Me.chkSuspect.Size = New System.Drawing.Size(136, 22)
@@ -1219,7 +1208,7 @@ Partial Class frmIntervention
         '
         Me.chkDischarge.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.INTERVENTIONSBindingSource, "DISCHARGE", True))
         Me.chkDischarge.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkDischarge.Location = New System.Drawing.Point(920, 30)
+        Me.chkDischarge.Location = New System.Drawing.Point(1072, 246)
         Me.chkDischarge.Margin = New System.Windows.Forms.Padding(4)
         Me.chkDischarge.Name = "chkDischarge"
         Me.chkDischarge.Size = New System.Drawing.Size(136, 22)
@@ -1231,7 +1220,7 @@ Partial Class frmIntervention
         '
         Me.chkRecipe.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.INTERVENTIONSBindingSource, "RECIPE", True))
         Me.chkRecipe.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkRecipe.Location = New System.Drawing.Point(920, 54)
+        Me.chkRecipe.Location = New System.Drawing.Point(1072, 270)
         Me.chkRecipe.Margin = New System.Windows.Forms.Padding(4)
         Me.chkRecipe.Name = "chkRecipe"
         Me.chkRecipe.Size = New System.Drawing.Size(160, 22)
@@ -1243,7 +1232,7 @@ Partial Class frmIntervention
         '
         Me.chkBill.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.INTERVENTIONSBindingSource, "BILL", True))
         Me.chkBill.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkBill.Location = New System.Drawing.Point(920, 78)
+        Me.chkBill.Location = New System.Drawing.Point(1072, 294)
         Me.chkBill.Margin = New System.Windows.Forms.Padding(4)
         Me.chkBill.Name = "chkBill"
         Me.chkBill.Size = New System.Drawing.Size(136, 22)
@@ -1255,7 +1244,7 @@ Partial Class frmIntervention
         '
         Me.chkNote.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.INTERVENTIONSBindingSource, "NOTE", True))
         Me.chkNote.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkNote.Location = New System.Drawing.Point(920, 102)
+        Me.chkNote.Location = New System.Drawing.Point(1072, 318)
         Me.chkNote.Margin = New System.Windows.Forms.Padding(4)
         Me.chkNote.Name = "chkNote"
         Me.chkNote.Size = New System.Drawing.Size(160, 22)
@@ -1280,7 +1269,7 @@ Partial Class frmIntervention
         '
         Me.chkCRUOnSite.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.INTERVENTIONSBindingSource, "CRU ON SITE", True))
         Me.chkCRUOnSite.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkCRUOnSite.Location = New System.Drawing.Point(744, 8)
+        Me.chkCRUOnSite.Location = New System.Drawing.Point(496, 38)
         Me.chkCRUOnSite.Margin = New System.Windows.Forms.Padding(4)
         Me.chkCRUOnSite.Name = "chkCRUOnSite"
         Me.chkCRUOnSite.Size = New System.Drawing.Size(160, 22)
@@ -1615,7 +1604,18 @@ Partial Class frmIntervention
         Me.pnlCenter.Controls.Add(Me.pnlTime)
         Me.pnlCenter.Controls.Add(Me.pnlIntervention)
         Me.pnlCenter.Controls.Add(Me.pnlFacts)
+        Me.pnlCenter.Controls.Add(Me.chkCRUReport)
+        Me.pnlCenter.Controls.Add(Me.chkInventory)
         Me.pnlCenter.Controls.Add(Me.pnlDetails)
+        Me.pnlCenter.Controls.Add(Me.chkPicturesReport)
+        Me.pnlCenter.Controls.Add(Me.chkIntervention)
+        Me.pnlCenter.Controls.Add(Me.chkNICCReport)
+        Me.pnlCenter.Controls.Add(Me.chkCRUOnSite)
+        Me.pnlCenter.Controls.Add(Me.chkSuspect)
+        Me.pnlCenter.Controls.Add(Me.chkDischarge)
+        Me.pnlCenter.Controls.Add(Me.chkRecipe)
+        Me.pnlCenter.Controls.Add(Me.chkBill)
+        Me.pnlCenter.Controls.Add(Me.chkNote)
         Me.pnlCenter.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlCenter.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.pnlCenter.Location = New System.Drawing.Point(131, 130)
@@ -1637,10 +1637,10 @@ Partial Class frmIntervention
         Me.Panel1.Controls.Add(Me.btnDischarge)
         Me.Panel1.Controls.Add(Me.btnSuspect)
         Me.Panel1.Controls.Add(Me.lblOnSite)
-        Me.Panel1.Location = New System.Drawing.Point(832, 620)
+        Me.Panel1.Location = New System.Drawing.Point(840, 620)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(200, 228)
+        Me.Panel1.Size = New System.Drawing.Size(192, 228)
         Me.Panel1.TabIndex = 147
         '
         'lblNote
@@ -2014,7 +2014,7 @@ Partial Class frmIntervention
         Me.pnlNICCConc.Location = New System.Drawing.Point(480, 620)
         Me.pnlNICCConc.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.pnlNICCConc.Name = "pnlNICCConc"
-        Me.pnlNICCConc.Size = New System.Drawing.Size(328, 226)
+        Me.pnlNICCConc.Size = New System.Drawing.Size(336, 226)
         Me.pnlNICCConc.TabIndex = 146
         '
         'pnlSummary
