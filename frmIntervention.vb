@@ -2097,7 +2097,7 @@ Om het filter te resetten, plaatst u de cursor in het lege tekstveld en drukt u 
             lblNote.Text = "Note(s)"
             ToolTip.SetToolTip(btnPrevCase, "Intervention précédente")
             ToolTip.SetToolTip(btnNextCase, "Intervention suivante")
-            ToolTip.SetToolTip(btnSave, "Enregistrer")
+            ToolTip.SetToolTip(btnSave, "Sauvegarder")
             ToolTip.SetToolTip(btnFolder, "Ouvrir le répertoire")
             ToolTip.SetToolTip(btnOpenNICCReport, "Ouvrir le rapport de l'INCC")
             ToolTip.SetToolTip(btnIntReport, "Générer rapport d'intervention")

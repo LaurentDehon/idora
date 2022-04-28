@@ -42,12 +42,14 @@ Public Class frmProducts
         If Lang = 1 Then
             dgvProducts.Columns(4).HeaderText = "CAS nummer"
             dgvProducts.Columns(5).HeaderText = "UN nummer"
-            ToolTip.SetToolTip(btnUndo, "Ongedaan maken")
+            ToolTip.SetToolTip(btnUndo, "Annuleren")
+            ToolTip.SetToolTip(btnSave, "Opslaan")
             lblcount.Text = PRODUCTSBindingSource.Count & " product(en)"
         Else
             dgvProducts.Columns(4).HeaderText = "Numéro CAS"
             dgvProducts.Columns(5).HeaderText = "Numéro UN"
             ToolTip.SetToolTip(btnUndo, "Annuler")
+            ToolTip.SetToolTip(btnUndo, "Sauvegarder")
             lblcount.Text = PRODUCTSBindingSource.Count & " produit(s)"
         End If
     End Sub

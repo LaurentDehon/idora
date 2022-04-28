@@ -42,6 +42,8 @@ Public Class frmMembers
             dgvMembers.Columns(2).HeaderText = "Dienst"
             dgvMembers.Columns(3).HeaderText = "Telefoon"
             dgvMembers.Columns(4).HeaderText = "Mobiele"
+            ToolTip.SetToolTip(btnUndo, "Annuleren")
+            ToolTip.SetToolTip(btnSave, "Opslaan")
             lblcount.Text = MEMBERSBindingSource.Count & " persoon(en)"
         Else
             dgvMembers.Columns(0).HeaderText = "Nom"
@@ -49,6 +51,8 @@ Public Class frmMembers
             dgvMembers.Columns(2).HeaderText = "Service"
             dgvMembers.Columns(3).HeaderText = "Téléphone"
             dgvMembers.Columns(4).HeaderText = "Mobile"
+            ToolTip.SetToolTip(btnUndo, "Annuler")
+            ToolTip.SetToolTip(btnSave, "Sauvegarder")
             lblcount.Text = MEMBERSBindingSource.Count & " personne(s)"
         End If
     End Sub

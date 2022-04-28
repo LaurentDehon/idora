@@ -592,7 +592,7 @@ Public Class frmCases
             lblFederalizedDate.Text = "le"
             lblFederalizedMagistrate.Text = "Magistrat"
             lblSummary.Text = "Résumé des faits"
-            ToolTip.SetToolTip(btnSave, "Enregistrer")
+            ToolTip.SetToolTip(btnSave, "Sauvegarder")
             ToolTip.SetToolTip(btnFolder, "Ouvrir le répertoire")
             ToolTip.SetToolTip(btnExit, "Quitter")
             ToolTip.SetToolTip(txtSienaDate, "Appuyez sur del pour effacer")
