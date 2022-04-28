@@ -1822,9 +1822,9 @@ Public Class frmInventory
             ToolTip.SetToolTip(btnInventoryGen, "Inventaris genereren")
             ToolTip.SetToolTip(btnPicturesGen, "Fotodossier genereren")
             If Directory.Exists(lowF) Then
-                ToolTip.SetToolTip(btnPicsLow, "Foto's openen")
+                ToolTip.SetToolTip(btnPicsLow, "Foto's map openen")
             Else
-                ToolTip.SetToolTip(btnPicsLow, "Low foto's creëer")
+                ToolTip.SetToolTip(btnPicsLow, "LOW foto's map creëren")
             End If
             ToolTip.SetToolTip(btnAdd, "Nummer toevoegen (Snelkoppeling: CTRL +)")
             ToolTip.SetToolTip(btnAddRuimte, "Ruimte toevoegen (Snelkoppeling: CTRL *)")
@@ -1844,7 +1844,7 @@ Public Class frmInventory
             ToolTip.SetToolTip(btnRotateR, "Rechts draaien")
             ToolTip.SetToolTip(btnRotateLO, "Links draaien")
             ToolTip.SetToolTip(btnRotateRO, "Rechts draaien")
-            ToolTip.SetToolTip(btnRenumber, "Hernoemen")
+            ToolTip.SetToolTip(btnRenumber, "Ruimte hernoemen")
             ToolTip.SetToolTip(btnDelete, "Verwijder")
             ToolTip.SetToolTip(btnSeizure, "Vesta")
         Else
@@ -1856,12 +1856,12 @@ Public Class frmInventory
             ToolTip.SetToolTip(txtDesc, "Description")
             ToolTip.SetToolTip(txtSamples, "Échantillons")
             ToolTip.SetToolTip(cmbSamplesT, "Prélevés par")
-            ToolTip.SetToolTip(btnInventoryGen, "Générer inventaire")
-            ToolTip.SetToolTip(btnPicturesGen, "Générer dossier photos")
+            ToolTip.SetToolTip(btnInventoryGen, "Générer l'inventaire")
+            ToolTip.SetToolTip(btnPicturesGen, "Générer le dossier photos")
             If Directory.Exists(lowF) Then
-                ToolTip.SetToolTip(btnPicsLow, "Ouvrir photos")
+                ToolTip.SetToolTip(btnPicsLow, "Ouvrir le répertoire des photos")
             Else
-                ToolTip.SetToolTip(btnPicsLow, "Créer photos LOW")
+                ToolTip.SetToolTip(btnPicsLow, "Créer le répertoire des photos LOW")
             End If
             ToolTip.SetToolTip(btnAdd, "Ajouter un numéro (Raccourci: CTRL +)")
             ToolTip.SetToolTip(btnAddRuimte, "Ajouter une zone (Raccourci: CTRL *)")
@@ -1875,13 +1875,13 @@ Public Class frmInventory
             ToolTip.SetToolTip(btnUpPicO, "Monter")
             ToolTip.SetToolTip(btnDownPicO, "Descendre")
             ToolTip.SetToolTip(btnDeletePicO, "Supprimer")
-            ToolTip.SetToolTip(btnImport, "Importer inventaire")
-            ToolTip.SetToolTip(btnSave, "Enregistrer les modifications")
+            ToolTip.SetToolTip(btnImport, "Importer un inventaire")
+            ToolTip.SetToolTip(btnSave, "Sauvegarder")
             ToolTip.SetToolTip(btnRotateL, "Pivoter vers la gauche")
             ToolTip.SetToolTip(btnRotateR, "Pivoter vers la droite")
             ToolTip.SetToolTip(btnRotateLO, "Pivoter vers la gauche")
             ToolTip.SetToolTip(btnRotateRO, "Pivoter vers la droite")
-            ToolTip.SetToolTip(btnRenumber, "Renuméroter")
+            ToolTip.SetToolTip(btnRenumber, "Renuméroter la zone")
             ToolTip.SetToolTip(btnDelete, "Supprimer")
             ToolTip.SetToolTip(btnSeizure, "Vesta")
         End If
