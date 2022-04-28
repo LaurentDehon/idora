@@ -45,6 +45,7 @@ Partial Class frmProducts
         Me.txtSearchProducts = New System.Windows.Forms.TextBox()
         Me.btnUndo = New FontAwesome.Sharp.IconButton()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnSave = New FontAwesome.Sharp.IconButton()
         CType(Me.dgvProducts, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PRODUCTSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DORADbDS, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -200,6 +201,7 @@ Partial Class frmProducts
         '
         'pnlTop
         '
+        Me.pnlTop.Controls.Add(Me.btnSave)
         Me.pnlTop.Controls.Add(Me.txtSearchProducts)
         Me.pnlTop.Controls.Add(Me.btnUndo)
         Me.pnlTop.Controls.Add(Me.lblcount)
@@ -249,6 +251,21 @@ Partial Class frmProducts
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(972, 503)
         Me.TableLayoutPanel1.TabIndex = 137
         '
+        'btnSave
+        '
+        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSave.FlatAppearance.BorderSize = 0
+        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSave.IconChar = FontAwesome.Sharp.IconChar.Save
+        Me.btnSave.IconColor = System.Drawing.Color.Black
+        Me.btnSave.IconFont = FontAwesome.Sharp.IconFont.Solid
+        Me.btnSave.IconSize = 25
+        Me.btnSave.Location = New System.Drawing.Point(328, 8)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(32, 32)
+        Me.btnSave.TabIndex = 141
+        Me.btnSave.UseVisualStyleBackColor = True
+        '
         'frmProducts
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 24.0!)
@@ -292,4 +309,5 @@ Partial Class frmProducts
     Friend WithEvents btnUndo As FontAwesome.Sharp.IconButton
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents txtSearchProducts As TextBox
+    Friend WithEvents btnSave As FontAwesome.Sharp.IconButton
 End Class

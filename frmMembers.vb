@@ -70,7 +70,7 @@ Public Class frmMembers
         dgvMembers.FirstDisplayedScrollingRowIndex = first
         dgvMembers.Rows(index).Selected = True
     End Sub
-    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles Me.Closing
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles Me.Closing, btnSave.Click
         'Save changes
         Try
             Validate()
@@ -99,6 +99,7 @@ Public Class frmMembers
         dgvMembers.ColumnHeadersDefaultCellStyle.SelectionBackColor = theme("Dark")
         dgvMembers.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.Black
         btnUndo.IconColor = theme("Font")
+        btnSave.IconColor = theme("Font")
     End Sub
 #End Region
 

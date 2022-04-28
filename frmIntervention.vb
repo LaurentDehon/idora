@@ -12,6 +12,10 @@ Public Class frmIntervention
     Public constat As String
     Dim user_list() As String
     Dim user_name As String
+    Dim olddate As Date
+    Dim oldtypeofint As String
+    Dim oldcity As String
+    Dim oldadress As String
     Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
         Get
             Dim cp As CreateParams = MyBase.CreateParams
@@ -57,6 +61,10 @@ Public Class frmIntervention
                 btnInv.IconColor = Color.FromName(user_list(3))
             End If
         Next
+        olddate = txtDateInt.Value
+        oldtypeofint = cmbTypeOfInt.Text
+        oldcity = cmbCityInt.Text
+        oldadress = txtAdressInt.Text
         Trad()
         FillCombo()
         'Move bindingsource position on the right record
@@ -406,6 +414,11 @@ Public Class frmIntervention
             End Try
         End If
     End Sub
+    Private Sub btnRefreshMembers_Click(sender As Object, e As EventArgs) Handles btnRefreshMembers.Click
+        MEMBERSTableAdapter.Fill(DORADbDS.MEMBERS)
+        MEMBERSBindingSource.Filter = "[ACTIVE] = True"
+        MEMBERSBindingSource.Sort = "[LAST NAME] ASC"
+    End Sub
     Private Sub txtProductQuantity_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtProductQuantity.KeyPress
         'Disable "." char
         If e.KeyChar = "." Then
@@ -438,8 +451,8 @@ Public Class frmIntervention
             cmbProductName.Text = String.Empty
         End If
     End Sub
-    Private Sub cmbProductName_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbProductName.KeyPress
-        If cmbProductName.Text = String.Empty And e.KeyChar = ControlChars.Back Then
+    Private Sub cmbProductName_KeyDown(sender As Object, e As KeyEventArgs) Handles cmbProductName.KeyDown
+        If cmbProductName.Text = String.Empty And e.KeyCode = Keys.Back Then
             PRODUCTSBindingSource.Filter = String.Empty
             cmbProductName.Text = String.Empty
         End If
@@ -536,6 +549,12 @@ Public Class frmIntervention
                 End If
             End Try
         End If
+    End Sub
+    Private Sub btnRefreshProducts_Click(sender As Object, e As EventArgs) Handles btnRefreshProducts.Click
+        PRODUCTSTableAdapter.Fill(DORADbDS.PRODUCTS)
+        PRODUCTSBindingSource.Sort = "[SHORT NAME] ASC"
+        cmbProductName.DataSource = PRODUCTSBindingSource
+        cmbProductName.SelectedIndex = -1
     End Sub
     Private Sub dgvProd_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvProd.CellClick
         'Display selected row in textboxes and comboboxes
@@ -700,7 +719,7 @@ Public Class frmIntervention
                     cmbStep.Enabled = True
                     cmbStep.DropDownWidth = 128
                     cmbStep.Items.Add("Extractie")
-                    cmbStep.Items.Add("Gesneden")
+                    cmbStep.Items.Add("Versnijding")
                     cmbStep.Items.Add("Verpakking")
                 'Heroïne
                 Case 6
@@ -1540,6 +1559,7 @@ Public Class frmIntervention
         HideDefaultDates()
         DisplayTitle()
         UpdateCreation()
+        GetPathInt()
         DisplayFolder()
         InitializeDataGridViews()
         handleCheckboxes()
@@ -1582,6 +1602,7 @@ Public Class frmIntervention
         HideDefaultDates()
         DisplayTitle()
         UpdateCreation()
+        GetPathInt()
         DisplayFolder()
         InitializeDataGridViews()
         handleCheckboxes()
@@ -1594,18 +1615,21 @@ Public Class frmIntervention
             If Directory.Exists(PathInt) Then
                 If CRUFile.Substring(0, 3) Like "CRU" AndAlso CInt(CRUFile.Substring(3, 2)) >= CInt("20") Then
                     If PathInt <> $"{files_path}20{CRUFile.Substring(3, 2)}\{TypeOfCase}\{CRUFile} - {CaseName}\C.R.U\INT {IntNum} {dt.ToString(format)} - {cmbCityInt.Text} - {txtAdressInt.Text} ({cmbTypeOfInt.Text})" Then
-                        FileIO.FileSystem.MoveDirectory(PathInt, $"{files_path}20{CRUFile.Substring(3, 2)}\{TypeOfCase}\{CRUFile} - {CaseName}\C.R.U\INT {IntNum} {dt.ToString(format)} - {cmbCityInt.Text} - {txtAdressInt.Text} ({cmbTypeOfInt.Text})")
+                        FileIO.FileSystem.RenameDirectory(PathInt, $"INT {IntNum} {dt.ToString(format)} - {cmbCityInt.Text} - {txtAdressInt.Text} ({cmbTypeOfInt.Text})")
+                        'FileIO.FileSystem.MoveDirectory(PathInt, $"{files_path}20{CRUFile.Substring(3, 2)}\{TypeOfCase}\{CRUFile} - {CaseName}\C.R.U\INT {IntNum} {dt.ToString(format)} - {cmbCityInt.Text} - {txtAdressInt.Text} ({cmbTypeOfInt.Text})")
                         PathInt = $"{files_path}20{CRUFile.Substring(3, 2)}\{TypeOfCase}\{CRUFile} - {CaseName}\C.R.U\INT {IntNum} {dt.ToString(format)} - {cmbCityInt.Text} - {txtAdressInt.Text} ({cmbTypeOfInt.Text})"
                     End If
                 ElseIf Not Directory.Exists($"{PathInt}\FOTODOSSIER") Then
                     If CRUFile.Substring(1, 2) = "19" Then
                         If PathInt <> $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\2019\DISP 2019\{CRUFile}\C.R.U\INT {IntNum} {dt.ToString(format)} - {cmbCityInt.Text} - {txtAdressInt.Text} ({cmbTypeOfInt.Text})" Then
-                            FileIO.FileSystem.MoveDirectory(PathInt, $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\2019\DISP 2019\{CRUFile}\C.R.U\INT {IntNum} {dt.ToString(format)} - {cmbCityInt.Text} - {txtAdressInt.Text} ({cmbTypeOfInt.Text})")
+                            FileIO.FileSystem.RenameDirectory(PathInt, $"INT {IntNum} {dt.ToString(format)} - {cmbCityInt.Text} - {txtAdressInt.Text} ({cmbTypeOfInt.Text})")
+                            'FileIO.FileSystem.MoveDirectory(PathInt, $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\2019\DISP 2019\{CRUFile}\C.R.U\INT {IntNum} {dt.ToString(format)} - {cmbCityInt.Text} - {txtAdressInt.Text} ({cmbTypeOfInt.Text})")
                             PathInt = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\2019\DISP 2019\{CRUFile}\C.R.U\INT {IntNum} {dt.ToString(format)} - {cmbCityInt.Text} - {txtAdressInt.Text} ({cmbTypeOfInt.Text})"
                         End If
                     Else
                         If PathInt <> $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}\C.R.U\INT {IntNum} {dt.ToString(format)} - {cmbCityInt.Text} - {txtAdressInt.Text} ({cmbTypeOfInt.Text})" Then
-                            FileIO.FileSystem.MoveDirectory(PathInt, $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}\C.R.U\INT {IntNum} {dt.ToString(format)} - {cmbCityInt.Text} - {txtAdressInt.Text} ({cmbTypeOfInt.Text})")
+                            FileIO.FileSystem.RenameDirectory(PathInt, $"INT {IntNum} {dt.ToString(format)} - {cmbCityInt.Text} - {txtAdressInt.Text} ({cmbTypeOfInt.Text})")
+                            'FileIO.FileSystem.MoveDirectory(PathInt, $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}\C.R.U\INT {IntNum} {dt.ToString(format)} - {cmbCityInt.Text} - {txtAdressInt.Text} ({cmbTypeOfInt.Text})")
                             PathInt = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}\C.R.U\INT {IntNum} {dt.ToString(format)} - {cmbCityInt.Text} - {txtAdressInt.Text} ({cmbTypeOfInt.Text})"
                         End If
                     End If
@@ -1619,15 +1643,14 @@ Public Class frmIntervention
                 MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 MessageBox.Show(ex.ToString, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
+            txtDateInt.Value = olddate
+            cmbTypeOfInt.Text = oldtypeofint
+            cmbCityInt.Text = oldcity
+            txtAdressInt.Text = oldadress
+            Exit Sub
         End Try
         If txtCRUReportNum.MaskCompleted = False Then DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("CRU REPORT NUM") = String.Empty
         If txtNICCReportNum.MaskCompleted = False Then DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("NICC REPORT NUM") = String.Empty
-        If cmbInt.Text = "Ter plaatse" OrElse cmbInt.Text = "Sur place" Then
-            DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("DATE FACTS") = txtDateInt.Text
-            DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("ADRESS FACTS") = txtAdressInt.Text
-            DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("ZIP FACTS") = txtZipInt.Text
-            DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("CITY FACTS") = cmbCityInt.Text
-        End If
         INTERVENTIONSBindingSource.EndEdit()
         INTERVENTIONSTableAdapter.Update(DORADbDS.INTERVENTIONS)
         MEMBERS_INTBindingSource.EndEdit()
@@ -1681,6 +1704,12 @@ Public Class frmIntervention
                 MessageBox.Show(ex.ToString, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         End Try
+    End Sub
+    Private Sub btnOpenNICCReport_Click(sender As Object, e As EventArgs) Handles btnOpenNICCReport.Click
+        Dim files As String() = Directory.GetFiles($"{PathInt}\RESULTAAT ANALYSE", "*.pdf")
+        For Each f In files
+            Process.Start(f)
+        Next
     End Sub
     Private Sub btnIntReport_Click(sender As Object, e As EventArgs) Handles btnIntReport.Click
         Cursor = Cursors.WaitCursor
@@ -1968,30 +1997,31 @@ Public Class frmIntervention
         lblTitle.Location = New Point(btnPrevCase.Location.X + 60, 60)
         btnNextCase.Location = New Point(lblTitle.Location.X + lblTitle.Width + 25, 60)
     End Sub
-    Private Sub DisplayFolder()
-        Dim dir As String
+    Private Sub GetPathInt()
         If CRUFile.Substring(0, 3) Like "CRU" AndAlso CInt(CRUFile.Substring(3, 2)) > CInt("19") Then
             Dim dt As Date = Convert.ToDateTime(txtDateInt.Text)
             Dim format As String = "dd-MM-yy"
-            dir = $"{files_path}20{CRUFile.Substring(3, 2)}\{TypeOfCase}\{CRUFile} - {CaseName}\C.R.U\INT {IntNum} {dt.ToString(format)} - {cmbCityInt.Text} - {txtAdressInt.Text} ({cmbTypeOfInt.Text})"
+            PathInt = $"{files_path}20{CRUFile.Substring(3, 2)}\{TypeOfCase}\{CRUFile} - {CaseName}\C.R.U\INT {IntNum} {dt.ToString(format)} - {cmbCityInt.Text} - {txtAdressInt.Text} ({cmbTypeOfInt.Text})"
         ElseIf CRUFile.Substring(1, 2) = "19" Then
             If Directory.Exists($"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\2019\DISP 2019\{CRUFile}\C.R.U") Then
-                dir = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\2019\DISP 2019\{CRUFile}\C.R.U"
+                PathInt = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\2019\DISP 2019\{CRUFile}\C.R.U"
             Else
-                dir = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\2019\DISP 2019\{CRUFile}"
+                PathInt = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\2019\DISP 2019\{CRUFile}"
             End If
         Else
             If Directory.Exists($"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}\C.R.U") Then
-                dir = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}\C.R.U"
+                PathInt = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}\C.R.U"
             Else
-                dir = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}"
+                PathInt = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}"
             End If
         End If
-        If Directory.Exists(dir) Then
+    End Sub
+    Private Sub DisplayFolder()
+        If Directory.Exists(PathInt) Then
             btnFolder.IconColor = theme("Font")
         Else
             btnFolder.IconColor = Color.DarkRed
-            ToolTip.SetToolTip(btnFolder, dir)
+            ToolTip.SetToolTip(btnFolder, PathInt)
         End If
     End Sub
     Private Sub Trad()
@@ -2026,8 +2056,9 @@ Public Class frmIntervention
             ToolTip.SetToolTip(btnNextCase, "Volgende interventie")
             ToolTip.SetToolTip(btnSave, "Opslaan")
             ToolTip.SetToolTip(btnFolder, "Map openen")
-            ToolTip.SetToolTip(btnIntReport, "Interventieverslag")
-            ToolTip.SetToolTip(btnNICC, "NICC ontvangstbevestiging")
+            ToolTip.SetToolTip(btnOpenNICCReport, "NICC verslag openen")
+            ToolTip.SetToolTip(btnIntReport, "Interventieverslag genereren")
+            ToolTip.SetToolTip(btnNICC, "NICC ontvangstbevestiging genereren")
             ToolTip.SetToolTip(btnInv, "Inventaris")
             ToolTip.SetToolTip(btnUnlock, "Inventaris ontgrendelen")
             ToolTip.SetToolTip(btnExit, "Verlaten")
@@ -2039,7 +2070,7 @@ Om het filter te resetten, plaatst u de cursor in het lege tekstveld en drukt u 
             ToolTip.SetToolTip(btnIntToFacts, "Kopieer de gegevens van de interventie naar de feiten")
             ToolTip.SetToolTip(btnFactsToInt, "Kopieer de gegevens van de feiten naar de interventie")
         Else
-                lblTypeOfInt.Text = "Type d'intervention"
+            lblTypeOfInt.Text = "Type d'intervention"
             lblTypeOfPlace.Text = "Lieu"
             lblInt.Text = "Intervention"
             lblDateInt.Text = "Intervention"
@@ -2068,8 +2099,9 @@ Om het filter te resetten, plaatst u de cursor in het lege tekstveld en drukt u 
             ToolTip.SetToolTip(btnNextCase, "Intervention suivante")
             ToolTip.SetToolTip(btnSave, "Enregistrer")
             ToolTip.SetToolTip(btnFolder, "Ouvrir le répertoire")
-            ToolTip.SetToolTip(btnIntReport, "Rapport d'intervention")
-            ToolTip.SetToolTip(btnNICC, "Accusé de réception de l'INCC")
+            ToolTip.SetToolTip(btnOpenNICCReport, "Ouvrir le rapport de l'INCC")
+            ToolTip.SetToolTip(btnIntReport, "Générer rapport d'intervention")
+            ToolTip.SetToolTip(btnNICC, "Générer accusé de réception de l'INCC")
             ToolTip.SetToolTip(btnInv, "Inventaire")
             ToolTip.SetToolTip(btnUnlock, "Débloquer l'inventaire")
             ToolTip.SetToolTip(btnExit, "Sortir")
@@ -2128,6 +2160,7 @@ Pour réinitialiser le filtre, placez le curseur dans le champ de texte vide et 
             cmbDrug.Items.Add("Ketamine")
             cmbDrug.Items.Add("GHB")
             cmbDrug.Items.Add("Andere")
+            cmbDrug.Items.Add("Onbekend")
         Else
             cmbTypeOfInt.Items.Add("Labo en fonction")
             cmbTypeOfInt.Items.Add("Labo abandonné")
@@ -2172,6 +2205,7 @@ Pour réinitialiser le filtre, placez le curseur dans le champ de texte vide et 
             cmbDrug.Items.Add("Kétamine")
             cmbDrug.Items.Add("GHB")
             cmbDrug.Items.Add("Autre")
+            cmbDrug.Items.Add("Inconnu")
         End If
     End Sub
     Private Sub UpdateCreation()

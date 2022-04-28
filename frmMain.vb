@@ -110,7 +110,7 @@ Public Class frmMain
             DisableButton()
             'Button'
             currentBtn = CType(senderBtn, IconButton)
-            currentBtn.BackColor = theme("Dark")
+            currentBtn.BackColor = theme("Light")
             currentBtn.ForeColor = customColor
             currentBtn.IconColor = customColor
             currentBtn.TextAlign = ContentAlignment.MiddleCenter

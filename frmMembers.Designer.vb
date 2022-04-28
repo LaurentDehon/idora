@@ -44,6 +44,7 @@ Partial Class frmMembers
         Me.txtSearchMembers = New System.Windows.Forms.TextBox()
         Me.lblcount = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.btnSave = New FontAwesome.Sharp.IconButton()
         CType(Me.DORADbDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MEMBERSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvMembers, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -106,7 +107,7 @@ Partial Class frmMembers
         Me.dgvMembers.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvMembers.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvMembers.EnableHeadersVisualStyles = False
-        Me.dgvMembers.Location = New System.Drawing.Point(4, 54)
+        Me.dgvMembers.Location = New System.Drawing.Point(4, 59)
         Me.dgvMembers.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvMembers.MultiSelect = False
         Me.dgvMembers.Name = "dgvMembers"
@@ -120,7 +121,7 @@ Partial Class frmMembers
         Me.dgvMembers.RowTemplate.Height = 30
         Me.dgvMembers.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvMembers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvMembers.Size = New System.Drawing.Size(964, 445)
+        Me.dgvMembers.Size = New System.Drawing.Size(964, 440)
         Me.dgvMembers.TabIndex = 0
         '
         'LASTNAMEDataGridViewTextBoxColumn
@@ -175,27 +176,27 @@ Partial Class frmMembers
         '
         Me.TableLayoutPanel1.ColumnCount = 1
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.pnlTop, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.dgvMembers, 0, 1)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(20, 20)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 2
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(972, 503)
         Me.TableLayoutPanel1.TabIndex = 1
         '
         'pnlTop
         '
+        Me.pnlTop.Controls.Add(Me.btnSave)
         Me.pnlTop.Controls.Add(Me.btnUndo)
         Me.pnlTop.Controls.Add(Me.txtSearchMembers)
         Me.pnlTop.Controls.Add(Me.lblcount)
         Me.pnlTop.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlTop.Location = New System.Drawing.Point(3, 3)
         Me.pnlTop.Name = "pnlTop"
-        Me.pnlTop.Size = New System.Drawing.Size(966, 44)
+        Me.pnlTop.Size = New System.Drawing.Size(966, 49)
         Me.pnlTop.TabIndex = 137
         '
         'btnUndo
@@ -237,6 +238,21 @@ Partial Class frmMembers
         'Timer1
         '
         Me.Timer1.Interval = 500
+        '
+        'btnSave
+        '
+        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSave.FlatAppearance.BorderSize = 0
+        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSave.IconChar = FontAwesome.Sharp.IconChar.Save
+        Me.btnSave.IconColor = System.Drawing.Color.Black
+        Me.btnSave.IconFont = FontAwesome.Sharp.IconFont.Solid
+        Me.btnSave.IconSize = 25
+        Me.btnSave.Location = New System.Drawing.Point(328, 8)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(32, 32)
+        Me.btnSave.TabIndex = 138
+        Me.btnSave.UseVisualStyleBackColor = True
         '
         'frmMembers
         '
@@ -280,4 +296,5 @@ Partial Class frmMembers
     Friend WithEvents txtSearchMembers As TextBox
     Friend WithEvents lblcount As Label
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents btnSave As FontAwesome.Sharp.IconButton
 End Class

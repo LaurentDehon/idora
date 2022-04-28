@@ -69,7 +69,7 @@ Public Class frmProducts
         dgvProducts.FirstDisplayedScrollingRowIndex = first
         dgvProducts.Rows(index).Selected = True
     End Sub
-    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles Me.Closing
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles Me.Closing, btnSave.Click
         'Save changes
         Try
             Validate()
@@ -98,6 +98,7 @@ Public Class frmProducts
         dgvProducts.ColumnHeadersDefaultCellStyle.SelectionBackColor = theme("Dark")
         dgvProducts.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.Black
         btnUndo.IconColor = theme("Font")
+        btnSave.IconColor = theme("Font")
     End Sub
 #End Region
 

@@ -222,7 +222,7 @@ Public Structure RGBColors
     Public Shared TH1_Medium As Color = Color.FromArgb(37, 37, 38)
     Public Shared TH1_Dark As Color = Color.FromArgb(30, 30, 30)
     Public Shared TH1_Font As Color = Color.Gainsboro
-    Public Shared TH1_High As Color = Color.Orange
+    Public Shared TH1_High As Color = Color.FromArgb(255, 215, 181)
     'Theme Abyss
     Public Shared TH2_Light As Color = Color.FromArgb(5, 19, 54)
     Public Shared TH2_Medium As Color = Color.FromArgb(6, 6, 33)

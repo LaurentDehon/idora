@@ -248,15 +248,22 @@ Public Class frmCasesInterventions
                 SelRow = dgvInterventions.CurrentRow.Index
                 Cursor = Cursors.WaitCursor
                 log("CASE", $"open intervention {IntNum}")
-                frmIntervention.Show()
                 If CRUFile.Substring(0, 3) Like "CRU" AndAlso CInt(CRUFile.Substring(3, 2)) > CInt("19") Then
                     PathInt = $"{files_path}20{CRUFile.Substring(3, 2)}\{TypeOfCase}\{CRUFile} - {CaseName}\C.R.U\INT {IntNum} {DateInt:dd-MM-yy} - {CityInt} - {AdressInt} ({TypeOfInt})"
                 ElseIf CRUFile.Substring(1, 2) = "19" Then
-                    PathInt = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\2019\DISP 2019\{CRUFile}\C.R.U"
+                    If Directory.Exists($"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\2019\DISP 2019\{CRUFile}\C.R.U") Then
+                        PathInt = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\2019\DISP 2019\{CRUFile}\C.R.U"
+                    Else
+                        PathInt = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\2019\DISP 2019\{CRUFile}"
+                    End If
                 Else
-                    PathInt = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}\C.R.U"
+                    If Directory.Exists($"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}\C.R.U") Then
+                        PathInt = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}\C.R.U"
+                    Else
+                        PathInt = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}"
+                    End If
                 End If
-                'Create int dat file
+                frmIntervention.Show()
                 File.Create($"{dora_path}SYSTEM\INT,,{IntNum},,{user}.dat").Dispose()
                 Cursor = Cursors.Default
             Else
@@ -316,15 +323,24 @@ Public Class frmCasesInterventions
                 SelRow = dgvInterventions.CurrentRow.Index
                 Cursor = Cursors.WaitCursor
                 log("CASE", $"open intervention {IntNum}")
-                frmIntervention.Show()
                 If CRUFile.Substring(0, 3) Like "CRU" AndAlso CInt(CRUFile.Substring(3, 2)) > CInt("19") Then
+                    'Dim dt As Date = Convert.ToDateTime(txtDateInt.Text)
+                    'Dim format As String = "dd-MM-yy"
                     PathInt = $"{files_path}20{CRUFile.Substring(3, 2)}\{TypeOfCase}\{CRUFile} - {CaseName}\C.R.U\INT {IntNum} {DateInt:dd-MM-yy} - {CityInt} - {AdressInt} ({TypeOfInt})"
                 ElseIf CRUFile.Substring(1, 2) = "19" Then
-                    PathInt = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\2019\DISP 2019\{CRUFile}\C.R.U"
+                    If Directory.Exists($"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\2019\DISP 2019\{CRUFile}\C.R.U") Then
+                        PathInt = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\2019\DISP 2019\{CRUFile}\C.R.U"
+                    Else
+                        PathInt = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\2019\DISP 2019\{CRUFile}"
+                    End If
                 Else
-                    PathInt = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}\C.R.U"
+                    If Directory.Exists($"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}\C.R.U") Then
+                        PathInt = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}\C.R.U"
+                    Else
+                        PathInt = $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}"
+                    End If
                 End If
-                'Create int dat file
+                frmIntervention.Show()
                 File.Create($"{dora_path}SYSTEM\INT,,{IntNum},,{user}.dat").Dispose()
                 Cursor = Cursors.Default
             Else
@@ -821,7 +837,6 @@ Public Class frmCasesInterventions
         End If
         If dgvInterventions.SelectedRows.Count > 0 Then
             indexintervention = dgvInterventions.SelectedRows(0).Index
-            col = dgvInterventions.Item(11, indexintervention).Style.BackColor
         End If
         CASESTableAdapter.Fill(DORADbDS.CASES)
         CASESBindingSource.Sort = "[DATE FACTS] DESC, [ID] DESC"
@@ -835,10 +850,22 @@ Public Class frmCasesInterventions
         End If
         If indexintervention > -1 Then
             dgvInterventions.Rows(indexintervention).Selected = True
-            dgvInterventions.Item(11, indexintervention).Style.SelectionBackColor = col
+            If CBool(dgvInterventions.Item(10, indexintervention).Value) = True Then
+                dgvInterventions.Item(11, indexintervention).Style.SelectionBackColor = Color.DarkGreen
+            Else
+                If CBool(dgvInterventions.Item(6, indexintervention).Value) = True AndAlso CBool(dgvInterventions.Item(7, indexintervention).Value) = True AndAlso CBool(dgvInterventions.Item(8, indexintervention).Value) = True Then
+                    dgvInterventions.Item(11, indexintervention).Style.SelectionBackColor = Color.DarkOrange
+                Else
+                    dgvInterventions.Item(11, indexintervention).Style.SelectionBackColor = Color.DarkRed
+                End If
+            End If
         End If
-        dgvCases.FirstDisplayedScrollingRowIndex = firstcase
-        dgvInterventions.FirstDisplayedScrollingRowIndex = firstintervention
+        If firstcase > -1 Then
+            dgvCases.FirstDisplayedScrollingRowIndex = firstcase
+        End If
+        If firstintervention > -1 Then
+            dgvInterventions.FirstDisplayedScrollingRowIndex = firstintervention
+        End If
     End Sub
     Private Sub SetColors()
         'Set colors of controls according to choosen theme
