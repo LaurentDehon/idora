@@ -262,6 +262,10 @@ Public Class frmNewInt
                 txtAdressInt.Text = String.Empty
                 txtZipInt.Text = String.Empty
                 cmbCityInt.Text = String.Empty
+                btnSGS.Visible = False
+                btnRemondis.Visible = False
+                btnFactsToInt.Visible = False
+                btnIntToFacts.Visible = False
                 If Lang = 1 Then
                     lblDateInt.Text = "Datum int. / feiten"
                 Else
@@ -291,15 +295,19 @@ Public Class frmNewInt
                 txtAdressInt.Text = String.Empty
                 txtZipInt.Text = String.Empty
                 cmbCityInt.Text = String.Empty
+                btnSGS.Visible = True
+                btnRemondis.Visible = True
+                btnFactsToInt.Visible = True
+                btnIntToFacts.Visible = True
                 If Lang = 1 Then
                     lblDateInt.Text = "Datum interventie"
                 Else
                     lblDateInt.Text = "Date intervention"
                 End If
-                Height = 509
-                pnlMain.Height = 472
-                btnOk.Location = New Point(240, 438)
-                btnCancel.Location = New Point(282, 438)
+                Height = 553
+                pnlMain.Height = 512
+                btnOk.Location = New Point(240, 472)
+                btnCancel.Location = New Point(282, 472)
                 For Each c As Control In Me.Controls
                     If c.Name = "pnlMain_border" Then
                         c.Size = New Size(pnlMain.Width + 2, pnlMain.Height + 2)
@@ -317,6 +325,10 @@ Public Class frmNewInt
                 txtAdressFacts.Text = String.Empty
                 txtZipFacts.Text = String.Empty
                 cmbCityFacts.Text = String.Empty
+                btnSGS.Visible = True
+                btnRemondis.Visible = True
+                btnFactsToInt.Visible = True
+                btnIntToFacts.Visible = True
                 If Lang = 1 Then
                     lblDateInt.Text = "Datum interventie"
                 Else
@@ -325,10 +337,10 @@ Public Class frmNewInt
                 txtZipInt.Text = "9120"
                 cmbCityInt.Text = "MELSELE"
                 txtAdressInt.Text = "Keetberglaan 4"
-                Height = 509
-                pnlMain.Height = 472
-                btnOk.Location = New Point(240, 438)
-                btnCancel.Location = New Point(282, 438)
+                Height = 553
+                pnlMain.Height = 512
+                btnOk.Location = New Point(240, 472)
+                btnCancel.Location = New Point(282, 472)
                 For Each c As Control In Me.Controls
                     If c.Name = "pnlMain_border" Then
                         c.Size = New Size(pnlMain.Width + 2, pnlMain.Height + 2)
@@ -346,6 +358,10 @@ Public Class frmNewInt
                 txtAdressFacts.Text = String.Empty
                 txtZipFacts.Text = String.Empty
                 cmbCityFacts.Text = String.Empty
+                btnSGS.Visible = True
+                btnRemondis.Visible = True
+                btnFactsToInt.Visible = True
+                btnIntToFacts.Visible = True
                 If Lang = 1 Then
                     lblDateInt.Text = "Datum interventie"
                 Else
@@ -354,10 +370,10 @@ Public Class frmNewInt
                 txtZipInt.Text = "4040"
                 cmbCityInt.Text = "HERSTAL"
                 txtAdressInt.Text = "Rue des Alouettes 131"
-                Height = 509
-                pnlMain.Height = 472
-                btnOk.Location = New Point(240, 438)
-                btnCancel.Location = New Point(282, 438)
+                Height = 553
+                pnlMain.Height = 512
+                btnOk.Location = New Point(240, 472)
+                btnCancel.Location = New Point(282, 472)
                 For Each c As Control In Me.Controls
                     If c.Name = "pnlMain_border" Then
                         c.Size = New Size(pnlMain.Width + 2, pnlMain.Height + 2)
@@ -368,7 +384,7 @@ Public Class frmNewInt
     End Sub
     Private Sub txtAdressInt_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtAdressInt.KeyPress
         'Disable special characters
-        If (Not Char.IsLetterOrDigit(e.KeyChar) AndAlso e.KeyChar <> " "c AndAlso e.KeyChar <> ControlChars.Back) Then
+        If (Not Char.IsLetterOrDigit(e.KeyChar) AndAlso e.KeyChar <> " "c AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> "-") Then
             e.Handled = True
         End If
     End Sub

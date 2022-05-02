@@ -49,8 +49,9 @@ Partial Class frmMain
         Me.btnSearch = New FontAwesome.Sharp.IconButton()
         Me.btnCases = New FontAwesome.Sharp.IconButton()
         Me.pnlLogo = New System.Windows.Forms.Panel()
+        Me.lblDoraCopyrights = New System.Windows.Forms.Label()
         Me.imgCRU = New System.Windows.Forms.PictureBox()
-        Me.lblDora = New System.Windows.Forms.Label()
+        Me.lblDoraVersion = New System.Windows.Forms.Label()
         Me.lblTime = New System.Windows.Forms.Label()
         Me.lblHello = New System.Windows.Forms.Label()
         Me.pnlTitle = New System.Windows.Forms.Panel()
@@ -352,13 +353,26 @@ Partial Class frmMain
         '
         'pnlLogo
         '
+        Me.pnlLogo.Controls.Add(Me.lblDoraCopyrights)
         Me.pnlLogo.Controls.Add(Me.imgCRU)
-        Me.pnlLogo.Controls.Add(Me.lblDora)
+        Me.pnlLogo.Controls.Add(Me.lblDoraVersion)
         Me.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlLogo.Location = New System.Drawing.Point(0, 0)
         Me.pnlLogo.Name = "pnlLogo"
         Me.pnlLogo.Size = New System.Drawing.Size(240, 220)
         Me.pnlLogo.TabIndex = 0
+        '
+        'lblDoraCopyrights
+        '
+        Me.lblDoraCopyrights.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblDoraCopyrights.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDoraCopyrights.Location = New System.Drawing.Point(0, 184)
+        Me.lblDoraCopyrights.Name = "lblDoraCopyrights"
+        Me.lblDoraCopyrights.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.lblDoraCopyrights.Size = New System.Drawing.Size(240, 22)
+        Me.lblDoraCopyrights.TabIndex = 122
+        Me.lblDoraCopyrights.Text = "© C.R.U. / DJSOC"
+        Me.lblDoraCopyrights.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'imgCRU
         '
@@ -366,23 +380,23 @@ Partial Class frmMain
         Me.imgCRU.BackgroundImage = Global.DORA.My.Resources.Resources.CRULogo
         Me.imgCRU.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.imgCRU.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.imgCRU.Location = New System.Drawing.Point(50, 20)
+        Me.imgCRU.Location = New System.Drawing.Point(50, 12)
         Me.imgCRU.Name = "imgCRU"
         Me.imgCRU.Size = New System.Drawing.Size(140, 140)
         Me.imgCRU.TabIndex = 0
         Me.imgCRU.TabStop = False
         '
-        'lblDora
+        'lblDoraVersion
         '
-        Me.lblDora.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblDora.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDora.Location = New System.Drawing.Point(0, 170)
-        Me.lblDora.Name = "lblDora"
-        Me.lblDora.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lblDora.Size = New System.Drawing.Size(240, 21)
-        Me.lblDora.TabIndex = 121
-        Me.lblDora.Text = "iDORA 3.0 © CRU / DJSOC"
-        Me.lblDora.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblDoraVersion.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblDoraVersion.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDoraVersion.Location = New System.Drawing.Point(0, 162)
+        Me.lblDoraVersion.Name = "lblDoraVersion"
+        Me.lblDoraVersion.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.lblDoraVersion.Size = New System.Drawing.Size(240, 22)
+        Me.lblDoraVersion.TabIndex = 121
+        Me.lblDoraVersion.Text = "iDORA 3.0.220502"
+        Me.lblDoraVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblTime
         '
@@ -615,7 +629,7 @@ Partial Class frmMain
     Friend WithEvents pnlMenu As Panel
     Friend WithEvents pnlLogo As Panel
     Friend WithEvents imgCRU As PictureBox
-    Friend WithEvents lblDora As Label
+    Friend WithEvents lblDoraVersion As Label
     Friend WithEvents lblTime As Label
     Friend WithEvents lblHello As Label
     Friend WithEvents pnlTitle As Panel
@@ -647,4 +661,5 @@ Partial Class frmMain
     Friend WithEvents picHoliday As TransparentPictureBox
     Friend WithEvents RCMenuCases As ContextMenuStrip
     Friend WithEvents mnOpenOut As ToolStripMenuItem
+    Friend WithEvents lblDoraCopyrights As Label
 End Class

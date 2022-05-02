@@ -1380,7 +1380,7 @@ Public Class frmIntervention
     End Sub
     Private Sub txtAdressInt_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtAdressInt.KeyPress
         'Disable special characters
-        If (Not Char.IsLetterOrDigit(e.KeyChar) AndAlso e.KeyChar <> " "c AndAlso e.KeyChar <> ControlChars.Back) Then
+        If (Not Char.IsLetterOrDigit(e.KeyChar) AndAlso e.KeyChar <> " "c AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> "-") Then
             e.Handled = True
         End If
     End Sub
@@ -1421,7 +1421,7 @@ Public Class frmIntervention
     End Sub
     Private Sub txtAdressFacts_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtAdressFacts.KeyPress
         'Disable special characters
-        If (Not Char.IsLetterOrDigit(e.KeyChar) AndAlso e.KeyChar <> " "c AndAlso e.KeyChar <> ControlChars.Back) Then
+        If (Not Char.IsLetterOrDigit(e.KeyChar) AndAlso e.KeyChar <> " "c AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> "-") Then
             e.Handled = True
         End If
     End Sub
