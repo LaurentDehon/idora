@@ -164,7 +164,6 @@ Public Class frmNewInt
             ToolTip.SetToolTip(btnRemondis, "Remondis adres")
             ToolTip.SetToolTip(btnIntToFacts, "Kopieer de gegevens van de interventie naar de feiten")
             ToolTip.SetToolTip(btnFactsToInt, "Kopieer de gegevens van de feiten naar de interventie")
-            HelpToolStripMenuItem.Text = "Hulp"
         Else
             Text = "Nouvelle intervention"
             lblCaseName.Text = "Nom de dossier"
@@ -181,7 +180,6 @@ Public Class frmNewInt
             ToolTip.SetToolTip(btnRemondis, "Adresse de Remondis")
             ToolTip.SetToolTip(btnIntToFacts, "Copier les données de l'intervention vers les faits")
             ToolTip.SetToolTip(btnFactsToInt, "Copier les données des faits vers l'intervention")
-            HelpToolStripMenuItem.Text = "Aide"
         End If
     End Sub
     Private Sub FillCombo()

@@ -23,9 +23,9 @@ Partial Class frmSearch
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSearch))
         Me.lblCount = New System.Windows.Forms.Label()
         Me.cmbCity = New System.Windows.Forms.ComboBox()
@@ -105,8 +105,8 @@ Partial Class frmSearch
         Me.mnCMExt = New System.Windows.Forms.ToolStripMenuItem()
         Me.FilterMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.mnInterventionDone = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnCRUOnSite = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnInterventionsNotDone = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnCRUOnSite = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.DORADbDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.INTERVENTIONSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DRUGS_INTBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -327,6 +327,14 @@ Partial Class frmSearch
         Me.mnEN.Name = "mnEN"
         Me.mnEN.Size = New System.Drawing.Size(190, 28)
         Me.mnEN.Text = "English"
+        '
+        'ToolTip
+        '
+        Me.ToolTip.AutoPopDelay = 10000
+        Me.ToolTip.InitialDelay = 500
+        Me.ToolTip.IsBalloon = True
+        Me.ToolTip.ReshowDelay = 100
+        Me.ToolTip.ShowAlways = True
         '
         'fsw
         '
@@ -620,24 +628,24 @@ Partial Class frmSearch
         Me.dgvStats.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvStats.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvStats.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvStats.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvStats.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvStats.ColumnHeadersHeight = 29
         Me.dgvStats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Orange
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvStats.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Orange
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvStats.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgvStats.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvStats.EnableHeadersVisualStyles = False
         Me.dgvStats.Location = New System.Drawing.Point(5, 80)
@@ -649,10 +657,10 @@ Partial Class frmSearch
         Me.dgvStats.RowHeadersVisible = False
         Me.dgvStats.RowHeadersWidth = 51
         Me.dgvStats.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.Padding = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.dgvStats.RowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.Padding = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.dgvStats.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.dgvStats.RowTemplate.Height = 30
         Me.dgvStats.RowTemplate.ReadOnly = True
         Me.dgvStats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -969,7 +977,7 @@ Partial Class frmSearch
         Me.FilterMenu.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.FilterMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnInterventionDone, Me.mnInterventionsNotDone, Me.mnCRUOnSite})
         Me.FilterMenu.Name = "FilterMenu"
-        Me.FilterMenu.Size = New System.Drawing.Size(269, 116)
+        Me.FilterMenu.Size = New System.Drawing.Size(269, 88)
         '
         'mnInterventionDone
         '
@@ -979,6 +987,13 @@ Partial Class frmSearch
         Me.mnInterventionDone.Size = New System.Drawing.Size(268, 28)
         Me.mnInterventionDone.Text = "InterventionsDone"
         '
+        'mnInterventionsNotDone
+        '
+        Me.mnInterventionsNotDone.CheckOnClick = True
+        Me.mnInterventionsNotDone.Name = "mnInterventionsNotDone"
+        Me.mnInterventionsNotDone.Size = New System.Drawing.Size(268, 28)
+        Me.mnInterventionsNotDone.Text = "InterventionsNotDone"
+        '
         'mnCRUOnSite
         '
         Me.mnCRUOnSite.CheckOnClick = True
@@ -986,13 +1001,6 @@ Partial Class frmSearch
         Me.mnCRUOnSite.Name = "mnCRUOnSite"
         Me.mnCRUOnSite.Size = New System.Drawing.Size(268, 28)
         Me.mnCRUOnSite.Text = "CRUOnSite"
-        '
-        'mnInterventionsNotDone
-        '
-        Me.mnInterventionsNotDone.CheckOnClick = True
-        Me.mnInterventionsNotDone.Name = "mnInterventionsNotDone"
-        Me.mnInterventionsNotDone.Size = New System.Drawing.Size(268, 28)
-        Me.mnInterventionsNotDone.Text = "InterventionsNotDone"
         '
         'frmSearch
         '

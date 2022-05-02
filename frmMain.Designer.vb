@@ -198,6 +198,14 @@ Partial Class frmMain
         Me.TableAdapterManager.SEIZURETableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = DORA.DORADbDSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
+        'ToolTip
+        '
+        Me.ToolTip.AutoPopDelay = 10000
+        Me.ToolTip.InitialDelay = 500
+        Me.ToolTip.IsBalloon = True
+        Me.ToolTip.ReshowDelay = 100
+        Me.ToolTip.ShowAlways = True
+        '
         'pnlMenu
         '
         Me.pnlMenu.Controls.Add(Me.btnExit)

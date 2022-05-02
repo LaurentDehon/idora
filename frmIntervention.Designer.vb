@@ -131,6 +131,7 @@ Partial Class frmIntervention
         Me.lblCRUOnSite = New System.Windows.Forms.Label()
         Me.btnCRUOnSite = New FontAwesome.Sharp.IconButton()
         Me.pnlMenu = New System.Windows.Forms.Panel()
+        Me.btnOpenNICCReport = New FontAwesome.Sharp.IconButton()
         Me.btnUnlock = New FontAwesome.Sharp.IconButton()
         Me.btnInv = New FontAwesome.Sharp.IconButton()
         Me.btnNICC = New FontAwesome.Sharp.IconButton()
@@ -158,11 +159,13 @@ Partial Class frmIntervention
         Me.btnSaveDrug = New FontAwesome.Sharp.IconButton()
         Me.btnAddDrug = New FontAwesome.Sharp.IconButton()
         Me.pnlProducts = New System.Windows.Forms.Panel()
+        Me.btnRefreshProducts = New FontAwesome.Sharp.IconButton()
         Me.btnSearchProduct = New FontAwesome.Sharp.IconButton()
         Me.btnDeleteProduct = New FontAwesome.Sharp.IconButton()
         Me.btnSaveProduct = New FontAwesome.Sharp.IconButton()
         Me.btnAddProduct = New FontAwesome.Sharp.IconButton()
         Me.pnlMembers = New System.Windows.Forms.Panel()
+        Me.btnRefreshMembers = New FontAwesome.Sharp.IconButton()
         Me.btnDeleteMember = New FontAwesome.Sharp.IconButton()
         Me.btnSaveMember = New FontAwesome.Sharp.IconButton()
         Me.btnAddMember = New FontAwesome.Sharp.IconButton()
@@ -198,9 +201,6 @@ Partial Class frmIntervention
         Me.pnlFacts = New System.Windows.Forms.Panel()
         Me.btnFactsToInt = New FontAwesome.Sharp.IconButton()
         Me.pnlDetails = New System.Windows.Forms.Panel()
-        Me.btnRefreshMembers = New FontAwesome.Sharp.IconButton()
-        Me.btnRefreshProducts = New FontAwesome.Sharp.IconButton()
-        Me.btnOpenNICCReport = New FontAwesome.Sharp.IconButton()
         CType(Me.INTERVENTIONSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DORADbDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MEMBERS_INTBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1172,6 +1172,14 @@ Partial Class frmIntervention
         '
         Me.DRUGS_INTTableAdapter.ClearBeforeFill = True
         '
+        'ToolTip
+        '
+        Me.ToolTip.AutoPopDelay = 10000
+        Me.ToolTip.InitialDelay = 500
+        Me.ToolTip.IsBalloon = True
+        Me.ToolTip.ReshowDelay = 100
+        Me.ToolTip.ShowAlways = True
+        '
         'CASESBindingSource
         '
         Me.CASESBindingSource.DataMember = "CASES"
@@ -1307,7 +1315,8 @@ Partial Class frmIntervention
         Me.lblTitle.Location = New System.Drawing.Point(96, 57)
         Me.lblTitle.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(109, 37)
+        Me.lblTitle.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
+        Me.lblTitle.Size = New System.Drawing.Size(109, 40)
         Me.lblTitle.TabIndex = 34
         Me.lblTitle.Tag = ""
         Me.lblTitle.Text = "Dossier"
@@ -1429,6 +1438,26 @@ Partial Class frmIntervention
         Me.pnlMenu.Name = "pnlMenu"
         Me.pnlMenu.Size = New System.Drawing.Size(131, 986)
         Me.pnlMenu.TabIndex = 139
+        '
+        'btnOpenNICCReport
+        '
+        Me.btnOpenNICCReport.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnOpenNICCReport.FlatAppearance.BorderSize = 0
+        Me.btnOpenNICCReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnOpenNICCReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOpenNICCReport.IconChar = FontAwesome.Sharp.IconChar.FileAlt
+        Me.btnOpenNICCReport.IconColor = System.Drawing.Color.Black
+        Me.btnOpenNICCReport.IconFont = FontAwesome.Sharp.IconFont.Solid
+        Me.btnOpenNICCReport.IconSize = 30
+        Me.btnOpenNICCReport.Location = New System.Drawing.Point(0, 312)
+        Me.btnOpenNICCReport.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnOpenNICCReport.Name = "btnOpenNICCReport"
+        Me.btnOpenNICCReport.Size = New System.Drawing.Size(131, 60)
+        Me.btnOpenNICCReport.TabIndex = 20
+        Me.btnOpenNICCReport.TabStop = False
+        Me.btnOpenNICCReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnOpenNICCReport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnOpenNICCReport.UseVisualStyleBackColor = False
         '
         'btnUnlock
         '
@@ -1882,6 +1911,22 @@ Partial Class frmIntervention
         Me.pnlProducts.Size = New System.Drawing.Size(491, 473)
         Me.pnlProducts.TabIndex = 145
         '
+        'btnRefreshProducts
+        '
+        Me.btnRefreshProducts.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnRefreshProducts.FlatAppearance.BorderSize = 0
+        Me.btnRefreshProducts.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRefreshProducts.IconChar = FontAwesome.Sharp.IconChar.SyncAlt
+        Me.btnRefreshProducts.IconColor = System.Drawing.Color.Black
+        Me.btnRefreshProducts.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnRefreshProducts.IconSize = 25
+        Me.btnRefreshProducts.Location = New System.Drawing.Point(117, 20)
+        Me.btnRefreshProducts.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnRefreshProducts.Name = "btnRefreshProducts"
+        Me.btnRefreshProducts.Size = New System.Drawing.Size(25, 25)
+        Me.btnRefreshProducts.TabIndex = 158
+        Me.btnRefreshProducts.UseVisualStyleBackColor = True
+        '
         'btnSearchProduct
         '
         Me.btnSearchProduct.Cursor = System.Windows.Forms.Cursors.Hand
@@ -1964,6 +2009,22 @@ Partial Class frmIntervention
         Me.pnlMembers.Name = "pnlMembers"
         Me.pnlMembers.Size = New System.Drawing.Size(320, 473)
         Me.pnlMembers.TabIndex = 144
+        '
+        'btnRefreshMembers
+        '
+        Me.btnRefreshMembers.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnRefreshMembers.FlatAppearance.BorderSize = 0
+        Me.btnRefreshMembers.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRefreshMembers.IconChar = FontAwesome.Sharp.IconChar.SyncAlt
+        Me.btnRefreshMembers.IconColor = System.Drawing.Color.Black
+        Me.btnRefreshMembers.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnRefreshMembers.IconSize = 25
+        Me.btnRefreshMembers.Location = New System.Drawing.Point(117, 20)
+        Me.btnRefreshMembers.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnRefreshMembers.Name = "btnRefreshMembers"
+        Me.btnRefreshMembers.Size = New System.Drawing.Size(25, 25)
+        Me.btnRefreshMembers.TabIndex = 157
+        Me.btnRefreshMembers.UseVisualStyleBackColor = True
         '
         'btnDeleteMember
         '
@@ -2526,58 +2587,6 @@ Partial Class frmIntervention
         Me.pnlDetails.Name = "pnlDetails"
         Me.pnlDetails.Size = New System.Drawing.Size(437, 148)
         Me.pnlDetails.TabIndex = 97
-        '
-        'btnRefreshMembers
-        '
-        Me.btnRefreshMembers.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnRefreshMembers.FlatAppearance.BorderSize = 0
-        Me.btnRefreshMembers.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRefreshMembers.IconChar = FontAwesome.Sharp.IconChar.SyncAlt
-        Me.btnRefreshMembers.IconColor = System.Drawing.Color.Black
-        Me.btnRefreshMembers.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btnRefreshMembers.IconSize = 25
-        Me.btnRefreshMembers.Location = New System.Drawing.Point(117, 20)
-        Me.btnRefreshMembers.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnRefreshMembers.Name = "btnRefreshMembers"
-        Me.btnRefreshMembers.Size = New System.Drawing.Size(25, 25)
-        Me.btnRefreshMembers.TabIndex = 157
-        Me.btnRefreshMembers.UseVisualStyleBackColor = True
-        '
-        'btnRefreshProducts
-        '
-        Me.btnRefreshProducts.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnRefreshProducts.FlatAppearance.BorderSize = 0
-        Me.btnRefreshProducts.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRefreshProducts.IconChar = FontAwesome.Sharp.IconChar.SyncAlt
-        Me.btnRefreshProducts.IconColor = System.Drawing.Color.Black
-        Me.btnRefreshProducts.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btnRefreshProducts.IconSize = 25
-        Me.btnRefreshProducts.Location = New System.Drawing.Point(117, 20)
-        Me.btnRefreshProducts.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnRefreshProducts.Name = "btnRefreshProducts"
-        Me.btnRefreshProducts.Size = New System.Drawing.Size(25, 25)
-        Me.btnRefreshProducts.TabIndex = 158
-        Me.btnRefreshProducts.UseVisualStyleBackColor = True
-        '
-        'btnOpenNICCReport
-        '
-        Me.btnOpenNICCReport.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnOpenNICCReport.FlatAppearance.BorderSize = 0
-        Me.btnOpenNICCReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnOpenNICCReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnOpenNICCReport.IconChar = FontAwesome.Sharp.IconChar.FileAlt
-        Me.btnOpenNICCReport.IconColor = System.Drawing.Color.Black
-        Me.btnOpenNICCReport.IconFont = FontAwesome.Sharp.IconFont.Solid
-        Me.btnOpenNICCReport.IconSize = 30
-        Me.btnOpenNICCReport.Location = New System.Drawing.Point(0, 312)
-        Me.btnOpenNICCReport.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnOpenNICCReport.Name = "btnOpenNICCReport"
-        Me.btnOpenNICCReport.Size = New System.Drawing.Size(131, 60)
-        Me.btnOpenNICCReport.TabIndex = 20
-        Me.btnOpenNICCReport.TabStop = False
-        Me.btnOpenNICCReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnOpenNICCReport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnOpenNICCReport.UseVisualStyleBackColor = False
         '
         'frmIntervention
         '

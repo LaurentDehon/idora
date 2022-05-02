@@ -26,8 +26,6 @@ Public Class frmIntervention
     Private Sub frmIntervention_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Location = My.Settings.frmIntervention_loc
         Size = New Size(2053, 1033)
-        'MaximumSize = New Size(2053, 1033)
-        'MinimumSize = New Size(2053, 1033)
         SetColors()
         'Fill, filter and sort datatables
         frmMain.CITIESBindingSource1.Sort = "[CITY] ASC"
@@ -1995,7 +1993,7 @@ Public Class frmIntervention
     Private Sub DisplayTitle()
         btnPrevCase.Location = New Point(50, 60)
         lblTitle.Location = New Point(btnPrevCase.Location.X + 60, 60)
-        btnNextCase.Location = New Point(lblTitle.Location.X + lblTitle.Width + 25, 60)
+        btnNextCase.Location = New Point(lblTitle.Location.X + lblTitle.Width + 20, 60)
     End Sub
     Private Sub GetPathInt()
         If CRUFile.Substring(0, 3) Like "CRU" AndAlso CInt(CRUFile.Substring(3, 2)) > CInt("19") Then
@@ -2052,6 +2050,8 @@ Public Class frmIntervention
             lblRecipe.Text = "Recept(en)"
             lblBill.Text = "Factuur(en)"
             lblNote.Text = "Opmerking(en)"
+            ToolTip.SetToolTip(btnMin, "Minimaliseer")
+            ToolTip.SetToolTip(btnClose, "Sluiten")
             ToolTip.SetToolTip(btnPrevCase, "Vorige interventie")
             ToolTip.SetToolTip(btnNextCase, "Volgende interventie")
             ToolTip.SetToolTip(btnSave, "Opslaan")
@@ -2061,14 +2061,26 @@ Public Class frmIntervention
             ToolTip.SetToolTip(btnNICC, "NICC ontvangstbevestiging genereren")
             ToolTip.SetToolTip(btnInv, "Inventaris")
             ToolTip.SetToolTip(btnUnlock, "Inventaris ontgrendelen")
-            ToolTip.SetToolTip(btnExit, "Verlaten")
-            ToolTip.SetToolTip(cmbProductName, $"Om te zoeken tussen de producten, voer een minimum van 3 tekens in en klik dan op de rechter pijl.
-De lijst wordt gefilterd op basis van uw zoekcriteria en op de namen van de producten in de 3 talen.
-Om het filter te resetten, plaatst u de cursor in het lege tekstveld en drukt u op backspace.")
-            ToolTip.SetToolTip(btnSGS, "SGS adres")
-            ToolTip.SetToolTip(btnRemondis, "Remondis adres")
-            ToolTip.SetToolTip(btnIntToFacts, "Kopieer de gegevens van de interventie naar de feiten")
+            ToolTip.SetToolTip(btnExit, "Sluiten")
             ToolTip.SetToolTip(btnFactsToInt, "Kopieer de gegevens van de feiten naar de interventie")
+            ToolTip.SetToolTip(btnRemondis, "Remondis adres")
+            ToolTip.SetToolTip(btnSGS, "SGS adres")
+            ToolTip.SetToolTip(btnIntToFacts, "Kopieer de gegevens van de interventie naar de feiten")
+            ToolTip.SetToolTip(btnAddDrug, "Productietype toevoegen")
+            ToolTip.SetToolTip(btnSaveDrug, "Opslaan")
+            ToolTip.SetToolTip(btnDeleteDrug, "Verwijderen")
+            ToolTip.SetToolTip(btnAddMember, "Personeel toevoegen")
+            ToolTip.SetToolTip(btnSaveMember, "Opslaan")
+            ToolTip.SetToolTip(btnDeleteMember, "Verwijderen")
+            ToolTip.SetToolTip(btnRefreshMembers, "Personeellijst vernieuwen")
+            ToolTip.SetToolTip(btnAddProduct, "Product toevoegen")
+            ToolTip.SetToolTip(btnSaveProduct, "Opslaan")
+            ToolTip.SetToolTip(btnDeleteProduct, "Verwijderen")
+            ToolTip.SetToolTip(btnRefreshProducts, "Productenlijst vernieuwen")
+            ToolTip.SetToolTip(cmbProductName, $"Om te zoeken tussen de producten, voer een minimum van 3 tekens in en klik dan op de zoekknop.
+De lijst wordt gefilterd op basis van uw zoekcriteria en op de namen van de producten in de 3 talen.
+Om het filter te resetten, plaatst u de cursor in het lege tekstveld en drukt u op 'backspace'.")
+            ToolTip.SetToolTip(btnSearchProduct, "Zoeken")
         Else
             lblTypeOfInt.Text = "Type d'intervention"
             lblTypeOfPlace.Text = "Lieu"
@@ -2095,23 +2107,37 @@ Om het filter te resetten, plaatst u de cursor in het lege tekstveld en drukt u 
             lblRecipe.Text = "Recette(s)"
             lblBill.Text = "Facture(s)"
             lblNote.Text = "Note(s)"
+            ToolTip.SetToolTip(btnMin, "Minimaliser")
+            ToolTip.SetToolTip(btnClose, "Quitter")
             ToolTip.SetToolTip(btnPrevCase, "Intervention précédente")
             ToolTip.SetToolTip(btnNextCase, "Intervention suivante")
             ToolTip.SetToolTip(btnSave, "Sauvegarder")
             ToolTip.SetToolTip(btnFolder, "Ouvrir le répertoire")
             ToolTip.SetToolTip(btnOpenNICCReport, "Ouvrir le rapport de l'INCC")
-            ToolTip.SetToolTip(btnIntReport, "Générer rapport d'intervention")
-            ToolTip.SetToolTip(btnNICC, "Générer accusé de réception de l'INCC")
+            ToolTip.SetToolTip(btnIntReport, "Générer le rapport d'intervention")
+            ToolTip.SetToolTip(btnNICC, "Générer l'accusé de réception de l'INCC")
             ToolTip.SetToolTip(btnInv, "Inventaire")
             ToolTip.SetToolTip(btnUnlock, "Débloquer l'inventaire")
-            ToolTip.SetToolTip(btnExit, "Sortir")
-            ToolTip.SetToolTip(cmbProductName, $"Pour effectuer une recherche parmi les produits, entrez minimum 3 caractères puis cliquez sur la flèche de droite.
-La liste sera filtrée sur base de votre critère de recherche et sur les noms des produits dans les 3 langues.
-Pour réinitialiser le filtre, placez le curseur dans le champ de texte vide et appuyez sur backspace.")
-            ToolTip.SetToolTip(btnSGS, "Adresse de SGS")
-            ToolTip.SetToolTip(btnRemondis, "Adresse de Remondis")
+            ToolTip.SetToolTip(btnExit, "Quitter")
             ToolTip.SetToolTip(btnFactsToInt, "Copier les données des faits vers l'intervention")
+            ToolTip.SetToolTip(btnRemondis, "Adresse de Remondis")
+            ToolTip.SetToolTip(btnSGS, "Adresse de SGS")
             ToolTip.SetToolTip(btnIntToFacts, "Copier les données de l'intervention vers les faits")
+            ToolTip.SetToolTip(btnAddDrug, "Ajouter un type de production")
+            ToolTip.SetToolTip(btnSaveDrug, "Sauvegarder")
+            ToolTip.SetToolTip(btnDeleteDrug, "Supprimer")
+            ToolTip.SetToolTip(btnAddMember, "Ajouter un membre du personnel")
+            ToolTip.SetToolTip(btnSaveMember, "Sauvegarder")
+            ToolTip.SetToolTip(btnDeleteMember, "Supprimer")
+            ToolTip.SetToolTip(btnRefreshMembers, "Recharger la liste du personnel")
+            ToolTip.SetToolTip(btnAddProduct, "Ajouter un produit")
+            ToolTip.SetToolTip(btnSaveProduct, "Sauvegarder")
+            ToolTip.SetToolTip(btnDeleteProduct, "Supprimer")
+            ToolTip.SetToolTip(btnRefreshProducts, "Recharger la liste des produits")
+            ToolTip.SetToolTip(cmbProductName, $"Pour effectuer une recherche parmi les produits, entrez minimum 3 caractères puis cliquez sur le bouton recherche.
+La liste sera filtrée sur base de votre critère de recherche et sur les noms des produits dans les 3 langues.
+Pour réinitialiser le filtre, placez le curseur dans le champ de texte vide et appuyez sur 'backspace'.")
+            ToolTip.SetToolTip(btnSearchProduct, "Rechercher")
         End If
     End Sub
     Private Sub FillCombo()

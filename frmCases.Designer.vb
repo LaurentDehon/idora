@@ -99,6 +99,7 @@ Partial Class frmCases
         Me.pnlLogo = New System.Windows.Forms.Panel()
         Me.imgCRU = New System.Windows.Forms.PictureBox()
         Me.pnlTitle = New System.Windows.Forms.Panel()
+        Me.lblCreated = New System.Windows.Forms.Label()
         Me.pnlControls = New System.Windows.Forms.Panel()
         Me.btnClose = New FontAwesome.Sharp.IconButton()
         Me.btnMin = New FontAwesome.Sharp.IconButton()
@@ -150,7 +151,6 @@ Partial Class frmCases
         Me.txtSienaPicturesDate = New System.Windows.Forms.DateTimePicker()
         Me.txtSienaDate = New System.Windows.Forms.DateTimePicker()
         Me.fsw = New System.IO.FileSystemWatcher()
-        Me.lblCreated = New System.Windows.Forms.Label()
         CType(Me.DORADbDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CASESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.INTERVENTIONSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -944,6 +944,14 @@ Partial Class frmCases
         Me.btnSienaPictures.TabIndex = 138
         Me.btnSienaPictures.UseVisualStyleBackColor = True
         '
+        'ToolTip
+        '
+        Me.ToolTip.AutoPopDelay = 10000
+        Me.ToolTip.InitialDelay = 500
+        Me.ToolTip.IsBalloon = True
+        Me.ToolTip.ReshowDelay = 100
+        Me.ToolTip.ShowAlways = True
+        '
         'picMin
         '
         Me.picMin.BackColor = System.Drawing.Color.Orange
@@ -1078,6 +1086,19 @@ Partial Class frmCases
         Me.pnlTitle.Name = "pnlTitle"
         Me.pnlTitle.Size = New System.Drawing.Size(1070, 130)
         Me.pnlTitle.TabIndex = 135
+        '
+        'lblCreated
+        '
+        Me.lblCreated.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblCreated.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCreated.Location = New System.Drawing.Point(408, 88)
+        Me.lblCreated.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblCreated.Name = "lblCreated"
+        Me.lblCreated.Size = New System.Drawing.Size(661, 37)
+        Me.lblCreated.TabIndex = 142
+        Me.lblCreated.Tag = ""
+        Me.lblCreated.Text = "Created"
+        Me.lblCreated.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'pnlControls
         '
@@ -1791,19 +1812,6 @@ Partial Class frmCases
         Me.fsw.Filter = "*.dat"
         Me.fsw.Path = "G:\DJSOC\DRUGS\CRU\DORA\SYSTEM"
         Me.fsw.SynchronizingObject = Me
-        '
-        'lblCreated
-        '
-        Me.lblCreated.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblCreated.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCreated.Location = New System.Drawing.Point(408, 88)
-        Me.lblCreated.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblCreated.Name = "lblCreated"
-        Me.lblCreated.Size = New System.Drawing.Size(661, 37)
-        Me.lblCreated.TabIndex = 142
-        Me.lblCreated.Tag = ""
-        Me.lblCreated.Text = "Created"
-        Me.lblCreated.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'frmCases
         '

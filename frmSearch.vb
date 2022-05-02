@@ -1313,6 +1313,8 @@ Public Class frmSearch
             mnInterventionsNotDone.Text = "Interventies niet gesloten"
             mnCRUOnSite.Text = "CRU ter plaatse"
             ToolTip.SetToolTip(btnAddFilters, "Extra filters")
+            ToolTip.SetToolTip(btnSearch, "Zoeken")
+            ToolTip.SetToolTip(btnRefresh, "Vernieuwen")
         Else
             lblDates.Text = "Dates"
             lblIntervention.Text = "Intervention"
@@ -1360,6 +1362,8 @@ Public Class frmSearch
             mnInterventionsNotDone.Text = "Interventions non clôturées"
             mnCRUOnSite.Text = "CRU sur place"
             ToolTip.SetToolTip(btnAddFilters, "Filtres supplémentaires")
+            ToolTip.SetToolTip(btnSearch, "Recherche")
+            ToolTip.SetToolTip(btnRefresh, "Actualiser")
         End If
     End Sub
     Private Sub FillCombo()

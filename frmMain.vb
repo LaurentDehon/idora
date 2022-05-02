@@ -259,6 +259,16 @@ Public Class frmMain
             mnLanguage.Text = "Taal"
             mnTheme.Text = "Thema"
             mnOpenOut.Text = "Openen in een apart venster (Alt-X om te sluiten)"
+            ToolTip.SetToolTip(imgCRU, "Terug naar de startpagina")
+            ToolTip.SetToolTip(btnMin, "Minimaliseer")
+            ToolTip.SetToolTip(btnMax, "Maximaliseer")
+            ToolTip.SetToolTip(btnClose, "iDORA sluiten")
+            ToolTip.SetToolTip(btnCases, "Dossiers module")
+            ToolTip.SetToolTip(btnSearch, "Geavanceerd zoeken module")
+            ToolTip.SetToolTip(btnStats, "Statistieken en grafische module")
+            ToolTip.SetToolTip(btnMembers, "Personeel module")
+            ToolTip.SetToolTip(btnProducts, "Producten module")
+            ToolTip.SetToolTip(btnExit, "iDORA sluiten")
         Else
             btnCases.Text = " Dossiers"
             btnProducts.Text = " Produits"
@@ -269,6 +279,16 @@ Public Class frmMain
             mnLanguage.Text = "Langue"
             mnTheme.Text = "Theme"
             mnOpenOut.Text = "Ouvrir dans une fenêtre séparée (Alt-X pour fermer)"
+            ToolTip.SetToolTip(imgCRU, "Revenir à la page d'accueil")
+            ToolTip.SetToolTip(btnMin, "Minimiser")
+            ToolTip.SetToolTip(btnMax, "Maximiser")
+            ToolTip.SetToolTip(btnClose, "Quitter iDORA")
+            ToolTip.SetToolTip(btnCases, "Module Dossiers et interventions")
+            ToolTip.SetToolTip(btnSearch, "Module de recherche avancée")
+            ToolTip.SetToolTip(btnStats, "Module statistiques et graphiques")
+            ToolTip.SetToolTip(btnMembers, "Module Personnel")
+            ToolTip.SetToolTip(btnProducts, "Module Produits")
+            ToolTip.SetToolTip(btnExit, "Quitter iDORA")
         End If
     End Sub
     Private Sub CheckPaths()

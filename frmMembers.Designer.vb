@@ -40,11 +40,11 @@ Partial Class frmMembers
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.pnlTop = New System.Windows.Forms.Panel()
+        Me.btnSave = New FontAwesome.Sharp.IconButton()
         Me.btnUndo = New FontAwesome.Sharp.IconButton()
         Me.txtSearchMembers = New System.Windows.Forms.TextBox()
         Me.lblcount = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.btnSave = New FontAwesome.Sharp.IconButton()
         CType(Me.DORADbDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MEMBERSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvMembers, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -172,6 +172,14 @@ Partial Class frmMembers
         Me.EMAIL.Name = "EMAIL"
         Me.EMAIL.Width = 125
         '
+        'ToolTip
+        '
+        Me.ToolTip.AutoPopDelay = 10000
+        Me.ToolTip.InitialDelay = 500
+        Me.ToolTip.IsBalloon = True
+        Me.ToolTip.ReshowDelay = 100
+        Me.ToolTip.ShowAlways = True
+        '
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.ColumnCount = 1
@@ -198,6 +206,21 @@ Partial Class frmMembers
         Me.pnlTop.Name = "pnlTop"
         Me.pnlTop.Size = New System.Drawing.Size(966, 49)
         Me.pnlTop.TabIndex = 137
+        '
+        'btnSave
+        '
+        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSave.FlatAppearance.BorderSize = 0
+        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSave.IconChar = FontAwesome.Sharp.IconChar.Save
+        Me.btnSave.IconColor = System.Drawing.Color.Black
+        Me.btnSave.IconFont = FontAwesome.Sharp.IconFont.Solid
+        Me.btnSave.IconSize = 25
+        Me.btnSave.Location = New System.Drawing.Point(328, 8)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(32, 32)
+        Me.btnSave.TabIndex = 138
+        Me.btnSave.UseVisualStyleBackColor = True
         '
         'btnUndo
         '
@@ -238,21 +261,6 @@ Partial Class frmMembers
         'Timer1
         '
         Me.Timer1.Interval = 500
-        '
-        'btnSave
-        '
-        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSave.FlatAppearance.BorderSize = 0
-        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.IconChar = FontAwesome.Sharp.IconChar.Save
-        Me.btnSave.IconColor = System.Drawing.Color.Black
-        Me.btnSave.IconFont = FontAwesome.Sharp.IconFont.Solid
-        Me.btnSave.IconSize = 25
-        Me.btnSave.Location = New System.Drawing.Point(328, 8)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(32, 32)
-        Me.btnSave.TabIndex = 138
-        Me.btnSave.UseVisualStyleBackColor = True
         '
         'frmMembers
         '

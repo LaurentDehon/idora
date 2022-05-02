@@ -538,15 +538,6 @@ Public Class frmCases
             lblFederalizedDate.Text = "op"
             lblFederalizedMagistrate.Text = "Magistraat"
             lblSummary.Text = "Samenvatting van de feiten"
-            ToolTip.SetToolTip(btnSave, "Opslaan")
-            ToolTip.SetToolTip(btnFolder, "Map openen")
-            ToolTip.SetToolTip(btnExit, "Verlaten")
-            ToolTip.SetToolTip(txtSienaDate, "Druk op del om te verwijderen")
-            ToolTip.SetToolTip(txtSienaPicturesDate, "Druk op del om te verwijderen")
-            ToolTip.SetToolTip(txtProactiveDate, "Druk op del om te verwijderen")
-            ToolTip.SetToolTip(txtInvestigationDate, "Druk op del om te verwijderen")
-            ToolTip.SetToolTip(txtJudInvestigationDate, "Druk op del om te verwijderen")
-            ToolTip.SetToolTip(txtFederalizedDate, "Druk op del om te verwijderen")
             lblCannabis.Text = "A.03.01. Cannabis - productie"
             lblSyntheticP.Text = "A.03.03. Syntetische drugs - productie"
             lblSyntheticT.Text = "A.03.04. Syntetische drugs - smokkel"
@@ -556,6 +547,17 @@ Public Class frmCases
             Else
                 lblCreated.Visible = False
             End If
+            ToolTip.SetToolTip(btnMin, "Minimaliseer")
+            ToolTip.SetToolTip(btnClose, "Sluiten")
+            ToolTip.SetToolTip(btnSave, "Opslaan")
+            ToolTip.SetToolTip(btnFolder, "Map openen")
+            ToolTip.SetToolTip(btnExit, "Sluiten")
+            ToolTip.SetToolTip(txtSienaDate, "Druk op 'del' om te verwijderen")
+            ToolTip.SetToolTip(txtSienaPicturesDate, "Druk op 'del' om te verwijderen")
+            ToolTip.SetToolTip(txtProactiveDate, "Druk op 'del' om te verwijderen")
+            ToolTip.SetToolTip(txtInvestigationDate, "Druk op 'del' om te verwijderen")
+            ToolTip.SetToolTip(txtJudInvestigationDate, "Druk op 'del' om te verwijderen")
+            ToolTip.SetToolTip(txtFederalizedDate, "Druk op 'del' om te verwijderen")
         Else
             lblTitle.Text = $"Dossier {txtCaseName.Text} de la {cmbUnit.Text}"
             lblCaseName.Text = "Nom de dossier"
@@ -592,16 +594,6 @@ Public Class frmCases
             lblFederalizedDate.Text = "le"
             lblFederalizedMagistrate.Text = "Magistrat"
             lblSummary.Text = "Résumé des faits"
-            ToolTip.SetToolTip(btnSave, "Sauvegarder")
-            ToolTip.SetToolTip(btnFolder, "Ouvrir le répertoire")
-            ToolTip.SetToolTip(btnExit, "Quitter")
-            ToolTip.SetToolTip(txtSienaDate, "Appuyez sur del pour effacer")
-            ToolTip.SetToolTip(txtSienaPicturesDate, "Appuyez sur del pour effacer")
-            ToolTip.SetToolTip(txtProactiveDate, "Appuyez sur del pour effacer")
-            ToolTip.SetToolTip(txtInvestigationDate, "Appuyez sur del pour effacer")
-            ToolTip.SetToolTip(txtJudInvestigationDate, "Appuyez sur del pour effacer")
-            ToolTip.SetToolTip(txtFederalizedDate, "Appuyez sur del pour effacer")
-            lblCannabis.Text = "A.03.01. Cannabis - production"
             lblSyntheticP.Text = "A.03.03. Drogues synthétiques - production"
             lblSyntheticT.Text = "A.03.04. Drogues synthétiques - trafic"
             lblCocaine.Text = "A.03.05. Cocaïne - importation et exportation"
@@ -610,6 +602,18 @@ Public Class frmCases
             Else
                 lblCreated.Visible = False
             End If
+            ToolTip.SetToolTip(btnMin, "")
+            ToolTip.SetToolTip(btnClose, "")
+            ToolTip.SetToolTip(btnSave, "Sauvegarder")
+            ToolTip.SetToolTip(btnFolder, "Ouvrir le répertoire")
+            ToolTip.SetToolTip(btnExit, "Quitter")
+            ToolTip.SetToolTip(txtSienaDate, "Appuyez sur 'del' pour effacer")
+            ToolTip.SetToolTip(txtSienaPicturesDate, "Appuyez sur 'del' pour effacer")
+            ToolTip.SetToolTip(txtProactiveDate, "Appuyez sur 'del' pour effacer")
+            ToolTip.SetToolTip(txtInvestigationDate, "Appuyez sur 'del' pour effacer")
+            ToolTip.SetToolTip(txtJudInvestigationDate, "Appuyez sur 'del' pour effacer")
+            ToolTip.SetToolTip(txtFederalizedDate, "Appuyez sur 'del' pour effacer")
+            lblCannabis.Text = "A.03.01. Cannabis - production"
         End If
     End Sub
     Public Sub FillCombo()

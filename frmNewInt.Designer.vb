@@ -51,19 +51,16 @@ Partial Class frmNewInt
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.txtZipInt = New System.Windows.Forms.MaskedTextBox()
         Me.txtZipFacts = New System.Windows.Forms.MaskedTextBox()
-        Me.RCMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pnlMain = New System.Windows.Forms.Panel()
+        Me.btnSGS = New FontAwesome.Sharp.IconButton()
+        Me.btnRemondis = New FontAwesome.Sharp.IconButton()
         Me.btnIntToFacts = New FontAwesome.Sharp.IconButton()
         Me.btnFactsToInt = New FontAwesome.Sharp.IconButton()
         Me.btnCancel = New FontAwesome.Sharp.IconButton()
         Me.btnOk = New FontAwesome.Sharp.IconButton()
-        Me.btnRemondis = New FontAwesome.Sharp.IconButton()
-        Me.btnSGS = New FontAwesome.Sharp.IconButton()
         CType(Me.CASESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DORADbDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.INTERVENTIONSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.RCMenu.SuspendLayout()
         Me.pnlMain.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -296,6 +293,14 @@ Partial Class frmNewInt
         '
         Me.CASESTableAdapter.ClearBeforeFill = True
         '
+        'ToolTip
+        '
+        Me.ToolTip.AutoPopDelay = 10000
+        Me.ToolTip.InitialDelay = 500
+        Me.ToolTip.IsBalloon = True
+        Me.ToolTip.ReshowDelay = 100
+        Me.ToolTip.ShowAlways = True
+        '
         'txtZipInt
         '
         Me.txtZipInt.CausesValidation = False
@@ -319,20 +324,6 @@ Partial Class frmNewInt
         Me.txtZipFacts.Size = New System.Drawing.Size(56, 32)
         Me.txtZipFacts.TabIndex = 9
         Me.txtZipFacts.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'RCMenu
-        '
-        Me.RCMenu.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RCMenu.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.RCMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HelpToolStripMenuItem})
-        Me.RCMenu.Name = "RCMenu"
-        Me.RCMenu.Size = New System.Drawing.Size(120, 32)
-        '
-        'HelpToolStripMenuItem
-        '
-        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(119, 28)
-        Me.HelpToolStripMenuItem.Text = "Help"
         '
         'pnlMain
         '
@@ -366,6 +357,44 @@ Partial Class frmNewInt
         Me.pnlMain.Name = "pnlMain"
         Me.pnlMain.Size = New System.Drawing.Size(552, 512)
         Me.pnlMain.TabIndex = 52
+        '
+        'btnSGS
+        '
+        Me.btnSGS.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSGS.FlatAppearance.BorderSize = 0
+        Me.btnSGS.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSGS.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSGS.IconChar = FontAwesome.Sharp.IconChar.Speakap
+        Me.btnSGS.IconColor = System.Drawing.Color.Black
+        Me.btnSGS.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnSGS.IconSize = 30
+        Me.btnSGS.Location = New System.Drawing.Point(272, 296)
+        Me.btnSGS.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnSGS.Name = "btnSGS"
+        Me.btnSGS.Padding = New System.Windows.Forms.Padding(11, 14, 11, 10)
+        Me.btnSGS.Size = New System.Drawing.Size(32, 32)
+        Me.btnSGS.TabIndex = 151
+        Me.btnSGS.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnSGS.UseVisualStyleBackColor = False
+        '
+        'btnRemondis
+        '
+        Me.btnRemondis.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnRemondis.FlatAppearance.BorderSize = 0
+        Me.btnRemondis.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRemondis.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRemondis.IconChar = FontAwesome.Sharp.IconChar.Registered
+        Me.btnRemondis.IconColor = System.Drawing.Color.Black
+        Me.btnRemondis.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnRemondis.IconSize = 30
+        Me.btnRemondis.Location = New System.Drawing.Point(240, 296)
+        Me.btnRemondis.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnRemondis.Name = "btnRemondis"
+        Me.btnRemondis.Padding = New System.Windows.Forms.Padding(11, 14, 11, 10)
+        Me.btnRemondis.Size = New System.Drawing.Size(32, 32)
+        Me.btnRemondis.TabIndex = 150
+        Me.btnRemondis.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnRemondis.UseVisualStyleBackColor = False
         '
         'btnIntToFacts
         '
@@ -437,44 +466,6 @@ Partial Class frmNewInt
         Me.btnOk.TabIndex = 147
         Me.btnOk.UseVisualStyleBackColor = True
         '
-        'btnRemondis
-        '
-        Me.btnRemondis.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnRemondis.FlatAppearance.BorderSize = 0
-        Me.btnRemondis.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRemondis.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRemondis.IconChar = FontAwesome.Sharp.IconChar.Registered
-        Me.btnRemondis.IconColor = System.Drawing.Color.Black
-        Me.btnRemondis.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btnRemondis.IconSize = 30
-        Me.btnRemondis.Location = New System.Drawing.Point(240, 296)
-        Me.btnRemondis.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnRemondis.Name = "btnRemondis"
-        Me.btnRemondis.Padding = New System.Windows.Forms.Padding(11, 14, 11, 10)
-        Me.btnRemondis.Size = New System.Drawing.Size(32, 32)
-        Me.btnRemondis.TabIndex = 150
-        Me.btnRemondis.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnRemondis.UseVisualStyleBackColor = False
-        '
-        'btnSGS
-        '
-        Me.btnSGS.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSGS.FlatAppearance.BorderSize = 0
-        Me.btnSGS.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSGS.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSGS.IconChar = FontAwesome.Sharp.IconChar.Speakap
-        Me.btnSGS.IconColor = System.Drawing.Color.Black
-        Me.btnSGS.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btnSGS.IconSize = 30
-        Me.btnSGS.Location = New System.Drawing.Point(272, 296)
-        Me.btnSGS.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnSGS.Name = "btnSGS"
-        Me.btnSGS.Padding = New System.Windows.Forms.Padding(11, 14, 11, 10)
-        Me.btnSGS.Size = New System.Drawing.Size(32, 32)
-        Me.btnSGS.TabIndex = 151
-        Me.btnSGS.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnSGS.UseVisualStyleBackColor = False
-        '
         'frmNewInt
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -492,7 +483,6 @@ Partial Class frmNewInt
         CType(Me.CASESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DORADbDS, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.INTERVENTIONSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.RCMenu.ResumeLayout(False)
         Me.pnlMain.ResumeLayout(False)
         Me.pnlMain.PerformLayout()
         Me.ResumeLayout(False)
@@ -526,8 +516,6 @@ Partial Class frmNewInt
     Friend WithEvents ToolTip As ToolTip
     Friend WithEvents txtZipInt As MaskedTextBox
     Friend WithEvents txtZipFacts As MaskedTextBox
-    Friend WithEvents RCMenu As ContextMenuStrip
-    Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents pnlMain As Panel
     Friend WithEvents btnCancel As FontAwesome.Sharp.IconButton
     Friend WithEvents btnOk As FontAwesome.Sharp.IconButton

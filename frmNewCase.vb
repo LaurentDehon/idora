@@ -141,7 +141,6 @@ Public Class frmNewCase
             lblLang.Text = "Taal"
             ToolTip.SetToolTip(btnOk, "Creëer de dossier")
             ToolTip.SetToolTip(btnCancel, "Annuleren")
-            HelpToolStripMenuItem.Text = "Hulp"
         Else
             Text = "Nouveau dossier"
             lblCaseName.Text = "Nom de dossier"
@@ -152,7 +151,6 @@ Public Class frmNewCase
             lblLang.Text = "Langue"
             ToolTip.SetToolTip(btnOk, "Créer le  dossier")
             ToolTip.SetToolTip(btnCancel, "Annuler")
-            HelpToolStripMenuItem.Text = "Aide"
         End If
     End Sub
     Private Sub GetUser()

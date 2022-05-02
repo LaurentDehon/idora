@@ -46,15 +46,12 @@ Partial Class frmNewCase
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.RCMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnCancel = New FontAwesome.Sharp.IconButton()
         Me.btnOk = New FontAwesome.Sharp.IconButton()
         Me.pnlMain = New System.Windows.Forms.Panel()
         CType(Me.CASESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DORADbDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.POLICE_UNITSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.RCMenu.SuspendLayout()
         Me.pnlMain.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -258,19 +255,13 @@ Partial Class frmNewCase
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.Width = 125
         '
-        'RCMenu
+        'ToolTip
         '
-        Me.RCMenu.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RCMenu.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.RCMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HelpToolStripMenuItem})
-        Me.RCMenu.Name = "RCMenu"
-        Me.RCMenu.Size = New System.Drawing.Size(120, 32)
-        '
-        'HelpToolStripMenuItem
-        '
-        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(119, 28)
-        Me.HelpToolStripMenuItem.Text = "Help"
+        Me.ToolTip.AutoPopDelay = 10000
+        Me.ToolTip.InitialDelay = 500
+        Me.ToolTip.IsBalloon = True
+        Me.ToolTip.ReshowDelay = 100
+        Me.ToolTip.ShowAlways = True
         '
         'btnCancel
         '
@@ -344,7 +335,6 @@ Partial Class frmNewCase
         CType(Me.CASESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DORADbDS, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.POLICE_UNITSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.RCMenu.ResumeLayout(False)
         Me.pnlMain.ResumeLayout(False)
         Me.pnlMain.PerformLayout()
         Me.ResumeLayout(False)
@@ -373,8 +363,6 @@ Partial Class frmNewCase
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents ToolTip As ToolTip
-    Friend WithEvents RCMenu As ContextMenuStrip
-    Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents btnCancel As FontAwesome.Sharp.IconButton
     Friend WithEvents btnOk As FontAwesome.Sharp.IconButton
     Friend WithEvents pnlMain As Panel

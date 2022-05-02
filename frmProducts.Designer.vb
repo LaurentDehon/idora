@@ -42,10 +42,10 @@ Partial Class frmProducts
         Me.TableAdapterManager = New DORA.DORADbDSTableAdapters.TableAdapterManager()
         Me.SHORTNAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnlTop = New System.Windows.Forms.Panel()
+        Me.btnSave = New FontAwesome.Sharp.IconButton()
         Me.txtSearchProducts = New System.Windows.Forms.TextBox()
         Me.btnUndo = New FontAwesome.Sharp.IconButton()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnSave = New FontAwesome.Sharp.IconButton()
         CType(Me.dgvProducts, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PRODUCTSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DORADbDS, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -168,6 +168,14 @@ Partial Class frmProducts
         '
         Me.Timer1.Interval = 500
         '
+        'ToolTip
+        '
+        Me.ToolTip.AutoPopDelay = 10000
+        Me.ToolTip.InitialDelay = 500
+        Me.ToolTip.IsBalloon = True
+        Me.ToolTip.ReshowDelay = 100
+        Me.ToolTip.ShowAlways = True
+        '
         'PRODUCTSTableAdapter
         '
         Me.PRODUCTSTableAdapter.ClearBeforeFill = True
@@ -211,6 +219,21 @@ Partial Class frmProducts
         Me.pnlTop.Size = New System.Drawing.Size(966, 49)
         Me.pnlTop.TabIndex = 136
         '
+        'btnSave
+        '
+        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSave.FlatAppearance.BorderSize = 0
+        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSave.IconChar = FontAwesome.Sharp.IconChar.Save
+        Me.btnSave.IconColor = System.Drawing.Color.Black
+        Me.btnSave.IconFont = FontAwesome.Sharp.IconFont.Solid
+        Me.btnSave.IconSize = 25
+        Me.btnSave.Location = New System.Drawing.Point(328, 8)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(32, 32)
+        Me.btnSave.TabIndex = 141
+        Me.btnSave.UseVisualStyleBackColor = True
+        '
         'txtSearchProducts
         '
         Me.txtSearchProducts.BackColor = System.Drawing.SystemColors.Window
@@ -250,21 +273,6 @@ Partial Class frmProducts
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(972, 503)
         Me.TableLayoutPanel1.TabIndex = 137
-        '
-        'btnSave
-        '
-        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSave.FlatAppearance.BorderSize = 0
-        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.IconChar = FontAwesome.Sharp.IconChar.Save
-        Me.btnSave.IconColor = System.Drawing.Color.Black
-        Me.btnSave.IconFont = FontAwesome.Sharp.IconFont.Solid
-        Me.btnSave.IconSize = 25
-        Me.btnSave.Location = New System.Drawing.Point(328, 8)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(32, 32)
-        Me.btnSave.TabIndex = 141
-        Me.btnSave.UseVisualStyleBackColor = True
         '
         'frmProducts
         '

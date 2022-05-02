@@ -525,7 +525,7 @@ Public Class frmCasesInterventions
                 Dim i As Integer = CASESBindingSource.Find("CASE NAME", parts(1))
                 If i > -1 Then
                     user_list = UserToList($"{dora_path}cru.txt", parts(2))
-                    dgvCases.Rows(i).DefaultCellStyle.BackColor = Color.FromName(user_list(3))
+                    dgvCases.Rows(i).DefaultCellStyle.ForeColor = Color.FromName(user_list(3))
                 End If
             End If
         Next
@@ -584,7 +584,7 @@ Public Class frmCasesInterventions
                 Dim i As Integer = INTERVENTIONSBindingSource.Find("ID CRU", parts(1))
                 If i > -1 Then
                     user_list = UserToList($"{dora_path}cru.txt", parts(2))
-                    dgvCases.Rows(i).DefaultCellStyle.BackColor = Color.FromName(user_list(3))
+                    dgvCases.Rows(i).DefaultCellStyle.ForeColor = Color.FromName(user_list(3))
                 End If
             End If
         Next
@@ -738,8 +738,6 @@ Public Class frmCasesInterventions
     Private Sub Trad()
         'Translate GUI
         If Lang = 1 Then
-            ToolTip.SetToolTip(btnAll, "Toon alle")
-            ToolTip.SetToolTip(btnRefresh, "Vernieuwen")
             mnViewCase.Text = "Dossier tonen"
             mnNewCase.Text = "Nieuwe dossier"
             mnOpenCaseFolder.Text = "Map openen"
@@ -749,9 +747,13 @@ Public Class frmCasesInterventions
             mnReassignIntervention.Text = "Interventie toewijzen"
             mnOpenIntFolder.Text = "Map openen"
             mnDeleteInt.Text = "Verwijder interventie"
+            ToolTip.SetToolTip(txtSearchCases, "Dossiers filteren")
+            ToolTip.SetToolTip(cmbSearchCases, "Selecteer het veld waarop het filter moet worden toegepast")
+            ToolTip.SetToolTip(btnAll, "Reset filters en toon alle dossiers en interventies")
+            ToolTip.SetToolTip(btnRefresh, "Dossiers en interventies vernieuwen")
+            ToolTip.SetToolTip(txtSearchInterventions, "Interventies filteren")
+            ToolTip.SetToolTip(cmbSearchInterventions, "Selecteer het veld waarop het filter moet worden toegepast")
         Else
-            ToolTip.SetToolTip(btnAll, "Montrer tout")
-            ToolTip.SetToolTip(btnRefresh, "Actualiser")
             mnViewCase.Text = "Voir le dossier"
             mnNewCase.Text = "Nouveau dossier"
             mnOpenCaseFolder.Text = "Ouvrir le répertoire"
@@ -761,6 +763,12 @@ Public Class frmCasesInterventions
             mnReassignIntervention.Text = "Réattribuer l'intervention"
             mnOpenIntFolder.Text = "Ouvrir le répertoire"
             mnDeleteInt.Text = "Supprimer l'intervention"
+            ToolTip.SetToolTip(txtSearchCases, "Filtrer les dossiers")
+            ToolTip.SetToolTip(cmbSearchCases, "Sélectionner le champ sur lequel s'appliquera le filtre")
+            ToolTip.SetToolTip(btnAll, "Réinitialiser les filtres et afficher tous les dossiers et toutes les interventions")
+            ToolTip.SetToolTip(btnRefresh, "Actualiser les dossiers et interventions")
+            ToolTip.SetToolTip(txtSearchInterventions, "Filtrer les interventions")
+            ToolTip.SetToolTip(cmbSearchInterventions, "Sélectionner le champ sur lequel s'appliquera le filtre")
         End If
     End Sub
     Private Sub FillCombo()
