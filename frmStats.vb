@@ -72,6 +72,7 @@ Public Class frmStats
             Dim Date1 As Date
             Dim Date2 As Date
             Dim Date3 As Date
+            If CBool(DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("CRU ON SITE")) = True Then countdays += 1
             If DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("DATE 1") IsNot DBNull.Value Then Date1 = CDate(DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("DATE 1"))
             If DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("DATE 2") IsNot DBNull.Value Then Date2 = CDate(DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("DATE 2"))
             If DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("DATE 3") IsNot DBNull.Value Then Date3 = CDate(DirectCast(INTERVENTIONSBindingSource.Current, DataRowView).Item("DATE 3"))
@@ -106,7 +107,7 @@ Public Class frmStats
         If Lang = 1 Then
             lblCases.Text = $"{CASESBindingSource.Count} dossiers"
             lblInterventions.Text = $" ↪  {INTERVENTIONSBindingSource.Count} interventies"
-            lblOut.Text = $"      ↪  {INTERVENTIONSBindingSource.Count + countdays} dagen op de grond"
+            lblOut.Text = $"      ↪  {countdays} dagen op de grond"
             lblLabs.Text = $"{lst_labs(0)} labo's"
             lblWorking.Text = $" ↪  {lst_type_of_labs(0)} in werking"
             lblAbandonned.Text = $" ↪  {lst_type_of_labs(1)} achtergelaten"
@@ -118,7 +119,7 @@ Public Class frmStats
         Else
             lblCases.Text = $"{CASESBindingSource.Count} dossiers"
             lblInterventions.Text = $" ↪  {INTERVENTIONSBindingSource.Count} interventions"
-            lblOut.Text = $"      ↪  {INTERVENTIONSBindingSource.Count + countdays} jours sur le terrain"
+            lblOut.Text = $"      ↪  {countdays} jours sur le terrain"
             lblLabs.Text = $"{lst_labs(0)} labos"
             lblWorking.Text = $" ↪  {lst_type_of_labs(0)} en fonction"
             lblAbandonned.Text = $" ↪  {lst_type_of_labs(1)} abandonnés"

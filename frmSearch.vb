@@ -1362,7 +1362,7 @@ Public Class frmSearch
             mnInterventionsNotDone.Text = "Interventions non clôturées"
             mnCRUOnSite.Text = "CRU sur place"
             ToolTip.SetToolTip(btnAddFilters, "Filtres supplémentaires")
-            ToolTip.SetToolTip(btnSearch, "Recherche")
+            ToolTip.SetToolTip(btnSearch, "Rechercher")
             ToolTip.SetToolTip(btnRefresh, "Actualiser")
         End If
     End Sub
@@ -1567,6 +1567,12 @@ Public Class frmSearch
     Private Sub cmbNoInput(sender As Object, e As KeyPressEventArgs) Handles cmbFrom.KeyPress, cmbTo.KeyPress
         'Make comboboxes read-only
         e.Handled = True
+    End Sub
+    Private Sub mnInterventionDone_Click(sender As Object, e As EventArgs) Handles mnInterventionDone.Click
+        mnInterventionsNotDone.Checked = False
+    End Sub
+    Private Sub mnInterventionsNotDone_Click(sender As Object, e As EventArgs) Handles mnInterventionsNotDone.Click
+        mnInterventionDone.Checked = False
     End Sub
     Private Sub txtFind_MouseDoubleClick(sender As Object, e As EventArgs) Handles txtFind.MouseDoubleClick
         txtFind.Text = String.Empty
