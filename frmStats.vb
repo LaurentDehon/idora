@@ -307,11 +307,7 @@ Public Class frmStats
                 CITY = ds.Tables("INTERVENTIONS").Rows(i).Item("CITY FACTS").ToString
                 Dim CityRow = ds.Tables("CITIES").Select($"[CITY] = '{CITY}'")
                 If CityRow.Length > 0 Then
-                    If CityRow(0).Item("ARRO") Is "LIEGE" Then
-                        ARRO = "Liège"
-                    Else
-                        ARRO = CityRow(0).Item("ARRO").ToString
-                    End If
+                    ARRO = CityRow(0).Item("ARRO").ToString
                 End If
                 Dim ProdRow = ds.Tables("DRUGS INT").Select($"[ID INT] = {IDINT}")
                 If ProdRow.Length > 0 Then
@@ -483,13 +479,14 @@ Public Class frmStats
                 chartPage.ApplyDataLabels(Excel.XlDataLabelsType.xlDataLabelsShowValue)
             Case 3
                 Dim lst_series As New List(Of String)({"Production sites", "Dumpings", "Storages"})
-                Dim lst_provincesC As New List(Of String)({"ANT", "LIM", "OVL", "LEU", "WVL", "BRU", "BW", "HAI", "LI", "EUP", "LUX", "NAM"})
+                Dim lst_provincesC As New List(Of String)({"ANT", "LIM", "OVL", "LEU", "WVL", "BRU", "BW", "HAI", "LIE", "EUP", "LUX", "NAM"})
                 Dim lst_provincesN As New List(Of String)({"Antwerpen", "Limburg", "Oost-Vlaanderen", "Leuven", "West-Vlaanderen", "Bru", "Brabant wallon", "Hainaut", "Liège", "Eupen", "Luxembourg", "Namur"})
                 Dim i, j As Integer
                 Dim prod As New List(Of Integer)
                 Dim dump As New List(Of Integer)
                 Dim stor As New List(Of Integer)
                 Dim StatsDV As New DataView(memberToDs(DORADbDS).Tables("INTS"))
+                dgvFake.DataSource = StatsDV.ToTable(True, "IDINT", "DATEINT", "CASENAME", "TYPEOFINT", "CITY", "ARRO")
                 For i = 0 To lst_provincesC.Count - 1
                     DateFrom = Convert.ToDateTime("01/01/" & start_year)
                     DateTo = Convert.ToDateTime("31/12/" & end_year)

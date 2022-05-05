@@ -1851,7 +1851,7 @@ Public Class frmInventory
             ToolTip.SetToolTip(btnRotateRO, "Rechts draaien")
             ToolTip.SetToolTip(btnDeletePicO, "Verwijder")
         Else
-            ToolTip.SetToolTip(btnMin, "Minimaliser")
+            ToolTip.SetToolTip(btnMin, "Minimiser")
             ToolTip.SetToolTip(btnClose, "Quitter")
             ToolTip.SetToolTip(btnSave, "Sauvegarder")
             If Directory.Exists(lowF) Then

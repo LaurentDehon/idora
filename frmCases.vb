@@ -602,8 +602,8 @@ Public Class frmCases
             Else
                 lblCreated.Visible = False
             End If
-            ToolTip.SetToolTip(btnMin, "")
-            ToolTip.SetToolTip(btnClose, "")
+            ToolTip.SetToolTip(btnMin, "Minimiser")
+            ToolTip.SetToolTip(btnClose, "Quitter")
             ToolTip.SetToolTip(btnSave, "Sauvegarder")
             ToolTip.SetToolTip(btnFolder, "Ouvrir le répertoire")
             ToolTip.SetToolTip(btnExit, "Quitter")

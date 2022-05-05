@@ -398,7 +398,7 @@ Public Class frmSearch
                     Case "Hainaut"
                         strFilterArro = " AND ([ARRO] LIKE '*hainaut*')"
                     Case "Liège"
-                        strFilterArro = " AND ([ARRO] LIKE '*liege*')"
+                        strFilterArro = " AND ([ARRO] LIKE '*liège*')"
                     Case "Eupen"
                         strFilterArro = " AND ([ARRO] LIKE '*eupen*')"
                     Case "Luxembourg"

@@ -91,14 +91,12 @@ Partial Class frmStats
         '
         Me.dgvFake.AllowUserToAddRows = False
         Me.dgvFake.AllowUserToDeleteRows = False
-        Me.dgvFake.AllowUserToResizeColumns = False
         Me.dgvFake.AllowUserToResizeRows = False
-        Me.dgvFake.BackgroundColor = System.Drawing.SystemColors.Window
+        Me.dgvFake.BackgroundColor = System.Drawing.Color.Gainsboro
         Me.dgvFake.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvFake.ColumnHeadersHeight = 29
         Me.dgvFake.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dgvFake.ColumnHeadersVisible = False
-        Me.dgvFake.Location = New System.Drawing.Point(640, 544)
+        Me.dgvFake.Location = New System.Drawing.Point(904, 144)
         Me.dgvFake.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvFake.MultiSelect = False
         Me.dgvFake.Name = "dgvFake"
@@ -108,9 +106,8 @@ Partial Class frmStats
         Me.dgvFake.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.dgvFake.RowTemplate.ReadOnly = True
         Me.dgvFake.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvFake.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvFake.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvFake.Size = New System.Drawing.Size(264, 88)
+        Me.dgvFake.Size = New System.Drawing.Size(296, 392)
         Me.dgvFake.TabIndex = 173
         Me.dgvFake.Visible = False
         '

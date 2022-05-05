@@ -2116,7 +2116,7 @@ Om het filter te resetten, plaatst u de cursor in het lege tekstveld en drukt u 
             lblRecipe.Text = "Recette(s)"
             lblBill.Text = "Facture(s)"
             lblNote.Text = "Note(s)"
-            ToolTip.SetToolTip(btnMin, "Minimaliser")
+            ToolTip.SetToolTip(btnMin, "Minimiser")
             ToolTip.SetToolTip(btnClose, "Quitter")
             ToolTip.SetToolTip(btnPrevCase, "Intervention précédente")
             ToolTip.SetToolTip(btnNextCase, "Intervention suivante")
