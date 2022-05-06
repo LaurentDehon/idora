@@ -731,6 +731,12 @@ Public Class frmSearch
                 Dim cell = dgvStats.Item(ht.ColumnIndex, ht.RowIndex)
                 dgvStats.CurrentCell = cell
                 cell.Selected = True
+                IntNum = CInt(dgvStats.Item(0, dgvStats.CurrentRow.Index).Value)
+                CaseName = CStr(dgvStats.Item(1, dgvStats.CurrentRow.Index).Value)
+                TypeOfInt = CStr(dgvStats.Item(2, dgvStats.CurrentRow.Index).Value)
+                DateInt = CDate(dgvStats.Item(3, dgvStats.CurrentRow.Index).Value)
+                AdressInt = CStr(dgvStats.Item(4, dgvStats.CurrentRow.Index).Value)
+                CityInt = CStr(dgvStats.Item(6, dgvStats.CurrentRow.Index).Value)
                 dgvStats.ContextMenuStrip = RCMenuStats
             ElseIf ht.Type = DataGridViewHitTestType.ColumnHeader Then
                 dgvStats.ContextMenuStrip = RCMenuHeader
@@ -1051,6 +1057,36 @@ Public Class frmSearch
             End If
         End If
     End Sub
+    Private Sub mnOpenFolder_Click(sender As Object, e As EventArgs) Handles mnOpenFolder.Click
+        'Open intervention folder, inside the case folder
+        Dim CaseRow() As DataRow = DORADbDS.Tables("CASES").Select($"[CASE NAME] = '{CaseName}'")
+        If CaseRow.Length > 0 Then
+            CRUFile = CStr(CaseRow(0)("FILE NUM"))
+            TypeOfCase = CStr(CaseRow(0)("TYPE OF CASE"))
+        Else
+            If Lang = 1 Then
+                MessageBox.Show("Onmogelijk om deze interventie te openen", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                MessageBox.Show("Impossible d'ouvrir cette intervention", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        End If
+        log("CASE", $"open folder of intervention {IntNum}")
+        If CRUFile.Substring(0, 3) Like "CRU" AndAlso CInt(CRUFile.Substring(3, 2)) > CInt("19") Then
+            Process.Start("explorer.exe", $"{files_path}20{CRUFile.Substring(3, 2)}\{TypeOfCase}\{CRUFile} - {CaseName}\C.R.U\INT {IntNum} {DateInt:dd-MM-yy} - {CityInt} - {AdressInt} ({TypeOfInt})")
+        ElseIf CRUFile.Substring(1, 2) = "19" Then
+            If Directory.Exists($"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\2019\DISP 2019\{CRUFile}\C.R.U") Then
+                Process.Start("explorer.exe", $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\2019\DISP 2019\{CRUFile}\C.R.U")
+            Else
+                Process.Start("explorer.exe", $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\2019\DISP 2019\{CRUFile}")
+            End If
+        Else
+            If Directory.Exists($"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}\C.R.U") Then
+                Process.Start("explorer.exe", $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}\C.R.U")
+            Else
+                Process.Start("explorer.exe", $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}")
+            End If
+        End If
+    End Sub
     Private Sub mnNL_Click(sender As Object, e As EventArgs) Handles mnNL.Click
         Dim list As String() = {"DOSSIERNAAM", "INTERVENTIE", "DATUM INT.", "ADRES INT.", "PC INT.", "GEMEENTE INT.", "DATUM FEITEN", "ADRES FEITEN", "PC FEITEN", "GEMEENTE FEITEN", "STAAL. GENOMEN DOOR", "STAAL. NUMMER", "STAAL. AFLEVERING DATUM", "STAAL. CODE", "CRU PV NUM.", "CRU PV DATUM", "NICC VERSLAG NUM.", "NICC VERSLAG DATUM", "NICC BESLUIT", "EENHEID", "CRU FICHE", "AANVANKELIJK PV", "RIO NUM.", "ON NUM.", "SIENA NUM.", "NVP", "TAAL", "ONDERZOEKER"}
         Export(list)
@@ -1276,6 +1312,7 @@ Public Class frmSearch
             lblManager.Text = "Beheerder"
             lblText.Text = "Vrij tekst"
             mnViewIntervention.Text = "Interventie tonen"
+            mnOpenFolder.Text = "Map openen"
             mnExportList.Text = "Lijst exporteren"
             mnAllInts.Text = "Interventie"
             mnDateInt.Text = "Datum"
@@ -1324,7 +1361,8 @@ Public Class frmSearch
             lblArro.Text = "Arrondissement"
             lblManager.Text = "Gestionnaire"
             lblText.Text = "Texte libre"
-            mnViewIntervention.Text = "Visualiser l'intervention"
+            mnViewIntervention.Text = "Voir l'intervention"
+            mnOpenFolder.Text = "Ouvrir le répertoire"
             mnExportList.Text = "Exporter liste"
             mnAllInts.Text = "Intervention"
             mnDateInt.Text = "Date"

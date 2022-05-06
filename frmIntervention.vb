@@ -1704,10 +1704,12 @@ Public Class frmIntervention
         End Try
     End Sub
     Private Sub btnOpenNICCReport_Click(sender As Object, e As EventArgs) Handles btnOpenNICCReport.Click
-        Dim files As String() = Directory.GetFiles($"{PathInt}\RESULTAAT ANALYSE", "*.pdf")
-        For Each f In files
-            Process.Start(f)
-        Next
+        If Directory.Exists($"{PathInt}\RESULTAAT ANALYSE") Then
+            Dim files As String() = Directory.GetFiles($"{PathInt}\RESULTAAT ANALYSE", "*.pdf")
+            For Each f In files
+                Process.Start(f)
+            Next
+        End If
     End Sub
     Private Sub btnIntReport_Click(sender As Object, e As EventArgs) Handles btnIntReport.Click
         Cursor = Cursors.WaitCursor
