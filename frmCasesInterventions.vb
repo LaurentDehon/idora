@@ -107,6 +107,7 @@ Public Class frmCasesInterventions
     End Sub
     Private Sub mnOpenCaseFolder_Click(sender As Object, e As EventArgs) Handles mnOpenCaseFolder.Click
         'Open case folder
+        Cursor = Cursors.WaitCursor
         CaseName = CStr(dgvCases.Item(1, dgvCases.CurrentRow.Index).Value)
         Dim CaseRow() As DataRow = DORADbDS.Tables("CASES").Select($"[CASE NAME] = '{CaseName}'")
         If CaseRow.Length > 0 Then
@@ -127,6 +128,7 @@ Public Class frmCasesInterventions
         Else
             Process.Start("explorer.exe", $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}")
         End If
+        Cursor = Cursors.Default
     End Sub
     Private Sub mnDeleteCase_Click(sender As Object, e As EventArgs) Handles mnDeleteCase.Click
         'Delete case
@@ -364,6 +366,7 @@ Public Class frmCasesInterventions
     End Sub
     Private Sub mnOpenIntFolder_Click(sender As Object, e As EventArgs) Handles mnOpenIntFolder.Click
         'Open intervention folder, inside the case folder
+        Cursor = Cursors.WaitCursor
         Dim CaseRow() As DataRow = DORADbDS.Tables("CASES").Select($"[CASE NAME] = '{CaseName}'")
         If CaseRow.Length > 0 Then
             CRUFile = CStr(CaseRow(0)("FILE NUM"))
@@ -391,6 +394,7 @@ Public Class frmCasesInterventions
                 Process.Start("explorer.exe", $"G:\DJSOC\DRUGS\0-Ops\A-DISP\A-Fiches\20{CRUFile.Substring(1, 2)}\DISP\{CRUFile}")
             End If
         End If
+        Cursor = Cursors.Default
     End Sub
     Private Sub mnCreateIntFolder_Click(sender As Object, e As EventArgs) Handles mnCreateIntFolder.Click
         'Create intervention folder, inside the case folder
@@ -839,7 +843,6 @@ Public Class frmCasesInterventions
         Dim firstintervention As Integer = dgvInterventions.FirstDisplayedScrollingRowIndex
         Dim indexcase As Integer = -1
         Dim indexintervention As Integer = -1
-        Dim col As Color
         If dgvCases.SelectedRows.Count > 0 Then
             indexcase = dgvCases.SelectedRows(0).Index
         End If
@@ -871,7 +874,7 @@ Public Class frmCasesInterventions
         If firstcase > -1 Then
             dgvCases.FirstDisplayedScrollingRowIndex = firstcase
         End If
-        If firstintervention > -1 Then
+        If firstintervention > -1 AndAlso dgvInterventions.Rows.Count > 0 Then
             dgvInterventions.FirstDisplayedScrollingRowIndex = firstintervention
         End If
     End Sub

@@ -1662,6 +1662,7 @@ Public Class frmIntervention
     Private Sub btnFolder_Click(sender As Object, e As EventArgs) Handles btnFolder.Click
         'Open intervention folder
         Try
+            Cursor = Cursors.WaitCursor
             If TypeOfCase <> Nothing And CRUFile <> Nothing Then
                 If CRUFile.Substring(0, 3) Like "CRU" AndAlso CInt(CRUFile.Substring(3, 2)) > CInt("19") Then
                     Dim dt As DateTime = Convert.ToDateTime(txtDateInt.Text)
@@ -1687,6 +1688,7 @@ Public Class frmIntervention
                     MessageBox.Show("Dossier introuvable", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
             End If
+            Cursor = Cursors.Default
         Catch exDNF As DirectoryNotFoundException
             If Lang = 1 Then
                 MessageBox.Show("Map niet gevonden", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error)

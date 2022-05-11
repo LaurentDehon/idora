@@ -283,11 +283,11 @@ Public Class frmMain
             ToolTip.SetToolTip(btnMin, "Minimiser")
             ToolTip.SetToolTip(btnMax, "Maximiser")
             ToolTip.SetToolTip(btnClose, "Quitter iDORA")
-            ToolTip.SetToolTip(btnCases, "Module Dossiers et interventions")
+            ToolTip.SetToolTip(btnCases, "Module dossiers et interventions")
             ToolTip.SetToolTip(btnSearch, "Module de recherche avancée")
             ToolTip.SetToolTip(btnStats, "Module statistiques et graphiques")
-            ToolTip.SetToolTip(btnMembers, "Module Personnel")
-            ToolTip.SetToolTip(btnProducts, "Module Produits")
+            ToolTip.SetToolTip(btnMembers, "Module personnel")
+            ToolTip.SetToolTip(btnProducts, "Module produits")
             ToolTip.SetToolTip(btnExit, "Quitter iDORA")
         End If
     End Sub
