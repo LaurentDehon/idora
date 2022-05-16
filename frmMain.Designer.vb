@@ -403,7 +403,7 @@ Partial Class frmMain
         Me.lblDoraVersion.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lblDoraVersion.Size = New System.Drawing.Size(240, 22)
         Me.lblDoraVersion.TabIndex = 121
-        Me.lblDoraVersion.Text = "iDORA 3.0.220511"
+        Me.lblDoraVersion.Text = "iDORA 3.0.220516"
         Me.lblDoraVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblTime
