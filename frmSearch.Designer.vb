@@ -46,6 +46,7 @@ Partial Class frmSearch
         Me.CASESTableAdapter = New DORA.DORADbDSTableAdapters.CASESTableAdapter()
         Me.RCMenuStats = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.mnViewIntervention = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnOpenFolder = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnExportList = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnNL = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnFR = New System.Windows.Forms.ToolStripMenuItem()
@@ -77,6 +78,7 @@ Partial Class frmSearch
         Me.mnZipInt = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnCityInt = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnAllFacts = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnPlaceFacts = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnDateFacts = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnAdressFacts = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnZipFacts = New System.Windows.Forms.ToolStripMenuItem()
@@ -107,7 +109,6 @@ Partial Class frmSearch
         Me.mnInterventionDone = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnInterventionsNotDone = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnCRUOnSite = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnOpenFolder = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.DORADbDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.INTERVENTIONSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DRUGS_INTBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -290,7 +291,7 @@ Partial Class frmSearch
         Me.RCMenuStats.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.RCMenuStats.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnViewIntervention, Me.mnOpenFolder, Me.mnExportList})
         Me.RCMenuStats.Name = "RCMenu"
-        Me.RCMenuStats.Size = New System.Drawing.Size(236, 116)
+        Me.RCMenuStats.Size = New System.Drawing.Size(236, 88)
         '
         'mnViewIntervention
         '
@@ -299,6 +300,13 @@ Partial Class frmSearch
         Me.mnViewIntervention.Name = "mnViewIntervention"
         Me.mnViewIntervention.Size = New System.Drawing.Size(235, 28)
         Me.mnViewIntervention.Text = "View Intervention"
+        '
+        'mnOpenFolder
+        '
+        Me.mnOpenFolder.Image = Global.DORA.My.Resources.Resources.folder_open
+        Me.mnOpenFolder.Name = "mnOpenFolder"
+        Me.mnOpenFolder.Size = New System.Drawing.Size(235, 28)
+        Me.mnOpenFolder.Text = "Open Folder"
         '
         'mnExportList
         '
@@ -728,10 +736,19 @@ Partial Class frmSearch
         Me.mnAllFacts.Checked = True
         Me.mnAllFacts.CheckOnClick = True
         Me.mnAllFacts.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.mnAllFacts.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnDateFacts, Me.mnAdressFacts, Me.mnZipFacts, Me.mnCityFacts})
+        Me.mnAllFacts.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnPlaceFacts, Me.mnDateFacts, Me.mnAdressFacts, Me.mnZipFacts, Me.mnCityFacts})
         Me.mnAllFacts.Name = "mnAllFacts"
         Me.mnAllFacts.Size = New System.Drawing.Size(199, 28)
         Me.mnAllFacts.Text = "AllFacts"
+        '
+        'mnPlaceFacts
+        '
+        Me.mnPlaceFacts.Checked = True
+        Me.mnPlaceFacts.CheckOnClick = True
+        Me.mnPlaceFacts.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.mnPlaceFacts.Name = "mnPlaceFacts"
+        Me.mnPlaceFacts.Size = New System.Drawing.Size(191, 28)
+        Me.mnPlaceFacts.Text = "PlaceFacts"
         '
         'mnDateFacts
         '
@@ -1002,13 +1019,6 @@ Partial Class frmSearch
         Me.mnCRUOnSite.Size = New System.Drawing.Size(268, 28)
         Me.mnCRUOnSite.Text = "CRUOnSite"
         '
-        'mnOpenFolder
-        '
-        Me.mnOpenFolder.Image = Global.DORA.My.Resources.Resources.folder_open
-        Me.mnOpenFolder.Name = "mnOpenFolder"
-        Me.mnOpenFolder.Size = New System.Drawing.Size(235, 28)
-        Me.mnOpenFolder.Text = "Open Folder"
-        '
         'frmSearch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -1121,5 +1131,6 @@ Partial Class frmSearch
     Friend WithEvents mnCRUOnSite As ToolStripMenuItem
     Friend WithEvents mnInterventionsNotDone As ToolStripMenuItem
     Friend WithEvents mnOpenFolder As ToolStripMenuItem
+    Friend WithEvents mnPlaceFacts As ToolStripMenuItem
 End Class
 

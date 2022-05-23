@@ -46,7 +46,7 @@ Public Class frmSearch
         user_name = user_list(0)
         user_color = user_list(3)
         lblCount.Visible = False
-        frmMain.CITIESBindingSource1.Sort = "[CITY] ASC"
+        frmMain.CITIESBindingSource2.Sort = "[CITY] ASC"
         frmMain.CITIESBindingSource2.Filter = String.Empty
         cmbCity.DataSource = frmMain.CITIESBindingSource1
         cmbCity.DisplayMember = "CITY"
@@ -164,6 +164,7 @@ Public Class frmSearch
             newDs.Tables("INTS").Columns.Add("ADRESSINT", GetType(String))
             newDs.Tables("INTS").Columns.Add("ZIPINT", GetType(Int32))
             newDs.Tables("INTS").Columns.Add("CITYINT", GetType(String))
+            newDs.Tables("INTS").Columns.Add("TYPEOFPLACE", GetType(String))
             newDs.Tables("INTS").Columns.Add("DATEFACTS", GetType(Date))
             newDs.Tables("INTS").Columns.Add("ADRESSFACTS", GetType(String))
             newDs.Tables("INTS").Columns.Add("ZIPFACTS", GetType(Int32))
@@ -186,7 +187,6 @@ Public Class frmSearch
             newDs.Tables("INTS").Columns.Add("NSP", GetType(String))
             newDs.Tables("INTS").Columns.Add("LANG", GetType(String))
             newDs.Tables("INTS").Columns.Add("CMEXT", GetType(String))
-            newDs.Tables("INTS").Columns.Add("TYPEOFPLACE", GetType(String))
             newDs.Tables("INTS").Columns.Add("ARRO", GetType(String))
             newDs.Tables("INTS").Columns.Add("DRUG", GetType(String))
             newDs.Tables("INTS").Columns.Add("MANAGER", GetType(String))
@@ -273,11 +273,11 @@ Public Class frmSearch
                 If ProdRow.Length > 0 Then
                     For j As Integer = 0 To ProdRow.Length - 1
                         DRUG = CStr(ProdRow(j).Item("DRUG"))
-                        newDs.Tables("INTS").Rows.Add(IDINT, CASENAME, TYPEOFINT, DATEINT, ADRESSINT, ZIPINT, CITYINT, DATEFACTS, ADRESSFACTS, ZIPFACTS, CITYFACTS, SAMPLEST, SAMPLESN, SAMPLESD, SAMPLESC, CRUREPORTN, CRUREPORTD, NICCREPORTN, NICCREPORTD, NICCREPORTC, UNIT, FILENUM, REPORTNUM, RIONUM, ONNUM, SIENANUM, NSP, LANG, CMEXT, TYPEOFPLACE, ARRO, DRUG, MANAGER, INTDONE, CRUONSITE)
+                        newDs.Tables("INTS").Rows.Add(IDINT, CASENAME, TYPEOFINT, DATEINT, ADRESSINT, ZIPINT, CITYINT, TYPEOFPLACE, DATEFACTS, ADRESSFACTS, ZIPFACTS, CITYFACTS, SAMPLEST, SAMPLESN, SAMPLESD, SAMPLESC, CRUREPORTN, CRUREPORTD, NICCREPORTN, NICCREPORTD, NICCREPORTC, UNIT, FILENUM, REPORTNUM, RIONUM, ONNUM, SIENANUM, NSP, LANG, CMEXT, ARRO, DRUG, MANAGER, INTDONE, CRUONSITE)
                         DrugB = True
                     Next
                 End If
-                If DrugB = False Then newDs.Tables("INTS").Rows.Add(IDINT, CASENAME, TYPEOFINT, DATEINT, ADRESSINT, ZIPINT, CITYINT, DATEFACTS, ADRESSFACTS, ZIPFACTS, CITYFACTS, SAMPLEST, SAMPLESN, SAMPLESD, SAMPLESC, CRUREPORTN, CRUREPORTD, NICCREPORTN, NICCREPORTD, NICCREPORTC, UNIT, FILENUM, REPORTNUM, RIONUM, ONNUM, SIENANUM, NSP, LANG, CMEXT, TYPEOFPLACE, ARRO, DRUG, MANAGER, INTDONE, CRUONSITE)
+                If DrugB = False Then newDs.Tables("INTS").Rows.Add(IDINT, CASENAME, TYPEOFINT, DATEINT, ADRESSINT, ZIPINT, CITYINT, TYPEOFPLACE, DATEFACTS, ADRESSFACTS, ZIPFACTS, CITYFACTS, SAMPLEST, SAMPLESN, SAMPLESD, SAMPLESC, CRUREPORTN, CRUREPORTD, NICCREPORTN, NICCREPORTD, NICCREPORTC, UNIT, FILENUM, REPORTNUM, RIONUM, ONNUM, SIENANUM, NSP, LANG, CMEXT, ARRO, DRUG, MANAGER, INTDONE, CRUONSITE)
             Next
             Return newDs
         Catch ex As Exception
@@ -448,9 +448,9 @@ Public Class frmSearch
             dgvStats.DataSource = StatsDV
             StatsDV.RowFilter = strFilterDate + strFilterCase + strFilterInt + strFilterPlace + strFilterArro + strFilterDrug + strFilterCity + strFilterManager + strFilterExtra
             StatsDV.Sort = "[DATEINT] DESC, [IDINT] DESC"
-            dgvStats.DataSource = StatsDV.ToTable(True, "IDINT", "CASENAME", "TYPEOFINT", "DATEINT", "ADRESSINT", "ZIPINT", "CITYINT", "DATEFACTS", "ADRESSFACTS", "ZIPFACTS", "CITYFACTS", "SAMPLEST", "SAMPLESN", "SAMPLESD", "SAMPLESC", "CRUREPORTN", "CRUREPORTD", "NICCREPORTN", "NICCREPORTD", "NICCREPORTC", "UNIT", "FILENUM", "REPORTNUM", "RIONUM", "ONNUM", "SIENANUM", "NSP", "LANG", "CMEXT") ', "TYPEOFPLACE", "ARRO", "DRUG", "MANAGER")
+            dgvStats.DataSource = StatsDV.ToTable(True, "IDINT", "CASENAME", "TYPEOFINT", "DATEINT", "ADRESSINT", "ZIPINT", "CITYINT", "TYPEOFPLACE", "DATEFACTS", "ADRESSFACTS", "ZIPFACTS", "CITYFACTS", "SAMPLEST", "SAMPLESN", "SAMPLESD", "SAMPLESC", "CRUREPORTN", "CRUREPORTD", "NICCREPORTN", "NICCREPORTD", "NICCREPORTC", "UNIT", "FILENUM", "REPORTNUM", "RIONUM", "ONNUM", "SIENANUM", "NSP", "LANG", "CMEXT") ', "ARRO", "DRUG", "MANAGER")
             dgvStats.Sort(dgvStats.Columns(3), ComponentModel.ListSortDirection.Descending)
-            For i As Integer = 0 To 28
+            For i As Integer = 0 To 29
                 dgvStats.Columns(i).SortMode = DataGridViewColumnSortMode.Programmatic
             Next
             dgvStats.Columns(0).Visible = False
@@ -462,33 +462,33 @@ Public Class frmSearch
             dgvStats.Columns(5).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
             dgvStats.Columns(5).HeaderCell.Style.ForeColor = Color.Teal
             dgvStats.Columns(6).HeaderCell.Style.ForeColor = Color.Teal
-            dgvStats.Columns(7).DefaultCellStyle.FormatProvider = Globalization.CultureInfo.GetCultureInfo("en-001")
-            dgvStats.Columns(7).DefaultCellStyle.Format = "dd/MM/yyyy"
             dgvStats.Columns(7).HeaderCell.Style.ForeColor = Color.DarkBlue
+            dgvStats.Columns(8).DefaultCellStyle.FormatProvider = Globalization.CultureInfo.GetCultureInfo("en-001")
+            dgvStats.Columns(8).DefaultCellStyle.Format = "dd/MM/yyyy"
             dgvStats.Columns(8).HeaderCell.Style.ForeColor = Color.DarkBlue
-            dgvStats.Columns(9).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
-            dgvStats.Columns(9).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
             dgvStats.Columns(9).HeaderCell.Style.ForeColor = Color.DarkBlue
+            dgvStats.Columns(10).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            dgvStats.Columns(10).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
             dgvStats.Columns(10).HeaderCell.Style.ForeColor = Color.DarkBlue
-            dgvStats.Columns(11).HeaderCell.Style.ForeColor = Color.DarkRed
+            dgvStats.Columns(11).HeaderCell.Style.ForeColor = Color.DarkBlue
             dgvStats.Columns(12).HeaderCell.Style.ForeColor = Color.DarkRed
-            dgvStats.Columns(13).DefaultCellStyle.FormatProvider = Globalization.CultureInfo.GetCultureInfo("en-001")
-            dgvStats.Columns(13).DefaultCellStyle.Format = "dd/MM/yyyy"
             dgvStats.Columns(13).HeaderCell.Style.ForeColor = Color.DarkRed
+            dgvStats.Columns(14).DefaultCellStyle.FormatProvider = Globalization.CultureInfo.GetCultureInfo("en-001")
+            dgvStats.Columns(14).DefaultCellStyle.Format = "dd/MM/yyyy"
             dgvStats.Columns(14).HeaderCell.Style.ForeColor = Color.DarkRed
-            dgvStats.Columns(15).DefaultCellStyle.FormatProvider = Globalization.CultureInfo.GetCultureInfo("en-001")
-            dgvStats.Columns(15).HeaderCell.Style.ForeColor = Color.DarkOrange
+            dgvStats.Columns(15).HeaderCell.Style.ForeColor = Color.DarkRed
             dgvStats.Columns(16).DefaultCellStyle.FormatProvider = Globalization.CultureInfo.GetCultureInfo("en-001")
-            dgvStats.Columns(16).DefaultCellStyle.Format = "dd/MM/yyyy"
             dgvStats.Columns(16).HeaderCell.Style.ForeColor = Color.DarkOrange
-            dgvStats.Columns(17).HeaderCell.Style.ForeColor = Color.DarkGreen
-            dgvStats.Columns(18).DefaultCellStyle.FormatProvider = Globalization.CultureInfo.GetCultureInfo("en-001")
-            dgvStats.Columns(18).DefaultCellStyle.Format = "dd/MM/yyyy"
+            dgvStats.Columns(17).DefaultCellStyle.FormatProvider = Globalization.CultureInfo.GetCultureInfo("en-001")
+            dgvStats.Columns(17).DefaultCellStyle.Format = "dd/MM/yyyy"
+            dgvStats.Columns(17).HeaderCell.Style.ForeColor = Color.DarkOrange
             dgvStats.Columns(18).HeaderCell.Style.ForeColor = Color.DarkGreen
+            dgvStats.Columns(19).DefaultCellStyle.FormatProvider = Globalization.CultureInfo.GetCultureInfo("en-001")
+            dgvStats.Columns(19).DefaultCellStyle.Format = "dd/MM/yyyy"
             dgvStats.Columns(19).HeaderCell.Style.ForeColor = Color.DarkGreen
-            dgvStats.Columns(19).AutoSizeMode = DataGridViewAutoSizeColumnMode.None
-            dgvStats.Columns(19).Width = 400
-            dgvStats.Columns(20).HeaderCell.Style.ForeColor = Color.DarkOrchid
+            dgvStats.Columns(20).HeaderCell.Style.ForeColor = Color.DarkGreen
+            dgvStats.Columns(20).AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+            dgvStats.Columns(20).Width = 400
             dgvStats.Columns(21).HeaderCell.Style.ForeColor = Color.DarkOrchid
             dgvStats.Columns(22).HeaderCell.Style.ForeColor = Color.DarkOrchid
             dgvStats.Columns(23).HeaderCell.Style.ForeColor = Color.DarkOrchid
@@ -497,6 +497,7 @@ Public Class frmSearch
             dgvStats.Columns(26).HeaderCell.Style.ForeColor = Color.DarkOrchid
             dgvStats.Columns(27).HeaderCell.Style.ForeColor = Color.DarkOrchid
             dgvStats.Columns(28).HeaderCell.Style.ForeColor = Color.DarkOrchid
+            dgvStats.Columns(29).HeaderCell.Style.ForeColor = Color.DarkOrchid
             'Translate columns headers
             If Lang = 1 Then
                 dgvStats.Columns(1).HeaderText = "Dossiernaam"
@@ -505,28 +506,29 @@ Public Class frmSearch
                 dgvStats.Columns(4).HeaderText = "Adres"
                 dgvStats.Columns(5).HeaderText = "PC"
                 dgvStats.Columns(6).HeaderText = "Gemeente"
-                dgvStats.Columns(7).HeaderText = "Datum"
-                dgvStats.Columns(8).HeaderText = "Adres"
-                dgvStats.Columns(9).HeaderText = "PC"
-                dgvStats.Columns(10).HeaderText = "Gemeente"
-                dgvStats.Columns(11).HeaderText = "Genomen door"
-                dgvStats.Columns(12).HeaderText = "Nummer"
-                dgvStats.Columns(13).HeaderText = "Datum"
-                dgvStats.Columns(14).HeaderText = "Code"
-                dgvStats.Columns(15).HeaderText = "Nummer"
-                dgvStats.Columns(16).HeaderText = "Datum"
-                dgvStats.Columns(17).HeaderText = "Nummer"
-                dgvStats.Columns(18).HeaderText = "Datum"
-                dgvStats.Columns(19).HeaderText = "Besluit"
-                dgvStats.Columns(20).HeaderText = "Eenheid"
-                dgvStats.Columns(21).HeaderText = "CRU fiche"
-                dgvStats.Columns(22).HeaderText = "Aanvankelijk PV"
-                dgvStats.Columns(23).HeaderText = "RIO num."
-                dgvStats.Columns(24).HeaderText = "ON num."
-                dgvStats.Columns(25).HeaderText = "SIENA num."
-                dgvStats.Columns(26).HeaderText = "NVP"
-                dgvStats.Columns(27).HeaderText = "Taal"
-                dgvStats.Columns(28).HeaderText = "Onderzoeker"
+                dgvStats.Columns(7).HeaderText = "Plaats"
+                dgvStats.Columns(8).HeaderText = "Datum"
+                dgvStats.Columns(9).HeaderText = "Adres"
+                dgvStats.Columns(10).HeaderText = "PC"
+                dgvStats.Columns(11).HeaderText = "Gemeente"
+                dgvStats.Columns(12).HeaderText = "Genomen door"
+                dgvStats.Columns(13).HeaderText = "Nummer"
+                dgvStats.Columns(14).HeaderText = "Datum"
+                dgvStats.Columns(15).HeaderText = "Code"
+                dgvStats.Columns(16).HeaderText = "Nummer"
+                dgvStats.Columns(17).HeaderText = "Datum"
+                dgvStats.Columns(18).HeaderText = "Nummer"
+                dgvStats.Columns(19).HeaderText = "Datum"
+                dgvStats.Columns(20).HeaderText = "Besluit"
+                dgvStats.Columns(21).HeaderText = "Eenheid"
+                dgvStats.Columns(22).HeaderText = "CRU fiche"
+                dgvStats.Columns(23).HeaderText = "Aanvankelijk PV"
+                dgvStats.Columns(24).HeaderText = "RIO num."
+                dgvStats.Columns(25).HeaderText = "ON num."
+                dgvStats.Columns(26).HeaderText = "SIENA num."
+                dgvStats.Columns(27).HeaderText = "NVP"
+                dgvStats.Columns(28).HeaderText = "Taal"
+                dgvStats.Columns(29).HeaderText = "Onderzoeker"
             Else
                 dgvStats.Columns(1).HeaderText = "Nom de dossier"
                 dgvStats.Columns(2).HeaderText = "Intervention"
@@ -534,28 +536,29 @@ Public Class frmSearch
                 dgvStats.Columns(4).HeaderText = "Adresse"
                 dgvStats.Columns(5).HeaderText = "CP"
                 dgvStats.Columns(6).HeaderText = "Commune"
-                dgvStats.Columns(7).HeaderText = "Date"
-                dgvStats.Columns(8).HeaderText = "Adresse"
-                dgvStats.Columns(9).HeaderText = "CP"
-                dgvStats.Columns(10).HeaderText = "Commune"
-                dgvStats.Columns(11).HeaderText = "Prélevés par"
-                dgvStats.Columns(12).HeaderText = "Numéro"
-                dgvStats.Columns(13).HeaderText = "Date"
-                dgvStats.Columns(14).HeaderText = "Code"
-                dgvStats.Columns(15).HeaderText = "Numéro"
-                dgvStats.Columns(16).HeaderText = "Date"
-                dgvStats.Columns(17).HeaderText = "Numéro"
-                dgvStats.Columns(18).HeaderText = "Date"
-                dgvStats.Columns(19).HeaderText = "Conclusions"
-                dgvStats.Columns(20).HeaderText = "Unité"
-                dgvStats.Columns(21).HeaderText = "Fiche CRU"
-                dgvStats.Columns(22).HeaderText = "PV initial"
-                dgvStats.Columns(23).HeaderText = "Num. RIO"
-                dgvStats.Columns(24).HeaderText = "Num. ON"
-                dgvStats.Columns(25).HeaderText = "Num. SIENA"
-                dgvStats.Columns(26).HeaderText = "PNS"
-                dgvStats.Columns(27).HeaderText = "Langue"
-                dgvStats.Columns(28).HeaderText = "Enquêteur"
+                dgvStats.Columns(7).HeaderText = "Lieu"
+                dgvStats.Columns(8).HeaderText = "Date"
+                dgvStats.Columns(9).HeaderText = "Adresse"
+                dgvStats.Columns(10).HeaderText = "CP"
+                dgvStats.Columns(11).HeaderText = "Commune"
+                dgvStats.Columns(12).HeaderText = "Prélevés par"
+                dgvStats.Columns(13).HeaderText = "Numéro"
+                dgvStats.Columns(14).HeaderText = "Date"
+                dgvStats.Columns(15).HeaderText = "Code"
+                dgvStats.Columns(16).HeaderText = "Numéro"
+                dgvStats.Columns(17).HeaderText = "Date"
+                dgvStats.Columns(18).HeaderText = "Numéro"
+                dgvStats.Columns(19).HeaderText = "Date"
+                dgvStats.Columns(20).HeaderText = "Conclusions"
+                dgvStats.Columns(21).HeaderText = "Unité"
+                dgvStats.Columns(22).HeaderText = "Fiche CRU"
+                dgvStats.Columns(23).HeaderText = "PV initial"
+                dgvStats.Columns(24).HeaderText = "Num. RIO"
+                dgvStats.Columns(25).HeaderText = "Num. ON"
+                dgvStats.Columns(26).HeaderText = "Num. SIENA"
+                dgvStats.Columns(27).HeaderText = "PNS"
+                dgvStats.Columns(28).HeaderText = "Langue"
+                dgvStats.Columns(29).HeaderText = "Enquêteur"
             End If
             lblCount.Visible = True
             If Lang = 1 Then
@@ -765,44 +768,45 @@ Public Class frmSearch
         If mnDateInt.Checked = True AndAlso mnAdressInt.Checked = True AndAlso mnZipInt.Checked = True AndAlso mnCityInt.Checked = True Then mnAllInts.Checked = True
         If mnDateInt.Checked = False AndAlso mnAdressInt.Checked = False AndAlso mnZipInt.Checked = False AndAlso mnCityInt.Checked = False Then mnAllInts.Checked = False
         'Show or hide facts related columns
-        If mnDateFacts.Checked = True Then dgvStats.Columns(7).Visible = True Else dgvStats.Columns(7).Visible = False
-        If mnAdressFacts.Checked = True Then dgvStats.Columns(8).Visible = True Else dgvStats.Columns(8).Visible = False
-        If mnZipFacts.Checked = True Then dgvStats.Columns(9).Visible = True Else dgvStats.Columns(9).Visible = False
-        If mnCityFacts.Checked = True Then dgvStats.Columns(10).Visible = True Else dgvStats.Columns(10).Visible = False
+        If mnPlaceFacts.Checked = True Then dgvStats.Columns(7).Visible = True Else dgvStats.Columns(7).Visible = False
+        If mnDateFacts.Checked = True Then dgvStats.Columns(8).Visible = True Else dgvStats.Columns(8).Visible = False
+        If mnAdressFacts.Checked = True Then dgvStats.Columns(9).Visible = True Else dgvStats.Columns(9).Visible = False
+        If mnZipFacts.Checked = True Then dgvStats.Columns(10).Visible = True Else dgvStats.Columns(10).Visible = False
+        If mnCityFacts.Checked = True Then dgvStats.Columns(11).Visible = True Else dgvStats.Columns(11).Visible = False
         'Check or uncheck category if all or none of the columns are shown
         If mnDateFacts.Checked = True AndAlso mnAdressFacts.Checked = True AndAlso mnZipFacts.Checked = True AndAlso mnCityFacts.Checked = True Then mnAllFacts.Checked = True
         If mnDateFacts.Checked = False AndAlso mnAdressFacts.Checked = False AndAlso mnZipFacts.Checked = False AndAlso mnCityFacts.Checked = False Then mnAllFacts.Checked = False
         'Show or hide samples related columns
-        If mnSamplesT.Checked = True Then dgvStats.Columns(11).Visible = True Else dgvStats.Columns(11).Visible = False
-        If mnSamplesN.Checked = True Then dgvStats.Columns(12).Visible = True Else dgvStats.Columns(12).Visible = False
-        If mnSamplesD.Checked = True Then dgvStats.Columns(13).Visible = True Else dgvStats.Columns(13).Visible = False
-        If mnSamplesC.Checked = True Then dgvStats.Columns(14).Visible = True Else dgvStats.Columns(14).Visible = False
+        If mnSamplesT.Checked = True Then dgvStats.Columns(12).Visible = True Else dgvStats.Columns(12).Visible = False
+        If mnSamplesN.Checked = True Then dgvStats.Columns(13).Visible = True Else dgvStats.Columns(13).Visible = False
+        If mnSamplesD.Checked = True Then dgvStats.Columns(14).Visible = True Else dgvStats.Columns(14).Visible = False
+        If mnSamplesC.Checked = True Then dgvStats.Columns(15).Visible = True Else dgvStats.Columns(15).Visible = False
         'Check or uncheck category if all or none of the columns are shown
         If mnSamplesT.Checked = True AndAlso mnSamplesN.Checked = True AndAlso mnSamplesD.Checked = True AndAlso mnSamplesC.Checked = True Then mnAllSamples.Checked = True
         If mnSamplesT.Checked = False AndAlso mnSamplesN.Checked = False AndAlso mnSamplesD.Checked = False AndAlso mnSamplesC.Checked = False Then mnAllSamples.Checked = False
         'Show or hide CRU Report related columns
-        If mnCRUReportN.Checked = True Then dgvStats.Columns(15).Visible = True Else dgvStats.Columns(15).Visible = False
-        If mnCRUReportD.Checked = True Then dgvStats.Columns(16).Visible = True Else dgvStats.Columns(16).Visible = False
+        If mnCRUReportN.Checked = True Then dgvStats.Columns(16).Visible = True Else dgvStats.Columns(16).Visible = False
+        If mnCRUReportD.Checked = True Then dgvStats.Columns(17).Visible = True Else dgvStats.Columns(17).Visible = False
         'Check or uncheck category if all or none of the columns are shown
         If mnCRUReportN.Checked = True AndAlso mnCRUReportD.Checked = True Then mnAllCRUReport.Checked = True
         If mnCRUReportN.Checked = False AndAlso mnCRUReportD.Checked = False Then mnAllCRUReport.Checked = False
         'Show or hide NICC Report related columns
-        If mnNICCReportN.Checked = True Then dgvStats.Columns(17).Visible = True Else dgvStats.Columns(17).Visible = False
-        If mnNICCReportD.Checked = True Then dgvStats.Columns(18).Visible = True Else dgvStats.Columns(18).Visible = False
-        If mnNICCReportC.Checked = True Then dgvStats.Columns(19).Visible = True Else dgvStats.Columns(19).Visible = False
+        If mnNICCReportN.Checked = True Then dgvStats.Columns(18).Visible = True Else dgvStats.Columns(18).Visible = False
+        If mnNICCReportD.Checked = True Then dgvStats.Columns(19).Visible = True Else dgvStats.Columns(19).Visible = False
+        If mnNICCReportC.Checked = True Then dgvStats.Columns(20).Visible = True Else dgvStats.Columns(20).Visible = False
         'Check or uncheck category if all or none of the columns are shown
         If mnNICCReportN.Checked = True AndAlso mnNICCReportD.Checked = True AndAlso mnNICCReportC.Checked = True Then mnAllNICCReport.Checked = True
         If mnNICCReportN.Checked = False AndAlso mnNICCReportD.Checked = False AndAlso mnNICCReportC.Checked = False Then mnAllNICCReport.Checked = False
         'Show or hide case related columns
-        If mnUnit.Checked = True Then dgvStats.Columns(20).Visible = True Else dgvStats.Columns(20).Visible = False
-        If mnFileNum.Checked = True Then dgvStats.Columns(21).Visible = True Else dgvStats.Columns(21).Visible = False
-        If mnReportNum.Checked = True Then dgvStats.Columns(22).Visible = True Else dgvStats.Columns(22).Visible = False
-        If mnRIONum.Checked = True Then dgvStats.Columns(23).Visible = True Else dgvStats.Columns(23).Visible = False
-        If mnONNum.Checked = True Then dgvStats.Columns(24).Visible = True Else dgvStats.Columns(24).Visible = False
-        If mnSIENANum.Checked = True Then dgvStats.Columns(25).Visible = True Else dgvStats.Columns(25).Visible = False
-        If mnNSP.Checked = True Then dgvStats.Columns(26).Visible = True Else dgvStats.Columns(26).Visible = False
-        If mnLang.Checked = True Then dgvStats.Columns(27).Visible = True Else dgvStats.Columns(27).Visible = False
-        If mnCMExt.Checked = True Then dgvStats.Columns(28).Visible = True Else dgvStats.Columns(28).Visible = False
+        If mnUnit.Checked = True Then dgvStats.Columns(21).Visible = True Else dgvStats.Columns(21).Visible = False
+        If mnFileNum.Checked = True Then dgvStats.Columns(22).Visible = True Else dgvStats.Columns(22).Visible = False
+        If mnReportNum.Checked = True Then dgvStats.Columns(23).Visible = True Else dgvStats.Columns(23).Visible = False
+        If mnRIONum.Checked = True Then dgvStats.Columns(24).Visible = True Else dgvStats.Columns(24).Visible = False
+        If mnONNum.Checked = True Then dgvStats.Columns(25).Visible = True Else dgvStats.Columns(25).Visible = False
+        If mnSIENANum.Checked = True Then dgvStats.Columns(26).Visible = True Else dgvStats.Columns(26).Visible = False
+        If mnNSP.Checked = True Then dgvStats.Columns(27).Visible = True Else dgvStats.Columns(27).Visible = False
+        If mnLang.Checked = True Then dgvStats.Columns(28).Visible = True Else dgvStats.Columns(28).Visible = False
+        If mnCMExt.Checked = True Then dgvStats.Columns(29).Visible = True Else dgvStats.Columns(29).Visible = False
         'Check or uncheck category if all or none of the columns are shown
         If mnUnit.Checked = True AndAlso mnFileNum.Checked = True AndAlso mnReportNum.Checked = True AndAlso mnRIONum.Checked = True AndAlso mnONNum.Checked = True AndAlso mnSIENANum.Checked = True AndAlso mnNSP.Checked = True AndAlso mnLang.Checked = True AndAlso mnCMExt.Checked = True Then mnAllCase.Checked = True
         If mnUnit.Checked = False AndAlso mnFileNum.Checked = False AndAlso mnReportNum.Checked = False AndAlso mnRIONum.Checked = False AndAlso mnONNum.Checked = False AndAlso mnSIENANum.Checked = False AndAlso mnNSP.Checked = False AndAlso mnLang.Checked = False AndAlso mnCMExt.Checked = False Then mnAllCase.Checked = False
@@ -847,6 +851,9 @@ Public Class frmSearch
     Private Sub mnAllFacts_DropDownItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles mnAllFacts.DropDownItemClicked
         mnAllFacts.DropDown.AutoClose = False
     End Sub
+    Private Sub mnPlaceFacts_Click(sender As Object, e As EventArgs) Handles mnPlaceFacts.Click
+        HandleHeaders()
+    End Sub
     Private Sub mnDateFacts_Click(sender As Object, e As EventArgs) Handles mnDateFacts.Click
         HandleHeaders()
     End Sub
@@ -864,11 +871,13 @@ Public Class frmSearch
     End Sub
     Private Sub mnAllFacts_Click(sender As Object, e As EventArgs) Handles mnAllFacts.Click
         If mnAllFacts.Checked = True Then
+            mnPlaceFacts.Checked = True
             mnDateFacts.Checked = True
             mnAdressFacts.Checked = True
             mnZipFacts.Checked = True
             mnCityFacts.Checked = True
         Else
+            mnPlaceFacts.Checked = False
             mnDateFacts.Checked = False
             mnAdressFacts.Checked = False
             mnZipFacts.Checked = False
@@ -1088,15 +1097,15 @@ Public Class frmSearch
         End If
     End Sub
     Private Sub mnNL_Click(sender As Object, e As EventArgs) Handles mnNL.Click
-        Dim list As String() = {"DOSSIERNAAM", "INTERVENTIE", "DATUM INT.", "ADRES INT.", "PC INT.", "GEMEENTE INT.", "DATUM FEITEN", "ADRES FEITEN", "PC FEITEN", "GEMEENTE FEITEN", "STAAL. GENOMEN DOOR", "STAAL. NUMMER", "STAAL. AFLEVERING DATUM", "STAAL. CODE", "CRU PV NUM.", "CRU PV DATUM", "NICC VERSLAG NUM.", "NICC VERSLAG DATUM", "NICC BESLUIT", "EENHEID", "CRU FICHE", "AANVANKELIJK PV", "RIO NUM.", "ON NUM.", "SIENA NUM.", "NVP", "TAAL", "ONDERZOEKER"}
+        Dim list As String() = {"DOSSIERNAAM", "INTERVENTIE", "DATUM INT.", "ADRES INT.", "PC INT.", "GEMEENTE INT.", "PLAATS", "DATUM FEITEN", "ADRES FEITEN", "PC FEITEN", "GEMEENTE FEITEN", "STAAL. GENOMEN DOOR", "STAAL. NUMMER", "STAAL. AFLEVERING DATUM", "STAAL. CODE", "CRU PV NUM.", "CRU PV DATUM", "NICC VERSLAG NUM.", "NICC VERSLAG DATUM", "NICC BESLUIT", "EENHEID", "CRU FICHE", "AANVANKELIJK PV", "RIO NUM.", "ON NUM.", "SIENA NUM.", "NVP", "TAAL", "ONDERZOEKER"}
         Export(list)
     End Sub
     Private Sub mnFR_Click(sender As Object, e As EventArgs) Handles mnFR.Click
-        Dim list As String() = {"NOM DE DOSSIER", "INTERVENTION", "DATE INT.", "ADRESSE INT.", "CP INT.", "COMMUNE INT.", "DATE FAITS", "ADRESSE FAITS", "CP FAITS", "COMMUNE FAITS", "ECHANT. PRIS PAR", "NUMÉRO ECHANT.", "DATE DE DEPÔT ECHANT.", "CODE ECHANT.", "NUMÉRO PV CRU", "DATE PV CRU", "NUM. RAPPORT INCC", "DATE RAPPORT INCC", "CONCLUSIONS INCC", "UNITÉ", "FICHE CRU", "PV INITIAL", "NUM. RIO", "NUM. ON", "NUM. SIENA", "PNS", "LANGUE", "ENQUÊTEUR"}
+        Dim list As String() = {"NOM DE DOSSIER", "INTERVENTION", "DATE INT.", "ADRESSE INT.", "CP INT.", "COMMUNE INT.", "LIEU", "DATE FAITS", "ADRESSE FAITS", "CP FAITS", "COMMUNE FAITS", "ECHANT. PRIS PAR", "NUMÉRO ECHANT.", "DATE DE DEPÔT ECHANT.", "CODE ECHANT.", "NUMÉRO PV CRU", "DATE PV CRU", "NUM. RAPPORT INCC", "DATE RAPPORT INCC", "CONCLUSIONS INCC", "UNITÉ", "FICHE CRU", "PV INITIAL", "NUM. RIO", "NUM. ON", "NUM. SIENA", "PNS", "LANGUE", "ENQUÊTEUR"}
         Export(list)
     End Sub
     Private Sub mnEN_Click(sender As Object, e As EventArgs) Handles mnEN.Click
-        Dim list As String() = {"CASE NAME", "INTERVENTION", "DATE INT.", "ADRESS INT.", "ZIP INT.", "CITY INT.", "DATE FACTS", "ADRESS FACTS", "ZIP FACTS", "CITY FACTS", "SAMPLES TAKEN BY", "SAMPLES NUM.", "SAMPLES DELIVERY DATE", "SAMPLES CODE", "CRU REPORT NUM.", "CRU REPORT DATE", "NICC REPORT NUM.", "NICC REPORT DATE", "NICC CONCLUSIONS", "UNIT", "CRU FILE NUM.", "INITIAL REPORT", "RIO NUM.", "ON NUM.", "SIENA NUM.", "NSP", "LANGUAGE", "INVESTIGATOR"}
+        Dim list As String() = {"CASE NAME", "INTERVENTION", "DATE INT.", "ADRESS INT.", "ZIP INT.", "CITY INT.", "LOCATION", "DATE FACTS", "ADRESS FACTS", "ZIP FACTS", "CITY FACTS", "SAMPLES TAKEN BY", "SAMPLES NUM.", "SAMPLES DELIVERY DATE", "SAMPLES CODE", "CRU REPORT NUM.", "CRU REPORT DATE", "NICC REPORT NUM.", "NICC REPORT DATE", "NICC CONCLUSIONS", "UNIT", "CRU FILE NUM.", "INITIAL REPORT", "RIO NUM.", "ON NUM.", "SIENA NUM.", "NSP", "LANGUAGE", "INVESTIGATOR"}
         Export(list)
     End Sub
     Private Sub Export(list As String())
@@ -1158,25 +1167,24 @@ Public Class frmSearch
                         xlWorkSheet.Cells(1, k) = list(6)
                         xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).AutoFit()
                         xlWorkSheet.Range(xlWorkSheet.Cells(1, k), xlWorkSheet.Cells(1, k)).BorderAround2()
-                        xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter
-                        xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).NumberFormat = "dd/MM/yyyy"
                     Case 8
                         xlWorkSheet.Cells(1, k) = list(7)
                         xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).AutoFit()
                         xlWorkSheet.Range(xlWorkSheet.Cells(1, k), xlWorkSheet.Cells(1, k)).BorderAround2()
+                        xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter
+                        xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).NumberFormat = "dd/MM/yyyy"
                     Case 9
                         xlWorkSheet.Cells(1, k) = list(8)
                         xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).AutoFit()
-                        xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter
+                        xlWorkSheet.Range(xlWorkSheet.Cells(1, k), xlWorkSheet.Cells(1, k)).BorderAround2()
                     Case 10
                         xlWorkSheet.Cells(1, k) = list(9)
                         xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).AutoFit()
-                        xlWorkSheet.Range(xlWorkSheet.Cells(1, k), xlWorkSheet.Cells(1, k)).BorderAround2()
+                        xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter
                     Case 11
                         xlWorkSheet.Cells(1, k) = list(10)
                         xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).AutoFit()
                         xlWorkSheet.Range(xlWorkSheet.Cells(1, k), xlWorkSheet.Cells(1, k)).BorderAround2()
-                        xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter
                     Case 12
                         xlWorkSheet.Cells(1, k) = list(11)
                         xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).AutoFit()
@@ -1187,12 +1195,12 @@ Public Class frmSearch
                         xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).AutoFit()
                         xlWorkSheet.Range(xlWorkSheet.Cells(1, k), xlWorkSheet.Cells(1, k)).BorderAround2()
                         xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter
-                        xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).NumberFormat = "dd/MM/yyyy"
                     Case 14
                         xlWorkSheet.Cells(1, k) = list(13)
                         xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).AutoFit()
                         xlWorkSheet.Range(xlWorkSheet.Cells(1, k), xlWorkSheet.Cells(1, k)).BorderAround2()
                         xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter
+                        xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).NumberFormat = "dd/MM/yyyy"
                     Case 15
                         xlWorkSheet.Cells(1, k) = list(14)
                         xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).AutoFit()
@@ -1203,22 +1211,23 @@ Public Class frmSearch
                         xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).AutoFit()
                         xlWorkSheet.Range(xlWorkSheet.Cells(1, k), xlWorkSheet.Cells(1, k)).BorderAround2()
                         xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter
-                        xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).NumberFormat = "dd/MM/yyyy"
                     Case 17
                         xlWorkSheet.Cells(1, k) = list(16)
                         xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).AutoFit()
                         xlWorkSheet.Range(xlWorkSheet.Cells(1, k), xlWorkSheet.Cells(1, k)).BorderAround2()
                         xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter
+                        xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).NumberFormat = "dd/MM/yyyy"
                     Case 18
                         xlWorkSheet.Cells(1, k) = list(17)
                         xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).AutoFit()
                         xlWorkSheet.Range(xlWorkSheet.Cells(1, k), xlWorkSheet.Cells(1, k)).BorderAround2()
                         xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter
-                        xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).NumberFormat = "dd/MM/yyyy"
                     Case 19
                         xlWorkSheet.Cells(1, k) = list(18)
                         xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).AutoFit()
                         xlWorkSheet.Range(xlWorkSheet.Cells(1, k), xlWorkSheet.Cells(1, k)).BorderAround2()
+                        xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter
+                        xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).NumberFormat = "dd/MM/yyyy"
                     Case 20
                         xlWorkSheet.Cells(1, k) = list(19)
                         xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).AutoFit()
@@ -1253,6 +1262,10 @@ Public Class frmSearch
                         xlWorkSheet.Range(xlWorkSheet.Cells(1, k), xlWorkSheet.Cells(1, k)).BorderAround2()
                     Case 28
                         xlWorkSheet.Cells(1, k) = list(27)
+                        xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).AutoFit()
+                        xlWorkSheet.Range(xlWorkSheet.Cells(1, k), xlWorkSheet.Cells(1, k)).BorderAround2()
+                    Case 29
+                        xlWorkSheet.Cells(1, k) = list(28)
                         xlWorkSheet.Range(xlWorkSheet.Columns(k), xlWorkSheet.Columns(k)).AutoFit()
                         xlWorkSheet.Range(xlWorkSheet.Cells(1, k), xlWorkSheet.Cells(1, k)).BorderAround2()
                 End Select
@@ -1320,6 +1333,7 @@ Public Class frmSearch
             mnZipInt.Text = "Postcode"
             mnCityInt.Text = "Gemeente"
             mnAllFacts.Text = "Feiten"
+            mnPlaceFacts.Text = "Plaats"
             mnDateFacts.Text = "Datum"
             mnAdressFacts.Text = "Adres"
             mnZipFacts.Text = "Postcode"
@@ -1370,6 +1384,7 @@ Public Class frmSearch
             mnZipInt.Text = "Code postal"
             mnCityInt.Text = "Commune"
             mnAllFacts.Text = "Faits"
+            mnPlaceFacts.Text = "Lieu"
             mnDateFacts.Text = "Date"
             mnAdressFacts.Text = "Adresse"
             mnZipFacts.Text = "Code postal"
@@ -1536,6 +1551,7 @@ Public Class frmSearch
         mnZipInt.ForeColor = Color.Teal
         mnCityInt.ForeColor = Color.Teal
         mnAllFacts.ForeColor = Color.DarkBlue
+        mnPlaceFacts.ForeColor = Color.DarkBlue
         mnDateFacts.ForeColor = Color.DarkBlue
         mnAdressFacts.ForeColor = Color.DarkBlue
         mnZipFacts.ForeColor = Color.DarkBlue
