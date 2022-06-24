@@ -99,6 +99,7 @@ Public Class frmNewInt
                 End If
                 NewIntRow("CREATED BY") = User
                 NewIntRow("CREATED ON") = Format(Now, "dd/MMM/yyyy HH:mm")
+                NewIntRow("CRU ON SITE") = True
                 DORADbDS.Tables("INTERVENTIONS").Rows.Add(NewIntRow)
                 INTERVENTIONSTableAdapter.Update(DORADbDS.INTERVENTIONS)
                 'Get ID CRU
