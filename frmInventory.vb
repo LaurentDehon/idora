@@ -1288,6 +1288,10 @@ Public Class frmInventory
                             ResizedImg = ScaleImageLandscape(OriginalImg)
                             ResizedImg.Save($"{picsF}{Prefix}-{i:D2}.jpg", Imaging.ImageFormat.Jpeg)
                         End If
+                    Case 3
+                        OriginalImg.RotateFlip(RotateFlipType.Rotate180FlipNone)
+                        ResizedImg = ScaleImagePortrait(OriginalImg)
+                        ResizedImg.Save($"{picsF}{Prefix}-{i:D2}.jpg", Imaging.ImageFormat.Jpeg)
                     Case 6
                         OriginalImg.RotateFlip(RotateFlipType.Rotate90FlipNone)
                         ResizedImg = ScaleImagePortrait(OriginalImg)

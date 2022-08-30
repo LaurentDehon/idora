@@ -252,6 +252,7 @@ Partial Class frmNewInt
         '
         'cmbCityInt
         '
+        Me.cmbCityInt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCityInt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbCityInt.FormattingEnabled = True
         Me.cmbCityInt.Location = New System.Drawing.Point(240, 216)
@@ -262,6 +263,7 @@ Partial Class frmNewInt
         '
         'cmbCityFacts
         '
+        Me.cmbCityFacts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCityFacts.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbCityFacts.FormattingEnabled = True
         Me.cmbCityFacts.Location = New System.Drawing.Point(240, 376)

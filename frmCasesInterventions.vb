@@ -729,7 +729,6 @@ Public Class frmCasesInterventions
             Dim parts As String() = Split(Path.GetFileNameWithoutExtension(f), ",,")
             If parts(0) = "CAS" Then
                 Dim i As Integer = CASESBindingSource.Find("CASE NAME", parts(1))
-                'MsgBox($"i = {i} / CASESBindingSource count = {CASESBindingSource.Count} / dgvCases count = {dgvCases.Rows.Count}")
                 If i >= 0 Then
                     user_list = UserToList($"{dora_path}cru.txt", parts(2))
                     dgvCases.Rows(i).DefaultCellStyle.ForeColor = Color.FromName(user_list(3))
