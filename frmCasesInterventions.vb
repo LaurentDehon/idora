@@ -42,6 +42,7 @@ Public Class frmCasesInterventions
         user_list = UserToList($"{dora_path}cru.txt", user)
         CreateUsersBoxes()
         CheckDatFiles()
+        TimerCheck.Start()
     End Sub
 #Region "Cases Datagridview"
     Private Sub dgvCases_Resize(sender As Object, e As EventArgs) Handles dgvCases.Resize
@@ -61,7 +62,6 @@ Public Class frmCasesInterventions
         log("CASE", $"select case {CaseName}")
     End Sub
     Private Sub dgvCases_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCases.CellClick
-        CheckDatFiles()
         If Not selectionChanged Then
             dgvCases.ClearSelection()
             selectionChanged = True
@@ -710,7 +710,7 @@ Public Class frmCasesInterventions
                     .Cursor = Cursors.Hand,
                     .Location = New Point(btnRefresh.Right + 10 + j * 35, btnRefresh.Location.Y)
                 }
-                ToolTip.SetToolTip(pic, Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(Line.Split(CChar(";"))(0).ToString))
+                ToolTip.SetToolTip(pic, Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase($"{Line.Split(CChar(";"))(0)}{Environment.NewLine}{Line.Split(CChar(";"))(4)}"))
                 tbl4.ColumnStyles.Insert(0, New ColumnStyle(SizeType.Absolute, tbl4.ColumnStyles(0).Width + 40))
                 tbl2.ColumnCount += 1
                 tbl2.ColumnStyles.Insert(tbl2.ColumnCount - 1, New ColumnStyle(SizeType.Absolute, 40))
@@ -718,6 +718,9 @@ Public Class frmCasesInterventions
                 j += 1
             End If
         Next
+    End Sub
+    Private Sub TimerCheck_Tick(sender As Object, e As EventArgs) Handles TimerCheck.Tick
+        CheckDatFiles()
     End Sub
     Public Sub CheckDatFiles()
         'Check for dat files
@@ -905,6 +908,7 @@ Public Class frmCasesInterventions
             c.IconColor = theme("Font")
         Next
     End Sub
+
 #End Region
 
 End Class

@@ -306,6 +306,7 @@ Partial Class frmIntervention
         '
         Me.cmbCityInt.BackColor = System.Drawing.SystemColors.Window
         Me.cmbCityInt.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.INTERVENTIONSBindingSource, "CITY INT", True))
+        Me.cmbCityInt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCityInt.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbCityInt.FormattingEnabled = True
         Me.cmbCityInt.Location = New System.Drawing.Point(21, 57)
@@ -341,6 +342,7 @@ Partial Class frmIntervention
         '
         Me.cmbCityFacts.BackColor = System.Drawing.SystemColors.Window
         Me.cmbCityFacts.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.INTERVENTIONSBindingSource, "CITY FACTS", True))
+        Me.cmbCityFacts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCityFacts.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbCityFacts.FormattingEnabled = True
         Me.cmbCityFacts.Location = New System.Drawing.Point(21, 57)

@@ -579,7 +579,7 @@ Public Class frmMain
             Next
         End If
     End Sub
-    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click, btnExit.Click
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click, btnExit.Click, Me.FormClosing
         SaveWindow()
         DeleteDatFiles()
         'Save every opened window positions

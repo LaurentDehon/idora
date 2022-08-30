@@ -29,10 +29,10 @@ Public Class frmIntervention
         SetColors()
         'Fill, filter and sort datatables
         frmMain.CITIESBindingSource1.Sort = "[CITY] ASC"
-        cmbCityInt.DataSource = frmMain.CITIESBindingSource1
         cmbCityInt.DisplayMember = "CITY"
-        cmbCityFacts.DataSource = frmMain.CITIESBindingSource2
+        cmbCityInt.DataSource = frmMain.CITIESBindingSource1
         cmbCityFacts.DisplayMember = "CITY"
+        cmbCityFacts.DataSource = frmMain.CITIESBindingSource2
         INTERVENTIONSTableAdapter.Fill(DORADbDS.INTERVENTIONS)
         INTERVENTIONSBindingSource.Filter = $"[CASE NAME] = '{CaseName}'"
         INTERVENTIONSBindingSource.Sort = "[DATE INT] DESC, [ID CRU] DESC"
@@ -1390,23 +1390,21 @@ Public Class frmIntervention
     End Sub
     Private Sub cmbCityInt_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmbCityInt.SelectionChangeCommitted
         'Update zip
-        frmMain.CITIESBindingSource1.Position = frmMain.CITIESBindingSource1.Find("CITY", txtZipInt.Text)
+        frmMain.CITIESBindingSource1.Position = frmMain.CITIESBindingSource1.Find("CITY", cmbCityInt.Text)
+        City = CStr(DirectCast(frmMain.CITIESBindingSource1.Current, DataRowView).Item("CITY"))
         txtZipInt.Text = CStr(DirectCast(frmMain.CITIESBindingSource1.Current, DataRowView).Item("ZIP CODE"))
     End Sub
     Private Sub txtZipInt_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles txtZipInt.MouseDoubleClick
         'Reset filter
         frmMain.CITIESBindingSource1.Filter = Nothing
+        cmbCityInt.SelectedIndex = -1
         txtZipInt.Text = String.Empty
     End Sub
     Private Sub txtZipInt_TextChanged(sender As Object, e As EventArgs) Handles txtZipInt.TextChanged
         'Filter city combobox with zip code
         If txtZipInt.MaskCompleted = True Then
             frmMain.CITIESBindingSource1.Filter = $"[ZIP CODE]= '{txtZipInt.Text}'"
-            If City <> Nothing Then
-                cmbCityInt.Text = City
-            Else
-                'cmbCityInt.SelectedIndex = 0
-            End If
+            frmMain.CITIESBindingSource1.Position = frmMain.CITIESBindingSource1.Find("CITY", City)
         End If
     End Sub
     Private Sub txtZipInt_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtZipInt.KeyPress
@@ -1431,7 +1429,8 @@ Public Class frmIntervention
     End Sub
     Private Sub cmbCityFacts_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmbCityFacts.SelectionChangeCommitted
         'Update zip
-        frmMain.CITIESBindingSource2.Position = frmMain.CITIESBindingSource2.Find("CITY", txtZipFacts.Text)
+        frmMain.CITIESBindingSource2.Position = frmMain.CITIESBindingSource2.Find("CITY", cmbCityFacts.Text)
+        City = CStr(DirectCast(frmMain.CITIESBindingSource2.Current, DataRowView).Item("CITY"))
         txtZipFacts.Text = CStr(DirectCast(frmMain.CITIESBindingSource2.Current, DataRowView).Item("ZIP CODE"))
     End Sub
     Private Sub txtAdressInt_Leave(sender As Object, e As EventArgs) Handles txtAdressInt.Leave
@@ -1449,17 +1448,14 @@ Public Class frmIntervention
     Private Sub txtZipFacts_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles txtZipFacts.MouseDoubleClick
         'Reset filter
         frmMain.CITIESBindingSource2.Filter = Nothing
+        cmbCityFacts.SelectedIndex = -1
         txtZipFacts.Text = String.Empty
     End Sub
     Private Sub txtZipFacts_TextChanged(sender As Object, e As EventArgs) Handles txtZipFacts.TextChanged
         'Filter city combobox with zip code
         If txtZipFacts.MaskCompleted = True Then
             frmMain.CITIESBindingSource2.Filter = $"[ZIP CODE]= '{txtZipFacts.Text}'"
-            If City <> Nothing Then
-                cmbCityFacts.Text = City
-            Else
-                'cmbCityFacts.SelectedIndex = 0
-            End If
+            frmMain.CITIESBindingSource2.Position = frmMain.CITIESBindingSource2.Find("CITY", City)
         End If
     End Sub
     Private Sub txtZipFacts_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtZipFacts.KeyPress
