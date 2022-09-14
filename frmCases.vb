@@ -702,9 +702,11 @@ Public Class frmCases
     Private Sub CreateDatFile()
         'Create case dat file
         actualCase = txtCaseName.Text
-        File.Create($"{dora_path}SYSTEM\CAS,,{actualCase},,{user}.dat").Dispose()
-        If File.Exists($"{dora_path}SYSTEM\CAS,,{previousCase},,{user}.dat") AndAlso previousCase <> actualCase Then
-            File.Delete($"{dora_path}SYSTEM\CAS,,{previousCase},,{user}.dat")
+        If Not actualCase.Contains("/") Then
+            File.Create($"{dora_path}SYSTEM\CAS,,{actualCase},,{user}.dat").Dispose()
+            If File.Exists($"{dora_path}SYSTEM\CAS,,{previousCase},,{user}.dat") AndAlso previousCase <> actualCase Then
+                File.Delete($"{dora_path}SYSTEM\CAS,,{previousCase},,{user}.dat")
+            End If
         End If
         previousCase = actualCase
     End Sub

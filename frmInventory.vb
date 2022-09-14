@@ -124,6 +124,10 @@ Public Class frmInventory
 #End Region
 #Region "Buttons"
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        Save()
+        log("INV.", "click on SAVE")
+    End Sub
+    Private Sub Save()
         'Save
         Dim index = dgvInventory.FirstDisplayedScrollingRowIndex
         Try
@@ -135,7 +139,6 @@ Public Class frmInventory
             Else
                 lblSaved.Text = $"Dernière sauvegarde: {Date.Now:HH:mm:ss}"
             End If
-            log("INV.", "click on SAVE")
         Catch ex As Exception
             If Lang = 1 Then
                 MessageBox.Show(ex.Message, "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1908,7 +1911,7 @@ Public Class frmInventory
     End Sub
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         'Auto save
-        btnSave_Click(sender, e)
+        Save()
     End Sub
     Private Sub CheckInventory()
         If dgvInventory.Rows.Count = 0 Then

@@ -34,7 +34,6 @@ Public Class frmSearch
         SetColors()
         Trad()
         FillCombo()
-        GetUser()
         EnableDoubleBuffered(dgvStats, True)
         fsw.Path = $"{dora_path}SYSTEM"
         If opened_out = True Then
@@ -45,6 +44,7 @@ Public Class frmSearch
         user_list = UserToList($"{dora_path}cru.txt", user)
         user_name = user_list(0)
         user_color = user_list(3)
+        GetUserNames()
         lblCount.Visible = False
         frmMain.CITIESBindingSource2.Sort = "[CITY] ASC"
         frmMain.CITIESBindingSource2.Filter = String.Empty
@@ -1585,16 +1585,12 @@ Public Class frmSearch
         Dim pi As PropertyInfo = dgvType.GetProperty("DoubleBuffered", BindingFlags.Instance Or BindingFlags.NonPublic)
         pi.SetValue(dgv, setting, Nothing)
     End Sub
-    Private Sub GetUser()
-        Dim user_list() As String = SearchFile($"{dora_path}cru.txt", Environment.UserName)
-        user = user_list(0)
-        cmbCMInt.Text = user
+    Private Sub GetUserNames()
         For Each Line As String In File.ReadLines($"{dora_path}cru.txt")
             If Line.Contains("44") Then
                 cmbCMInt.Items.Add(Line.Split(CChar(";"))(0).Replace(vbTab, ""))
             End If
         Next
-        cmbCMInt.Text = String.Empty
     End Sub
     Public Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
         If dgvStats.SelectedRows.Count > 0 Then
