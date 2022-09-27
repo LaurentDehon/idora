@@ -54,7 +54,7 @@ Public Class frmMain
         CITIESBindingSource2.Sort = "[CITY] ASC"
         Backup()
     End Sub
-    Private Sub MyApplication_UnhandledException(ByVal sender As Object, ByVal e As ApplicationServices.UnhandledExceptionEventArgs) Handles Me.UnhandledException
+    Private Sub iDORA_UnhandledException(ByVal sender As Object, ByVal e As ApplicationServices.UnhandledExceptionEventArgs) Handles Me.UnhandledException
         'If the user clicks No, then exit.
         e.ExitApplication = MessageBox.Show(e.Exception.Message & vbCrLf & "Continue?", "Continue?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No
     End Sub
