@@ -9,6 +9,7 @@ Public Class frmMain
     Private leftBorderBtn As Panel
     Private currentChildForm As Form
     Private currentBtn As IconButton
+    Public Event UnhandledException(sender As Object, e As ApplicationServices.UnhandledExceptionEventArgs)
     Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
         Get
             Dim cp As CreateParams = MyBase.CreateParams
@@ -52,6 +53,10 @@ Public Class frmMain
         CITIESTableAdapter2.Fill(DORADbDS.CITIES)
         CITIESBindingSource2.Sort = "[CITY] ASC"
         Backup()
+    End Sub
+    Private Sub MyApplication_UnhandledException(ByVal sender As Object, ByVal e As ApplicationServices.UnhandledExceptionEventArgs) Handles Me.UnhandledException
+        'If the user clicks No, then exit.
+        e.ExitApplication = MessageBox.Show(e.Exception.Message & vbCrLf & "Continue?", "Continue?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No
     End Sub
 #Region "Backup"
     Private Sub Backup()
@@ -311,6 +316,7 @@ Public Class frmMain
                 My.Settings.files_path = files_path
                 My.Settings.Save()
             Else
+                MsgBox("exit1")
                 Application.Exit()
                 End
             End If
@@ -336,6 +342,7 @@ Public Class frmMain
                 My.Settings.dora_path = dora_path
                 My.Settings.Save()
             Else
+                MsgBox("exit2")
                 Application.Exit()
                 End
             End If
@@ -358,6 +365,7 @@ Public Class frmMain
                 config.ConnectionStrings.ConnectionStrings("DORA.My.MySettings.DORADbConn").ConnectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={ofd.FileName}"
                 config.Save(ConfigurationSaveMode.Modified)
             Else
+                MsgBox("exit3")
                 Application.Exit()
                 End
             End If
@@ -380,6 +388,7 @@ Public Class frmMain
                 config.ConnectionStrings.ConnectionStrings("DORA.My.MySettings.DORAInvDS").ConnectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={ofd.FileName}"
                 config.Save(ConfigurationSaveMode.Modified)
             Else
+                MsgBox("exit4")
                 Application.Exit()
                 End
             End If

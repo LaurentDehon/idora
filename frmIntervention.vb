@@ -1929,7 +1929,7 @@ Public Class frmIntervention
             log("INT.", "click on UNLOCK INVENTORY")
         End If
     End Sub
-    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click, btnClose.Click
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click, btnExit.Click
         'Discard changes and exit window
         Dim Result As DialogResult
         INTERVENTIONSBindingSource.EndEdit()
@@ -1943,35 +1943,31 @@ Public Class frmIntervention
                 Result = MessageBox.Show($"Vous allez perdre tous les changements non sauvegardés.{Environment.NewLine}Voulez-vous continuer?", "Êtes-vous sûr", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             End If
             If Result = DialogResult.Yes Then
-                If Application.OpenForms().OfType(Of frmInventory).Any Then
-                    My.Settings.frmInventory_loc = frmInventory.Location
-                    File.Delete($"{dora_path}SYSTEM\INV,,{IntNum},,{user}.dat")
-                    frmInventory.Close()
-                End If
-                My.Settings.frmIntervention_loc = Location
-                'Delete int dat file
-                If File.Exists($"{dora_path}SYSTEM\INT,,{IntNum},,{user}.dat") Then
-                    File.Delete($"{dora_path}SYSTEM\INT,,{IntNum},,{user}.dat")
-                End If
-                log("INT.", "click on CLOSE")
+                log("INT.", "click on OK")
                 dgvProd.DataSource = Nothing
                 dgvMembersInt.DataSource = Nothing
                 dgvProductsInt.DataSource = Nothing
                 Close()
+            Else
+                log("CASE", "click on CANCEL")
             End If
         Else
-            If Application.OpenForms().OfType(Of frmInventory).Any Then
-                My.Settings.frmInventory_loc = frmInventory.Location
-                File.Delete($"{dora_path}SYSTEM\INV,,{IntNum},,{user}.dat")
-                frmInventory.Close()
-            End If
-            My.Settings.frmIntervention_loc = Location
-            'Delete int dat file
-            If File.Exists($"{dora_path}SYSTEM\INT,,{IntNum},,{user}.dat") Then
-                File.Delete($"{dora_path}SYSTEM\INT,,{IntNum},,{user}.dat")
-            End If
-            log("INT.", "click on CLOSE")
             Close()
+        End If
+    End Sub
+    Private Sub frmIntervention_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        My.Settings.frmIntervention_loc = Location
+        log("INT.", "click on CLOSE")
+        'Delete int dat file
+        If File.Exists($"{dora_path}SYSTEM\INT,,{IntNum},,{user}.dat") Then
+            File.Delete($"{dora_path}SYSTEM\INT,,{IntNum},,{user}.dat")
+        End If
+        If Application.OpenForms().OfType(Of frmInventory).Any Then
+            My.Settings.frmInventory_loc = frmInventory.Location
+            If File.Exists($"{dora_path}SYSTEM\INV,,{IntNum},,{user}.dat") Then
+                File.Delete($"{dora_path}SYSTEM\INV,,{IntNum},,{user}.dat")
+            End If
+            frmInventory.Close()
         End If
     End Sub
 #End Region

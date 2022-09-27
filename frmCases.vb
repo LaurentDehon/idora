@@ -480,22 +480,21 @@ Public Class frmCases
                 Result = MessageBox.Show($"Vous allez perdre tous les changements non sauvegardés.{Environment.NewLine}Voulez-vous continuer?", "Êtes-vous sûr", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             End If
             If Result = DialogResult.Yes Then
-                My.Settings.frmCases_loc = Location
-                'Delete case dat file
-                If File.Exists($"{dora_path}SYSTEM\CAS,,{previousCase},,{user}.dat") Then
-                    File.Delete($"{dora_path}SYSTEM\CAS,,{previousCase},,{user}.dat")
-                End If
-                log("CASE", "click on CANCEL")
+                log("CASE", "click on OK")
                 Close()
+            Else
+                log("CASE", "click on CANCEL")
             End If
         Else
-            My.Settings.frmCases_loc = Location
-            'Delete case dat file
-            If File.Exists($"{dora_path}SYSTEM\CAS,,{previousCase},,{user}.dat") Then
-                File.Delete($"{dora_path}SYSTEM\CAS,,{previousCase},,{user}.dat")
-            End If
-            log("CASE", "click on CANCEL")
             Close()
+        End If
+    End Sub
+    Private Sub frmCases_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        My.Settings.frmCases_loc = Location
+        log("CASE", "click on CLOSE")
+        'Delete case dat file
+        If File.Exists($"{dora_path}SYSTEM\CAS,,{previousCase},,{user}.dat") Then
+            File.Delete($"{dora_path}SYSTEM\CAS,,{previousCase},,{user}.dat")
         End If
     End Sub
 #End Region
@@ -710,6 +709,7 @@ Public Class frmCases
         End If
         previousCase = actualCase
     End Sub
+
 #End Region
 
 End Class
