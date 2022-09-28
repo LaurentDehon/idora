@@ -2070,7 +2070,7 @@ Public Class frmIntervention
             ToolTip.SetToolTip(cmbDrug, "Productie")
             ToolTip.SetToolTip(cmbMethod, "Methode")
             ToolTip.SetToolTip(cmbStep, "Stap")
-            ToolTip.SetToolTip(btnCRUOnSite, "CRU ter plaatse aanwezig")
+            ToolTip.SetToolTip(btnCRUOnSite, "Interventie van het CRU")
             ToolTip.SetToolTip(btnAddDrug, "Productietype toevoegen")
             ToolTip.SetToolTip(btnSaveDrug, "Opslaan")
             ToolTip.SetToolTip(btnDeleteDrug, "Verwijderen")
@@ -2105,7 +2105,7 @@ Om het filter te resetten, plaatst u de cursor in het lege tekstveld en drukt u 
             lblSummary.Text = "Résumé des faits"
             lbltotal.Text = "Total"
             lblProdCap.Text = "Capacité"
-            lblCRUOnSite.Text = "CRU sur place"
+            lblCRUOnSite.Text = "Intervention du CRU"
             lblOnSite.Text = "Sur place"
             lblSuspect.Text = "Suspect(s)"
             lblDischarge.Text = "Déversement"

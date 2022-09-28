@@ -1788,6 +1788,12 @@ Public Class frmInventory
                 End Select
                 i += 1
                 bgw.ReportProgress(CInt((i / c) * 100))
+            Catch OOMex As OutOfMemoryException
+                If Lang = 1 Then
+                    MessageBox.Show($"{OOMex.Message}{Environment.NewLine}Start DORA opnieuw op", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Else
+                    MessageBox.Show($"{OOMex.Message}{Environment.NewLine}Veuillez redémarrer DORA", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
             Catch ex As Exception
                 If Lang = 1 Then
                     MessageBox.Show(ex.Message, "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1933,6 +1939,7 @@ Public Class frmInventory
             dgvPicsO.Enabled = False
             btnAddRuimte.Enabled = True
             btnAdd.Enabled = True
+            btnImport.Enabled = True
         Else
             For Each c In pnlInput.Controls
                 c.enabled = True

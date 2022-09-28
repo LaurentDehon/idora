@@ -49,7 +49,7 @@ Public Class frmProducts
             dgvProducts.Columns(4).HeaderText = "Numéro CAS"
             dgvProducts.Columns(5).HeaderText = "Numéro UN"
             ToolTip.SetToolTip(btnUndo, "Annuler")
-            ToolTip.SetToolTip(btnUndo, "Sauvegarder")
+            ToolTip.SetToolTip(btnSave, "Sauvegarder")
             lblcount.Text = PRODUCTSBindingSource.Count & " produit(s)"
         End If
     End Sub
@@ -69,7 +69,11 @@ Public Class frmProducts
         Dim index As Integer = dgvProducts.SelectedRows(0).Index
         PRODUCTSTableAdapter.Fill(DORADbDS.PRODUCTS)
         dgvProducts.FirstDisplayedScrollingRowIndex = first
-        dgvProducts.Rows(index).Selected = True
+        If index < dgvProducts.Rows.Count Then
+            dgvProducts.Rows(index).Selected = True
+        Else
+            dgvProducts.Rows(index - 1).Selected = True
+        End If
     End Sub
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles Me.Closing, btnSave.Click
         'Save changes

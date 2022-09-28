@@ -379,7 +379,7 @@ Partial Class frmMain
         Me.lblDoraCopyrights.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lblDoraCopyrights.Size = New System.Drawing.Size(240, 22)
         Me.lblDoraCopyrights.TabIndex = 122
-        Me.lblDoraCopyrights.Text = "© C.R.U. / DJSOC"
+        Me.lblDoraCopyrights.Text = "© C.R.U. 2022 / DJSOC"
         Me.lblDoraCopyrights.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'imgCRU

@@ -72,7 +72,11 @@ Public Class frmMembers
         Dim index As Integer = dgvMembers.SelectedRows(0).Index
         MEMBERSTableAdapter.Fill(DORADbDS.MEMBERS)
         dgvMembers.FirstDisplayedScrollingRowIndex = first
-        dgvMembers.Rows(index).Selected = True
+        If index < dgvMembers.Rows.Count Then
+            dgvMembers.Rows(index).Selected = True
+        Else
+            dgvMembers.Rows(index - 1).Selected = True
+        End If
     End Sub
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles Me.Closing, btnSave.Click
         'Save changes

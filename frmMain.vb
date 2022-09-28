@@ -316,7 +316,6 @@ Public Class frmMain
                 My.Settings.files_path = files_path
                 My.Settings.Save()
             Else
-                MsgBox("exit1")
                 Application.Exit()
                 End
             End If
@@ -342,7 +341,6 @@ Public Class frmMain
                 My.Settings.dora_path = dora_path
                 My.Settings.Save()
             Else
-                MsgBox("exit2")
                 Application.Exit()
                 End
             End If
@@ -365,7 +363,6 @@ Public Class frmMain
                 config.ConnectionStrings.ConnectionStrings("DORA.My.MySettings.DORADbConn").ConnectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={ofd.FileName}"
                 config.Save(ConfigurationSaveMode.Modified)
             Else
-                MsgBox("exit3")
                 Application.Exit()
                 End
             End If
@@ -388,7 +385,6 @@ Public Class frmMain
                 config.ConnectionStrings.ConnectionStrings("DORA.My.MySettings.DORAInvDS").ConnectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={ofd.FileName}"
                 config.Save(ConfigurationSaveMode.Modified)
             Else
-                MsgBox("exit4")
                 Application.Exit()
                 End
             End If
@@ -551,6 +547,8 @@ Public Class frmMain
         If (e.Control AndAlso e.KeyCode = Keys.R) Then
             Top = CInt((Screen.PrimaryScreen.Bounds.Height - Height) / 2)
             Left = CInt((Screen.PrimaryScreen.Bounds.Width - Width) / 2)
+        Else If (e.KeyCode = Keys.F1) Then
+            Process.Start($"{dora_path}HELP\2__menu_principal.htm")
         End If
     End Sub
     Private Sub SetColors()
