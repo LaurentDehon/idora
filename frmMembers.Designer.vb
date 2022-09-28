@@ -41,7 +41,6 @@ Partial Class frmMembers
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.pnlTop = New System.Windows.Forms.Panel()
         Me.btnSave = New FontAwesome.Sharp.IconButton()
-        Me.btnUndo = New FontAwesome.Sharp.IconButton()
         Me.txtSearchMembers = New System.Windows.Forms.TextBox()
         Me.lblcount = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
@@ -198,7 +197,6 @@ Partial Class frmMembers
         'pnlTop
         '
         Me.pnlTop.Controls.Add(Me.btnSave)
-        Me.pnlTop.Controls.Add(Me.btnUndo)
         Me.pnlTop.Controls.Add(Me.txtSearchMembers)
         Me.pnlTop.Controls.Add(Me.lblcount)
         Me.pnlTop.Dock = System.Windows.Forms.DockStyle.Fill
@@ -216,26 +214,11 @@ Partial Class frmMembers
         Me.btnSave.IconColor = System.Drawing.Color.Black
         Me.btnSave.IconFont = FontAwesome.Sharp.IconFont.Solid
         Me.btnSave.IconSize = 25
-        Me.btnSave.Location = New System.Drawing.Point(328, 8)
+        Me.btnSave.Location = New System.Drawing.Point(288, 8)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(32, 32)
         Me.btnSave.TabIndex = 138
         Me.btnSave.UseVisualStyleBackColor = True
-        '
-        'btnUndo
-        '
-        Me.btnUndo.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnUndo.FlatAppearance.BorderSize = 0
-        Me.btnUndo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnUndo.IconChar = FontAwesome.Sharp.IconChar.Undo
-        Me.btnUndo.IconColor = System.Drawing.Color.Black
-        Me.btnUndo.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btnUndo.IconSize = 25
-        Me.btnUndo.Location = New System.Drawing.Point(288, 8)
-        Me.btnUndo.Name = "btnUndo"
-        Me.btnUndo.Size = New System.Drawing.Size(32, 32)
-        Me.btnUndo.TabIndex = 137
-        Me.btnUndo.UseVisualStyleBackColor = True
         '
         'txtSearchMembers
         '
@@ -300,7 +283,6 @@ Partial Class frmMembers
     Friend WithEvents EMAIL As DataGridViewTextBoxColumn
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents pnlTop As Panel
-    Friend WithEvents btnUndo As FontAwesome.Sharp.IconButton
     Friend WithEvents txtSearchMembers As TextBox
     Friend WithEvents lblcount As Label
     Friend WithEvents Timer1 As Timer

@@ -42,13 +42,11 @@ Public Class frmProducts
         If Lang = 1 Then
             dgvProducts.Columns(4).HeaderText = "CAS nummer"
             dgvProducts.Columns(5).HeaderText = "UN nummer"
-            ToolTip.SetToolTip(btnUndo, "Annuleren")
             ToolTip.SetToolTip(btnSave, "Opslaan")
             lblcount.Text = PRODUCTSBindingSource.Count & " product(en)"
         Else
             dgvProducts.Columns(4).HeaderText = "Numéro CAS"
             dgvProducts.Columns(5).HeaderText = "Numéro UN"
-            ToolTip.SetToolTip(btnUndo, "Annuler")
             ToolTip.SetToolTip(btnSave, "Sauvegarder")
             lblcount.Text = PRODUCTSBindingSource.Count & " produit(s)"
         End If
@@ -63,17 +61,6 @@ Public Class frmProducts
         dgvProducts.Columns(3).Width = CInt((dgvProducts.Width / 100) * 20)
         dgvProducts.Columns(4).Width = CInt((dgvProducts.Width / 100) * 10)
         dgvProducts.Columns(5).Width = CInt((dgvProducts.Width / 100) * 10)
-    End Sub
-    Private Sub btnUndo_Click(sender As Object, e As EventArgs) Handles btnUndo.Click
-        Dim first As Integer = dgvProducts.FirstDisplayedScrollingRowIndex
-        Dim index As Integer = dgvProducts.SelectedRows(0).Index
-        PRODUCTSTableAdapter.Fill(DORADbDS.PRODUCTS)
-        dgvProducts.FirstDisplayedScrollingRowIndex = first
-        If index < dgvProducts.Rows.Count Then
-            dgvProducts.Rows(index).Selected = True
-        Else
-            dgvProducts.Rows(index - 1).Selected = True
-        End If
     End Sub
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles Me.Closing, btnSave.Click
         'Save changes
@@ -103,7 +90,6 @@ Public Class frmProducts
         dgvProducts.ColumnHeadersDefaultCellStyle.ForeColor = theme("Font")
         dgvProducts.ColumnHeadersDefaultCellStyle.SelectionBackColor = theme("Dark")
         dgvProducts.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.Black
-        btnUndo.IconColor = theme("Font")
         btnSave.IconColor = theme("Font")
     End Sub
 #End Region

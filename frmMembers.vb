@@ -42,7 +42,6 @@ Public Class frmMembers
             dgvMembers.Columns(2).HeaderText = "Dienst"
             dgvMembers.Columns(3).HeaderText = "Telefoon"
             dgvMembers.Columns(4).HeaderText = "Mobiele"
-            ToolTip.SetToolTip(btnUndo, "Annuleren")
             ToolTip.SetToolTip(btnSave, "Opslaan")
             lblcount.Text = MEMBERSBindingSource.Count & " persoon(en)"
         Else
@@ -51,7 +50,6 @@ Public Class frmMembers
             dgvMembers.Columns(2).HeaderText = "Service"
             dgvMembers.Columns(3).HeaderText = "Téléphone"
             dgvMembers.Columns(4).HeaderText = "Mobile"
-            ToolTip.SetToolTip(btnUndo, "Annuler")
             ToolTip.SetToolTip(btnSave, "Sauvegarder")
             lblcount.Text = MEMBERSBindingSource.Count & " personne(s)"
         End If
@@ -66,17 +64,6 @@ Public Class frmMembers
         dgvMembers.Columns(3).Width = CInt((dgvMembers.Width / 100) * 15)
         dgvMembers.Columns(4).Width = CInt((dgvMembers.Width / 100) * 15)
         dgvMembers.Columns(5).Width = CInt((dgvMembers.Width / 100) * 22)
-    End Sub
-    Private Sub btnUndo_Click(sender As Object, e As EventArgs) Handles btnUndo.Click
-        Dim first As Integer = dgvMembers.FirstDisplayedScrollingRowIndex
-        Dim index As Integer = dgvMembers.SelectedRows(0).Index
-        MEMBERSTableAdapter.Fill(DORADbDS.MEMBERS)
-        dgvMembers.FirstDisplayedScrollingRowIndex = first
-        If index < dgvMembers.Rows.Count Then
-            dgvMembers.Rows(index).Selected = True
-        Else
-            dgvMembers.Rows(index - 1).Selected = True
-        End If
     End Sub
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles Me.Closing, btnSave.Click
         'Save changes
@@ -106,7 +93,6 @@ Public Class frmMembers
         dgvMembers.ColumnHeadersDefaultCellStyle.ForeColor = theme("Font")
         dgvMembers.ColumnHeadersDefaultCellStyle.SelectionBackColor = theme("Dark")
         dgvMembers.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.Black
-        btnUndo.IconColor = theme("Font")
         btnSave.IconColor = theme("Font")
     End Sub
 #End Region
