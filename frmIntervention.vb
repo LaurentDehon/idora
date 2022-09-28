@@ -40,7 +40,6 @@ Public Class frmIntervention
         DRUGS_INTTableAdapter.Fill(DORADbDS.DRUGS_INT)
         DRUGS_INTBindingSource.Filter = $"[ID INT] = '{IntNum}'"
         MEMBERSTableAdapter.Fill(DORADbDS.MEMBERS)
-        MEMBERSBindingSource.Filter = "[ACTIVE] = True"
         MEMBERSBindingSource.Sort = "[LAST NAME] ASC"
         MEMBERS_INTTableAdapter.Fill(DORADbDS.MEMBERS_INT)
         MEMBERS_INTBindingSource.Filter = $"[ID INT] = {IntNum}"
